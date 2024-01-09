@@ -2,7 +2,7 @@
 {
   static void Main(string[] args)
   {
-    decimal altezza = 1.80m;
-    Console.WriteLine($"Sei alto {altezza} metri");
+    DateTime dataDiNascita = new DateTime(1980, 1, 1);
+    Console.WriteLine($"Sei nato il {dataDiNascita}");
   }
 }
