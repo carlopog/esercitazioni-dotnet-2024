@@ -117,3 +117,16 @@
       }
   }
 ```
+### 09 - Utilizzare l'operatore == per confrontare due stringhe
+```c#
+  class Program9
+  {
+    static void Main(string[] args)
+      {
+       string nome = "Pino";
+       string cognome = "Pino";
+       bool uguali = nome == cognome;
+       Console.WriteLine($"i due nomi sono uguali? {uguali}");
+      }
+  }
+```
