@@ -27,3 +27,15 @@
   }
 }
 ```
+
+### 02 - Dichiarare una variabile di tipo intero (numero)
+```c#
+  class Program2
+  {
+    static void Main(string[] args)
+    {
+      int eta = 20; //gli interi non hanno bisogno di apici doppi
+      Console.WriteLine($"Hai {eta} anni");
+    }
+  }
+```
