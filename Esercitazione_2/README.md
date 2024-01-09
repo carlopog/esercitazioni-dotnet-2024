@@ -39,3 +39,16 @@
     }
   }
 ```
+
+
+### 03 - Dichiarare una variabile di tipo booleano
+```c#
+  class Program3
+  {
+    static void Main(string[] args)
+    {
+      bool maggiorenne = true; //i booleani non hanno bisogno di apici doppi
+      Console.WriteLine($"Sei maggiorenne? {maggiorenne}");
+    }
+  }
+```

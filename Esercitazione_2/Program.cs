@@ -1,8 +1,8 @@
-﻿  class Program
+﻿class Program
+{
+  static void Main(string[] args)
   {
-    static void Main(string[] args)
-    {
-      int eta = 20;
-      Console.WriteLine($"Hai {eta} anni");
-    }
+    bool maggiorenne = true; //i booleani non hanno bisogno di apici doppi
+    Console.WriteLine($"Sei maggiorenne? {maggiorenne}");
   }
+}
