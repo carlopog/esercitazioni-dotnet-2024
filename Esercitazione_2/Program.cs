@@ -2,7 +2,7 @@
 {
   static void Main(string[] args)
   {
-    bool maggiorenne = true; //i booleani non hanno bisogno di apici doppi
-    Console.WriteLine($"Sei maggiorenne? {maggiorenne}");
+    decimal altezza = 1.80m;
+    Console.WriteLine($"Sei alto {altezza} metri");
   }
 }

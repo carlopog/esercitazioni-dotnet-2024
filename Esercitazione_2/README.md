@@ -52,3 +52,17 @@
     }
   }
 ```
+
+
+
+### 04 - Dichiarare una variabile di tipo decimale
+```c#
+  class Program4
+  {
+    static void Main(string[] args)
+      {
+        decimal altezza = 1.80m; //importante mettere m o M dopo il numero
+        Console.WriteLine($"Sei alto {altezza} metri");
+      }
+  }
+```
