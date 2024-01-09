@@ -90,3 +90,30 @@
       }
   }
 ```
+### 07 - Utilizzare l'operatore + per sommare due interi
+```c#
+  class Program7
+  {
+    static void Main(string[] args)
+      {
+       int a = 10;
+       int b = 20;
+       int c = a + b;
+       Console.WriteLine($"La somma di {a} e {b} e' {c}");
+      }
+  }
+```
+### 08 - Utilizzare l'operatore + per sommare due interi e un decimale
+```c#
+  class Program8
+  {
+    static void Main(string[] args)
+      {
+       int a = 10;
+       int b = 20;
+       decimal c = 1.5m;
+       decimal d = a + b + c;
+       Console.WriteLine($"La somma di {a} e {b} e {c} e' {d}");
+      }
+  }
+```
