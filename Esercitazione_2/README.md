@@ -203,3 +203,20 @@
     }
   }
 ```
+### 13 - Dichiarare una lista
+```c#
+  class Program13
+  {
+    static void Main(string[] args)
+    {
+      List<string> nomi = new List<string>(); // utilizziamo il diamond <>
+      nomi.Add("Luigi"); // aggiunta di un elemento tramite il metodo Add
+      nomi.Add("Giovanni"); // ogni elemento deve essere tra parentesi () perche' uso il metodo
+      nomi.Add("Mario"); // gli elementi vengono inseriti nell'ordine in cui li mettiamo
+      Console.WriteLine($"Ciao {nomi[0]}, {nomi[1]} e {nomi[2]}");
+
+      // da piu' liberta' di un array e meno errori
+      // ma e' meno preciso
+    }
+  }
+```
