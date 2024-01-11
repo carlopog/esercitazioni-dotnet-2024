@@ -2,7 +2,10 @@ class Program
 {
   static void Main(string[] args)
   {
-    string[] nomi = ["Mario", "Luigi", "Giovanni"];
-        Console.WriteLine($"Ciao {nomi[0]}, {nomi[1]} e {nomi[2]}");
+    int[] num = new int[3];
+     num[0] = 2; 
+     num[1] = 4;
+     num[2] = 6;
+     Console.WriteLine($"Ciao lo sapevi che {num[0]} + {num[1]} fa {num[2]} ?");
   }
 }
