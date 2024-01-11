@@ -153,7 +153,7 @@
   }
 ```
 
-### 10 - Aggiungere degli elementi negli array
+### 10 -  Dichiarare un array di stringhe
 ```c#
   class Program10
   {
