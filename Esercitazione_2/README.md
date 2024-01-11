@@ -282,6 +282,29 @@
       nomi.Enqueue("Kevin");    
       nomi.Enqueue("Paolo");    
       Console.WriteLine($"Ciao {nomi.Dequeue()}, {nomi.Dequeue()} e {nomi.Dequeue()}");
-       } 
+    } 
   }
+```
+### 17 - inizializzare, liste, pile e code in modo semplificato
+
+```c#
+ 
+ // inizializzazione di un array di interi
+ int[] numeri = new int[] {1, 2, 3, 4, 5};
+
+ // inizializzazione di un array di stringhe
+ string[] nomi = new string[] {"Mario", "Luigi", "Yoshi"};
+
+ // inizializzazione di un list di interi
+ List<int> listaNumeri = new List<int> {1, 2, 3, 4, 5};
+
+ // inizializzazione di un list di stringhe
+ List<string> listaNomi = new List<string> {"Mario", "Luigi", "Yoshi"};
+
+ // inizializzazione di uno stack (pila) di interi
+ Stack<int> pilaNumeri = new Queue<int>(new int[] {1, 2, 3, 4, 5});
+
+ // inizializzazione di una queue (coda) di stringhe
+ Queue<string> codaNomi = new Queue<string>(new string[] {"Mario", "Luigi", "Yoshi"});
+
 ```
