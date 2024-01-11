@@ -235,5 +235,24 @@
     } 
   }
 ```
+### 14 - Dichiarare una lista e contare i suoi elementi col metodo Count
+```c#
+  class Program14
+  {
+    static void Main(string[] args)
+    {
+         List<int> numeri = new List<int>();
+         numeri.Add(3);
+         numeri.Add(5); // ho aggiunto un po' di numeri per vedere se funziona il count
+         numeri.Add(5);
+         numeri.Add(5);
+         numeri.Add(5);
+         numeri.Add(5);
+         numeri.Add(7);
+         Console.WriteLine($"Lista di numeri: {numeri[0]}, {numeri[1]} e {numeri[2]}");
+         Console.WriteLine($"ci sono {numeri.Count} numeri");
+    } 
+  }
+```
 
 

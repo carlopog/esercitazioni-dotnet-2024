@@ -10,7 +10,7 @@ class Program
     numeri.Add(5);
     numeri.Add(5);
     numeri.Add(7);
-    Console.WriteLine($"Lista di numerieri: {numeri[0]}, {numeri[1]} e {numeri[2]}");
-    Console.WriteLine($"ci sono {numeri.Count} numerieri");
+    Console.WriteLine($"Lista di numeri: {numeri[0]}, {numeri[1]} e {numeri[2]}");
+    Console.WriteLine($"ci sono {numeri.Count} numeri");
   }
 }
