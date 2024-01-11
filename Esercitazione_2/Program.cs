@@ -2,7 +2,15 @@ class Program
 {
   static void Main(string[] args)
   {
-    List<string> nomi = ["Luigi", "Giovanni", "Mario"];
-    Console.WriteLine($"Ciao {nomi[0]}, {nomi[1]} e {nomi[2]}");
+    List<int> numeri = new List<int>();
+    numeri.Add(3);
+    numeri.Add(5);
+    numeri.Add(5);
+    numeri.Add(5);
+    numeri.Add(5);
+    numeri.Add(5);
+    numeri.Add(7);
+    Console.WriteLine($"Lista di numerieri: {numeri[0]}, {numeri[1]} e {numeri[2]}");
+    Console.WriteLine($"ci sono {numeri.Count} numerieri");
   }
 }

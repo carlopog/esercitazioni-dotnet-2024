@@ -220,3 +220,20 @@
     }
   }
 ```
+
+### 13 - Dichiarare una lista
+```c#
+  class Program13
+  {
+    static void Main(string[] args)
+    {
+      List<int> num = new List<int>();
+      num.Add(3); // ovviamente gli interi non hanno bisogno delle virgolette ""
+      num.Add(5);
+      num.Add(7);
+      Console.WriteLine($"Lista di numeri: {num[0]}, {num[1]} e {num[2]}");
+    } 
+  }
+```
+
+
