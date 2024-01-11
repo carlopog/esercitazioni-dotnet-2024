@@ -182,6 +182,7 @@
 
      //da errore se inseriamo una stringa in un array di interi ==> non fa conversioni implicite 
      //da errore se inseriamo un quarto oggetto in questo array da 3 elementi [3] ==> index out of range
+     //non da errore se inserisco meno elementi tipo 2 su [3] ==> come terzo valore prende zero
      //da errore se chiedo di disegnare nel WriteLine un elemento che non esiste num[5] ==> index out of range
     }
   }
