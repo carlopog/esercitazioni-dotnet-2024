@@ -299,7 +299,7 @@
 
     // inizializzazione di un list di interi
     List<int> listaNumeri = new List<int> {1, 2, 3, 4, 5};
-    List<int> listaNumeriDue = new List<int> {1, 2, 3, 4, 5};
+    List<int> listaNumeriDue = [1, 2, 3, 4, 5];
 
     // inizializzazione di un list di stringhe
     List<string> listaNomi = new List<string> {"Mario", "Luigi", "Yoshi"};
