@@ -181,23 +181,25 @@
      Console.WriteLine($"Ciao lo sapevi che {num[0]} + {num[1]} fa {num[2]} ?");
 
      //da errore se inseriamo una stringa in un array di interi ==> non fa conversioni implicite 
+     //da errore se chiedo di disegnare nel WriteLine un elemento che non esiste num[5] ==> index out of range
      //da errore se inseriamo un quarto oggetto in questo array da 3 elementi [3] ==> index out of range
      //non da errore se inserisco meno elementi tipo 2 su [3] ==> come terzo valore prende zero
-     //da errore se chiedo di disegnare nel WriteLine un elemento che non esiste num[5] ==> index out of range
+     //questa cosa potrebbe causare confusione, ci starebbe mettere un metodo che restituisce "dato mancante"
     }
   }
 ```
-### 12 - Dichiarare una lista
+### 12 - Dichiarare un array di stringhe e utilizzare il metodo Length
 ```c#
   class Program12
   {
     static void Main(string[] args)
     {
-     int[] num = new int[3];
-     num[0] = 2; 
-     num[1] = 4;
-     num[2] = 6;
-     Console.WriteLine($"Ciao lo sapevi che {num[0]} + {num[1]} fa {num[2]} ?");
+     string[] nomi = new string[3]; 
+     nomi[0] = "Mario"; 
+     nomi[1] = "Luigi"; 
+     nomi[2] = "Giovanni";
+     Console.WriteLine($"Ciao {nomi[0]}, {nomi[1]} e {nomi[2]}");
+     Console.WriteLine($"il numero di elementi e' {nomi.Length}")
     }
   }
 ```
