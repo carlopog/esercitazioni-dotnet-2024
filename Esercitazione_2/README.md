@@ -179,6 +179,24 @@
      num[1] = 4;
      num[2] = 6;
      Console.WriteLine($"Ciao lo sapevi che {num[0]} + {num[1]} fa {num[2]} ?");
+
+     //da errore se inseriamo una stringa in un array di interi ==> non fa conversioni implicite 
+     //da errore se inseriamo un quarto oggetto in questo array da 3 elementi [3] ==> index out of range
+     //da errore se chiedo di disegnare nel WriteLine un elemento che non esiste num[5] ==> index out of range
+    }
+  }
+```
+### 12 - Dichiarare una lista
+```c#
+  class Program12
+  {
+    static void Main(string[] args)
+    {
+     int[] num = new int[3];
+     num[0] = 2; 
+     num[1] = 4;
+     num[2] = 6;
+     Console.WriteLine($"Ciao lo sapevi che {num[0]} + {num[1]} fa {num[2]} ?");
     }
   }
 ```
