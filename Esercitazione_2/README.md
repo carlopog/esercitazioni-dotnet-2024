@@ -496,19 +496,16 @@
     }
 
 ```
-### 25 - Utilizzare il ciclo foreach in una lista di stringhe
+### 26 - Utilizzare il ciclo foreach in una lista di stringhe
 
 ```c#
 
-  class Program25
+  class Program26
 
     {
       static void Main(string[] args)
       { 
-        List<string> nomi = new List<string>();
-        nomi.Add("Toad");
-        nomi.Add("Luigi");
-        nomi.Add("Yoshi");
+        List<string> nomi = new List<string>{"Toad", "Luigi", "Yoshi"};
         foreach (string nome in nomi)
        {
           Console.WriteLine($"Ciao {nome}");
@@ -518,11 +515,11 @@
 
 ```
 
-### 26 - ciclo foreach per leggere il valore delle chiavi di un dictionary 
+### 27 - ciclo foreach per leggere il valore delle chiavi di un dictionary 
 
 ```c#
 
-  class Program26
+  class Program27
 
     {
       static void Main(string[] args)
