@@ -18,7 +18,7 @@
       string? cognome = Console.ReadLine();
       Console.WriteLine($"ciao {mario} {cognome}");
     }
-      Console.WriteLine("premi un tasto per terminare...");
+      Console.WriteLine("press any key");
       Console.ReadKey();
   }
 }
