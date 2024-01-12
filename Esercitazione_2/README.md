@@ -538,3 +538,25 @@
     }
 
 ```
+
+### 28 - Esercizio: un array di stringhe con 3 nomi, cicliamo con un foreach, se il nome e' Mario, aggiungere a una lista 
+
+```c#
+
+  class Program28
+
+    {
+      static void Main(string[] args)
+      { 
+        string[] nomi = ["Franco", "Ciccio", "Mario"];
+        List<string> lista = ["Merola"];
+        foreach (string nome in nomi) {
+          if(nome == "Mario") {
+            lista.Add(nome);
+          }
+        } 
+        Console.WriteLine($"la lista aggiornata {lista[1]} {lista[0]}");
+      }
+    }
+
+```
