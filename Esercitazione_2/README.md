@@ -371,16 +371,22 @@
 
     {
       static void Main(string[] args)
-      {
+      { 
         int a = 10;
-        int b = 2;
-        if (a > b) // la condizione da verificare sta tra parentesi ()
+        int b = 1;
+        if (a > b)
         {
           Console.WriteLine($"{a} e' maggiore di {b}");
-          // il codice da eseguire quando la condizione e' verificata tra {}
+        }
+        else if (a < b)
+        {
+          Console.WriteLine($"{a} e' minore di {b}");
+        }
+        else
+        {
+          Console.WriteLine($"{a} e' uguale a {b}");
         }
       }
     }
-
 
 ```
