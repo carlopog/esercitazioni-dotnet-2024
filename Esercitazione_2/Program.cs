@@ -5,8 +5,8 @@ class Program
     int a = 10;
     int b = 2;
     if (a > b)
-      {
-        Console.WriteLine($"{a} e' maggiore di {b}");
-      }
+    {
+      Console.WriteLine($"{a} e' maggiore di {b}");
+    }
   }
 }
