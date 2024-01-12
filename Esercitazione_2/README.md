@@ -532,7 +532,7 @@
         };
         var nomi = eta.Keys;
         foreach (string nome in nomi) {
-          Console.WriteLine($"un nome e' {nome}");
+          Console.WriteLine($"il signor {nome} ha {eta[$"{nome}"]} anni");
         }
       }
     }
