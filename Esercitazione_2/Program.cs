@@ -9,6 +9,8 @@ class Program
       Console.WriteLine($"{a} e' maggiore di {b}");
     }
     else
-    Console.WriteLine($"{a} e' minore di {b}");
+    {
+      Console.WriteLine($"{a} e' minore di {b}");
+    }
   }
 }
