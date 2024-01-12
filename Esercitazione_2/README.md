@@ -555,7 +555,9 @@
             lista.Add(nome);
           }
         } 
-        Console.WriteLine($"la lista aggiornata {lista[1]} {lista[0]}");
+        foreach (string mario in lista) {
+          Console.WriteLine($"{mario}");
+        }
       }
     }
 
