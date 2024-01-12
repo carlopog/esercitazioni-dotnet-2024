@@ -8,8 +8,7 @@ class Program
           { "Luigi", 44 },
           { "Giuseppe", 60 }
         };
-        var nomi = eta.Keys;
-        foreach (string nome in nomi) {
+        foreach (string nome in eta.Keys) {
           Console.WriteLine($"il signor {nome} ha {eta[$"{nome}"]} anni");
         }
   }
