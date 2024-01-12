@@ -2,19 +2,18 @@ class Program
 {
   static void Main(string[] args)
   {
-    int a = 10;
-    int b = 1;
-    if (a > b)
-    {
-      Console.WriteLine($"{a} e' maggiore di {b}");
-    }
-    else if (a < b)
-    {
-      Console.WriteLine($"{a} e' minore di {b}");
-    }
-    else
-    {
-      Console.WriteLine($"{a} e' uguale a {b}");
-    }
+        int a = 22;
+        switch (a)
+        {
+          case 10:
+            Console.WriteLine($"{a} e' uguale a 10");
+            break;
+          case 20:
+            Console.WriteLine($"{a} e' uguale a 20");
+            break;
+          default:
+            Console.WriteLine($"{a} non e' uguale a 10 o 20");
+            break;
+        }
+      }
   }
-}

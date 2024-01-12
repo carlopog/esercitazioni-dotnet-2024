@@ -363,7 +363,7 @@
 
 ```
 
-### 20 - Esercitazioni sulle condizioni: usare if
+### 20 - Esercitazioni sulle condizioni: usare else if
 
 ```c#
 
@@ -385,6 +385,32 @@
         else
         {
           Console.WriteLine($"{a} e' uguale a {b}");
+        }
+      }
+    }
+
+```
+### 21 - Esercitazioni sulle condizioni: usare switch case
+
+```c#
+
+  class Program21
+
+    {
+      static void Main(string[] args)
+      { 
+        int a = 10;
+        switch (a)
+        {
+          case 10:
+            Console.WriteLine($"{a} e' uguale a 10");
+            break;
+          case 20:
+            Console.WriteLine($"{a} e' uguale a 20");
+            break;
+          default:
+            Console.WriteLine($"{a} non e' uguale a 10 o 20");
+            break;
         }
       }
     }
