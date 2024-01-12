@@ -566,13 +566,28 @@
 
 ```c#
 
-  class Program26
+  class Program29
 
     {
       static void Main(string[] args)
       { 
         string? nome = Console.ReadLine();
         Console.WriteLine($"Ciao {nome}");
+      }
+    }
+
+```
+### 30 - Utilizzare il Console.ReadKey() per leggere input dalla console
+
+```c#
+
+  class Program30
+
+    {
+      static void Main(string[] args)
+      { 
+        Console.WriteLine($"premi un tasto per terminare...");
+        Console.ReadKey();
       }
     }
 
