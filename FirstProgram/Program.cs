@@ -3,7 +3,8 @@
   static void Main(string[] args)
   {
     string[] nomi = ["Franco", "Ciccio", "Mario"];
-    List<string> lista = ["Merola"];
+    List<string> lista = ["Merio"];
+
     foreach (string nome in nomi)
     {
       if (nome == "Mario")
@@ -13,8 +14,12 @@
     }
     foreach (string mario in lista)
     {
-      Console.WriteLine($"{mario}");
+      Console.WriteLine("scrivi il cognome");
+      string? cognome = Console.ReadLine();
+      Console.WriteLine($"ciao {mario} {cognome}");
     }
+      Console.WriteLine("premi un tasto per terminare...");
+      Console.ReadKey();
   }
 }
 
