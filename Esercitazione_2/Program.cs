@@ -2,12 +2,12 @@ class Program
 {
   static void Main(string[] args)
   {
-    Dictionary<string, string> nomi = new()
-    {
-        { "Mario", "Rossi" },
-        { "Luigi", "Biancoli" },
-        { "Giuseppe", "Verdi" }
-    };
-    Console.WriteLine($"Ciao {nomi["Mario"]}, {nomi["Luigi"]} e {nomi["Giuseppe"]}");
+    Dictionary<string, int> eta = new()
+        {
+            { "Mario", 25 },
+            { "Luigi", 44 },
+            { "Giuseppe", 60 }
+        };
+    Console.WriteLine($"Voi avete {eta["Mario"]}, {eta["Luigi"]} e {eta["Giuseppe"]} anni?");
   }
 }

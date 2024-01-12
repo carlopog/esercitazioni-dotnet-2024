@@ -436,7 +436,7 @@
 
 ```
 
-### 23 - Dichiarare un dizionario di stringhe velocemente
+### 23 - Dichiarare un dizionario di stringhe-interi velocemente
 
 ```c#
 
@@ -445,13 +445,28 @@
     {
       static void Main(string[] args)
       {
-        Dictionary<string, string> nomi = new()
+        Dictionary<string, int> eta = new()
         {
-            { "Mario", "Rossi" },
-            { "Luigi", "Biancoli" },
-            { "Giuseppe", "Verdi" }
+            { "Mario", 25 },
+            { "Luigi", 44 },
+            { "Giuseppe", 60 }
         };
-        Console.WriteLine($"Ciao {nomi["Mario"]}, {nomi["Luigi"]} e {nomi["Giuseppe"]}");
+        Console.WriteLine($"Ciao {eta["Mario"]}, {eta["Luigi"]} e {eta["Giuseppe"]}");
+      }
+    }
+
+```
+
+### 24 - Ciclo 
+
+```c#
+
+  class Program24
+
+    {
+      static void Main(string[] args)
+      { 
+       
       }
     }
 
