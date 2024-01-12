@@ -2,9 +2,24 @@ class Program
 {
   static void Main(string[] args)
   {
-     for(int i = 0; i < 10; i++)
+    string[] personaggi = new string[3];
+        personaggi[0] = "Toad";
+        personaggi[1] = "Luigi";
+        personaggi[2] = "Yoshi";
+        foreach (string personaggio in personaggi)
        {
-          Console.WriteLine($"il valore di i e' {i}");
-       }
+          Console.WriteLine($"Ciao {personaggio}");
+       };
+
+    Dictionary<string, int> eta = new()
+        {
+            { "Mario", 25 },
+            { "Luigi", 44 },
+            { "Giuseppe", 60 }
+        };
+    var nomi = eta.Keys;
+    foreach (string nome in nomi) {
+    Console.WriteLine($"un nome e' {nome}");
+    }
   }
 }

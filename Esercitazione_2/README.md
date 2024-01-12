@@ -474,3 +474,50 @@
     }
 
 ```
+
+### 25 - Utilizzare il ciclo foreach
+
+```c#
+
+  class Program25
+
+    {
+      static void Main(string[] args)
+      { 
+        string[] nomi = new string[3];
+        nomi[0] = "Toad";
+        nomi[1] = "Luigi";
+        nomi[2] = "Yoshi";
+        foreach (string nome in nomi)
+       {
+          Console.WriteLine($"Ciao {nome}");
+       }
+      }
+    }
+
+```
+
+
+### 26 - ciclo foreach per leggere il valore delle chiavi di un dictionary 
+
+```c#
+
+  class Program26
+
+    {
+      static void Main(string[] args)
+      { 
+        Dictionary<string, int> eta = new()
+        {
+          { "Mario", 25 },
+          { "Luigi", 44 },
+          { "Giuseppe", 60 }
+        };
+        var nomi = eta.Keys;
+        foreach (string nome in nomi) {
+          Console.WriteLine($"un nome e' {nome}");
+        }
+      }
+    }
+
+```
