@@ -457,7 +457,7 @@
 
 ```
 
-### 24 - Ciclo 
+### 24 - Utilizzare il ciclo for
 
 ```c#
 
@@ -466,7 +466,10 @@
     {
       static void Main(string[] args)
       { 
-       
+       for(int i = 0; i < 10; i++)
+       {
+          Console.WriteLine($"il valore di i e' {i}");
+       }
       }
     }
 
