@@ -362,3 +362,25 @@
 
 
 ```
+
+### 20 - Esercitazioni sulle condizioni: usare if
+
+```c#
+
+  class Program20
+
+    {
+      static void Main(string[] args)
+      {
+        int a = 10;
+        int b = 2;
+        if (a > b) // la condizione da verificare sta tra parentesi ()
+        {
+          Console.WriteLine($"{a} e' maggiore di {b}");
+          // il codice da eseguire quando la condizione e' verificata tra {}
+        }
+      }
+    }
+
+
+```
