@@ -2,18 +2,10 @@ class Program
 {
   static void Main(string[] args)
   {
-        int a = 22;
-        switch (a)
-        {
-          case 10:
-            Console.WriteLine($"{a} e' uguale a 10");
-            break;
-          case 20:
-            Console.WriteLine($"{a} e' uguale a 20");
-            break;
-          default:
-            Console.WriteLine($"{a} non e' uguale a 10 o 20");
-            break;
-        }
-      }
+    Dictionary<string, string> nomi = new Dictionary<string, string>();
+    nomi.Add("Mario", "Rossi");
+    nomi.Add("Luigi", "Biancoli");
+    nomi.Add("Giuseppe", "Verdi");
+    Console.WriteLine($"Ciao {nomi["Mario"]}, {nomi["Luigi"]} e {nomi["Giuseppe"]}");
   }
+}
