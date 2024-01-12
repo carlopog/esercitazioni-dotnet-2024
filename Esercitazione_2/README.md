@@ -324,7 +324,7 @@
 
 ```
 
-### 18 - Test vari metodi delle liste
+### 18 - Test vari metodi delle liste (pochi in realta')
 
 ```c#
 
@@ -336,6 +336,26 @@
         List<int> listaNumeri = [1, 2, 3, 4, 5];
 
         Console.WriteLine($"Lista numeri: {listaNumeri[0]}, {listaNumeri[1]}");
+      }
+    }
+
+
+```
+### 19 - Esercitazioni sulle condizioni: usare if
+
+```c#
+
+  class Program19
+
+    {
+      static void Main(string[] args)
+      {
+        int a = 10;
+        int b = 2;
+        if (a > b)
+          {
+            Console.WriteLine($"{a} e' maggiore di {b}");
+          }
       }
     }
 
