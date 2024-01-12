@@ -562,3 +562,18 @@
     }
 
 ```
+### 29 - Utilizzare il Console.ReadLine() per leggere input dalla console
+
+```c#
+
+  class Program26
+
+    {
+      static void Main(string[] args)
+      { 
+        string? nome = Console.ReadLine();
+        Console.WriteLine($"Ciao {nome}");
+      }
+    }
+
+```
