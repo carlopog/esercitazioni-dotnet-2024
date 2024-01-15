@@ -1,8 +1,15 @@
+using System.Net.Mail;
+
 class Program
 {
   static void Main(string[] args)
   {
-    Console.WriteLine($"premi un tasto per terminare...");
-    Console.ReadKey();
+    string[] nomi = ["Mario", "Luigi", "Giovanni"];
+    int i = 0;
+    while (i < nomi.Length) 
+    {
+      Console.WriteLine($"Ciao {nomi[i]}");
+      i++;
+    }
   }
 }
