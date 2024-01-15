@@ -592,7 +592,7 @@
     }
 
 ```
-### 31 - Utilizzare il ciclo while
+### 31 - Utilizzare il ciclo while con un array di stringhe
 
 ```c#
 
@@ -615,5 +615,31 @@
         }
       }
     }
+
+```
+
+### 32- Utilizzare il ciclo while con una Lista di stringhe
+
+```c#
+
+  class Program32
+    {
+      static void Main(string[] args)
+      {
+        List<string> nomi = ["Mario", "Luigi", "Giovanni"];
+        // creo una lista di stringhe
+        int i = 0;
+        // creo una variabile indice
+        while (i < nomi.Count) 
+        // il ciclo continua finche' indice e' minore del numero degli elementi dell'array
+        {
+          Console.WriteLine($"Ciao {nomi[i]}");
+        // scrive in console il nome nella posizione corrispondente al numero dell'indice
+          i++;
+        // aumenta di uno l'indice
+        }
+      }
+    }
+
 
 ```
