@@ -4,12 +4,14 @@ class Program
 {
   static void Main(string[] args)
   {
-        List<string> nomi = ["Mario", "Luigi", "Giovanni"];
-        int i = 0;
-        while (i < nomi.Count) 
+        Console.WriteLine($"Premi N per terminare");
+        while (true) 
         {
-          Console.WriteLine($"Ciao {nomi[i]}");
-          i++;
+          ConsoleKeyInfo keyInfo = Console.ReadKey();
+          if (keyInfo.Key == ConsoleKey.N)
+          {
+            break;
+          }
         }
   }
 }

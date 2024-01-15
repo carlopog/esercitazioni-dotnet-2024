@@ -641,5 +641,28 @@
       }
     }
 
+```
+
+### 33- Utilizzare il ciclo while con il ReadKey per farlo funzionare con un tasto specifico
+
+```c#
+
+  class Program33
+    {
+      static void Main(string[] args)
+      {
+        Console.WriteLine($"Premi N per terminare");
+
+        while (true) 
+        // il ciclo continua finche' e' settata come vera la condizione
+        {
+          ConsoleKeyInfo keyInfo = Console.ReadKey();
+          if (keyInfo.Key == ConsoleKey.N)
+          {
+            break; // Esce dal ciclo se viene premuto N 
+          }
+        }
+      }
+    }
 
 ```
