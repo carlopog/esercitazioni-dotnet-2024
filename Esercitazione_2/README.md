@@ -666,3 +666,32 @@
     }
 
 ```
+### 34- Utilizzare il ciclo while con il ReadKey per farlo funzionare con due tasti specifici
+
+```c#
+
+  class Program34
+    {
+      static void Main(string[] args)
+      {
+        Console.WriteLine($"Premi 'Ctrl' + 'N' per terminare");
+
+        while (true) 
+        {
+        // Aspetta fino a che non viene premuto un tasto
+          ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+        // Verifica se il tasto CTRL e' tenuto premuto
+          if ((keyInfo.Modifiers & ConsoleModifiers.Control) != 0)
+          {
+        // Controlla se viene premuto il tasto N
+            if (keyInfo.Key == ConsoleKey.N)
+            {
+              Console.WriteLine("Combinazione 'Ctrl' + 'N' rilevata, uscita in corso...");
+              break; // messaggio di uscita e termina la sessione
+            }
+          }
+        }
+      }
+    }
+
+```
