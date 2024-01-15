@@ -685,6 +685,7 @@
           {
         // Controlla se viene premuto il tasto N
             if (keyInfo.Key == ConsoleKey.N)
+        // se vuoi usare ctrl + c devi prima aggiungere Console.TreatControlCAsInput = true
             {
               Console.WriteLine("Combinazione 'Ctrl' + 'N' rilevata, uscita in corso...");
               break; // messaggio di uscita e termina la sessione
