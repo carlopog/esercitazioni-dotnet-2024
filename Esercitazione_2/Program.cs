@@ -5,9 +5,10 @@ class Example
   public static void Main()
   {
     var nome = "Giammarco";
+    Console.WriteLine("Inserisci un comando che parta con cmd:");
     while (true)
     {
-      string input = Console.ReadLine();
+      string? input = Console.ReadLine();
 
       if (input.StartsWith("cmd:"))
       {
