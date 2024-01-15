@@ -29,6 +29,20 @@ class Example
             break;
         }
       }
+      else if (input == "secret")
+      {
+        Console.WriteLine("Secret informations. Password required");
+        string? password = Console.ReadLine();
+        if (password == "ciao")
+        {
+          Console.Write("Good Job: Babbo Natale non esiste!");
+          return;
+        }
+        else {
+          Console.Write("Wrong password");
+          break;
+        }
+      }
       else
       {
         Console.WriteLine("Input non valido. Inserisci un comando");
