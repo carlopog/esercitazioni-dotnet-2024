@@ -4,18 +4,28 @@ class Example
 {
   public static void Main()
   {
-    Console.WriteLine ("Trascina un file qui e premi invio");
-    string filePath = Console.ReadLine().Trim('"'); 
-    // trim rimuove le virgolette che possono apparire nel percorso
-    try 
+    Console.Title = "La mia applicazione web";
+    Console.CursorVisible = false; 
+
+    Console.WriteLine("come stai?");
+    string? input = Console.ReadLine();
+    if (input == "bene")
     {
-      string content = File.ReadAllText(filePath);
-      Console.WriteLine("Contenuto del file:");
-      Console.WriteLine(content);
+      Console.WriteLine("Bravo.");
+      Console.Beep(750, 300);
     }
-    catch (Exception ex)
+    else if (input == "male")
     {
-      Console.WriteLine($"Si e' verificato un errore: {ex.Message}");
+      Console.WriteLine("cattivo");
+      Console.Beep(800, 1000); 
     }
+    else 
+    {
+      Console.WriteLine("ci sta");
+      Console.Beep(38, 200); 
+      Console.Beep(300, 600); 
+      Console.Beep(500, 500); 
+    }
+    // Console.Clear();
   }
 }

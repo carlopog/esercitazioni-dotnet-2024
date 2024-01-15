@@ -864,7 +864,7 @@ class Program39
   {
     static void Main(string[] args)
     {
-         Console.WriteLine ("Trascina un file qui e premi invio");
+    Console.WriteLine ("Trascina un file qui e premi invio");
     string filePath = Console.ReadLine().Trim('"'); 
     // trim rimuove le virgolette che possono apparire nel percorso
     try 
@@ -880,7 +880,7 @@ class Program39
     }
   }
 ```
-### 40 - 
+### 40 - Qualche metodo console
 
 ```c#
 
@@ -888,11 +888,15 @@ class Program40
   {
     static void Main(string[] args)
     {
-      
+      Console.Beep(); // fa partire un suono per segnalare magari un errore
+      Console.Beep(750, 300); // frequenza in hz, durata in ms
+      Console.Clear() // pulisce tutto il testo della console
+      Console.CursorVisible = bool; // rende visibile (true) o invisibile (false) il cursore
+      Console.Title = "La mia applicazione web" // setta il titolo della tua finestra console
     }
   }
 ```
-### 41 - drag and drop
+### 41 -
 
 ```c#
 
@@ -904,7 +908,7 @@ class Program41
     }
   }
 ```
-### 42 - drag and drop
+### 42 - 
 
 ```c#
 
@@ -916,7 +920,7 @@ class Program42
     }
   }
 ```
-### 43 - drag and drop
+### 43 -
 
 ```c#
 
