@@ -1,23 +1,34 @@
-using System.Net.Mail;
+using System;
 
-class Program
+class Example
 {
-  static void Main(string[] args)
-  {
-    Console.WriteLine($"Premi 'Ctrl' + 'C' per terminare");
-    Console.TreatControlCAsInput = true;
-
+   public static void Main()
+   {  
     while (true)
     {
-      ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-      if ((keyInfo.Modifiers & ConsoleModifiers.Control) != 0)
+      string input = Console.ReadLine();
+      
+      if (input.StartsWith("cmd:"))
       {
-        if (keyInfo.Key == ConsoleKey.C)
+        string comando = input.Substring(4);
+        switch (comando.ToLower()) 
         {
-          Console.WriteLine("Combinazione 'Ctrl' + 'C' rilevata, uscita in corso...");
+        case "info":
+          Console.WriteLine("Comando info riconosciuto. Mostro le informazioni");
+          break;        
+        case "exit":
+          Console.WriteLine("Comando exit riconosciuto. Uscita in corso...");
+          return; // esce dal programma
+        default: 
+          Console.WriteLine($"Comando {comando} non riconosciuto.");
           break;
-        }
       }
+      }
+      else
+      {
+        Console.WriteLine("Input non valido. Inserisci un comando");
+      }
+        Console.WriteLine("\n Inserisci un altro comando:");
     }
-  }
+   }
 }

@@ -696,3 +696,104 @@
     }
 
 ```
+### 35- comandi di write per scrivere in modi diversi
+
+```c#
+ class Program35
+    {
+      static void Main(string[] args)
+      {
+        Console.Write("ooo\n"); // con slash n vado a capo
+        Console.Write("gino");
+        Console.ReadKey();  // aspetto un comando per andare avanti
+        Console.Write('\r'); // cancello la riga precedente
+        Console.Write("ginopaoli"); // sovrascrivo quella stessa riga 
+      }
+    }
+```
+
+### 36 - Creare un menu con lo switch case
+
+```c#
+
+class Program36
+  {
+    static void Main(string[] args)
+    {
+      while (true)
+    {
+      Console.Clear();
+      Console.WriteLine("Menu di Selezione");
+      Console.WriteLine("1. Opzione uno");
+      Console.WriteLine("2. Opzione due");
+      Console.WriteLine("3. Opzione tre");
+      Console.WriteLine("4. Esci");
+
+      Console.Write("Inserisci il numero dell'opzione desiderata");
+      string input = Console.ReadLine();
+      
+      switch(input)
+      {
+        case "1":
+          Console.WriteLine("Hai scelto l'opzione 1");
+          // inserire qui la logica per l'opzione 1
+          break;        
+        case "2":
+          Console.WriteLine("Hai scelto l'opzione 2");
+          // inserire qui la logica per l'opzione 2
+          break;        
+        case "3":
+          Console.WriteLine("Hai scelto l'opzione 3");
+          // inserire qui la logica per l'opzione 3
+          break;        
+        case "4":
+          Console.WriteLine("Uscita in corso...");
+          return;        
+        default: 
+          Console.WriteLine("Selezione non valida. Riprova.");
+          break;
+      }
+      Console.WriteLine("Premi un tasto per continuare");
+      Console.ReadKey(); // aspetta che l'utente prema un tasto prima di continuare
+    }
+    }
+  }
+```
+
+### 37 - Creo un programma che legge i comandi con cmd: 
+
+```c#
+
+class Program37 
+  {
+    static void Main(string[] args)
+    {
+       while (true)
+    {
+      string input = Console.ReadLine();
+      
+      if (input.StartsWith("cmd:"))
+      {
+        string comando = input.Substring(4);
+        switch (comando.ToLower()) 
+        {
+        case "info":
+          Console.WriteLine("Comando info riconosciuto. Mostro le informazioni");
+          break;        
+        case "exit":
+          Console.WriteLine("Comando exit riconosciuto. Uscita in corso...");
+          return; // esce dal programma
+        default: 
+          Console.WriteLine($"Comando {comando} non riconosciuto.");
+          break;
+      }
+      }
+      else
+      {
+        Console.WriteLine("Input non valido. Inserisci un comando");
+      }
+        Console.WriteLine("\n Inserisci un altro comando:");
+    }
+    }
+  }
+```
