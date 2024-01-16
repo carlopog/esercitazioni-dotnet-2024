@@ -896,7 +896,7 @@ class Program40
     }
   }
 ```
-### 41 -
+### 41 - menu con il do while
 
 ```c#
 
@@ -970,15 +970,32 @@ class Program42
     }
   }
 ```
-### 43 -
+### 43 - Task asincrono che aspetta un timeout 
 
 ```c#
 
 class Program43
   {
-    static void Main(string[] args)
+   
+    int timeoutInSeconds = 5;
+    Task inputTask = Task.Run(() =>
     {
-      
+        Console.WriteLine($"Inserisci un input entro {timeoutInSeconds} secondi:");
+        return Console.ReadLine();
+    });
+
+    Task delayTask = Task.Delay(TimeSpan.FromSeconds(timeoutInSeconds));
+
+    if (await Task.WhenAny(inputTask, delayTask) == inputTask)
+    {
+        // l'utente ha inserito un input o un delay task
+        string input = await (inputTask as Task<string>);
+        Console.WriteLine($"Hai inserito: {input}");
     }
+    else
+    {
+        Console.WriteLine("Tempo scaduto mf!");
+    }
+
   }
 ```
