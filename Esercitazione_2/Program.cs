@@ -1,74 +1,53 @@
 using System;
 using System.Collections;
+using System.Runtime.Intrinsics.Arm;
 
 class Example
 {
   public static void Main()
   {
-    Console.Clear();
-    Console.WriteLine("Seleziona l'opzione:");
-    Console.WriteLine("1 - Nascondi il cursore");
-    Console.WriteLine("2 - Mostra il cursore");
-    Console.WriteLine("3 - Pulisci console");
-    Console.WriteLine("4 - Emetti beep");
-    Console.WriteLine("5 - Emetti beep prolungato");
-    Console.WriteLine("6 - Imposta il titolo");
-    Console.WriteLine("e - Exit\n");
-
-    while (true)
+    Console.Clear(); // pulisce la schermata iniziale
+    bool continua = true;
+    do
     {
-      Console.WriteLine("Digita...");
+      Console.Clear(); // pulisce la schermata a ogni giro
+      
+      Console.WriteLine("Menu di Selezione");
+      Console.WriteLine("1. Opzione uno");
+      Console.WriteLine("2. Opzione due");
+      Console.WriteLine("3. Opzione tre");
+      Console.WriteLine("4. Esci");
 
-      string? input = Console.ReadLine();
-      switch (input)
+      Console.WriteLine("Inserisci il numero dell'opzione desiderata");
+      string? scelta = Console.ReadLine();
+
+      switch (scelta)
       {
         case "1":
-          Console.CursorVisible = false;
+          Console.WriteLine("Hai scelto l'opzione 1");
+          // inserire qui la logica per l'opzione 1
           break;
-
         case "2":
-          Console.CursorVisible = true;
+          Console.WriteLine("Hai scelto l'opzione 2");
+          // inserire qui la logica per l'opzione 2
           break;
-
         case "3":
-          Console.Clear();
+          Console.WriteLine("Hai scelto l'opzione 3");
+          // inserire qui la logica per l'opzione 3
           break;
-
         case "4":
-          Console.Beep();
-          break;
-
-        case "5":
-          Console.WriteLine("Inserisci la frequenza");
-          int freq = Int32.Parse(Console.ReadLine());
-          Console.WriteLine("Inserisci i millisecondi");
-          int ms = Int32.Parse(Console.ReadLine());
-          Console.Beep(freq, ms);
-          break;
-
-        case "6":
-          Console.Title = "La mia app";
-          break;
-
-        case "e":
+          Console.WriteLine("Uscita in corso...");
           return;
-
         default:
-          Console.WriteLine("Comando non valido riprova");
+          Console.WriteLine("Selezione non valida. Riprova.");
           break;
-
       }
-
-      Console.Clear();
-      Console.WriteLine("Seleziona l'opzione:");
-      Console.WriteLine("1 - Nascondi il cursore");
-      Console.WriteLine("2 - Mostra il cursore");
-      Console.WriteLine("3 - Pulisci console");
-      Console.WriteLine("4 - Emetti beep");
-      Console.WriteLine("5 - Emetti beep prolungato");
-      Console.WriteLine("6 - Imposta il titolo");
-      Console.WriteLine("e - Exit\n");
-
+      if (continua)
+      {
+        Console.WriteLine("Premi un tasto per continuare");
+        Console.ReadKey(); // aspetta che l'utente prema un tasto prima di continuare
+      }
     }
+    while (continua);
   }
 }
