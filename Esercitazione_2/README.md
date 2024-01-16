@@ -950,7 +950,7 @@ class Program41
     }
   }
 ```
-### 42 - 
+### 42 - funny usage of do while (esegue almeno una volta il codice, poi verifica la condizione) 
 
 ```c#
 
@@ -958,7 +958,15 @@ class Program42
   {
     static void Main(string[] args)
     {
-      
+      int i = 0;
+
+      do
+      {
+        Console.WriteLine("i = {0}", i);
+        i++;
+
+      } while (i > 5);
+
     }
   }
 ```
