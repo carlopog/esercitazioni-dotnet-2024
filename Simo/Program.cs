@@ -1,9 +1,9 @@
-class Program
+﻿class Program
 {
     static async Task Main(string[] args)
     {
 
-        int freq, ms; // variabili per le opzioni 5, 6
+        int freq, ms; // variabili per le opzioni 5, 6 per ora son tutte vuote
         bool continua; // variabile per opzione 9
         string? prodotto = ""; // variabile per opzione 9
         List<string> listaSpesa = new List<string>(); // lista per opzione 9
@@ -16,15 +16,11 @@ class Program
 
             // stampa il menu
             System.Console.WriteLine("Menu delle opzioni:");
-            System.Console.WriteLine("1 - Nascondi il cursore");
-            System.Console.WriteLine("2 - Mostra il cursore");
-            System.Console.WriteLine("3 - Drag&Drop");
-            System.Console.WriteLine("4 - Emetti beep");
-            System.Console.WriteLine("5 - Emetti beep prolungato");
-            System.Console.WriteLine("6 - Crea melodia random");
-            System.Console.WriteLine("7 - Saluto!");
-            System.Console.WriteLine("8 - Timeout della console");
-            System.Console.WriteLine("9 - Lista della spesa");
+            System.Console.WriteLine("1 - Drag&Drop"); // ti fa leggere il testo dei documenti che ci trascini
+            System.Console.WriteLine("2 - Emetti beep prolungato");
+            System.Console.WriteLine("3 - Crea melodia random");
+            System.Console.WriteLine("4 - Timeout della console");
+            System.Console.WriteLine("5 - Lista della spesa");
             System.Console.WriteLine("e - exit\n");
             System.Console.Write("Scegli un'opzione: ");
 
@@ -35,44 +31,29 @@ class Program
             switch (input)
             {
                 case "1":
-                    System.Console.WriteLine("Hai selezionato l'opzione 1");
-                    Console.CursorVisible = false;
-                    break;
-
-                case "2":
-                    System.Console.WriteLine("Hai selezionato l'opzione 2");
-                    Console.CursorVisible = true;
-                    break;
-
-                case "3":
                     // drag & drop
-                    System.Console.WriteLine("Hai selezionato l'opzione 3");
+                    System.Console.WriteLine("Hai selezionato l'opzione 1");
                     System.Console.WriteLine("Trascina qui dentro un file...");
 
                     string? filePath = Console.ReadLine().Trim('"'); // rimuove le virgolette
                     System.Console.WriteLine("Premi invio...");
                     Console.ReadLine();
 
-                    try
+                    try // try e catch sono usati nei casi in cui potrebbero esserci degli errori in combinazione
                     {
-                        string contenuto = File.ReadAllText(filePath);
-                        System.Console.WriteLine("Contenuto del file: ");
+                        string contenuto = File.ReadAllText(filePath); // qui gli dico di leggere il testo col metodo
+                        System.Console.WriteLine("Contenuto del file: "); 
                         System.Console.WriteLine(contenuto);
                     }
-                    catch (Exception ex)
+                    catch (Exception ex) // catch prende gli errori e li gestisce
                     {
                         Console.WriteLine($"Si è verificato un errore: {ex.Message}");
-
+                      // gestione dell'errore a seconda del tipo specificando all'utente cos'e' successo
                     }
                     break;
 
-                case "4":
-                    System.Console.WriteLine("Hai selezionato l'opzione 4");
-                    Console.Beep();
-                    break;
-
-                case "5":
-                    System.Console.WriteLine("Hai selezionato l'opzione 5");
+                case "2":
+                    System.Console.WriteLine("Hai selezionato l'opzione 2");
                     System.Console.WriteLine("Inserisci la frequenza");
                     freq = Int32.Parse(Console.ReadLine());
 
@@ -82,31 +63,24 @@ class Program
                     Console.Beep(freq, ms);
                     break;
 
-                case "6":
+                case "3":
                     //
-                    System.Console.WriteLine("Hai selezionato l'opzione 6");
-                    System.Console.WriteLine("Inserisci un valore tra 1 a 10");
+                    System.Console.WriteLine("Hai selezionato l'opzione 3");
+                    System.Console.WriteLine("Inserisci il numero di note");
 
                     int count = Int32.Parse(Console.ReadLine());
                     var random = new Random(); // variabile random
 
                     for (int i = 0; i < count; i++)
                     {
-                        freq = random.Next(1, 10) * 100; // crea un numero random tra 100 e 1000
-                        Console.Beep(freq, 500);
+                        freq = random.Next(1, 20) * 100; // crea un numero random tra 1 e 20 e lo moltiplica per 100
+                        Console.Beep(freq, 300); // la singola nota avra' freq tra 100 e 2000 e dura mezzo secondo
                     }
                     break;
 
-                case "7":
-                    System.Console.WriteLine("Hai selezionato l'opzione 7");
-                    System.Console.WriteLine("Inserici il tuo nome");
-                    string? nome = Console.ReadLine();
 
-                    Console.WriteLine($"\nCiao {nome}, piacere di conoscerti!");
-                    break;
-
-                case "8":
-                    System.Console.WriteLine("Hai selezionato l'opzione 8");
+                case "4":
+                    System.Console.WriteLine("Hai selezionato l'opzione 4");
                     System.Console.Write("Inserisci un timer per la console in secondi: ");
                     int timeoutInSeconds = Int32.Parse(Console.ReadLine());
 
@@ -127,17 +101,20 @@ class Program
                     else
                     {
                         // il tempo è scaduto
-                        System.Console.WriteLine("Tempo scaduto! Premi invio...");
+                        System.Console.WriteLine("Tempo scaduto!");
+                        Console.WriteLine("Non hai inserito una mazzas");
+                        
+                        // TODO dopo questa cosa dovrebbe uscire invece aspetta che gli scriva qualcosa
                     }
                     break;
 
-                case "9":
+                case "5":
 
                     do
                     {
                         Console.Clear();
 
-                        System.Console.WriteLine("Hai selezionato l'opzione 9");
+                        System.Console.WriteLine("Hai selezionato l'opzione 5");
                         System.Console.WriteLine("Lista della spesa:");
                         System.Console.WriteLine("v - Visualizza lista");
                         System.Console.WriteLine("a - Aggiungi");
@@ -162,14 +139,14 @@ class Program
                                         Console.WriteLine($"- {elemento}");
                                     }
                                     System.Console.WriteLine("\nPremi per continuare...");
-                                    Console.ReadLine();
+                                    Console.ReadKey();
 
                                 }
                                 else
                                 {
                                     System.Console.WriteLine("\nLista vuota\n");
                                     System.Console.WriteLine("Premi per continuare...");
-                                    Console.ReadLine();
+                                    Console.ReadKey();
                                 }
 
                                 break;
@@ -200,7 +177,7 @@ class Program
                                     else
                                     {
 
-                                        prodotto = Console.ReadLine(); // concateno per non perdere il primo elemento
+                                        prodotto = keyInfo.Key + Console.ReadLine(); // concateno per non perdere il primo elemento
                                                                                          // Console.WriteLine($"Prova inserimento {prodotto}"); // debug
                                                                                          // System.Console.WriteLine("Premi invio..");
                                                                                          // Console.ReadLine();
@@ -301,7 +278,7 @@ class Program
             }
 
             System.Console.WriteLine("\nPremi un tasto per continuare...");
-            Console.ReadLine();
+            Console.ReadKey();
 
         }
         while (true);
