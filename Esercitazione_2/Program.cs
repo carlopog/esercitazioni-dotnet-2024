@@ -1,48 +1,14 @@
+using Microsoft.VisualBasic;
+
 class Program2
 {
   static void Main(string[] args)
   {
-    Dictionary<string, int> famiglia = new()
+    for (int i = 0; i < 4; i++)
     {
-      {"Carlo", 25},
-      {"Elvis", 30},
-      {"Simone", 40},
-      {"Giovanna", 60},
-      {"Maurizio", 65},
-    };
-
-    Console.WriteLine("nella mia famiglia ci sono:");
-
-    foreach (string key in famiglia.Keys)
-    {
-      Console.WriteLine($"{key}");
+      Console.WriteLine("dormi un secondo");
+      Thread.Sleep(1000); // piccola pausa per ridurre il carico sulla CPU (serve per non far spammare o se vuoi vedere un messaggio per un po' di tempo)
     }
-
-    while (true)
-    {
-
-      Console.WriteLine("Di chi vuoi sapere l'eta?");
-      string? scelta = Console.ReadLine();
-      switch (scelta)
-      {
-        case "Giovanna":
-          Console.WriteLine("Non si chiede l'eta' di una signora");
-          break;
-        case "Carlo":
-          Console.WriteLine($"io ho {famiglia[scelta]} anni");
-          break;
-        case "Elvis":
-        case "Simone":
-        case "Maurizio":
-          Console.WriteLine($"{scelta} ha {famiglia[scelta]} anni");
-          break;
-        case "x":
-          Console.WriteLine($"{scelta} uscita in corso");
-          return;
-        default:
-          Console.WriteLine($"{scelta} scelta non valida");
-          break;
-      }
-    }
+    Console.WriteLine("Tempo scaduto!");
   }
 }

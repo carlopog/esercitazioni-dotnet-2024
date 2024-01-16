@@ -1050,3 +1050,60 @@ class Program44
     }
   }
 ```
+### 45 - come fare una funzione asincrona senza i Task e con il codice che ti aspetta se inizi a scrivere un input
+
+```c#
+
+class Program45
+  {
+    static void Main(string[] args)
+    {
+     int timeoutInSeconds = 5;
+    Console.WriteLine($"Inserisci un input entro {timeoutInSeconds} secondi:");
+
+    bool inputReceived = false; // inizializza input come non ricevuto finche non si verifica il Console.KeyAvailable
+    string? input = ""; // una variabile di tipo stringa assegna un valora a input all'interno del ciclo e poi accerdere a quel valore anche al di fuori del ciclo
+    DateTime endTime = DateTime.Now.AddSeconds(timeoutInSeconds); // DateTime restituisce l'ora corrente a cui aggiungiamo i 5 secondi della nostra variabile
+    // il risultato sara' percio' una nuova data (oggi tra 5 secondi) ossia il momento in cui dovra' finire il tempo d'attesa
+
+    while (DateTime.Now < endTime)
+    {
+      if (Console.KeyAvailable) // verifica se e' stato premuto un tasto
+      {
+        input = Console.ReadLine();
+        inputReceived = true; // Dato che il valore di input viene controllato dopo il ciclo riesce a determinare se l'utente ha inserito qualcosa
+        break;
+      } 
+    }
+
+    Thread.Sleep(1300); // piccola pausa per ridurre il carico sulla CPU (serve per non far spammare o se vuoi vedere un messaggio per un po' di tempo)
+
+    if (inputReceived)
+    {
+      Console.WriteLine($"Hai inserito: {input}");
+    }
+    else 
+    {
+      Console.WriteLine("Tempo scaduto!");
+    }
+
+    }
+  }
+```
+### 46 - Thread sleep che fa ripetere un ciclo for una volta al secondo (con un secondo di pausa tra uno e l'altro)
+
+```c#
+
+class Program46
+  {
+    static void Main(string[] args)
+    {
+      for (int i = 0; i < 4; i++)
+      {
+        Console.WriteLine("dormi un secondo");
+        Thread.Sleep(1000); // piccola pausa per ridurre il carico sulla CPU (serve per non far spammare o se vuoi vedere un messaggio per un po' di tempo)
+      }
+      Console.WriteLine("Tempo scaduto!");
+    }
+  }
+```
