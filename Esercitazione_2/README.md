@@ -1172,3 +1172,18 @@ class Program49
     }
   }
 ```
+### 49 - Utilizzare Random.Next() per sorteggiare un nome da una lista con i nostri nomi
+
+```c#
+
+class Program49
+  {
+    static void Main(string[] args)
+    {
+      List<string> nomi = ["Alex", "Simone", "Giada", "Fabio", "Carlo", "Dylan", "Natalya", "Alessandro"];
+      Random random = new(); // oggetto per generare numeri casuali
+      int indice = random.Next(0, nomi.Count); // in questo caso tra 0 e 2
+      Console.WriteLine($"Il nome sorteggiato e' {nomi[indice]}"); // stampa il nome sorteggiato
+    }
+  }
+```
