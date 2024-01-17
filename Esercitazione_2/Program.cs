@@ -34,8 +34,6 @@ class Program2
         }
       }
     }
-
-    // estrai a sorte 
     // se e' divisibile per 3 e' fizz 
     // se e' divisibile per 5 e' buzz 
     // se e' divisibile per 3 e 5 e' fizz buzz 
