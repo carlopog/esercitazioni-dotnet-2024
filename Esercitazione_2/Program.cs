@@ -5,37 +5,26 @@ class Program2
   static void Main(string[] args)
   {
     // stampa i numeri tra 1 e 100
-    // for (int i = 1; i < 101; i++ )
-    // estrai a sorte 5 numeri
-    Random random = new();
-    for (int a = 0; a < 5; a++)
+    for (int i = 1; i < 101; i++ )
     {
-      int i = random.Next(1, 101); // genera un numero tra 1 e 100
-
       {
         bool fizz = i % 3 == 0;
         bool buzz = i % 5 == 0;
-
-        if (fizz & buzz)
+        Console.Write($"{i} ");
+    
+         if (fizz)
         {
-          Console.WriteLine($"{i} fizzbuzz");
+          Console.Write("fizz");
         }
-        else if (fizz)
+         if (buzz)
         {
-          Console.WriteLine($"{i} fizz");
-        }
-        else if (buzz)
-        {
-          Console.WriteLine($"{i} buzz");
+          Console.WriteLine("buzz");
         }
         else
         {
-          Console.WriteLine($"{i}");
+          Console.WriteLine("");
         }
       }
     }
-    // se e' divisibile per 3 e' fizz 
-    // se e' divisibile per 5 e' buzz 
-    // se e' divisibile per 3 e 5 e' fizz buzz 
   }
 }
