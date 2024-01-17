@@ -4,11 +4,17 @@ class Program2
 {
   static void Main(string[] args)
   {
-    for (int i = 0; i < 4; i++)
+    Random random = new();
+    int somma = 0;
+    for (int i = 0; i < 10; i++)
     {
-      Console.WriteLine("dormi un secondo");
-      Thread.Sleep(1000); // piccola pausa per ridurre il carico sulla CPU (serve per non far spammare o se vuoi vedere un messaggio per un po' di tempo)
+      int numero = random.Next(1, 11); // genera un numero tra 1 e 10
+      somma += numero; // somma uguale a se stessa piu' numero 
+      Console.WriteLine($"il numero casuale e' {numero}");
+      Thread.Sleep(1000);
+      Console.WriteLine($"il parziale e' {somma}");
+      Thread.Sleep(1000);
     }
-    Console.WriteLine("Tempo scaduto!");
+    Console.WriteLine($"La somma e' {somma}");
   }
 }

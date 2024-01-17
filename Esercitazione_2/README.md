@@ -1107,3 +1107,46 @@ class Program46
     }
   }
 ```
+### 47 - Utilizzare la classe Random con il metodo Next() e il costruttore new
+
+```c#
+
+class Program47
+  {
+    static void Main(string[] args)
+    {
+      Random random = new Random();
+      int somma = 0;
+      for (int i = 0; i < 10; i++)
+      {
+        int numero = random.Next(1,11); // intervallo semiaperto genera un numero tra 1 e 10
+        somma += numero; // somma uguale a se stessa piu' numero >> al primo giro 0 + (numero random da 1 a 10) 
+        Console.WriteLine($"il numero casuale e' {numero}");
+      }
+      Console.WriteLine($"La somma e' {somma}");
+    }
+  }
+```
+### 48 - Utilizzare la classe Random con il metodo Next() e il costruttore new con aggiunta di parziale e Thread.Sleep
+
+```c#
+
+class Program48
+  {
+    static void Main(string[] args)
+    {
+      Random random = new();
+      int somma = 0;
+      for (int i = 0; i < 10; i++)
+      {
+        int numero = random.Next(1, 11); // genera un numero tra 1 e 10
+        somma += numero; // somma uguale a se stessa piu' numero 
+        Console.WriteLine($"il numero casuale e' {numero}");
+        Thread.Sleep(1000);
+        Console.WriteLine($"il parziale e' {somma}");
+        Thread.Sleep(1000);
+      }
+      Console.WriteLine($"La somma e' {somma}");
+    }
+  }
+```
