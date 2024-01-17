@@ -6,15 +6,22 @@ class Program2
   {
     Random random = new();
     int somma = 0;
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 5; i++)
     {
       int numero = random.Next(1, 11); // genera un numero tra 1 e 10
       somma += numero; // somma uguale a se stessa piu' numero 
-      Console.WriteLine($"il numero casuale e' {numero}");
-      Thread.Sleep(1000);
+      Console.Write("il numero casuale e' ");
+      Console.ForegroundColor = ConsoleColor.Green;
+      Console.WriteLine($"{numero}");
+      Console.ResetColor(); 
+
+      Thread.Sleep(500);
       Console.WriteLine($"il parziale e' {somma}");
-      Thread.Sleep(1000);
+      Thread.Sleep(500);
     }
-    Console.WriteLine($"La somma e' {somma}");
+    Console.Write($"La somma e' ");
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine($"{somma}");
+    Console.ResetColor(); 
   }
 }

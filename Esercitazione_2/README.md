@@ -1137,14 +1137,41 @@ class Program48
     {
       Random random = new();
       int somma = 0;
-      for (int i = 0; i < 10; i++)
+      for (int i = 0; i < 5; i++)
       {
         int numero = random.Next(1, 11); // genera un numero tra 1 e 10
         somma += numero; // somma uguale a se stessa piu' numero 
-        Console.WriteLine($"il numero casuale e' {numero}");
-        Thread.Sleep(1000);
+        Console.Write("il numero casuale e' "); // utilizzo Console.Write per non andare a capo
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine($"{numero}");
+        Console.ResetColor(); // resettato il colore di default
+
+        Thread.Sleep(500); // inserito una piccola pausa
         Console.WriteLine($"il parziale e' {somma}");
-        Thread.Sleep(1000);
+        Thread.Sleep(500);
+      }
+      Console.Write($"La somma e' ");
+      Console.ForegroundColor = ConsoleColor.Red;
+      Console.WriteLine($"{somma}");
+      Console.ResetColor(); 
+    }
+  }
+```
+### 49 - Utilizzare Random.Next() per creare 10 numeri da 1 a 10 e calcolare la loro media
+
+```c#
+
+class Program49
+  {
+    static void Main(string[] args)
+    {
+      Random random = new Random();
+      int somma = 0;
+      for (int i = 0; i < 10; i++)
+      {
+        int numero = random.Next(1,11); // intervallo semiaperto genera un numero tra 1 e 10
+        somma += numero; // somma uguale a se stessa piu' numero >> al primo giro 0 + (numero random da 1 a 10) 
+        Console.WriteLine($"il numero casuale e' {numero}");
       }
       Console.WriteLine($"La somma e' {somma}");
     }
