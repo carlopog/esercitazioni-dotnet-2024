@@ -1157,7 +1157,7 @@ class Program48
     }
   }
 ```
-### 49 - Utilizzare Random.Next() per creare 10 numeri da 1 a 10 e calcolare la loro media
+### 49 - Utilizzare Random.Next() per sorteggiare un nome da un array di stringhe
 
 ```c#
 
@@ -1165,15 +1165,10 @@ class Program49
   {
     static void Main(string[] args)
     {
-      Random random = new Random();
-      int somma = 0;
-      for (int i = 0; i < 10; i++)
-      {
-        int numero = random.Next(1,11); // intervallo semiaperto genera un numero tra 1 e 10
-        somma += numero; // somma uguale a se stessa piu' numero >> al primo giro 0 + (numero random da 1 a 10) 
-        Console.WriteLine($"il numero casuale e' {numero}");
-      }
-      Console.WriteLine($"La somma e' {somma}");
+      string[] nomi = ["Mario","Luigi","Giovanni"]; 
+      Random random = new Random(); // oggetto per generare numeri casuali
+      int indice = random.Next(0, nomi.Length); // in questo caso tra 0 e 2
+      Console.WriteLine($"Il nome sorteggiato e' {nomi[indice]}"); // stampa il nome sorteggiato
     }
   }
 ```
