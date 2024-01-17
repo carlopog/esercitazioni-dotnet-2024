@@ -24,7 +24,6 @@ class Program2
           else if (fizz)
           {
             fizzi.Add(i);
-
           }
           else if (buzz)
           {
@@ -38,27 +37,22 @@ class Program2
           }
       }
         Console.ForegroundColor = ConsoleColor.Green;
+        fizzibuzzi = fizzibuzzi.Distinct().ToList();
+        fizzibuzzi.Sort(); // per ordinarli 
         Console.WriteLine($"FizziBuzzi ha {fizzibuzzi.Count} elementi");
         fizzibuzzi.ForEach(fb => Console.Write($"{fb}  "));
-        /* metodi alternativi
-
-            foreach (string item in fizzibuzzi)
-            {
-              Console.Write($"{i}, ");
-            }
-
-            oppure
-            Console.WriteLine($"i numeri fuzzibuzzi sono: {string.Join(", ", fizzibizzi)}");
-
-        */
         Console.ResetColor();
 
         Console.ForegroundColor = ConsoleColor.Blue;
+        fizzi = fizzi.Distinct().ToList();
+        fizzi.Sort();
         Console.WriteLine($"\nFizzi  ha {fizzi.Count} elementi");
         fizzi.ForEach(f => Console.Write($"{f}  "));
         Console.ResetColor();
 
         Console.ForegroundColor = ConsoleColor.Yellow;
+        buzzi = buzzi.Distinct().ToList();
+        buzzi.Sort();
         Console.WriteLine($"\nBuzzi  ha {buzzi.Count} elementi");
         buzzi.ForEach(b => Console.Write($"{b}  "));
         Console.ResetColor();

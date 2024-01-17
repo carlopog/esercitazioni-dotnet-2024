@@ -1303,15 +1303,17 @@ class Program51
           }
       }
         Console.ForegroundColor = ConsoleColor.Green;
+        fizzibuzzi = fizzibuzzi.Distinct().ToList(); // per non avere valori duplicati
+        fizzibuzzi.Sort(); // per ordinarli 
         Console.WriteLine($"FizziBuzzi ha {fizzibuzzi.Count} elementi");
         fizzibuzzi.ForEach(fb => Console.Write($"{fb}  "));
-        /* metodi alternativi
+        // metodi alternativi
 
-            foreach (string item in fizzibuzzi)
+    /*
+            foreach (string fb in fizzibuzzi)
             {
-              Console.Write($"{i}, ");
+              Console.Write($"{fb}, ");
             }
-
             oppure
             Console.WriteLine($"i numeri fuzzibuzzi sono: {string.Join(", ", fizzibizzi)}");
             
@@ -1319,11 +1321,15 @@ class Program51
         Console.ResetColor();
 
         Console.ForegroundColor = ConsoleColor.Blue;
+        fizzi = fizzi.Distinct().ToList();
+        fizzi.Sort(); // per ordinarli 
         Console.WriteLine($"\nFizzi  ha {fizzi.Count} elementi");
         fizzi.ForEach(f => Console.Write($"{f}  "));
         Console.ResetColor();
 
         Console.ForegroundColor = ConsoleColor.Yellow;
+        buzzi = buzzi.Distinct().ToList();
+        buzzi.Sort();
         Console.WriteLine($"\nBuzzi  ha {buzzi.Count} elementi");
         buzzi.ForEach(b => Console.Write($"{b}  "));
         Console.ResetColor();
