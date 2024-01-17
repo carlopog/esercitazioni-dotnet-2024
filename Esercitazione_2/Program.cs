@@ -19,6 +19,7 @@ class Program2
           if (fizz && buzz)
           {
             fizzibuzzi.Add(i);
+            //fizzibuzzi.Add.ToString()
           }
           else if (fizz)
           {
@@ -39,6 +40,17 @@ class Program2
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine($"FizziBuzzi ha {fizzibuzzi.Count} elementi");
         fizzibuzzi.ForEach(fb => Console.Write($"{fb}  "));
+        /* metodi alternativi
+
+            foreach (string item in fizzibuzzi)
+            {
+              Console.Write($"{i}, ");
+            }
+
+            oppure
+            Console.WriteLine($"i numeri fuzzibuzzi sono: {string.Join(", ", fizzibizzi)}");
+
+        */
         Console.ResetColor();
 
         Console.ForegroundColor = ConsoleColor.Blue;
