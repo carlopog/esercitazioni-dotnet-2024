@@ -1187,3 +1187,22 @@ class Program49
     }
   }
 ```
+### 50 - Esercizio fizz / buzz 
+## stampa i numeri tra 1 e 100, estrai a sorte 
+## se e' divisibile per 3 e' fizz 
+## se e' divisibile per 5 e' buzz 
+## se e' divisibile per 3 e 5 e' fizz buzz 
+
+```c#
+
+class Program50
+  {
+    static void Main(string[] args)
+    {
+      List<string> nomi = ["Alex", "Simone", "Giada", "Fabio", "Carlo", "Dylan", "Natalya", "Alessandro"];
+      Random random = new(); // oggetto per generare numeri casuali
+      int indice = random.Next(0, nomi.Count); // in questo caso tra 0 e 2
+      Console.WriteLine($"Il nome sorteggiato e' {nomi[indice]}"); // stampa il nome sorteggiato
+    }
+  }
+```
