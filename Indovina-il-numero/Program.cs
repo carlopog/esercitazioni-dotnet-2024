@@ -99,6 +99,8 @@
      									int a = x/10; 
 											somma += a; //divido num per 10, essendo intero non ci sarà parte decimale
 											Console.WriteLine($"La somma delle cifre che compongono il numero e' {somma}");
+
+											// alex way 
 										}
 										break;
 									}

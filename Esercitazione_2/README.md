@@ -1334,3 +1334,13 @@ class Program51
         buzzi.ForEach(b => Console.Write($"{b}  "));
         Console.ResetColor();
 ```
+
+### KEY INFO
+
+```c#
+
+// inserisci l'operazione senza che si veda il testo
+
+ConsoleKeyInfo key = Console.ReadKey(true);
+string operazione = key.KeyChar.ToString();
+```
