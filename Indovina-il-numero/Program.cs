@@ -10,9 +10,9 @@
         int x = random.Next(1,101);
         int input, tentativi = 10;
         
-				Console.WriteLine($"{x}");
+				// Console.WriteLine($"{x}");
 				
-        // Console.Clear();
+        Console.Clear();
         
         Console.WriteLine("Prova ad indovinare il numero segreto");
         input = int.Parse(Console.ReadLine()!);
