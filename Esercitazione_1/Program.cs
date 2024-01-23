@@ -4,16 +4,18 @@
     {
       try 
       {
-        int zero = 0;
-        int numero = 1 / zero; // il programma si blocca perche genera un eccezione dividere per zero
+        string contenuto = File.ReadAllText("file.txt");
+        // il file deve essere nella stessa cartella del programma
+        Console.WriteLine(contenuto);
       }
       catch (Exception e)
       {
-        Console.WriteLine("Il numero non e' valido");
-        Console.WriteLine("ERRORE NON TRATTATO:");
-        Console.WriteLine($"messaggio {e.Message}");
-        Console.WriteLine($"codice errore {e.HResult}");
+        Console.WriteLine("il file non esiste");
         return;
+      }
+      finally // questo in ogni caso lo fa alla fine 
+      {
+        Console.WriteLine("il file e' stato chiuso");
       }
     }
 }
