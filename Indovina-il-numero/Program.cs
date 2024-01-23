@@ -6,15 +6,11 @@
 		int punteggio = 0;
 		bool end = false;
 
-		// Console.WriteLine($"{x}");
-
-		while (!end) // ripeto fino a quando hai l'ultimo tentativo poi finisce il gioco
+		while (!end) // ripeto fino a quando non setto true end
 		{
-
 			Random random = new();
 			int x = random.Next(1, 101);
 			int input, tentativi = 10;
-			// Console.Clear();
 			Console.WriteLine("Prova ad indovinare il numero segreto");
 			input = int.Parse(Console.ReadLine()!);
 
