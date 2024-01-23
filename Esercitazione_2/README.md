@@ -1344,3 +1344,20 @@ class Program51
 ConsoleKeyInfo key = Console.ReadKey(true);
 string operazione = key.KeyChar.ToString();
 ```
+
+### LABEL (ETICHETTE)
+
+```c#
+SelezionaOpzione: // seleziona opzione e' la nostra etichetta
+ switch (input)
+ {
+  case "f": 
+    Console.WriteLine("F");
+  
+  default: 
+    Console.WriteLine("Hai sbagliato a selezionare, riprova");
+    goto SelezionaOpzione; // go to serve per tornare all'inizio dall'etichetta
+  
+ }
+
+```

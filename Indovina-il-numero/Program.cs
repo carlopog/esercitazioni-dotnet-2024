@@ -45,13 +45,13 @@
 					Console.WriteLine($"Hai indovinato in {giri} tentativi");
 					Console.WriteLine($"il tuo punteggio e' {punteggio}");
 
-					Console.Write("---   ");
-					Thread.Sleep(200);
-					Console.Write("---   ");
-					Thread.Sleep(200);
-					Console.WriteLine("---");
-					Thread.Sleep(200);
-					Console.WriteLine("Vuoi continuare a giocare? s/n");
+					for (int i = 0; i < 3; i++)
+					{
+						Console.Write("---   ");
+						Thread.Sleep(200);
+					}
+
+					Console.WriteLine("\nVuoi continuare a giocare? s/n");
 					string risposta = Console.ReadLine()!;
 					if (risposta == "n")
 					{
