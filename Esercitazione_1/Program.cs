@@ -2,14 +2,14 @@
 {
     static void Main(string[] args)
     {
-      int[] numeri = [1, 2 , 3];
+      string nome = null;
       try 
       {
-        Console.WriteLine(numeri[3]);
+        Console.WriteLine(nome.Length);
       }
       catch (Exception e)
       {
-        Console.WriteLine("indice non valido");
+        Console.WriteLine("il nome non e' valido");
         return;
       }
     }
