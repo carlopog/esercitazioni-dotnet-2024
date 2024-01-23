@@ -4,12 +4,12 @@
     {
       try 
       {
-      int[] numeri = new int[int.MaxValue];
-      // int.MaxValue e' il valore massimo che puo' contenere un int (2.147.483.647) percio' il programma si blocca
+        int numero = int.Parse("Ciao");
+        // il metodo int.Parse() genera un'eccezione perche' "ciao" non e' un numero
       }
       catch (Exception e)
       {
-        Console.WriteLine("memoria insufficiente");
+        Console.WriteLine("Il numero non e' valido");
         return;
       }
     }
