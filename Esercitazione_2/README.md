@@ -1356,6 +1356,7 @@ SelezionaOpzione: // seleziona opzione e' la nostra etichetta
   
   default: 
     Console.WriteLine("Hai sbagliato a selezionare, riprova");
+    input = Console.ReadLine(); // riscrivi un nuovo input che andra' meglio
     goto SelezionaOpzione; // go to serve per tornare all'inizio dall'etichetta
   
  }
