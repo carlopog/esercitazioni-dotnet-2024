@@ -194,3 +194,22 @@ class Program
     }
 }
 ```
+### Vogliamo gestire l'errore di quando proviamo a fare int Parse di una stringa 
+
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+
+      try 
+      {
+        int numero = int.Parse("mariottide");
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine("il numero non e' valido");
+        return;
+      }
+    }
+}

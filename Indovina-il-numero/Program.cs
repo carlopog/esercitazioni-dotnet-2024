@@ -10,9 +10,21 @@
 		{
 			Random random = new();
 			int x = random.Next(1, 101);
-			int input, tentativi = 10;
+			int tentativi = 10;
+			int input = 0;
 			Console.WriteLine("Prova ad indovinare il numero segreto");
-			input = int.Parse(Console.ReadLine()!);
+			{
+				try
+				{
+					input = int.Parse(Console.ReadLine()!);
+					Console.WriteLine(input);
+
+				}
+				catch (Exception e)
+				{
+					Console.WriteLine("non e' un numero ");
+				}
+			}
 
 			bool maggiore5 = x > 5;
 			bool maggiore10 = x > 10;
@@ -88,7 +100,7 @@
 								Console.WriteLine($"il numero e' maggiore di 25? {maggiore25}");
 								break;
 							}
-							case 6:
+						case 6:
 							{
 								Console.WriteLine("Not even close Bro");
 								break;
@@ -132,24 +144,24 @@
 									somma += a; //divido num per 10, essendo intero non ci sarà parte decimale
 									Console.WriteLine($"La somma delle cifre che compongono il numero e' {somma}");
 								}
-									/* alex way 
+								/* alex way 
 
-									while (true)
-        					{
-            				int somma = 0;
-            				int numeroTemporaneo = numero;
-            				while (numeroTemporaneo > 0)
-            				{
-            				    somma += numeroTemporaneo % 10;
-            				    numeroTemporaneo /= 10;
-            				}
-
+								while (true)
+								{
+									int somma = 0;
+									int numeroTemporaneo = numero;
+									while (numeroTemporaneo > 0)
+									{
+											somma += numeroTemporaneo % 10;
+											numeroTemporaneo /= 10;
 									}
 
-									*/
-
-									break;
 								}
+
+								*/
+
+								break;
+							}
 						case 3:
 							{
 								bool tra0e10 = x < 10;
@@ -208,7 +220,18 @@
 								return;
 							}
 					};
-					input = int.Parse(Console.ReadLine()!);
+					{
+						try
+						{
+							input = int.Parse(Console.ReadLine()!);
+							Console.WriteLine(input);
+
+						}
+						catch (Exception e)
+						{
+							Console.WriteLine("non e' un numero ");
+						}
+					}
 				}
 
 			}

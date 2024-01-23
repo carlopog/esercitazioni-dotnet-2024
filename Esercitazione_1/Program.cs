@@ -1,21 +1,24 @@
 ﻿class Program
 {
     static void Main(string[] args)
+
     {
+      {
+        string c = "5";
       try 
       {
-        string contenuto = File.ReadAllText("file.txt");
-        // il file deve essere nella stessa cartella del programma
-        Console.WriteLine(contenuto);
+        Console.WriteLine(int.Parse(c));
+        
       }
       catch (Exception e)
       {
-        Console.WriteLine("il file non esiste");
+        Console.WriteLine($" non e' un numero");
         return;
       }
       finally // questo in ogni caso lo fa alla fine 
       {
         Console.WriteLine("il file e' stato chiuso");
       }
+    }
     }
 }
