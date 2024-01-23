@@ -88,3 +88,69 @@ class Program
 ```
 
 ### Vogliamo verificare che l'utente inserisca un numero tra 1  e 10 e gestire l'eccezione con il caso try-catch-finally:
+
+```c#
+class Program 
+{
+  static void Main(string[] args)
+  {
+    Console.WriteLine("Inserisci un numero tra 1 e 10");
+    try
+    {
+      int numero = int.Parse(Console.ReadLine()!);
+      if (numero < 1 || numero > 10)
+      {
+        Console.WriteLine("il numero non e' valido");
+        return;
+      }
+        Console.WriteLine($"il numero inserito e' {numero}");
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("il numero non e' valido");
+        return;
+    }
+  }
+}
+```
+
+### Vogliamo gestire System.IO.IOException (si verifica quando si tenta di accedere a un file che non esiste)
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+        try
+        {
+            string contenuto = File.ReadAllText("file.txt"); // il file deve essere nella stessa cartella del programma
+            Console.WriteLine(contenuto);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("il file non esiste");
+            return;
+        }
+    }
+}
+```
+
+###  Vogliamo gestire System.IndexOutOfRangeException (si verifica quando si tenta di accedere a un elemento di un array con un indice non valido):
+
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+      int[] numeri = [1, 2 , 3];
+      try 
+      {
+        Console.WriteLine(numeri[3]);
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine("indice non valido");
+        return;
+      }
+    }
+}
+```
