@@ -13,8 +13,8 @@
 		}
 	}
 
-	// creo una funzione che prende tre argomenti e restituisce true se il primo è maggiore del secondo e minore uguale del terzo
-	// quindi ritorna true se il primo e' compreso tra gli altri due 
+	/* creo una funzione che prende tre argomenti e restituisce true se il primo è maggiore del secondo e minore uguale del terzo
+	 quindi ritorna true se il primo e' compreso tra gli altri due */
 	static bool Intervallo(int a, int b, int c)
 	{
 		if (a > b && a <= c)
