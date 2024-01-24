@@ -21,6 +21,7 @@
 					Console.BackgroundColor = ConsoleColor.Magenta;
 					Console.WriteLine("non e' un numero, hai sprecato un tentativo");
 					Console.ResetColor();
+					Console.WriteLine("");
 				}
 			}
 			bool maggiore5 = x > 5;
@@ -220,6 +221,8 @@
 							Console.BackgroundColor = ConsoleColor.Magenta;
 							Console.WriteLine("Non e' un numero, hai sprecato un tentativo");
 							Console.ResetColor();
+							Console.WriteLine("");
+
 						}
 					}
 				}
