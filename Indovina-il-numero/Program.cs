@@ -1,5 +1,27 @@
 ﻿class Program
 {
+	static bool Maggiore(int n, int m)
+	{
+		if (n > m)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	static bool Tra(int a, int b, int c)
+	{
+		if (a > b && a <= c)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 	static void Main(string[] args)
 	{
 		int punteggio = 0;
@@ -24,21 +46,7 @@
 					Console.WriteLine("");
 				}
 			}
-			bool maggiore5 = x > 5;
-			bool maggiore10 = x > 10;
-			bool maggiore15 = x > 15;
-			bool maggiore25 = x > 25;
-			bool maggiore35 = x > 35;
-			bool maggiore40 = x > 40;
-			bool maggiore45 = x > 45;
-			bool maggiore50 = x > 50;
-			bool maggiore55 = x > 55;
-			bool maggiore60 = x > 60;
-			bool maggiore65 = x > 65;
-			bool maggiore75 = x > 75;
-			bool maggiore85 = x > 85;
-			bool maggiore90 = x > 90;
-			bool maggiore95 = x > 95;
+
 			while (tentativi >= 0)
 			{
 				if (input == x)
@@ -84,7 +92,7 @@
 					{
 						case 9:
 							{
-								Console.WriteLine($"il numero e' maggiore di 50? {maggiore50}");
+								Console.WriteLine($"il numero e' Maggiore di 50? {Maggiore(x, 50)}");
 								break;
 							}
 						case 8:
@@ -95,12 +103,12 @@
 							}
 						case 7:
 							{
-								if (maggiore50)
+								if (Maggiore(x, 50))
 								{
-									Console.WriteLine($"il numero e' maggiore di 75? {maggiore75}");
+									Console.WriteLine($"il numero e' Maggiore di 75? {Maggiore(x, 75)}");
 									break;
 								}
-								Console.WriteLine($"il numero e' maggiore di 25? {maggiore25}");
+								Console.WriteLine($"il numero e' Maggiore di 25? {Maggiore(x, 25)}");
 								break;
 							}
 						case 6:
@@ -108,33 +116,29 @@
 								if (input > x)
 								{ Console.WriteLine($"il numero segreto e' minore di {input}"); }
 								else
-								{ Console.WriteLine($"il numero segreto e' maggiore di {input}"); }
+								{ Console.WriteLine($"il numero segreto e' Maggiore di {input}"); }
 								break;
 							}
 						case 5:
 							{
-								bool tra25e50 = x > 25 && x <= 50;
-								bool tra50e75 = x > 50 && x <= 75;
-								bool tra75e100 = x > 75;
-
-								if (tra75e100)
+								if (Tra(x, 75, 100))
 								{
-									Console.WriteLine($"il numero e' maggiore di 90? {maggiore90}");
+									Console.WriteLine($"il numero e' Maggiore di 90? {Maggiore(x, 90)}");
 									break;
 								}
-								else if (tra50e75)
+								else if (Tra(x, 50, 75))
 								{
-									Console.WriteLine($"il numero e' maggiore di 60? {maggiore60}");
+									Console.WriteLine($"il numero e' Maggiore di 60? {Maggiore(x, 60)}");
 									break;
 								}
-								else if (tra25e50)
+								else if (Tra(x, 25, 50))
 								{
-									Console.WriteLine($"il numero e' maggiore di 40? {maggiore40}");
+									Console.WriteLine($"il numero e' Maggiore di 40? {Maggiore(x, 40)}");
 									break;
 								}
 								else
 								{
-									Console.WriteLine($"il numero e' maggiore di 10? {maggiore10}");
+									Console.WriteLine($"il numero e' Maggiore di 10? {Maggiore(x, 10)}");
 									break;
 								}
 							}
@@ -152,53 +156,45 @@
 							}
 						case 3:
 							{
-								bool tra0e10 = x <= 10;
-								bool tra10e25 = x > 10 & x <= 25;
-								bool tra25e40 = x > 25 & x <= 40;
-								bool tra40e50 = x > 40 & x <= 50;
-								bool tra50e60 = x > 50 & x <= 60;
-								bool tra60e75 = x > 60 & x <= 75;
-								bool tra75e90 = x > 75 & x <= 90;
-
-								if (tra0e10)
+								if (Tra(x, 0, 10))
 								{
-									Console.WriteLine($"il numero e' maggiore di 5? {maggiore5}");
+									Console.WriteLine($"il numero e' Maggiore di 5? {Maggiore(x, 5)}");
 									break;
 								}
-								else if (tra10e25)
+								else if (Tra(x, 10, 25))
 								{
-									Console.WriteLine($"il numero e' maggiore di 20? {maggiore15}");
+									Console.WriteLine($"il numero e' Maggiore di 20? {Maggiore(x, 15)}");
 									break;
 								}
 
-								else if (tra25e40)
+								else if (Tra(x, 25, 40))
 								{
-									Console.WriteLine($"il numero e' maggiore di 30? {maggiore35}");
+									Console.WriteLine($"il numero e' Maggiore di 30? {Maggiore(x, 35)}");
 									break;
 								}
-								else if (tra40e50)
+								else if (Tra(x, 40, 50))
 								{
-									Console.WriteLine($"il numero e' maggiore di 45? {maggiore45}");
+									Console.WriteLine($"il numero e' Maggiore di 45? {Maggiore(x, 45)}");
 									break;
 								}
-								else if (tra50e60)
+								else if (Tra(x, 50, 60))
 								{
-									Console.WriteLine($"il numero e' maggiore di 55? {maggiore55}");
+									Console.WriteLine($"il numero e' Maggiore di 55? {Maggiore(x, 55)}");
 									break;
 								}
-								else if (tra60e75)
+								else if (Tra(x, 60, 75))
 								{
-									Console.WriteLine($"il numero e' maggiore di 65? {maggiore65}");
+									Console.WriteLine($"il numero e' Maggiore di 65? {Maggiore(x, 65)}");
 									break;
 								}
-								else if (tra75e90)
+								else if (Tra(x, 75, 90))
 								{
-									Console.WriteLine($"il numero e' maggiore di 85? {maggiore85}");
+									Console.WriteLine($"il numero e' Maggiore di 85? {Maggiore(x, 85)}");
 									break;
 								}
 								else
 								{
-									Console.WriteLine($"il numero e' maggiore di 95? {maggiore95}");
+									Console.WriteLine($"il numero e' Maggiore di 95? {Maggiore(x, 95)}");
 									break;
 								}
 							}
@@ -228,5 +224,10 @@
 				}
 			}
 		}
+	}
+
+	private static bool Maggiore()
+	{
+		throw new NotImplementedException();
 	}
 }
