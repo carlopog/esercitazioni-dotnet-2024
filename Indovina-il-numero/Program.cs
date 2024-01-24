@@ -121,8 +121,8 @@
 
 						case 5:
 							{
-								bool tra25e50 = x > 25 && x < 50;
-								bool tra50e75 = x > 50 && x < 75;
+								bool tra25e50 = x > 25 && x <= 50;
+								bool tra50e75 = x > 50 && x <= 75;
 								bool tra75e100 = x > 75;
 
 								if (tra75e100)
@@ -160,13 +160,13 @@
 							}
 						case 3:
 							{
-								bool tra0e10 = x < 10;
-								bool tra10e25 = x > 10 & x < 25;
-								bool tra25e40 = x > 25 & x < 40;
-								bool tra40e50 = x > 40 & x < 50;
-								bool tra50e60 = x > 50 & x < 60;
-								bool tra60e75 = x > 60 & x < 75;
-								bool tra75e90 = x > 75 & x < 90;
+								bool tra0e10 = x <= 10;
+								bool tra10e25 = x > 10 & x <= 25;
+								bool tra25e40 = x > 25 & x <= 40;
+								bool tra40e50 = x > 40 & x <= 50;
+								bool tra50e60 = x > 50 & x <= 60;
+								bool tra60e75 = x > 60 & x <= 75;
+								bool tra75e90 = x > 75 & x <= 90;
 
 								if (tra0e10)
 								{
