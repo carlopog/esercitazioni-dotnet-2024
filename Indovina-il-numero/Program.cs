@@ -53,7 +53,7 @@
 					Console.WriteLine($"Hai indovinato in {giri} tentativi");
 					Console.ResetColor();
 					Console.ForegroundColor = ConsoleColor.Green;
-					Console.WriteLine($"\n il tuo punteggio e' {punteggio}\nn");
+					Console.WriteLine($"\n il tuo punteggio e' {punteggio}\n");
 					Console.ResetColor();
 
 					for (int i = 0; i < 3; i++)
