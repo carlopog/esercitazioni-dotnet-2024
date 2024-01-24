@@ -2,10 +2,8 @@
 {
 	static void Main(string[] args)
 	{
-
 		int punteggio = 0;
 		bool end = false;
-
 		while (!end) // ripeto fino a quando non setto true end
 		{
 			Random random = new();
@@ -20,10 +18,11 @@
 				}
 				catch (Exception e)
 				{
+					Console.BackgroundColor = ConsoleColor.Magenta;
 					Console.WriteLine("non e' un numero, hai sprecato un tentativo");
+					Console.ResetColor();
 				}
 			}
-
 			bool maggiore5 = x > 5;
 			bool maggiore10 = x > 10;
 			bool maggiore15 = x > 15;
@@ -39,15 +38,12 @@
 			bool maggiore85 = x > 85;
 			bool maggiore90 = x > 90;
 			bool maggiore95 = x > 95;
-
 			while (tentativi >= 0)
 			{
-
 				if (input == x)
 				{
 					Console.BackgroundColor = ConsoleColor.Green;
 					Console.WriteLine("Che fortuna hai indovinato!!!");
-
 					int giri = 10 - tentativi;
 					punteggio += tentativi;
 					Console.WriteLine($"Hai indovinato in {giri} tentativi");
@@ -55,13 +51,11 @@
 					Console.ForegroundColor = ConsoleColor.Green;
 					Console.WriteLine($"\n il tuo punteggio e' {punteggio}\n");
 					Console.ResetColor();
-
 					for (int i = 0; i < 3; i++)
 					{
 						Console.Write("---   ");
 						Thread.Sleep(200);
 					}
-
 					Console.Write("\nVuoi continuare a giocare? ");
 					Console.ForegroundColor = ConsoleColor.Green;
 					Console.Write("s ");
@@ -70,7 +64,6 @@
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.Write("n\n");
 					Console.ResetColor();
-
 					string risposta = Console.ReadLine()!;
 					if (risposta == "n")
 					{
@@ -78,7 +71,6 @@
 					}
 					break;
 				}
-
 				else
 				{
 					Console.ForegroundColor = ConsoleColor.Red;
@@ -113,12 +105,11 @@
 						case 6:
 							{
 								if (input > x)
-								{Console.WriteLine($"il numero segreto e' minore di {input}");}
+								{ Console.WriteLine($"il numero segreto e' minore di {input}"); }
 								else
-								{Console.WriteLine($"il numero segreto e' maggiore di {input}");}
+								{ Console.WriteLine($"il numero segreto e' maggiore di {input}"); }
 								break;
 							}
-
 						case 5:
 							{
 								bool tra25e50 = x > 25 && x <= 50;
@@ -218,8 +209,7 @@
 								return;
 							}
 					};
-							Console.ResetColor();
-
+					Console.ResetColor();
 					{
 						try
 						{
@@ -227,13 +217,13 @@
 						}
 						catch (Exception e)
 						{
-							Console.WriteLine("non e' un numero, hai sprecato un tentativo");
+							Console.BackgroundColor = ConsoleColor.Magenta;
+							Console.WriteLine("Non e' un numero, hai sprecato un tentativo");
+							Console.ResetColor();
 						}
 					}
 				}
-
 			}
 		}
-
 	}
 }
