@@ -168,6 +168,34 @@
 						case 3:
 							{
 								Console.Write("Suggerimento n.5 ");
+
+
+							/* 
+								Func(a, b) 
+								{
+
+								int c = (a + b) / 2
+
+								else if (Intervallo(x, a, b))
+								{
+									Maggiore(x, c)
+									brek;
+								}
+
+								Dictionary<int, int> step = new() 
+								{
+									{10, 25}, 
+									{25, 40}, 
+									{40, 50}, 
+									{50, 60}, 
+									{60, 75}, 
+									{75, 90}, 
+								}
+								
+								step.ForEach(func(key, value))
+								}
+							*/
+
 								if (Intervallo(x, 0, 10))
 								{
 									Maggiore(x, 5);
