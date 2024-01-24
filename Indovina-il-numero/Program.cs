@@ -1,18 +1,17 @@
 ﻿class Program
 {
 	// creo una funzione che prende due argomenti e restituisce true se il primo è maggiore del secondo
-	static string Maggiore(int a, int b) 
+	static void Maggiore(int a, int b)
 	{
 		if (a > b)
 		{
-			return $"il numero segreto è Maggiore di {b}";
+			Console.WriteLine($"il numero segreto è Maggiore di {b}");
 		}
 		else
 		{
-			return $"il numero segreto è Minore di {b}";
+			Console.WriteLine($"il numero segreto è Minore di {b}");
 		}
 	}
-
 	/* creo una funzione che prende tre argomenti e restituisce true se il primo è maggiore del secondo e minore uguale del terzo
 	 quindi ritorna true se il primo e' compreso tra gli altri due */
 	static bool Intervallo(int a, int b, int c)
@@ -29,7 +28,7 @@
 	static void Main(string[] args)
 	{
 		int punteggio = 0;
-		bool end = false; 
+		bool end = false;
 		while (!end) // ripeto fino a quando non setto true end
 		{
 			Random random = new();
@@ -43,9 +42,9 @@
 					input = int.Parse(Console.ReadLine()!); // assegno il valore digitato dall'utente alla variabile input se ha digitato un intero 
 				}
 				catch (Exception)
-                {
+				{
 					Console.BackgroundColor = ConsoleColor.Magenta;
-					Console.WriteLine("Non è un numero valido, hai sprecato un tentativo"); 
+					Console.WriteLine("Non è un numero valido, hai sprecato un tentativo");
 					Console.ResetColor();
 					Console.WriteLine("");
 				}
@@ -58,7 +57,7 @@
 					Console.BackgroundColor = ConsoleColor.Green; // coloro
 					Console.WriteLine("Che fortuna hai indovinato!!!");
 					int giri = 11 - tentativi; // creo la variabile giri che sarebbero i tentativi usati per indovinare
-					punteggio += tentativi -1; // il punteggio è dato dai tentativi rimanenti
+					punteggio += tentativi - 1; // il punteggio è dato dai tentativi rimanenti
 					Console.WriteLine($"Hai indovinato in {giri} tentativi");
 					Console.ResetColor();
 					Console.ForegroundColor = ConsoleColor.Green;
@@ -97,7 +96,7 @@
 						case 9:
 							{
 								Console.Write("Suggerimento n.1 ");
-								Console.WriteLine(Maggiore(x, 50)); // ti dice se è maggiore di 50
+								Maggiore(x, 50); // ti dice se è maggiore di 50
 								break;
 							}
 						case 8:
@@ -105,56 +104,56 @@
 								bool pari = x % 2 == 0;
 								Console.Write("Suggerimento n.2 ");
 								if (pari)
-									{
-										Console.WriteLine("il numero segreto è Pari");
-									}
+								{
+									Console.WriteLine("il numero segreto è Pari");
+								}
 								else
-									{
-										Console.WriteLine("il numero segreto è Dispari");
-									}
+								{
+									Console.WriteLine("il numero segreto è Dispari");
+								}
 								break;
 							}
 						case 7:
 							{
 								Console.Write("Suggerimento n.3 ");
 								if (x > 50) // se è maggiore di 50
-									{
-										Console.WriteLine(Maggiore(x, 75)); 
-										break;
-									}
+								{
+									Maggiore(x, 75);
+									break;
+								}
 								// altrimenti se è minore di 50 controllo se sia maggiore di 25
 								else
-									{
-										Console.WriteLine(Maggiore(x, 25));
-										break;
-									}
+								{
+									Maggiore(x, 25);
+									break;
+								}
 							}
 						case 6:
 							{
 								Console.WriteLine("Ce la puoi fare");
 								break;
-							}		
+							}
 						case 5:
 							{
 								Console.Write("Suggerimento n.4 ");
 								if (Intervallo(x, 75, 100)) // a seconda delle risposte precedenti so in che intervallo sta il numero segreto
-									{
-										Console.WriteLine(Maggiore(x, 90));
-										break;
-									}
+								{
+									Maggiore(x, 90);
+									break;
+								}
 								else if (Intervallo(x, 50, 75))
-									{
-										Console.WriteLine(Maggiore(x, 60));
-										break;
-									}
+								{
+									Maggiore(x, 60);
+									break;
+								}
 								else if (Intervallo(x, 25, 50))
-									{
-										Console.WriteLine(Maggiore(x, 40));
-										break;
-									}
+								{
+									Maggiore(x, 40);
+									break;
+								}
 								else
 								{
-									Console.WriteLine(Maggiore(x, 10));
+									Maggiore(x, 10);
 									break;
 								}
 							}
@@ -165,52 +164,52 @@
 								Console.ResetColor();
 								break;
 							}
-			
+
 						case 3:
 							{
 								Console.Write("Suggerimento n.5 ");
 								if (Intervallo(x, 0, 10))
 								{
-									Console.WriteLine(Maggiore(x, 5));
+									Maggiore(x, 5);
 									break;
 								}
 								else if (Intervallo(x, 10, 25))
 								{
-									Console.WriteLine(Maggiore(x, 15));
+									Maggiore(x, 15);
 									break;
 								}
 								else if (Intervallo(x, 25, 40))
 								{
-									Console.WriteLine(Maggiore(x, 35));
+									Maggiore(x, 35);
 									break;
 								}
 								else if (Intervallo(x, 40, 50))
 								{
-									Console.WriteLine(Maggiore(x, 45));
+									Maggiore(x, 45);
 									break;
 								}
 								else if (Intervallo(x, 50, 60))
 								{
-									Console.WriteLine(Maggiore(x, 55));
+									Maggiore(x, 55);
 									break;
 								}
 								else if (Intervallo(x, 60, 75))
 								{
-									Console.WriteLine(Maggiore(x, 65));
+									Maggiore(x, 65);
 									break;
 								}
 								else if (Intervallo(x, 75, 90))
 								{
-									Console.WriteLine(Maggiore(x, 85));
+									Maggiore(x, 85);
 									break;
 								}
 								else
 								{
-									Console.WriteLine(Maggiore(x, 95));
+									Maggiore(x, 95);
 									break;
 								}
 							}
-								case 2:
+						case 2:
 							{
 								Console.Write("Suggerimento n.5 ");
 								if (input > x)
@@ -219,7 +218,7 @@
 								{ Console.WriteLine($"il numero segreto è Maggiore di {input}"); }
 								break;
 							}
-								case 1:
+						case 1:
 							{
 								Console.Write("Suggerimento n.6 ");
 								if (x > 10) // se il numero segreto è un numero a due (o tre) cifre
@@ -248,7 +247,7 @@
 							input = int.Parse(Console.ReadLine()!); // faccio inserire un nuovo valore a input all'utente, ripetendo il controllo che sia un numero valido
 						}
 						catch (Exception)
-                        {
+						{
 							Console.BackgroundColor = ConsoleColor.Magenta;
 							Console.WriteLine("Non è un numero, hai sprecato un tentativo");
 							Console.ResetColor();
@@ -259,10 +258,5 @@
 				}
 			}
 		}
-	}
-
-	private static bool Maggiore() // questo mi si è autogenerato quando ho creato la funzione, non so cosa faccia ma senza mi dà errore
-	{
-		throw new NotImplementedException();
 	}
 }
