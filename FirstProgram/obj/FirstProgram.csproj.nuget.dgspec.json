@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DOTNET\\Documents\\Corso-Dotnet-2024\\esercitazioni-dotnet-2024\\FirstProgram\\FirstProgram.csproj": {}
+    "C:\\Users\\DOTNET\\documents\\Corso-Dotnet-2024\\esercitazioni-dotnet-2024\\FirstProgram\\FirstProgram.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DOTNET\\Documents\\Corso-Dotnet-2024\\esercitazioni-dotnet-2024\\FirstProgram\\FirstProgram.csproj": {
+    "C:\\Users\\DOTNET\\documents\\Corso-Dotnet-2024\\esercitazioni-dotnet-2024\\FirstProgram\\FirstProgram.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DOTNET\\Documents\\Corso-Dotnet-2024\\esercitazioni-dotnet-2024\\FirstProgram\\FirstProgram.csproj",
+        "projectUniqueName": "C:\\Users\\DOTNET\\documents\\Corso-Dotnet-2024\\esercitazioni-dotnet-2024\\FirstProgram\\FirstProgram.csproj",
         "projectName": "FirstProgram",
-        "projectPath": "C:\\Users\\DOTNET\\Documents\\Corso-Dotnet-2024\\esercitazioni-dotnet-2024\\FirstProgram\\FirstProgram.csproj",
+        "projectPath": "C:\\Users\\DOTNET\\documents\\Corso-Dotnet-2024\\esercitazioni-dotnet-2024\\FirstProgram\\FirstProgram.csproj",
         "packagesPath": "C:\\Users\\DOTNET\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DOTNET\\Documents\\Corso-Dotnet-2024\\esercitazioni-dotnet-2024\\FirstProgram\\obj\\",
+        "outputPath": "C:\\Users\\DOTNET\\documents\\Corso-Dotnet-2024\\esercitazioni-dotnet-2024\\FirstProgram\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DOTNET\\AppData\\Roaming\\NuGet\\NuGet.Config"

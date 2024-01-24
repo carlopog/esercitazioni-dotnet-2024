@@ -17,21 +17,17 @@
 				try
 				{
 					input = int.Parse(Console.ReadLine()!);
-					Console.WriteLine(input);
-
 				}
 				catch (Exception e)
 				{
-					Console.WriteLine("non e' un numero ");
+					Console.WriteLine("non e' un numero, hai sprecato un tentativo");
 				}
 			}
 
 			bool maggiore5 = x > 5;
 			bool maggiore10 = x > 10;
 			bool maggiore15 = x > 15;
-			bool maggiore20 = x > 20;
 			bool maggiore25 = x > 25;
-			bool maggiore30 = x > 30;
 			bool maggiore35 = x > 35;
 			bool maggiore40 = x > 40;
 			bool maggiore45 = x > 45;
@@ -39,9 +35,7 @@
 			bool maggiore55 = x > 55;
 			bool maggiore60 = x > 60;
 			bool maggiore65 = x > 65;
-			bool maggiore70 = x > 70;
 			bool maggiore75 = x > 75;
-			bool maggiore80 = x > 80;
 			bool maggiore85 = x > 85;
 			bool maggiore90 = x > 90;
 			bool maggiore95 = x > 95;
@@ -51,11 +45,16 @@
 
 				if (input == x)
 				{
-					Console.WriteLine("Che fortuna!!!");
+					Console.BackgroundColor = ConsoleColor.Green;
+					Console.WriteLine("Che fortuna hai indovinato!!!");
+
 					int giri = 10 - tentativi;
 					punteggio += tentativi;
 					Console.WriteLine($"Hai indovinato in {giri} tentativi");
-					Console.WriteLine($"il tuo punteggio e' {punteggio}");
+					Console.ResetColor();
+					Console.ForegroundColor = ConsoleColor.Green;
+					Console.WriteLine($"\n il tuo punteggio e' {punteggio}\nn");
+					Console.ResetColor();
 
 					for (int i = 0; i < 3; i++)
 					{
@@ -63,7 +62,15 @@
 						Thread.Sleep(200);
 					}
 
-					Console.WriteLine("\nVuoi continuare a giocare? s/n");
+					Console.Write("\nVuoi continuare a giocare? ");
+					Console.ForegroundColor = ConsoleColor.Green;
+					Console.Write("s ");
+					Console.ResetColor();
+					Console.Write("/ ");
+					Console.ForegroundColor = ConsoleColor.Red;
+					Console.Write("n\n");
+					Console.ResetColor();
+
 					string risposta = Console.ReadLine()!;
 					if (risposta == "n")
 					{
@@ -74,9 +81,12 @@
 
 				else
 				{
+					Console.ForegroundColor = ConsoleColor.Red;
 					tentativi--; // se non hai azzeccato ti leva un tentativo
 					Console.WriteLine($"Mi dispiace, hai ancora {tentativi} tentativi");
+					Console.ResetColor();
 
+					Console.ForegroundColor = ConsoleColor.Blue;
 					switch (tentativi)
 					{
 						case 9:
@@ -102,13 +112,15 @@
 							}
 						case 6:
 							{
-								Console.WriteLine("Not even close Bro");
+								if (input > x)
+								{Console.WriteLine($"il numero segreto e' minore di {input}");}
+								else
+								{Console.WriteLine($"il numero segreto e' maggiore di {input}");}
 								break;
 							}
 
 						case 5:
 							{
-								bool tra0e25 = x < 25;
 								bool tra25e50 = x > 25 && x < 50;
 								bool tra50e75 = x > 50 && x < 75;
 								bool tra75e100 = x > 75;
@@ -144,22 +156,6 @@
 									somma += a; //divido num per 10, essendo intero non ci sarà parte decimale
 									Console.WriteLine($"La somma delle cifre che compongono il numero e' {somma}");
 								}
-								/* alex way 
-
-								while (true)
-								{
-									int somma = 0;
-									int numeroTemporaneo = numero;
-									while (numeroTemporaneo > 0)
-									{
-											somma += numeroTemporaneo % 10;
-											numeroTemporaneo /= 10;
-									}
-
-								}
-
-								*/
-
 								break;
 							}
 						case 3:
@@ -216,20 +212,22 @@
 							}
 						case 0:
 							{
+								Console.BackgroundColor = ConsoleColor.DarkRed;
 								Console.WriteLine($"HAI PERSO!\nIl numero era {x}"); // finito il ciclo while (e i tentativi) si arriva qua
+								Console.ResetColor();
 								return;
 							}
 					};
+							Console.ResetColor();
+
 					{
 						try
 						{
 							input = int.Parse(Console.ReadLine()!);
-							Console.WriteLine(input);
-
 						}
 						catch (Exception e)
 						{
-							Console.WriteLine("non e' un numero ");
+							Console.WriteLine("non e' un numero, hai sprecato un tentativo");
 						}
 					}
 				}
