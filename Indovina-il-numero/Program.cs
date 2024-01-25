@@ -95,14 +95,14 @@
 					{
 						case 9:
 							{
-								Console.Write("Suggerimento n.1 ");
+								Console.Write("Suggerimento n.1 ----->  ");
 								Maggiore(x, 50); // ti dice se è maggiore di 50
 								break;
 							}
 						case 8:
 							{
 								bool pari = x % 2 == 0;
-								Console.Write("Suggerimento n.2 ");
+								Console.Write("Suggerimento n.2 ----->  ");
 								if (pari)
 								{
 									Console.WriteLine("il numero segreto è Pari");
@@ -115,7 +115,7 @@
 							}
 						case 7:
 							{
-								Console.Write("Suggerimento n.3 ");
+								Console.Write("Suggerimento n.3 ----->  ");
 								if (x > 50) // se è maggiore di 50
 								{
 									Maggiore(x, 75);
@@ -135,7 +135,7 @@
 							}
 						case 5:
 							{
-								Console.Write("Suggerimento n.4 ");
+								Console.Write("Suggerimento n.4 ----->  ");
 								if (Intervallo(x, 75, 100)) // a seconda delle risposte precedenti so in che intervallo sta il numero segreto
 								{
 									Maggiore(x, 90);
@@ -167,90 +167,45 @@
 
 						case 3:
 							{
-								Console.Write("Suggerimento n.5 ");
+								Console.Write("Suggerimento n.5 ----->  ");
 
-
-							/* 
-								Func(a, b) 
-								{
-
-								int c = (a + b) / 2
-
-								else if (Intervallo(x, a, b))
-								{
-									Maggiore(x, c)
-									brek;
-								}
 
 								Dictionary<int, int> step = new() 
 								{
+									{0, 10}, 
 									{10, 25}, 
 									{25, 40}, 
 									{40, 50}, 
 									{50, 60}, 
 									{60, 75}, 
 									{75, 90}, 
-								}
+									{90, 100}, 
+								};
 								
 								foreach(KeyValuePair<int, int> entry in step)
 								{
-									Func(entry.Key , entry.Value)
+									int y = (entry.Key + entry.Value) / 2;
+									if (Intervallo(x, entry.Key , entry.Value))
+									{
+										Maggiore(x, y);
+										break;
+									}
 								}
-							*/
+									break;
+								}
 
-								if (Intervallo(x, 0, 10))
-								{
-									Maggiore(x, 5);
-									break;
-								}
-								else if (Intervallo(x, 10, 25))
-								{
-									Maggiore(x, 15);
-									break;
-								}
-								else if (Intervallo(x, 25, 40))
-								{
-									Maggiore(x, 35);
-									break;
-								}
-								else if (Intervallo(x, 40, 50))
-								{
-									Maggiore(x, 45);
-									break;
-								}
-								else if (Intervallo(x, 50, 60))
-								{
-									Maggiore(x, 55);
-									break;
-								}
-								else if (Intervallo(x, 60, 75))
-								{
-									Maggiore(x, 65);
-									break;
-								}
-								else if (Intervallo(x, 75, 90))
-								{
-									Maggiore(x, 85);
-									break;
-								}
-								else
-								{
-									Maggiore(x, 95);
-									break;
-								}
-							}
 						case 2:
 							{
-								Console.Write("Suggerimento n.5 ");
+								Console.Write("Suggerimento n.6 ----->  ");
 								if (input > x)
-								{ Console.WriteLine($"il numero segreto è minore di {input}"); }
+								{ Console.WriteLine($"il numero segreto è Minore di {input}"); }
 								else
 								{ Console.WriteLine($"il numero segreto è Maggiore di {input}"); }
 								break;
 							}
 						case 1:
 							{
-								Console.Write("Suggerimento n.6 ");
+								Console.Write("Suggerimento n.7 ----->  ");
 								if (x > 10) // se il numero segreto è un numero a due (o tre) cifre
 								{
 									int somma = 0;
