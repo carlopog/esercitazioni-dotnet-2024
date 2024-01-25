@@ -4,7 +4,7 @@
   {
     string path = @"test.txt"; 
     string path2 = @"test2.txt"; 
-    File.Create(path2).Close();
+    File.Create(path2).Close(); // importante chiuderlo se no non ci scrive niente dentro
     string[] lines = File.ReadAllLines(path);
     string[] nomi = new string[lines.Length];
     int a = 0; // introduco una variabile per avere un secondo counter
@@ -20,7 +20,11 @@
     {
       Console.WriteLine("Non ci sono righe con la c");
     }
-    Array.Resize(ref nomi, a); // diminuisco la dimensione del secondo array per non avere stringhe vuote
-    Array.ForEach(nomi, nome => File.AppendAllText(path2, nome + "\n"));
+    else
+    {
+      Array.Resize(ref nomi, a); // diminuisco la dimensione del secondo array per non avere stringhe vuote
+      Array.ForEach(nomi, nome => File.AppendAllText(path2, nome + "\n"));
+      Console.WriteLine("File creato");
+    } 
   }
 }
