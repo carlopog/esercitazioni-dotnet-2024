@@ -1,28 +1,32 @@
-il  linguaggio di markup (in inglese, markup language) è un insieme di regole che descrivono i meccanismi di rappresentazione di un testo che, utilizzando convenzioni standardizzate, sono utilizzabili su più supporti.
 
-Il linguaggio di markup è un linguaggio formale che utilizza convenzioni standardizzate per la marcatura di un testo in modo da associare significato semantico a porzioni di esso. È spesso utilizzato per la formattazione di documenti testuali in modo da renderli più espressivi e facilmente interpretabili, ma può anche essere utilizzato, come nel caso dell'HTML, per definire la struttura logica di un documento e la sua formattazione.
+# BETA TEST
 
-# Titolo principale
-## Sottotitolo 1
-### Titolo paragrafo
+## COMMENTI DI ALE
 
 
-> esempio di quote (citazione)
+### BUG:
 
-esempio di __grassetto__ o **bold**
+	int giri = 10 - tentativi;  -->  questo fa partire i tentativi da 0 invece che da 1 dando problemi anche col punteggio
 
-esempio di _italic_
 
-esempio di elenco
----
-- primo
-    - sottoelenco
-- secondo
-    - sottoelenco
-- terzo
-- quarto
-- quinto
+### NOTE:
 
-esempio di check
-- [x] sddsfsdsf
-- [ ] primo
+ - Prima lo chiami numero e dopo numero segreto
+ - Se so già che è maggiore di 65 non ha senso dirmi che è maggiore di 60 poichè è un suggerimento non utile
+ - _Hai indovinato in 6 tentativi_ --> i tentativi effettuati in realtà sono 7
+ - _il tuo punteggio e' 4_ --> doveva essere di 3
+
+
+### USER EXPERIENCE:
+
+- "il numero è maggiore di 50? True" avrebbe senso se fossi io a chiederlo. 
+
+   Trovo sia meglio dire qualcosa tipo "suggerimento 1: il numero è maggiore di 50"
+
+
+## POST BETA TEST:
+
+- [x] Fixato il bug dei tentativi aggiungendo +1
+- [x] Fixato il punteggio grazie al punto precedente
+- [x] Numero segreto è ora il nome ufficiale in tutti i casi
+- [x] Ho cambiato l'ordine dei suggerimenti in modo da dare per ultimi quelli più specifici
