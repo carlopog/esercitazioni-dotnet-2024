@@ -132,22 +132,22 @@ class Program
     File.Create(path2).Close(); // importante chiuderlo se no non ci scrive niente dentro
     string[] lines = File.ReadAllLines(path);
     string[] nomi = new string[lines.Length];
-    int a = 0; // introduco una variabile per avere un secondo counter
+    int a = 0;
     for (int i = 0; i < lines.Length; i++)
     {
       if ( lines[i].StartsWith("c") )
       {
         nomi[a] = lines[i]; 
-        a++; // a ogni parola che inizia con la c inserita aggiorno il counter
+        a++;
       }
     }
-    if (a < 1) // se il counter e' zero
+    if (a < 1) 
     {
       Console.WriteLine("Non ci sono righe con la c");
     }
     else
     {
-      Array.Resize(ref nomi, a); // diminuisco la dimensione del secondo array per non avere stringhe vuote
+      Array.Resize(ref nomi, a);
       Array.ForEach(nomi, nome => File.AppendAllText(path2, nome + "\n"));
       Console.WriteLine("File creato");
     } 
@@ -156,9 +156,31 @@ class Program
 
 /* OUTPUT:
 ciao
-mamma 
 come 
-stai
-?
+*/
+```
+### 6 - prende dei nomi da un file .txt e fa un sorteggio tra quei nomi
+
+```c#
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    string path = @"test.txt"; 
+    string[] lines = File.ReadAllLines(path);
+    string[] nomi = new string[lines.Length];
+    for (int i = 0; i < lines.Length; i++)
+    {
+      nomi[i] = lines[i]; 
+    }
+    Random random = new Random(); // crea un oggetto random
+    int index = random.Next(nomi.Length); // genera un numero random tra 0 e la lunghezza dell'array
+    Console.WriteLine(nomi[index]); // stampa il nome corrispondente all'indice generato casualmente
+  }
+}
+
+/* OUTPUT:
+Carlo
 */
 ```
