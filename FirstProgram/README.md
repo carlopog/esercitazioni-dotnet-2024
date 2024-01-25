@@ -15,5 +15,95 @@ class Program
   }
 }
 
+/* OUTPUT:
+ciao
+mamma 
+come 
+stai
+?
+*/
+```
+### 2 - prendo le righe di un file .txt in modo casuale e le stampo
 
+```c#
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    string path = @"test.txt"; 
+    string[] lines = File.ReadAllLines(path);
+    string[] nomi = new string[lines.Length];
+    for (int i = 0; i < lines.Length; i++)
+    {
+      Random random = new();
+      int to = lines.Length;
+			int x = random.Next(0, to);
+      nomi[x] = lines[i]; 
+    }
+    Array.ForEach(nomi, Console.WriteLine); // stampa ogni riga
+  }
+}
+/* OUTPUT:
+
+stai
+
+come
+?
+*/
+
+```
+### 3 - prendo le righe di un file .txt e le inserisco nello stesso ordine specificandolo
+
+```c#
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    string path = @"test.txt"; 
+    string[] lines = File.ReadAllLines(path);
+    string[] nomi = new string[lines.Length];
+    for (int i = 0; i < lines.Length; i++)
+    {
+      nomi[i] = lines[i]; 
+    }
+    Array.ForEach(nomi, Console.WriteLine);
+  }
+}
+
+/* OUTPUT:
+ciao
+mamma 
+come 
+stai
+?
+*/
+```
+### 4 - prendo le righe di un file .txt e le inserisco nello stesso ordine specificandolo
+
+```c#
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    string path = @"test.txt"; 
+    string[] lines = File.ReadAllLines(path);
+    string[] nomi = new string[lines.Length];
+    for (int i = 0; i < lines.Length; i++)
+    {
+      nomi[i] = lines[i]; 
+    }
+    Array.ForEach(nomi, Console.WriteLine);
+  }
+}
+
+/* OUTPUT:
+ciao
+mamma 
+come 
+stai
+?
+*/
 ```

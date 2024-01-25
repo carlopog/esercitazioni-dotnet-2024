@@ -2,9 +2,16 @@
 {
   static void Main(string[] args)
   {
-    // string path = @"C:\Users\Utente\Desktop\test.txt"
-    string path = @"test.txt"; // il file deve essere nella stessa cartella del programma 
-    string[] lines = File.ReadAllLines(path); // legge tutte le righe del file che si trova a quel path
-    Array.ForEach(lines, Console.WriteLine); // stampa ogni riga
+    string path = @"test.txt"; 
+    string[] lines = File.ReadAllLines(path);
+
+    string[] nomi = new string[lines.Length];
+
+    for (int i = 0; i < lines.Length; i++)
+    {
+      nomi[i] = lines[i]; 
+    }
+    
+    Array.ForEach(nomi, Console.WriteLine);
   }
 }
