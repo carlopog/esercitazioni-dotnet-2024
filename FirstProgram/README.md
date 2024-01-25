@@ -119,14 +119,30 @@ Non ci sono righe con la c
 */
 ```
 
+### 5 - prendo le righe di un file .txt e creo un altro file .txt solo con le sue righe che iniziano per "c"
 
-    Array.ForEach(nomi, n => {
-      if (n.Length > 0)
-      {
-        Console.WriteLine(n);
-      }
-      else 
-      {
-        Console.WriteLine("deh");
-      }
-  }); 
+```c#
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    string path = @"test.txt"; 
+    string[] lines = File.ReadAllLines(path);
+    string[] nomi = new string[lines.Length];
+    for (int i = 0; i < lines.Length; i++)
+    {
+      nomi[i] = lines[i]; 
+    }
+    Array.ForEach(nomi, Console.WriteLine);
+  }
+}
+
+/* OUTPUT:
+ciao
+mamma 
+come 
+stai
+?
+*/
+```
