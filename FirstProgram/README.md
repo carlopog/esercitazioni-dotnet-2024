@@ -1,4 +1,10 @@
-﻿class Program
+## FILE DI TESTO .txt
+
+### 1 - prendo le righe di un file .txt a un determinato path
+
+```c#
+
+class Program
 {
   static void Main(string[] args)
   {
@@ -8,3 +14,6 @@
     Array.ForEach(lines, Console.WriteLine); // stampa ogni riga
   }
 }
+
+
+```
