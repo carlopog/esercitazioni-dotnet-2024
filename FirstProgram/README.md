@@ -80,7 +80,7 @@ stai
 ?
 */
 ```
-### 4 - prendo le righe di un file .txt e le inserisco nello stesso ordine specificandolo
+### 4 - prendo le righe di un file .txt che iniziano con la lettera "c"
 
 ```c#
 
@@ -91,19 +91,22 @@ class Program
     string path = @"test.txt"; 
     string[] lines = File.ReadAllLines(path);
     string[] nomi = new string[lines.Length];
+    int a = 0; // introduco una variabile per avere un secondo counter
     for (int i = 0; i < lines.Length; i++)
     {
-      nomi[i] = lines[i]; 
+      if ( lines[i].StartsWith("c") )
+      {
+        nomi[a] = lines[i]; 
+        a++; // a ogni parola che inizia con la c inserita aggiorno il counter
+      }
     }
+    Array.Resize(ref nomi, a); // diminuisco la dimensione del secondo array per non avere stringhe vuote
     Array.ForEach(nomi, Console.WriteLine);
   }
 }
 
 /* OUTPUT:
 ciao
-mamma 
 come 
-stai
-?
 */
 ```
