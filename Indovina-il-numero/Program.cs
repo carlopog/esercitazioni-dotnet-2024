@@ -49,7 +49,6 @@
 					Console.WriteLine("");
 				}
 			}
-
 			while (tentativi >= 0) // finchè non arrivi a zero tentativi si ripete questo ciclo
 			{
 				if (input == x) // se input digitato è uguale al numero segreto (hai indovinato)
@@ -136,24 +135,24 @@
 						case 5:
 							{
 								Console.Write("Suggerimento n.4 ----->  ");
-								Dictionary<int, int> steps = new() 
+								Dictionary<int, int> steps = new()
 								{
 									{0, 25},
 									{25, 50},
 									{50, 75},
 									{75, 100}
 								};
-								foreach(KeyValuePair<int, int> entry in steps)
+								foreach (KeyValuePair<int, int> entry in steps)
 								{
 									int y = ((entry.Key + entry.Value) / 2) + 3;
-									if (Intervallo(x, entry.Key , entry.Value))
+									if (Intervallo(x, entry.Key, entry.Value))
 									{
 										Maggiore(x, y);
 										break;
 									}
 								}
-									break;
-								}
+								break;
+							}
 						case 4:
 							{
 								Console.BackgroundColor = ConsoleColor.Cyan;
@@ -164,30 +163,28 @@
 						case 3:
 							{
 								Console.Write("Suggerimento n.5 ----->  ");
-								Dictionary<int, int> step = new() 
+								Dictionary<int, int> step = new()
 								{
-									{0, 10}, 
-									{10, 25}, 
-									{25, 40}, 
-									{40, 50}, 
-									{50, 60}, 
-									{60, 75}, 
-									{75, 90}, 
-									{90, 100}, 
+									{0, 10},
+									{10, 25},
+									{25, 40},
+									{40, 50},
+									{50, 60},
+									{60, 75},
+									{75, 90},
+									{90, 100},
 								};
-								
-								foreach(KeyValuePair<int, int> entry in step)
+								foreach (KeyValuePair<int, int> entry in step)
 								{
 									int y = (entry.Key + entry.Value) / 2;
-									if (Intervallo(x, entry.Key , entry.Value))
+									if (Intervallo(x, entry.Key, entry.Value))
 									{
 										Maggiore(x, y);
 										break;
 									}
 								}
-									break;
-								}
-
+								break;
+							}
 						case 2:
 							{
 								Console.Write("Suggerimento n.6 ----->  ");
@@ -210,7 +207,6 @@
 								}
 								break;
 							}
-
 						case 0:
 							{
 								Console.BackgroundColor = ConsoleColor.DarkRed;
@@ -231,7 +227,6 @@
 							Console.WriteLine("Non è un numero, hai sprecato un tentativo");
 							Console.ResetColor();
 							Console.WriteLine("");
-
 						}
 					}
 				}
