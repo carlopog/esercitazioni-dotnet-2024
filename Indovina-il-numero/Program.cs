@@ -172,7 +172,7 @@
 									{50, 60},
 									{60, 75},
 									{75, 90},
-									{90, 100},
+									{90, 100}
 								};
 								foreach (KeyValuePair<int, int> entry in step)
 								{

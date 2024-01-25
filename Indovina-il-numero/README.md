@@ -1,32 +1,59 @@
+# BETA TEST GUESS MY NUMBER
 
-# BETA TEST
+## OBIETTIVI
 
-## COMMENTI DI ALE
-
+Testare il gioco, segnalare eventuali bug, consigli e spunti sull'user experience.
+- Eccezioni del try-catch
+  prova bene tutte le eccezioni possibili:
+  inserire stringhe invece che numeri, provare numeri troppo grossi ecc.
 
 ### BUG:
+Controllare problema x che non sono riuscito a risolvere
 
-	int giri = 10 - tentativi;  -->  questo fa partire i tentativi da 0 invece che da 1 dando problemi anche col punteggio
-
-
-### NOTE:
-
- - Prima lo chiami numero e dopo numero segreto
- - Se so già che è maggiore di 65 non ha senso dirmi che è maggiore di 60 poichè è un suggerimento non utile
- - _Hai indovinato in 6 tentativi_ --> i tentativi effettuati in realtà sono 7
- - _il tuo punteggio e' 4_ --> doveva essere di 3
 
 
 ### USER EXPERIENCE:
-
-- "il numero è maggiore di 50? True" avrebbe senso se fossi io a chiederlo. 
-
-   Trovo sia meglio dire qualcosa tipo "suggerimento 1: il numero è maggiore di 50"
-
+- Hai suggerimenti per migliorare l'esperienza dell'utente su questo gioco?
+- Come valuti l'usabilità e la chiarezza del gioco?
+- I colori utilizzati nei messaggi all'utente sono leggibili?
 
 ## POST BETA TEST:
 
-- [x] Fixato il bug dei tentativi aggiungendo +1
-- [x] Fixato il punteggio grazie al punto precedente
-- [x] Numero segreto è ora il nome ufficiale in tutti i casi
-- [x] Ho cambiato l'ordine dei suggerimenti in modo da dare per ultimi quelli più specifici
+<details>
+
+<summary> Feedback di Ale </summary>
+
+
+>  **Eccezioni**
+
+- [x] stringhe
+- [ ] numeri maggiori o minori
+
+>  **Bug**
+- [x] punteggio
+
+> **Miglioramenti**
+- [x] esplicitare il range di numeri tra i quali indovinare
+- [x] togliere True e False dai messaggi in console
+</details>
+</details>
+
+Priorità
+1. Range 
+2. Eccezioni
+3. Bug Punteggio
+## Tempistica di sviluppo
+
+```mermaid
+
+gantt
+    title A Gantt Diagram
+    dateFormat  YYYY-MM-DD
+    section Section
+    Range       :a1, 2024-01-24, 1d
+    Eccezioni     :after a1, 2d
+    section Another
+    Bug Punteggio      :a2, 2024-01-24, 2d
+    Refactor       :after a2, 3d
+
+```
