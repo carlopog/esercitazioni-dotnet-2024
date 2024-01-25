@@ -100,6 +100,10 @@ class Program
         a++; // a ogni parola che inizia con la c inserita aggiorno il counter
       }
     }
+    if (a < 1) // se il counter e' zero
+    {
+      Console.WriteLine("Non ci sono righe con la c");
+    }
     Array.Resize(ref nomi, a); // diminuisco la dimensione del secondo array per non avere stringhe vuote
     Array.ForEach(nomi, Console.WriteLine);
   }
@@ -108,5 +112,9 @@ class Program
 /* OUTPUT:
 ciao
 come 
+
+oppure
+
+Non ci sono righe con la c
 */
 ```
