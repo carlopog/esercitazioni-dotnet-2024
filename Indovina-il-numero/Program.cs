@@ -136,27 +136,24 @@
 						case 5:
 							{
 								Console.Write("Suggerimento n.4 ----->  ");
-								if (Intervallo(x, 75, 100)) // a seconda delle risposte precedenti so in che intervallo sta il numero segreto
+								Dictionary<int, int> steps = new() 
 								{
-									Maggiore(x, 90);
+									{0, 25},
+									{25, 50},
+									{50, 75},
+									{75, 100}
+								};
+								foreach(KeyValuePair<int, int> entry in steps)
+								{
+									int y = ((entry.Key + entry.Value) / 2) + 3;
+									if (Intervallo(x, entry.Key , entry.Value))
+									{
+										Maggiore(x, y);
+										break;
+									}
+								}
 									break;
 								}
-								else if (Intervallo(x, 50, 75))
-								{
-									Maggiore(x, 60);
-									break;
-								}
-								else if (Intervallo(x, 25, 50))
-								{
-									Maggiore(x, 40);
-									break;
-								}
-								else
-								{
-									Maggiore(x, 10);
-									break;
-								}
-							}
 						case 4:
 							{
 								Console.BackgroundColor = ConsoleColor.Cyan;
@@ -164,12 +161,9 @@
 								Console.ResetColor();
 								break;
 							}
-
 						case 3:
 							{
 								Console.Write("Suggerimento n.5 ----->  ");
-
-
 								Dictionary<int, int> step = new() 
 								{
 									{0, 10}, 
