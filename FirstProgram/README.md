@@ -39,9 +39,9 @@ class Program
       Random random = new();
       int to = lines.Length;
 			int x = random.Next(0, to);
-      nomi[x] = lines[i]; 
+      nomi[i] = lines[x]; 
     }
-    Array.ForEach(nomi, Console.WriteLine); // stampa ogni riga
+    Array.ForEach(nomi, Console.WriteLine);
   }
 }
 /* OUTPUT:
@@ -118,3 +118,15 @@ oppure
 Non ci sono righe con la c
 */
 ```
+
+
+    Array.ForEach(nomi, n => {
+      if (n.Length > 0)
+      {
+        Console.WriteLine(n);
+      }
+      else 
+      {
+        Console.WriteLine("deh");
+      }
+  }); 

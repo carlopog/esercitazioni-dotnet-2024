@@ -2,23 +2,16 @@
 {
   static void Main(string[] args)
   {
-    string path = @"test.txt";
+    string path = @"test.txt"; 
     string[] lines = File.ReadAllLines(path);
     string[] nomi = new string[lines.Length];
-    int a = 0;
     for (int i = 0; i < lines.Length; i++)
     {
-      if (lines[i].StartsWith("c"))
-      {
-        nomi[a] = lines[i];
-        a++;
-      }
+      Random random = new();
+      int to = lines.Length;
+			int x = random.Next(0, to);
+      nomi[i] = lines[x]; 
     }
-    if (a < 1)
-    {
-      Console.WriteLine("Non ci sono righe con la c");
-    }
-    Array.Resize(ref nomi, a);
     Array.ForEach(nomi, Console.WriteLine);
   }
 }
