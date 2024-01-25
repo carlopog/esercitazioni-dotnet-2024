@@ -192,7 +192,9 @@
 									{75, 90}, 
 								}
 								
-								step.ForEach(func(key, value))
+								foreach(KeyValuePair<int, int> entry in step)
+								{
+									Func(entry.Key , entry.Value)
 								}
 							*/
 
