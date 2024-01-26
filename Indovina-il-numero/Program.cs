@@ -1,9 +1,9 @@
 ﻿class Program
 {
 	// creo una funzione che prende due argomenti e restituisce true se il primo è maggiore del secondo
-	static void Maggiore(int a, int b)
+	static void Maggiore(int x, int b)
 	{
-		if (a > b)
+		if (x > b)
 		{
 			Console.WriteLine($"il numero segreto è Maggiore di {b}");
 		}
@@ -14,9 +14,9 @@
 	}
 	/* creo una funzione che prende tre argomenti e restituisce true se il primo è maggiore del secondo e minore uguale del terzo
 	 quindi ritorna true se il primo e' compreso tra gli altri due */
-	static bool Intervallo(int a, int b, int c)
+	static bool Intervallo(int x, int b, int c)
 	{
-		if (a > b && a <= c)
+		if (x > b && x <= c)
 		{
 			return true;
 		}
@@ -239,7 +239,7 @@
 								Console.ResetColor();
 								return;
 							}
-					};
+					}
 					Console.ResetColor();
 					{
 						try
@@ -249,7 +249,7 @@
 						catch (Exception)
 						{
 							Console.BackgroundColor = ConsoleColor.Magenta;
-							Console.WriteLine("Non è un numero, hai sprecato un tentativo");
+							Console.WriteLine("Non è un numero valido, hai sprecato un tentativo");
 							Console.ResetColor();
 							Console.WriteLine("");
 						}
