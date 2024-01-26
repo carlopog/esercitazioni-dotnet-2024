@@ -28,7 +28,7 @@
 
 	static int Ultimo(Array a)
 	{
-		return a.Length - 1; 
+		return a.Length - 1;
 	}
 	static void Main(string[] args)
 	{
@@ -70,17 +70,17 @@
 					Console.ResetColor();
 					Console.ForegroundColor = ConsoleColor.Green;
 					if (!File.Exists(pathScore))
-    				{
-  					  File.Create(pathScore).Close();
-							File.AppendAllText(pathScore, $"{punteggioPartita}\n");
-						}
-					else 
 					{
-			    	string[] s = File.ReadAllLines(pathScore);
-						int somma = punteggioPartita + int.Parse(s[Ultimo(s)]); 
+						File.Create(pathScore).Close();
+						File.AppendAllText(pathScore, $"{punteggioPartita}\n");
+					}
+					else
+					{
+						string[] s = File.ReadAllLines(pathScore);
+						int somma = punteggioPartita + int.Parse(s[Ultimo(s)]);
 						File.AppendAllText(pathScore, $"{somma}\n");
 					}
-			    string[] scores = File.ReadAllLines(pathScore);
+					string[] scores = File.ReadAllLines(pathScore);
 					Console.WriteLine($"\n il tuo punteggio dopo {scores.Length} partite è di: {scores[Ultimo(scores)]} CarloPoints\n");
 					Console.ResetColor();
 					for (int i = 0; i < 3; i++) // per 3 volte
