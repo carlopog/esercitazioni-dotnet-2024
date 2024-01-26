@@ -252,3 +252,31 @@ Carlo
 Carlo il nome è giò presente
 */
 ```
+
+### 9 - write all lines
+
+```c#
+class Program
+{
+    static void Main(string[] args)
+    {
+      string path = @"test.txt";
+      string[] lines = File.ReadAllLines(path);
+      lines[lines.Length - 1] = "Ciao cane";
+      lines[lines.Length - 1] += "Bau";
+      File.WriteAllLines(path, lines);
+    }
+}
+
+/*
+OUTPUT
+
+Alex
+Alessandro
+ChristianBau Bau
+Ciao cane Bau
+Ciao caneBau
+
+*/
+
+```
