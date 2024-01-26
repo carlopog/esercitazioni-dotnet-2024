@@ -9,7 +9,7 @@
 		}
 		else
 		{
-			Console.WriteLine($"il numero segreto è Minore di {b}");
+			Console.WriteLine($"il numero segreto è Minore o Uguale a {b}");
 		}
 	}
 	/* creo una funzione che prende tre argomenti e restituisce true se il primo è maggiore del secondo e minore uguale del terzo
@@ -32,12 +32,10 @@
 	}
 	static void Main(string[] args)
 	{
-		int punteggio = 0;
-		int partite = 1;
+		int punteggioPartita = 0;
 		bool end = false;
 		string pathNome = @"nome.txt";
 		string pathScore = @"score.txt";
-		string pathGame = @"game.txt";
 		string nome = File.ReadAllText(pathNome);
 		while (!end) // ripeto fino a quando non setto true end
 		{
@@ -67,23 +65,23 @@
 					Console.BackgroundColor = ConsoleColor.Green; // coloro
 					Console.WriteLine("Che fortuna hai indovinato!!!");
 					int giri = 11 - tentativi; // creo la variabile giri che sarebbero i tentativi usati per indovinare
-					punteggio += tentativi - 1; // il punteggio è dato dai tentativi rimanenti
+					punteggioPartita += tentativi - 1; // il punteggio è dato dai tentativi rimanenti
 					Console.WriteLine($"Hai indovinato in {giri} tentativi");
 					Console.ResetColor();
 					Console.ForegroundColor = ConsoleColor.Green;
 					if (!File.Exists(pathScore))
     				{
   					  File.Create(pathScore).Close();
-  					}
-					File.AppendAllText(pathScore, $"{punteggio} CarloPoints\n");
-					if (!File.Exists(pathGame))
-    				{
-  					  File.Create(pathGame).Close();
-  					}
-					File.AppendAllText(pathGame, $"{partite} Game \n");
+							File.AppendAllText(pathScore, $"{punteggioPartita}\n");
+						}
+					else 
+					{
+			    	string[] s = File.ReadAllLines(pathScore);
+						int somma = punteggioPartita + int.Parse(s[Ultimo(s)]); 
+						File.AppendAllText(pathScore, $"{somma}\n");
+					}
 			    string[] scores = File.ReadAllLines(pathScore);
-			    string[] games = File.ReadAllLines(pathGame);
-					Console.WriteLine($"\n il tuo punteggio dopo {games[Ultimo(games)]} è di: {scores[Ultimo(scores)]}\n");
+					Console.WriteLine($"\n il tuo punteggio dopo {scores.Length} partite è di: {scores[Ultimo(scores)]} CarloPoints\n");
 					Console.ResetColor();
 					for (int i = 0; i < 3; i++) // per 3 volte
 					{
@@ -105,7 +103,7 @@
 					}
 					else
 					{
-						partite++;
+						punteggioPartita = 0;
 					}
 					break;
 				}

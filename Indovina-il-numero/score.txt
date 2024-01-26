@@ -1,2 +1,4 @@
-2 CarloPoints
-4 CarloPoints
+3
+8
+8
+12
