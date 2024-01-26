@@ -26,10 +26,6 @@
 		}
 	}
 
-	static int Ultimo(Array a)
-	{
-		return a.Length - 1;
-	}
 	static void Main(string[] args)
 	{
 		int punteggioPartita = 0;
@@ -77,11 +73,11 @@
 					else
 					{
 						string[] s = File.ReadAllLines(pathScore);
-						int somma = punteggioPartita + int.Parse(s[Ultimo(s)]);
+						int somma = punteggioPartita + int.Parse(s[^1]);
 						File.AppendAllText(pathScore, $"{somma}\n");
 					}
 					string[] scores = File.ReadAllLines(pathScore);
-					Console.WriteLine($"\n il tuo punteggio dopo {scores.Length} partite è di: {scores[Ultimo(scores)]} CarloPoints\n");
+					Console.WriteLine($"\n il tuo punteggio dopo {scores.Length} partite è di: {scores[^1]} CarloPoints\n");
 					Console.ResetColor();
 					for (int i = 0; i < 3; i++) // per 3 volte
 					{
