@@ -25,16 +25,27 @@
 			return false;
 		}
 	}
+
+	static int Ultimo(Array a)
+	{
+		return a.Length - 1; 
+	}
 	static void Main(string[] args)
 	{
 		int punteggio = 0;
+		int partite = 1;
 		bool end = false;
+		string pathNome = @"nome.txt";
+		string pathScore = @"score.txt";
+		string pathGame = @"game.txt";
+		string nome = File.ReadAllText(pathNome);
 		while (!end) // ripeto fino a quando non setto true end
 		{
 			Random random = new();
 			int x = random.Next(1, 101); // creo un numero casuale da 1 a 100 
 			int tentativi = 10; // metto staticamente dieci tentativi
 			int input = 0; // inizializzo la variabile input
+			Console.WriteLine($"Ciao {nome},");
 			Console.WriteLine("Prova ad indovinare il numero segreto tra 1 e 100");
 			{
 				try
@@ -60,7 +71,19 @@
 					Console.WriteLine($"Hai indovinato in {giri} tentativi");
 					Console.ResetColor();
 					Console.ForegroundColor = ConsoleColor.Green;
-					Console.WriteLine($"\n il tuo punteggio è {punteggio}\n");
+					if (!File.Exists(pathScore))
+    				{
+  					  File.Create(pathScore).Close();
+  					}
+					File.AppendAllText(pathScore, $"{punteggio} CarloPoints\n");
+					if (!File.Exists(pathGame))
+    				{
+  					  File.Create(pathGame).Close();
+  					}
+					File.AppendAllText(pathGame, $"{partite} Game \n");
+			    string[] scores = File.ReadAllLines(pathScore);
+			    string[] games = File.ReadAllLines(pathGame);
+					Console.WriteLine($"\n il tuo punteggio dopo {games[Ultimo(games)]} è di: {scores[Ultimo(scores)]}\n");
 					Console.ResetColor();
 					for (int i = 0; i < 3; i++) // per 3 volte
 					{
@@ -79,6 +102,10 @@
 					if (risposta == "n")
 					{
 						end = true;
+					}
+					else
+					{
+						partite++;
 					}
 					break;
 				}
