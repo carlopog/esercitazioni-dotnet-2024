@@ -1,9 +1,9 @@
 # SUPER SIC BO 
 ## RULES:
 
-  - si parte con 100 euro di bottino // poi si potrà modificare 
-  - 3 dadi da 6 all'interno di un contenitore chiuso. // salvo il valore dei 3 dati singoli e della loro somma in 4 variabili a,b,c e tot
-  - scommesse // si fa scegliere al giocatore che tipo di puntata vuole fare e da quanto 
+  - si parte con 100 euro di bottino 
+  - tira 3 dadi da 6 all'interno di un contenitore chiuso. // salvo il valore dei 3 dati singoli e della loro somma in 4 variabili a,b,c e tot
+  - scommesse // si fa scegliere al giocatore che tipo di puntata vuole fare e da quanto var scommessa
   - segnalare le quote e dunque la vincita potenziale
   - quando le puntate sono terminate il croupier scopre i dadi // vengono mostrati i 3 numeri e la loro somma 
   - e i vincenti ricevono la vincita corrispondente, proporzionata alla difficoltà della scommessa. 

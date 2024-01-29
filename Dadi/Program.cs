@@ -10,12 +10,14 @@
       Thread.Sleep(300);
     }
   }
+
   static void Main(string[] args)
   {
     Random random = new();
-    int[] dadi = new int[3];
+    int[] d = new int[3];
     int somma = 0;
-    int input = 1;
+    int input;
+    int input2;
     int quota = 1;
     int scommessa = 0;
     int bottino = 100;
@@ -29,11 +31,9 @@
       for (int i = 0; i < 3; i++)
       {
         int n = random.Next(1, 7);
-        dadi[i] = n;
-        // Console.WriteLine($"è uscito il numero {n}");
+        d[i] = n;
         somma += n;
       }
-    // Console.WriteLine($"e la somma e' {somma}");
 
     Scommessa:
       Console.WriteLine("Quanto Scommetti?");
@@ -70,25 +70,30 @@
         Console.WriteLine("se esce due volte 4x,");
         Console.WriteLine("se esce tre volte 6x,");
         Console.ResetColor();
+      ValoreSingolo:
         Console.WriteLine("inserisci il valore singolo che credi uscirà: ");
-
         {
           try
           {
-            input = int.Parse(Console.ReadLine()!); // faccio inserire un nuovo valore a input all'utente, ripetendo il controllo che sia un numero valido
+            input = int.Parse(Console.ReadLine()!); 
+          
+            if (input < 1 || input > 6)
+            {
+              throw new ArgumentOutOfRangeException();
+            }
           }
           catch (Exception)
           {
             Console.BackgroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("Non è un numero valido");
+            Console.WriteLine("Non è un numero valido: dev'essere un intero tra 1 e 6  ");
             Console.ResetColor();
             Console.WriteLine("");
-            goto Scommessa;
+            goto ValoreSingolo;
           }
         }
-        Results(dadi);
+        Results(d);
         List<int> uguali = new();
-        foreach (int dado in dadi)
+        foreach (int dado in d)
         {
           if (dado == input)
           {
@@ -141,8 +146,11 @@
       else if (type == "2")
       {
         quota = 8;
+        Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine($"Hai selezionato Doppia");
         Console.WriteLine($"QUOTA: {quota}x la tua scommessa");
+        Console.ResetColor();
+        Doppia:
         Console.WriteLine("inserisci il valore singolo che credi uscirà due volte");
         {
           try
@@ -155,11 +163,11 @@
             Console.WriteLine("Non è un numero valido");
             Console.ResetColor();
             Console.WriteLine("");
-            goto Scommessa;
+            goto Doppia;
           }
         }
-        Results(dadi);
-        bool dos = (dadi[0] == dadi[1] && dadi[0] == input) || (dadi[2] == dadi[1] && dadi[2] == input) || (dadi[0] == dadi[2] && dadi[0] == input);
+        Results(d);
+        bool dos = (d[0] == d[1] && d[0] == input) || (d[2] == d[1] && d[2] == input) || (d[0] == d[2] && d[0] == input);
         if (dos)
         {
           Console.WriteLine($"Hai indovinato!! due dadi hanno lo stesso valore");
@@ -174,8 +182,9 @@
       }
       else if (type == "3")
       {
+        Triple:
         Console.WriteLine("Vuoi scommettere su una tripla generica o specifica? g / s");
-        string gs = Console.ReadLine();
+        string gs = Console.ReadLine()!;
         if (gs == "g")
         {
           quota = 30;
@@ -189,10 +198,11 @@
           Console.WriteLine($"i numeri usciti sono: ");
           for (int i = 0; i < 3; i++)
           {
-            Console.Write($"{dadi[i]}      ");
+            Console.Write($"{d[i]}      ");
             Thread.Sleep(500);
           }
-          bool tris = (dadi[0] == dadi[1]) && (dadi[1] == dadi[2]);
+          bool tris = (d[0] == d[1]) && (d[1] == d[2]);
+
           if (tris)
           {
             Console.WriteLine($"Hai indovinato!! i tre dadi hanno lo stesso valore");
@@ -207,22 +217,91 @@
         else if (gs == "s")
         {
           quota = 200;
-          Console.WriteLine("Hai selezionato Tripla Specifica, se i 3 dadi hanno il valore da te inserito vinci");
+          Console.WriteLine("Hai selezionato Tripla Specifica, se i 3 dadi hanno il valore inserito da te, vinci");
           Console.WriteLine($"QUOTA: {quota}x la tua scommessa");
           Console.WriteLine("inserisci il valore singolo che credi uscirà tre volte");
+          try
+          {
+            input = int.Parse(Console.ReadLine()!);
+          }
+          catch (Exception)
+          {
+            Console.BackgroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Non è un numero valido");
+            Console.ResetColor();
+            Console.WriteLine("");
+            goto Scommessa;
+          }
+          bool tripla = (d[0] == d[1]) && (d[1] == d[2]) && (d[1] == input);
+
+          Results(d);
+          if (tripla)
+          {
+            Console.WriteLine($"Hai indovinato!! i tre dadi hanno lo stesso valore");
+            bottino += quota * scommessa;
+          }
+          else
+          {
+            Console.WriteLine($"Non hai indovinato, Hai perso {scommessa} euro");
+            bottino -= scommessa;
+          }
         }
         else
         {
           Console.WriteLine("input non valido");
-          goto Scrivi;
+          goto Triple;
         }
 
       }
       else if (type == "4")
       {
         quota = 5;
-        Console.WriteLine("inserisci due valori singoli che credi usciranno insieme");
+        Console.WriteLine($"Hai selezionato Combinazione, per vincere devi azzeccare 2 dei 3 numeri usciti");
         Console.WriteLine($"QUOTA: {quota}x la tua scommessa");
+           ValoreUno:
+             Console.WriteLine("inserisci il primo dei due valori singoli che credi usciranno");
+        {
+          try
+          {
+            input = int.Parse(Console.ReadLine()!); 
+          
+            if (input < 1 || input > 6)
+            {
+              throw new ArgumentOutOfRangeException();
+            }
+          }
+          catch (Exception)
+          {
+            Console.BackgroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Non è un numero valido: dev'essere un intero tra 1 e 6  ");
+            Console.ResetColor();
+            Console.WriteLine("");
+            goto ValoreUno;
+          }
+        }
+         ValoreDue:
+        Console.WriteLine($"inserisci anche il secondo valore");
+        {
+          try
+          {
+            input2 = int.Parse(Console.ReadLine()!); 
+          
+            if (input2 < 1 || input2 > 6)
+            {
+              throw new ArgumentOutOfRangeException();
+            }
+          }
+          catch (Exception)
+          {
+            Console.BackgroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Non è un numero valido: dev'essere un intero tra 1 e 6  ");
+            Console.ResetColor();
+            Console.WriteLine("");
+            goto ValoreDue;
+          }
+        }
+
+        
       }
       else if (type == "5")
       {
