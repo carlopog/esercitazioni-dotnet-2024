@@ -1,11 +1,12 @@
 # SUPER SIC BO 
 ## RULES:
 
-  si parte con 100 euro di bottino // poi si potrà modificare 
-  3 dadi da 6 all'interno di un contenitore chiuso. // salvo il valore dei 3 dati singoli e della loro somma in 4 variabili a,b,c e tot
-  scommesse // si fa scegliere al giocatore che tipo di puntata vuole fare e da quanto dicendogli le quote e dunque la vincita potenziale
-  quando le puntate sono terminate il croupier scopre i dadi // vengono mostrati i 3 numeri e la loro somma 
-  e i vincenti ricevono la vincita corrispondente, proporzionata alla difficoltà della scommessa. 
+  - si parte con 100 euro di bottino // poi si potrà modificare 
+  - 3 dadi da 6 all'interno di un contenitore chiuso. // salvo il valore dei 3 dati singoli e della loro somma in 4 variabili a,b,c e tot
+  - scommesse // si fa scegliere al giocatore che tipo di puntata vuole fare e da quanto 
+  - segnalare le quote e dunque la vincita potenziale
+  - quando le puntate sono terminate il croupier scopre i dadi // vengono mostrati i 3 numeri e la loro somma 
+  - e i vincenti ricevono la vincita corrispondente, proporzionata alla difficoltà della scommessa. 
 
   prerequisiti e analisi
   definizione di strutture e convenzioni
@@ -14,12 +15,10 @@
 
 - [ ]  Creare un progetto console per l'applicazione
 - [ ]  Creare un progetto di test per i test unitari
-- [ ]  l'applicazione deve dare errore se il giocatore scrive delle cose che non sono le scelte o non sono numeri validi.
+- [ ]  l'applicazione deve dare errore se il giocatore scrive input non validi.
 - [ ]  l'applicazione deve salvare i valori dei dadi su un file .txt
 - [ ]  l'applicazione deve salvare il bottino su un file .txt 
 - [ ]  (volendo) l'applicazione deve salvare il tipo di scommessa su un file .txt .
-
-Le puntate devono essere sempre di un importo crescente e le scelte possono essere le seguenti:
 
 ### VALORE SINGOLO
 - [ ]  Dado singolo: uno dei tre dadi mostra il valore prescelto. QUOTA 2:1
@@ -49,7 +48,7 @@ Le puntate devono essere sempre di un importo crescente e le scelte possono esse
 - case tutti gli altri (regola mia)  QUOTA 10:1
 5,6,7,8,13,14,15,16
 ### gruppi
--  QUOTA 2:1
+QUOTA 2:1
 - [ ]  Big: il totale dei dadi è compreso tra 11 e 17.
 - [ ]  Small: il totale dei dadi è compreso tra 4 e 11.
 - [ ]  Pari: il totale dei dadi è un numero pari (il triplo 3 però non dà diritto alla vincita).
@@ -57,5 +56,8 @@ Le puntate devono essere sempre di un importo crescente e le scelte possono esse
 
 
 
+## Modalità estrema:
+Le puntate devono essere sempre di un importo crescente e le scelte possono essere solo le seguenti:
+Combinazione, Doppia, Tripla, Totale: numeri
 
 
