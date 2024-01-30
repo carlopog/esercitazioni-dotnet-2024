@@ -286,12 +286,15 @@ Ciao caneBau
 ```c#
 class Program
 {
+      static void Main(string[] args)
+    {
       string path = @"test.csv";
       string[] lines = File.ReadAllLines(path);
       foreach (string line in lines)
       {
         Console.WriteLine(line);
       }
+    }
 }
 
 /*
@@ -309,7 +312,10 @@ luigi,neri,40
 
 ```c#
 class Program
-{
+{ 
+  
+  static void Main(string[] args)
+  {
       string path = @"test.csv";
       string[] lines = File.ReadAllLines(path);
       string[][] nomi = new string[lines.Length][]; // array di array sarebbe una matrice righe e colonne
@@ -325,6 +331,7 @@ class Program
         }
         Console.WriteLine();
       }
+  }
 }
 
 /*
@@ -338,3 +345,47 @@ luigi,neri,40
 */
 
 ```
+### 12 - stessa cosa dell'esercizio 11 e poi crea un file .csv per ogni riga con il nome del file che corrisponde al nome della prima colonna ed il contenuto del file che corrisponde al contenuto delle altre colonne disponibili
+
+```c#
+class Program
+{ 
+  
+  static void Main(string[] args)
+  {
+      string path = @"test.csv";
+      string[] lines = File.ReadAllLines(path);
+      string[][] nomi = new string[lines.Length][]; // array di array sarebbe una matrice righe e colonne
+      for (int i = 0; i < lines.Length; i++)
+      {
+        nomi[i] = lines[i].Split(',');
+      }
+      foreach (string[] nome in nomi)
+      {
+          string path2 = nome[0] + ".csv"; // il file deve essere nella stessa cartella del programma
+          File.Create(path2).Close(); // crea il file e lo chiude per poterlo modificare
+          for (int i = 1; i < nome.Length; i++)
+          {
+            File.AppendAllText(path2, nome[i] + "\n"); // scrive la riga nel file
+          }
+        // elimino il primo file che contiene le intestazioni delle colonne 
+      }
+        File.Delete("nome.csv");
+  } 
+}
+
+
+/*
+OUTPUT
+
+nome,cognome,eta
+antonio,rossi,20
+mario,verdi,30  
+luigi,neri,40   
+
+*/
+
+```
+
+### Programma che chiede all'utente dui inserire una serie di nomi e cognomi ed eta (andando a cpao ongi volta) e li salva in
+ 
