@@ -280,3 +280,61 @@ Ciao caneBau
 */
 
 ```
+
+### 10 - Programma che legge un file .csv
+
+```c#
+class Program
+{
+      string path = @"test.csv";
+      string[] lines = File.ReadAllLines(path);
+      foreach (string line in lines)
+      {
+        Console.WriteLine(line);
+      }
+}
+
+/*
+OUTPUT
+
+nome,cognome,eta
+antonio,rossi,20
+mario,verdi,30  
+luigi,neri,40   
+
+*/
+
+```
+### 11 - Programma che legge un file .csv creando un array di stringhe per ogni riga del file e divide ogni riga in un array di stringhe utilizzando la virgola come separatore
+
+```c#
+class Program
+{
+      string path = @"test.csv";
+      string[] lines = File.ReadAllLines(path);
+      string[][] nomi = new string[lines.Length][]; // array di array sarebbe una matrice righe e colonne
+      for (int i = 0; i < lines.Length; i++)
+      {
+        nomi[i] = lines[i].Split(',');
+      }
+      foreach (string[] nome in nomi)
+      {
+        foreach (string n in nome)
+        {
+          Console.Write(n + " "); // stampa la riga
+        }
+        Console.WriteLine();
+      }
+}
+
+/*
+OUTPUT
+
+nome,cognome,eta
+antonio,rossi,20
+mario,verdi,30  
+luigi,neri,40   
+
+*/
+
+```
