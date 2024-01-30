@@ -19,8 +19,26 @@
     int input2;
     int quota = 1;
     int scommessa = 0;
+    int lastScommessa = 0;
+    int lastPrestito = 0;
     int bottino = 100;
-    bool guess = false;
+    bool guess;
+    int prestito;
+    int giro = 1;
+
+    string path = @"scommesse.txt";
+    if (!File.Exists(path))
+    {
+      File.Create(path).Close();
+    }
+    File.AppendAllText(path, "0" + "\n");    
+
+    string path2 = @"prestito.txt";
+    if (!File.Exists(path2))
+    {
+      File.Create(path2).Close();
+    }
+    File.AppendAllText(path2, "0" + "\n");    
 
     Console.ForegroundColor = ConsoleColor.Magenta;
     Console.WriteLine($"Ciao Bello il tuo budget di partenza è {bottino}");
@@ -28,6 +46,16 @@
 
     while (bottino > 0)
     {
+      guess = false;
+      string[] lines = File.ReadAllLines(path);
+      string[] scommesse = new string[lines.Length];
+      for (int i = 0; i < lines.Length; i++)
+      {
+        scommesse[i] = lines[i];
+      }
+      lastScommessa = int.Parse(scommesse[^1]);
+      Console.WriteLine($"ultima scommessa {lastScommessa}");
+      prestito = lastScommessa - bottino + 10;
       int somma = 0;
       for (int i = 0; i < 3; i++)
       {
@@ -42,16 +70,65 @@
         try
         {
           scommessa = int.Parse(Console.ReadLine()!); // faccio inserire un nuovo valore a input all'utente, ripetendo il controllo che sia un numero valido
+          if (scommessa <= lastScommessa)
+          {
+            throw new ArgumentOutOfRangeException();
+          }
+          else if (scommessa > bottino)
+            if (giro < 2)
+            {
+              Console.BackgroundColor = ConsoleColor.Green;
+              Console.WriteLine($"Vuoi un prestito di {prestito} euro? s / n");
+              Console.ResetColor();
+              ConsoleKeyInfo keyInfo = Console.ReadKey();
+              if (keyInfo.Key == ConsoleKey.S)
+              {
+                bottino += prestito; 
+                Console.WriteLine($"\n Ora hai {bottino} euro");
+                File.AppendAllText(path2, prestito + "\n");    
+                giro++;
+                goto Scommessa;
+              }
+              else if (keyInfo.Key == ConsoleKey.N)
+              {
+                Console.WriteLine("\nAllora scappa con i tuoi due spiccioli, vigliacco!");
+                return;
+              }
+              else
+              {
+                Console.WriteLine($"input non valido");
+                goto Scommessa;
+              }
+            }
+            else
+            {
+              string[] linee = File.ReadAllLines(path2);
+              string[] prestiti = new string[linee.Length];
+              for (int i = 0; i < linee.Length; i++)
+              {
+                prestiti[i] = linee[i];
+              }
+              lastPrestito = int.Parse(prestiti[^1]);
+              Console.BackgroundColor = ConsoleColor.Red;
+              Console.WriteLine($"Vattene finchè hai ancora dei soldi in tasca,\ne vedi di riportarci i nostri {lastPrestito} euro al più presto!!");
+              Console.ResetColor();
+              return;
+            }
         }
         catch (Exception)
         {
           Console.BackgroundColor = ConsoleColor.Magenta;
-          Console.WriteLine("Non è un numero valido");
+          Console.WriteLine("Non è un numero valido, devi scommettere sempre più della puntata precedente");
           Console.ResetColor();
           Console.WriteLine("");
           goto Scommessa;
         }
       }
+
+      File.AppendAllText(path, $"{scommessa}\n");
+
+
+    Scrivi:
       Console.ForegroundColor = ConsoleColor.Green;
       Console.WriteLine("Tipi di scommessa:");
       Console.WriteLine("1. Valore Singolo");
@@ -60,8 +137,6 @@
       Console.WriteLine("4. Combinazione");
       Console.WriteLine("5. Totale");
       Console.ResetColor();
-
-    Scrivi:
       string type = Console.ReadLine()!;
       if (type == "1")
       {
@@ -499,6 +574,7 @@
           Console.WriteLine($"\nIl totale è {somma}");
           if (guess)
           {
+            quota = 1;
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Quindi hai indovinato, è nel gruppo indicato da te!");
             Console.ResetColor();
