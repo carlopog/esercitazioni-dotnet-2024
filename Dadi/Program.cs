@@ -112,7 +112,7 @@
             }
           case 1:
             {
-              quota = 2;
+              quota = 1;
               Console.WriteLine($"Hai indovinato il valore di un dado");
               Console.WriteLine($"QUOTA: {quota}x la tua scommessa {scommessa}");
               bottino += quota * scommessa;
@@ -120,7 +120,7 @@
             }
           case 2:
             {
-              quota = 4;
+              quota = 2;
               Console.WriteLine($"Hai indovinato il valore di due dadi");
               Console.WriteLine($"QUOTA: {quota}x la tua scommessa");
               bottino += quota * scommessa;
@@ -128,7 +128,7 @@
             }
           case 3:
             {
-              quota = 6;
+              quota = 3;
               Console.WriteLine($"Hai indovinato il valore di tre dadi");
               Console.WriteLine($"QUOTA: {quota}x la tua scommessa");
               bottino += quota * scommessa;
@@ -301,7 +301,44 @@
           }
         }
 
-        
+
+        bool uguale = false;
+        bool combo = false;
+        Results(d);
+        foreach (int dado in d)
+        {
+            if (dado == input)
+            {
+                uguale = true;
+            }
+        }
+        if (uguale)
+        {
+            foreach (int dado in d)
+            {
+                if (dado == input2)
+                {
+                    combo = true;
+                }
+            }
+            if (combo)
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("Hai indovinato, è uscita la combinazione indicata da te!");
+                Console.ResetColor();
+                bottino += quota * scommessa;
+            }
+            else
+            {
+                Console.WriteLine($"Non hai indovinato, Hai perso {scommessa} euro");
+                bottino -= scommessa;
+            }
+        }
+        else
+        {
+            Console.WriteLine($"Non hai indovinato, Hai perso {scommessa} euro");
+            bottino -= scommessa;
+        }
       }
       else if (type == "5")
       {
