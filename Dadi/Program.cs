@@ -142,9 +142,9 @@
       {
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine("QUOTA:");
-        Console.WriteLine("se esce una volta 2x,");
-        Console.WriteLine("se esce due volte 4x,");
-        Console.WriteLine("se esce tre volte 6x,");
+        Console.WriteLine("se esce una volta 1x,");
+        Console.WriteLine("se esce due volte 2x,");
+        Console.WriteLine("se esce tre volte 3x,");
         Console.ResetColor();
       ValoreSingolo:
         Console.WriteLine("inserisci il valore singolo che credi uscirà: ");
