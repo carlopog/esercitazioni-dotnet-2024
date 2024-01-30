@@ -56,11 +56,8 @@ QUOTA 1:1
 - [ ]  Pari: il totale dei dadi è un numero pari (il triplo 3 però non dà diritto alla vincita).
 - [ ]  Dispari: il totale dei dadi è un numero dispari (il triplo 1 però non dà diritto alla vincita).
 
-
-
-## Modalità estrema:
-Le puntate devono essere sempre di un importo crescente e le scelte possono essere solo le seguenti:
-Combinazione, Doppia, Tripla, Totale: numeri
+## Regole aggiuntive
+Le puntate devono essere sempre di un importo crescente 
 se non hai più abbastanza soldi puoi, una volta sola (con un do while)
 "chiedere un prestito" e rischiare tutto 
 o uscire dal gioco 
