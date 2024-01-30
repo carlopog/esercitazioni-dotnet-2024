@@ -21,9 +21,9 @@
 - [ ]  (volendo) l'applicazione deve salvare il tipo di scommessa su un file .txt .
 
 ### VALORE SINGOLO
-- [ ]  Dado singolo: uno dei tre dadi mostra il valore prescelto. QUOTA 2:1
-- [ ]  Doppia: due dei tre dadi avranno lo stesso valore selezionato. QUOTA 4:1
-- [ ]  Tripla: il valore selezionato è su tutti e 3 i dadi. QUOTA 6:1
+- [ ]  Dado singolo: uno dei tre dadi mostra il valore prescelto. QUOTA 1:1
+- [ ]  Doppia: due dei tre dadi avranno lo stesso valore selezionato. QUOTA 2:1
+- [ ]  Tripla: il valore selezionato è su tutti e 3 i dadi. QUOTA 3:1
 
 > Partirei con una versione Beta che prevede solo giocate di questo tipo
 
@@ -43,12 +43,14 @@
 ## TOTALE
 ### numeri
 - [ ]  Totale: il giocatore punta sulla somma del valore dei tre dadi, si può puntare dal 4 al 17 compresi.
-- case 9, 10, 11 e 12 QUOTA 6:1
-- case 4 e 17. QUOTA 50:1
-- case tutti gli altri (regola mia)  QUOTA 10:1
-5,6,7,8,13,14,15,16
+- case 4: case 17: QUOTA 50:1
+- case 5: case 16: QUOTA 25:1
+- case 6: case 15: QUOTA 20:1
+- case 7: case 14: QUOTA 10:1
+- case 8: case 13: QUOTA 8:1
+- case 9: case 10: case 11: case 12: QUOTA 6:1 // quindi tutti gli altri
 ### gruppi
-QUOTA 2:1
+QUOTA 1:1
 - [ ]  Big: il totale dei dadi è compreso tra 11 e 17.
 - [ ]  Small: il totale dei dadi è compreso tra 4 e 11.
 - [ ]  Pari: il totale dei dadi è un numero pari (il triplo 3 però non dà diritto alla vincita).
@@ -59,5 +61,6 @@ QUOTA 2:1
 ## Modalità estrema:
 Le puntate devono essere sempre di un importo crescente e le scelte possono essere solo le seguenti:
 Combinazione, Doppia, Tripla, Totale: numeri
-
-
+se non hai più abbastanza soldi puoi, una volta sola (con un do while)
+"chiedere un prestito" e rischiare tutto 
+o uscire dal gioco 
