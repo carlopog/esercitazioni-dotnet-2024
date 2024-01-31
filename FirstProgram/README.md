@@ -640,7 +640,7 @@ rossi
 */
 
 ```
-### 18 - 
+### 18 - Vuoi leggere un file o eliminarlo?
 
 ```c#
 class Program
@@ -794,8 +794,10 @@ class Program
 {
     static void Main(string[] args)
     {
-
-
+      string headerLine = File.ReadLines(path).First();
+      string lastLine = File.ReadLines(path).Last();
+      Console.WriteLine(headerLine);
+      Console.WriteLine(lastLine);
     }
 }
 
