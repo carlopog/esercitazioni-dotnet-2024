@@ -682,6 +682,7 @@ class Program
       if (File.Exists(fileScelto)) // controlla se il file esiste
       {
         File.Delete(fileScelto); // elimina il file
+        Console.WriteLine($"il file {fileScelto} è stato eliminato"); 
       }
       else
       {
@@ -699,7 +700,16 @@ class Program
 
 /* OUTPUT
 
+antonio.csv
+mario.csv
+test.csv
+Vuoi leggere un file o eliminarlo? (l/e)
+e
+quale file vuoi eliminare?
 
+il file non esiste
+quale file vuoi eliminare?
+test.csv
 
 */
 
