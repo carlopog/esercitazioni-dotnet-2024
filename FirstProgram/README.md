@@ -525,3 +525,71 @@ gesu,cristo,33
 
 ```
  
+### 15 - Vedi tutti i file .csv nella tua cartella, scegli quale vuoi leggere e ti scrive tutte le sue righe in console
+
+```c#
+class Program
+{
+  static void Main(string[] args)
+  {
+    string[] files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.csv"); // legge tutti i file .csv nella cartella del programma
+    foreach (string file in files)
+    {
+      Console.WriteLine(file); // stampa il nome del file
+    }
+    Console.WriteLine("quale file vuoi leggere?");
+    string fileScelto = Console.ReadLine()!; // legge il nome del file scelto
+    string[] lines = File.ReadAllLines(fileScelto); // legge tutte le righe del file
+    foreach (string line in lines)
+    {
+      Console.WriteLine(line); // scrive tutte le righe del file 
+    }
+  }
+}
+
+/* OUTPUT
+
+quale file vuoi leggere?
+test.csv
+nome,cognome,eta
+antonio,rossi,20
+mario,verdi,30
+luigi,neri,40
+
+*/
+
+```
+### 16 - Vedi tutti i file .csv nella tua cartella, scegli quale vuoi eliminare e lo cancella
+
+```c#
+class Program
+{
+  static void Main(string[] args)
+  {
+    string[] files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.csv"); // legge tutti i file .csv nella cartella del programma
+    foreach (string file in files)
+    {
+      Console.WriteLine(file); // stampa il nome del file
+    }
+    Console.WriteLine("quale file vuoi eliminare?");
+    string fileScelto = Console.ReadLine()!; // legge il nome del file scelto
+    if (File.Exists(fileScelto)) // controlla se il file esiste
+    {
+      File.Delete(fileScelto); // elimina il file
+    }
+    else
+    {
+      Console.WriteLine("il file non esiste"); 
+    }
+  }
+}
+
+/* OUTPUT
+
+quale file vuoi eliminare?
+test.csv
+
+*/
+
+```
+ 
