@@ -569,7 +569,7 @@ class Program
     string[] files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.csv"); // legge tutti i file .csv nella cartella del programma
     foreach (string file in files)
     {
-      Console.WriteLine(file); // stampa il nome del file
+      Console.WriteLine(Path.GetFileName(file)); // stampa il nome del file
     }
     Console.WriteLine("quale file vuoi eliminare?");
     string fileScelto = Console.ReadLine()!; // legge il nome del file scelto
@@ -636,6 +636,70 @@ quale file vuoi leggere?
 antonio.csv
 rossi
 20
+
+*/
+
+```
+### 18 - 
+
+```c#
+class Program
+{
+  static void Main(string[] args)
+  {
+        string[] files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.csv"); // legge tutti i file .csv nella cartella del programma
+    foreach (string file in files)
+    {
+      Console.WriteLine(Path.GetFileName(file)); // stampa solo il nome del file
+    }
+    Tipo:
+    Console.WriteLine("Vuoi leggere un file o eliminarlo? (l/e)");
+    string tipoScelto = Console.ReadLine()!; // legge il tipo di operazione scelta
+    if(tipoScelto == "l")
+    {
+      Leggi:
+      Console.WriteLine("Quale file vuoi leggere?");
+      string fileScelto = Console.ReadLine()!; // legge il nome del file scelto
+      if (File.Exists(fileScelto)) // se il file esiste
+      {
+        string[] lines = File.ReadAllLines(fileScelto); // legge tutte le righe del file
+        foreach (string line in lines)
+        {
+          Console.WriteLine(line); // scrive tutte le righe del file 
+        }
+      }
+      else
+      {
+        Console.WriteLine("il file non esiste");
+        goto Leggi;
+      }
+    }
+    else if (tipoScelto == "e")
+    {
+      Elimina:
+      Console.WriteLine("quale file vuoi eliminare?");
+      string fileScelto = Console.ReadLine()!; // legge il nome del file scelto
+      if (File.Exists(fileScelto)) // controlla se il file esiste
+      {
+        File.Delete(fileScelto); // elimina il file
+      }
+      else
+      {
+        Console.WriteLine("il file non esiste"); 
+        goto Elimina;
+      }
+    }
+    else
+    {
+      Console.WriteLine("Tipo non valido.");
+      goto Tipo;
+    }
+  }
+}
+
+/* OUTPUT
+
+
 
 */
 
