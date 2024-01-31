@@ -387,5 +387,141 @@ luigi,neri,40
 
 ```
 
-### Programma che chiede all'utente dui inserire una serie di nomi e cognomi ed eta (andando a cpao ongi volta) e li salva in
+### 13 - Programma che chiede all'utente dui inserire una serie di nomi e cognomi ed eta (andando a capo ongi volta) e li salva in un file .csv
+
+```c#
+class Program
+{
+  static void Main(string[] args)
+  {
+      string path = @"test.csv";
+      File.Create(path).Close(); // crea il file e lo chiude per poterlo modificare
+      while (true)
+      {
+        Console.WriteLine($"inserisci nome, cognome ed eta");
+        string nome = Console.ReadLine()!; // legge il nome
+        string cognome = Console.ReadLine()!; // legge il nome
+        string eta = Console.ReadLine()!; // legge il nome
+        File.AppendAllText(path, nome + "," + cognome + "," + eta + "\n"); // scrive la riga nel file
+        Console.WriteLine("vuoi inserire un altro nome? (s/n)");
+        string risposta = Console.ReadLine()!;
+        if (risposta == "n")
+        {
+          break;
+        }
+      }
+  }
+}
+
+
+```
+ 
+### 14 - Programma che chiede all'utente dui inserire una serie di nomi e cognomi ed eta (andando a capo ongi volta) e li salva in un file .csv solo se non c'e' gia' lo stesso nome nel file .csv
+
+```c#
+class Program
+{
+  static void Main(string[] args)
+  {
+      string path = @"test.csv";
+      File.Create(path).Close(); // crea il file e lo chiude per poterlo modificare
+      while (true)
+      {
+        Console.WriteLine($"inserisci nome, cognome ed eta");
+        string nome = Console.ReadLine()!; // legge il nome
+        string cognome = Console.ReadLine()!; // legge il nome
+        string eta = Console.ReadLine()!; // legge il nome
+        string[] lines = File.ReadAllLines(path);
+        bool found = false;
+        foreach (string line in lines)
+        {
+          if (line.StartsWith(nome)) // controlla se il nome è gia' presente nel file
+          {
+            found = true;
+            break;
+          }
+        }
+        if (!found)
+        {
+          File.AppendAllText(path, nome + "," + cognome + "," + eta + "\n"); // scrive la riga nel file
+        }
+        else
+        {
+          Console.WriteLine("il nome e' gia' presente nel file");
+        }
+        Console.WriteLine("vuoi inserire un altro nome? (s/n)");
+        string risposta = Console.ReadLine()!;
+        if (risposta == "n")
+        {
+          break;
+        }
+      }
+  }
+}
+
+
+```
+### 15 - Programma che chiede all'utente dui inserire una serie di nomi e cognomi ed eta (andando a capo ongi volta) e li salva in un file .csv solo se non c'e' gia' lo stesso nome nel file .csv
+
+```c#
+class Program
+{
+  static void Main(string[] args)
+  {
+      string path = @"test.csv";
+      File.Create(path).Close(); // crea il file e lo chiude per poterlo modificare
+      while (true)
+      {
+        Console.WriteLine($"inserisci nome, cognome ed eta");
+        string nome = Console.ReadLine()!; // legge il nome
+        string cognome = Console.ReadLine()!; // legge il nome
+        string eta = Console.ReadLine()!; // legge il nome
+        if (!File.ReadAllLines(path).Any(line => line.StartsWith(nome))) // controlla che nessuna linea inizi col nome
+        {
+          File.AppendAllText(path, nome + "," + cognome + "," + eta + "\n"); // scrive la riga nel file
+        }
+        else
+        {
+          string[] lines = File.ReadAllLines(path); // legge tutte le righe del file
+          string[][] nomi = new string[lines.Length][]; // crea un array di array di stringhe con la lunghezza dell'array lines (numero di righe del file)
+          for (int i = 0; i < lines.Length; i++)
+          {
+            nomi[i] = lines[i].Split(','); // assegna ad ogni elemento dell'array di array di stringhe il valore della riga corrispondente divisa in un array di stringhe utilizzando la virgola come separatore
+          }
+          for (int i = 0; i < nomi.Length; i++)
+          {
+            if (nomi[i][0] == nome) // se il nome e' gia' presente nel file
+            {
+              nomi[i][1] = cognome; // aggiorno il cognome
+              nomi[i][2] = eta; // aggiorno l'eta'
+            }
+          }
+          File.Delete(path);
+          File.Create(path).Close();
+          foreach (string[] n in nomi)
+          {
+            File.AppendAllText(path, n[0] + "," + n[1] + "," + n[2] + "\n");
+          }
+        }
+        Console.WriteLine("vuoi inserire un altro nome? (s/n)");
+        string risposta = Console.ReadLine()!;
+        if (risposta == "n")
+        {
+          break;
+        }
+      }
+  }
+}
+
+/* OUTPUT
+
+gino,pino,55
+pino,pancio,3
+pinco,pallo,3
+franco,stanco,pancio
+gesu,cristo,33
+
+*/
+
+```
  
