@@ -10,21 +10,48 @@ class Program
     {
       Console.WriteLine(Path.GetFileName(file)); // stampa solo il nome del file
     }
-    Quale:
-    Console.WriteLine("quale file vuoi leggere?");
-    string fileScelto = Console.ReadLine()!; // legge il nome del file scelto
-    if (File.Exists(fileScelto)) // se il file esiste
+    Tipo:
+    Console.WriteLine("Vuoi leggere un file o eliminarlo? (l/e)");
+    string tipoScelto = Console.ReadLine()!; // legge il tipo di operazione scelta
+    if (tipoScelto == "l")
     {
-      string[] lines = File.ReadAllLines(fileScelto); // legge tutte le righe del file
-      foreach (string line in lines)
+      Leggi:
+      Console.WriteLine("Quale file vuoi leggere?");
+      string fileScelto = Console.ReadLine() + ".csv" !; // legge il nome del file scelto
+      try
       {
-        Console.WriteLine(line); // scrive tutte le righe del file 
+        string[] lines = File.ReadAllLines(fileScelto); // legge tutte le righe del file
+        foreach (string line in lines)
+        {
+          Console.WriteLine(line); // scrive tutte le righe del file 
+        }
+      }
+      catch (Exception)
+      {
+        Console.WriteLine("il file non esiste");
+        goto Leggi;
+      }
+    }
+    else if (tipoScelto == "e")
+    {
+      Elimina:
+      Console.WriteLine("quale file vuoi eliminare?");
+      string fileScelto = Console.ReadLine() + ".csv"!; // legge il nome del file scelto
+      try
+      {
+        File.Delete(fileScelto); // elimina il file
+        Console.WriteLine($"il file {fileScelto} è stato eliminato"); 
+      }
+      catch (Exception)
+      {
+        Console.WriteLine("il file non esiste"); 
+        goto Elimina;
       }
     }
     else
     {
-      Console.WriteLine("il file non esiste");
-      goto Quale;
+      Console.WriteLine("Tipo non valido.");
+      goto Tipo;
     }
   }
 }
