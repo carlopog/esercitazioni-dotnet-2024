@@ -592,4 +592,52 @@ test.csv
 */
 
 ```
+### 17 - Vedi tutti i nomi dei file .csv nella tua cartella, scegli quale vuoi eliminare e lo cancella
+
+```c#
+class Program
+{
+  static void Main(string[] args)
+  {
+    string[] files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.csv"); // legge tutti i file .csv nella cartella del programma
+    foreach (string file in files)
+    {
+      Console.WriteLine(Path.GetFileName(file)); // stampa solo il nome del file
+    }
+    Quale:
+    Console.WriteLine("quale file vuoi leggere?");
+    string fileScelto = Console.ReadLine()!; // legge il nome del file scelto
+    if (File.Exists(fileScelto)) // se il file esiste
+    {
+      string[] lines = File.ReadAllLines(fileScelto); // legge tutte le righe del file
+      foreach (string line in lines)
+      {
+        Console.WriteLine(line); // scrive tutte le righe del file 
+      }
+    }
+    else
+    {
+      Console.WriteLine("il file non esiste");
+      goto Quale;
+    }
+  }
+}
+
+/* OUTPUT
+
+antonio.csv
+luigi.csv
+mario.csv
+test.csv
+quale file vuoi leggere?
+3
+il file non esiste
+quale file vuoi leggere?
+antonio.csv
+rossi
+20
+
+*/
+
+```
  
