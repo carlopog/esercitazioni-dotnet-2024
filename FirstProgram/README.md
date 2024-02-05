@@ -811,3 +811,23 @@ OUTPUT
 */
 
 ```
+### 21 - prendi un json
+```c#
+    string path = @"test.csv";
+    string[] lines = File.ReadAllLines(path);
+    string[][] prodotti = new string[lines.Length][];
+    for (int i = 0; i < lines.Length; i++)
+    {
+      prodotti[i] = lines[i].Split(','); // assegna ad ogni elemento dell'array di array di stringhe il valore della riga corrispondente 
+      // divisa in un array di stringhe utilizzando la virgola come separatore
+    }
+    for (int i = 0; i < prodotti.Length; i++)
+    {
+      string path2 = prodotti[i][0] + ".json";
+      File.Create(path2).Close();
+      File.AppendAllText(path2, JsonConvert.SerializeObject(new { nome = prodotti[i][0], prezzo = prodotti[i][1] }));
+    }
+    string json = File.ReadAllText(prodotti[0][0] + ".json");
+    dynamic obj = JsonConvert.DeserializeObject(json)!; // deserializza il file
+    Console.WriteLine($"nome prodotto {obj.nome} e prezzo {obj.prezzo}");
+```
