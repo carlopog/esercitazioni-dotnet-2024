@@ -788,6 +788,10 @@ mario,verdi,30
 ```
 
 ###  20 - 
+Per poter utilizzare JSON e' necessario installare il pacchetto NuGet Newtonsoft.Json
+il comando per installare il pacchetto NuGet Newtonsoft.Json e'
+dotnet add package Newtonsoft.Json
+
 
 ```c#
 class Program

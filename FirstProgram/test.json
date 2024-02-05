@@ -1,0 +1,10 @@
+{
+  "nome": "Carlo",
+  "cognome": "Poggi",
+  "eta": 20,
+  "indirizzo": 
+  {
+    "via": "san quirico",
+    "civico": "7b"
+  }
+}
