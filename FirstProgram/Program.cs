@@ -7,6 +7,7 @@ class Program
   {
     string path = @"test.json";
     string json = File.ReadAllText(path);
-    Console.WriteLine(json);
+    dynamic obj = JsonConvert.DeserializeObject(json)!; // deserializza il file
+    Console.WriteLine($"nome: {obj.nome} \ncognome: {obj.cognome} \neta: {obj.eta}");
   }
 }
