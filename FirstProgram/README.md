@@ -592,7 +592,7 @@ test.csv
 */
 
 ```
-### 17 - Vedi tutti i nomi dei file .csv nella tua cartella, scegli quale vuoi eliminare e lo cancella
+### 17 - Vedi tutti i nomi dei file .csv nella tua cartella, scegli quale vuoi leggere e ti scrive tutte le righe
 
 ```c#
 class Program

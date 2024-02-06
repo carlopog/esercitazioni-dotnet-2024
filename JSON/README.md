@@ -10,23 +10,27 @@ e al cassiere di fare il conto totale in tempo reale
 
 ## Prerequisiti (cosa devo avere prima di iniziare)
 
-- [x] un file .json con coppie chiave-valore di piatti e prezzi 
-- [ ] un secondo file (.txt) con il Menu scritto per bene, diviso in sezioni (opzionale diversi file per antipasti, primi, secondi, dolci e vini)
-- [ ] file (vuoti) dei tavoli pronti da riempire con gli ordini
+- [x] un file .json con il trio di tipo, piatti e prezzi 
+- [x] file vuoti (o da creare) dei tavoli pronti da riempire con gli ordini
 
 
 ## Requisiti (cosa deve fare il programma)
 
-- [ ] fare in modo di elencare la lista di antipasti al cliente
-- [ ] ricevere la sua ordinazione (scelta col Console.ReadLine)
-- [ ] scrivere e salvare la sua ordinazione in un nuovo file (.csv) inserendo la coppia Piatto e Prezzo 
-- [ ] oppure in due file .txt diversi chiamati Cucina e Cassa il piatto e il prezzo
-- [ ] ripetere l'operazione con i vini
-- [ ] ripetere l'operazione con i primi
-- [ ] ripetere l'operazione con i vini
-- [ ] ripetere l'operazione con i secondi
-- [ ] ripetere l'operazione con i dolci
-- [ ] chiedere il numero del tavolo
-- [ ] prendere il file Cassa e sommare i valori dei piatti ordinati per far pagare il conto
-- [ ] svuotare il file del tavolo che ha pagato
-- [ ] ringraziare e salutare
+- [x] fare in modo di elencare la lista di antipasti al cliente
+- [x] ricevere la sua ordinazione (scelta col Console.ReadLine)
+- [x] chiedere il numero del tavolo
+- [x] scrivere e salvare la sua ordinazione in due file .txt diversi chiamati Ordine e Cassa (con il numero del tavolo) il piatto e il prezzo
+- [x] ripetere l'operazione con i vini
+- [x] ripetere l'operazione con i primi
+- [x] ripetere l'operazione con i vini
+- [x] ripetere l'operazione con i secondi
+- [x] ripetere l'operazione con i dolci
+- [ ] chiedere il numero del tavolo // meglio di no, tiene la risposta di prima
+- [x] prendere il file Cassa (giusto) e sommare i valori dei piatti ordinati per far pagare il conto
+- [x] svuotare il file del tavolo che ha pagato
+- [x] ringraziare e salutare
+
+## Nice to have
+
+- [ ] un file .txt con il Menu scritto per bene, diviso in sezioni (o diversi file per antipasti, primi, secondi, dolci e vini)
+- [ ] piatti ordinabili tramite numeri o codici cosi da non dover scrivere tutta la parola
