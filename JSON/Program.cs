@@ -8,16 +8,16 @@ class Program
     string piattiJson = File.ReadAllText(pathPiatti);
     dynamic menu = JsonConvert.DeserializeObject(piattiJson)!;
 
+    int tavoloNumero = Tavolo();
+
     string[] piatti = new string[25]; // array del menu 
     string[] prezzi = new string[25]; // array dei costi
+    string[] tipi = ["antipasti","primi","vini","secondi","vini","dolci"];
 
-    int tavoloNumero = Tavolo();
-    Ordine("antipasti", piatti, prezzi, menu, tavoloNumero);
-    Ordine("primi", piatti, prezzi, menu, tavoloNumero);
-    Ordine("vini", piatti, prezzi, menu, tavoloNumero);
-    Ordine("secondi", piatti, prezzi, menu, tavoloNumero);
-    Ordine("vini", piatti, prezzi, menu, tavoloNumero);
-    Ordine("dolci", piatti, prezzi, menu, tavoloNumero);
+    foreach (string t in tipi)
+    {
+      Ordine(t, piatti, prezzi, menu, tavoloNumero);
+    };
 
     Console.WriteLine("Buon appetito");
     Thread.Sleep(500);
@@ -72,6 +72,7 @@ class Program
     Console.Write("Buonasera signori, ");
     Console.WriteLine($"cosa gradite come {tipi}?");
     string a;
+    int c = 0;
 
     for (int i = 0; i < 25; i++)
     {
@@ -80,7 +81,8 @@ class Program
       a = menu[i].tipo;
       if (tipi == a)
       {
-        Console.WriteLine($"{piatti[i]} a {costi[i]} euro");
+        c = i + 1;
+        Console.WriteLine($"{c}. {piatti[i]} a {costi[i]} euro");
       }
     }
 
@@ -89,35 +91,46 @@ class Program
     string piatto; // piatto singolo
     int costo; // costo del singolo
 
+    Scelta:
     string scelta = Console.ReadLine()!;
-    for (int i = 0; i < 25; i++)
+    try
     {
-      piatto = piatti[i];
-      costo = int.Parse(costi[i]);
-      if (scelta == piatto)
+      int numScelto = int.Parse(scelta) - 1;
+      for (int i = 0; i < 25; i++)
       {
-        if (!File.Exists(pathOrdine))
+        piatto = piatti[i];
+        costo = int.Parse(costi[i]);
+        if (piatti[numScelto] == piatto)
         {
-          File.Create(pathOrdine).Close();
+          if (!File.Exists(pathOrdine))
+          {
+            File.Create(pathOrdine).Close();
+          }
+          File.AppendAllText(pathOrdine, piatto + "\n");
+          if (!File.Exists(pathOrdine))
+          {
+            File.Create(pathCassa).Close();
+          }
+          File.AppendAllText(pathCassa, costo + "\n");
         }
-        File.AppendAllText(pathOrdine, piatto + "\n");
-        if (!File.Exists(pathOrdine))
-        {
-          File.Create(pathCassa).Close();
-        }
-        File.AppendAllText(pathCassa, costo + "\n");
       }
-    }
-    if (tipi != "vini")
-    {
-      Console.WriteLine($"Volete ordinare altri {tipi}? s/n");
-      string siNo = Console.ReadLine()!;
-      if (siNo == "s")
+      if (tipi != "vini")
       {
-        goto Inizio;
-      }
+        Console.WriteLine($"Volete ordinare altri {tipi}? s/n");
+        string siNo = Console.ReadLine()!;
+        if (siNo == "s")
+        {
+          goto Inizio;
+        }
     }
     Thread.Sleep(500);
+    }
+    catch (Exception)
+    {
+      Console.WriteLine("devi inserire un numero");
+      goto Scelta;
+    }
+
   }
 
 
