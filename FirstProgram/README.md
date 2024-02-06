@@ -813,6 +813,7 @@ OUTPUT
 ```
 ### 21 - prendi un json
 ```c#
+
     string path = @"test.csv";
     string[] lines = File.ReadAllLines(path);
     string[][] prodotti = new string[lines.Length][];
@@ -830,4 +831,35 @@ OUTPUT
     string json = File.ReadAllText(prodotti[0][0] + ".json");
     dynamic obj = JsonConvert.DeserializeObject(json)!; // deserializza il file
     Console.WriteLine($"nome prodotto {obj.nome} e prezzo {obj.prezzo}");
+    
+```
+
+### 22 
+
+```c#
+
+  {
+    string path = @"test.json";
+    File.Create(path).Close();
+    File.AppendAllText(path, "[\n");
+    while (true)
+    {
+      Console.WriteLine($"inserisci nome e prezzo");
+      string nome = Console.ReadLine()!;
+      string prezzo = Console.ReadLine()!;
+      File.AppendAllText(path, JsonConvert.SerializeObject(new {nome, prezzo }) + "\n");
+      Console.WriteLine($"vuoi inserire un altro prodotto? s/n");
+      string risposta = Console.ReadLine()!;
+      if (risposta == "n")
+      {
+        break;
+      }
+    }
+    // togli l'ultima virgola
+    string file = File.ReadAllText(path);
+    file = file.Remove(file.Length -1, 1); // vai nell'ultima riga
+    File.WriteAllText(path, file);
+    File.AppendAllText(path, "]"); // scrive la riga nel file
+  }
+
 ```

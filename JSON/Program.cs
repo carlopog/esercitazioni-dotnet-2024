@@ -14,6 +14,7 @@ class Program
     string[] prezzi = new string[25]; // array dei costi
     string[] tipi = ["antipasti","primi","vini","secondi","vini","dolci"];
 
+
     foreach (string t in tipi)
     {
       Ordine(t, piatti, prezzi, menu, tavoloNumero);
