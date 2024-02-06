@@ -32,5 +32,7 @@ e al cassiere di fare il conto totale in tempo reale
 
 ## Nice to have
 
+- [ ] il prezzo dei piatti a fianco ai nomi nel resoconto (?)
 - [ ] un file .txt con il Menu scritto per bene, diviso in sezioni (o diversi file per antipasti, primi, secondi, dolci e vini)
-- [ ] piatti ordinabili tramite numeri o codici cosi da non dover scrivere tutta la parola
+- [x] piatti ordinabili tramite numeri o codici cosi da non dover scrivere tutta la parola
+- [x] foreach tipi
