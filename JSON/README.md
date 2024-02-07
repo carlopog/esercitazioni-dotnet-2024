@@ -11,8 +11,6 @@ e al cassiere di fare il conto totale in tempo reale
 ## Prerequisiti (cosa devo avere prima di iniziare)
 
 - [x] un file .json con il trio di tipo, piatti e prezzi 
-- [x] file vuoti (o da creare) dei tavoli pronti da riempire con gli ordini
-
 
 ## Requisiti (cosa deve fare il programma)
 
