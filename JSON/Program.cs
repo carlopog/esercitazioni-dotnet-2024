@@ -4,15 +4,25 @@ class Program
 {
   static void Main(string[] args)
   {
-    string pathPiatti = @"piatti.json"; // menu con piatto e costo
-    string piattiJson = File.ReadAllText(pathPiatti);
-    dynamic menu = JsonConvert.DeserializeObject(piattiJson)!;
+    string[] tipi = ["antipasti","vini","primi","secondi","dolci"]; 
+    string pathJson = "menu.json";
+    File.Create(pathJson).Close(); // creo il menu
+    File.AppendAllText(pathJson, "[\n");
+    CreateFiles(tipi, pathJson); // ci scrivo dentro i vari piatti e i loro prezzi
+    string file = File.ReadAllText(pathJson);
+    file = file.Remove(file.Length -2, 1); // vai nell'ultima riga e cancella la virgola
+    File.WriteAllText(pathJson, file);
+    File.AppendAllText(pathJson, "]");
+
+    string piattiJson = File.ReadAllText(pathJson);
+    
+    dynamic menu = JsonConvert.DeserializeObject(piattiJson)!; // ti da una lista 
+    int count = menu.Count; // fai .Count perche' e' una lista, fosse un array sarebbe .Lenght
+    
+    string[] piatti = new string[count]; // array del menu 
+    string[] prezzi = new string[count]; // array dei costi
 
     int tavoloNumero = Tavolo();
-
-    string[] piatti = new string[25]; // array del menu 
-    string[] prezzi = new string[25]; // array dei costi
-    string[] tipi = ["antipasti","primi","vini","secondi","vini","dolci"];
 
 
     foreach (string t in tipi)
@@ -24,6 +34,29 @@ class Program
     Thread.Sleep(500);
     Cassa(tavoloNumero);
     Console.WriteLine("Grazie e Arrivederci!");
+  }
+
+  static void CreateFiles(string[] tipi, string pathJson)
+  {
+    int numero = 0;
+    foreach (string tipo in tipi)
+    {
+      string path = @$"{tipo}.csv";
+      string[] lines = File.ReadAllLines(path);
+      string[] piatti = new string[lines.Length];
+      for (int i = 0; i < lines.Length; i++)
+      {
+        piatti[i] = lines[i];
+      };
+      foreach (string piattoPrezzo in piatti)
+      {
+        numero++;
+        int lettere = piattoPrezzo.Length - 3;
+        string piatto = piattoPrezzo.Substring(0, lettere);
+        string prezzo = piattoPrezzo.Substring(lettere+1);
+        File.AppendAllText(pathJson, JsonConvert.SerializeObject(new {numero, tipo, piatto, prezzo}) + ",\n");
+      }
+    }
   }
 
   static int Tavolo()
@@ -75,7 +108,7 @@ class Program
     string a;
     int c = 0;
 
-    for (int i = 0; i < 25; i++)
+    for (int i = 0; i < menu.Count; i++)
     {
       piatti[i] = menu[i].piatto;
       costi[i] = menu[i].prezzo;
@@ -84,6 +117,7 @@ class Program
       {
         c = i + 1;
         Console.WriteLine($"{c}. {piatti[i]} a {costi[i]} euro");
+        Thread.Sleep(600);
       }
     }
 
@@ -97,7 +131,7 @@ class Program
     try
     {
       int numScelto = int.Parse(scelta) - 1;
-      for (int i = 0; i < 25; i++)
+      for (int i = 0; i < menu.Count; i++)
       {
         piatto = piatti[i];
         costo = int.Parse(costi[i]);
@@ -131,7 +165,6 @@ class Program
       Console.WriteLine("devi inserire un numero");
       goto Scelta;
     }
-
   }
 
 
