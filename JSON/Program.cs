@@ -4,26 +4,25 @@ class Program
 {
   static void Main(string[] args)
   {
-    string[] tipi = ["antipasti","vini","primi","secondi","dolci"]; 
+    string[] tipi = ["antipasti", "vini", "primi", "secondi", "dolci"];
     string pathJson = "menu.json";
     File.Create(pathJson).Close(); // creo il menu
     File.AppendAllText(pathJson, "[\n");
     CreateFiles(tipi, pathJson); // ci scrivo dentro i vari piatti e i loro prezzi
     string file = File.ReadAllText(pathJson);
-    file = file.Remove(file.Length -2, 1); // vai nell'ultima riga e cancella la virgola
+    file = file.Remove(file.Length - 2, 1); // vai nell'ultima riga e cancella la virgola
     File.WriteAllText(pathJson, file);
     File.AppendAllText(pathJson, "]");
 
     string piattiJson = File.ReadAllText(pathJson);
-    
+
     dynamic menu = JsonConvert.DeserializeObject(piattiJson)!; // ti da una lista 
-    int count = menu.Count; // fai .Count perche' e' una lista, fosse un array sarebbe .Lenght
-    
+    int count = menu.Count; // fai .Count perche' e' una lista, fosse un array sarebbe .Length
+
     string[] piatti = new string[count]; // array del menu 
     string[] prezzi = new string[count]; // array dei costi
 
     int tavoloNumero = Tavolo();
-
 
     foreach (string t in tipi)
     {
@@ -53,8 +52,8 @@ class Program
         numero++;
         int lettere = piattoPrezzo.Length - 3;
         string piatto = piattoPrezzo.Substring(0, lettere);
-        string prezzo = piattoPrezzo.Substring(lettere+1);
-        File.AppendAllText(pathJson, JsonConvert.SerializeObject(new {numero, tipo, piatto, prezzo}) + ",\n");
+        string prezzo = piattoPrezzo.Substring(lettere + 1);
+        File.AppendAllText(pathJson, JsonConvert.SerializeObject(new { numero, tipo, piatto, prezzo }) + ",\n");
       }
     }
   }
@@ -84,12 +83,13 @@ class Program
     string pathCassa = @$"{tavolo}cassa.txt";
     string pathOrdine = @$"{tavolo}ordine.txt";
     string[] piattiTavolo = File.ReadAllLines(pathOrdine);
-    foreach (string piatto in piattiTavolo)
-    {
-      Console.WriteLine(piatto);
-      Thread.Sleep(300);
-    }
     string[] contoTavolo = File.ReadAllLines(pathCassa);
+
+    for (int i = 0; i < piattiTavolo.Length; i++)
+    {
+      Console.WriteLine($"{piattiTavolo[i]} {contoTavolo[i]} €");
+      Thread.Sleep(500);
+    }
     foreach (string conto in contoTavolo)
     {
       int price = int.Parse(conto);
@@ -117,7 +117,7 @@ class Program
       {
         c = i + 1;
         Console.WriteLine($"{c}. {piatti[i]} a {costi[i]} euro");
-        Thread.Sleep(600);
+        Thread.Sleep(500);
       }
     }
 
@@ -126,7 +126,9 @@ class Program
     string piatto; // piatto singolo
     int costo; // costo del singolo
 
-    Scelta:
+  Scelta:
+    Console.WriteLine("inserisca il numero del piatto desiderato");
+    
     string scelta = Console.ReadLine()!;
     try
     {
@@ -157,8 +159,8 @@ class Program
         {
           goto Inizio;
         }
-    }
-    Thread.Sleep(500);
+      }
+      Thread.Sleep(500);
     }
     catch (Exception)
     {

@@ -25,14 +25,13 @@ e al cassiere di fare il conto totale in tempo reale
 - [x] ripetere l'operazione con i vini
 - [x] ripetere l'operazione con i secondi
 - [x] ripetere l'operazione con i dolci
-- [ ] chiedere il numero del tavolo // meglio di no, tiene la risposta di prima
 - [x] prendere il file Cassa (giusto) e sommare i valori dei piatti ordinati per far pagare il conto
 - [x] svuotare il file del tavolo che ha pagato
 - [x] ringraziare e salutare
 
 ## Nice to have
 
-- [ ] il prezzo dei piatti a fianco ai nomi nel resoconto (?)
-- [ ] un file .txt con il Menu scritto per bene, diviso in sezioni (o diversi file per antipasti, primi, secondi, dolci e vini)
+- [x] un file .txt con il Menu scritto per bene, diviso in sezioni (o diversi file per antipasti, primi, secondi, dolci e vini)
 - [x] piatti ordinabili tramite numeri o codici cosi da non dover scrivere tutta la parola
 - [x] foreach tipi
+- [x] il prezzo dei piatti a fianco ai nomi nel resoconto (?) 
