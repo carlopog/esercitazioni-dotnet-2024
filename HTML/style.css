@@ -1,0 +1,38 @@
+body {
+  margin: 80px;
+  padding: 80px;
+  font-family: Arial;
+  font-size: large;
+}
+
+header {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+nav {
+  background-color: rgb(160, 17, 17);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 20px;
+}
+
+nav a:hover {
+  background-color: white;
+  color: black;
+}
+
+section {
+  padding-top: 20px;
+}
