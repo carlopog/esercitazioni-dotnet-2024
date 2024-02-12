@@ -58,8 +58,8 @@ QUOTA 1:1
 - [x]  (volendo) l'applicazione deve salvare il tipo di scommessa su un file .txt .
 - [x]  l'applicazione deve dare errore se il giocatore scrive input non validi.
 - [ ]  Creare un progetto di test per i test unitari
-- [ ]  l'applicazione deve salvare il bottino su un file .txt 
 - [ ]  tasto uscita per salvare i soldi da parte
+- [ ]  l'applicazione deve salvare il bottino su un file .txt 
 
 - [ ]  l'applicazione deve salvare i valori dei dadi su un file .txt
 ## Regole aggiuntive
