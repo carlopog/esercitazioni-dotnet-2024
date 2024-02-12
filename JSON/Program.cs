@@ -12,7 +12,7 @@ class Program
     }
     catch (Exception)
     {
-      Console.WriteLine("inserisci un numero");
+      Console.WriteLine("inserisci un numero valido");
     }    
 
     string[] tipi = ["antipasti", "vini", "primi", "secondi", "dolci"];
@@ -35,10 +35,73 @@ class Program
 
     int tavoloNumero = Tavolo(numeroTavoli);
 
-    foreach (string t in tipi)
+    bool desideraAltro = true;
+    int tipoScelto = 1;
+    string testo = "antipasti";
+
+    while (desideraAltro)
+
     {
-      Ordine(t, piatti, prezzi, menu, tavoloNumero);
-    };
+
+      Console.WriteLine("Cosa volete ordinare?");
+      Console.WriteLine("1. Antipasti");
+      Console.WriteLine("2. Vini");
+      Console.WriteLine("3. Primi");
+      Console.WriteLine("4. Secondi");
+      Console.WriteLine("5. Dolci");
+
+      try
+      {
+        tipoScelto = int.Parse(Console.ReadLine()!);
+           if (tipoScelto > 5 || tipoScelto < 1)
+        {
+          throw new ArgumentOutOfRangeException();
+        }
+      }
+      catch (Exception)
+      {
+        Console.WriteLine("inserisci un numero valido");
+      }
+
+      switch (tipoScelto)
+      {
+        case 1:
+        {
+          testo = "antipasti";
+          break;
+        }
+        case 2:
+        {
+          testo = "vini";
+          break;
+        }
+        case 3:
+        {
+          testo = "primi";
+          break;
+        }
+        case 4:
+        {
+          testo = "secondi";
+          break;
+        }
+        case 5:
+        {
+          testo = "dolci";
+          break;
+        }
+      }
+
+      Ordine(testo, piatti, prezzi, menu, tavoloNumero);
+
+      Console.WriteLine("Desiderate altro? s/n");
+      string da = Console.ReadLine()!;
+      if (da == "n")
+      {
+        desideraAltro = false;
+      }
+    }
+      
 
     Console.WriteLine("Buon appetito");
     Thread.Sleep(500);
@@ -122,6 +185,7 @@ class Program
     Console.WriteLine($"cosa gradite come {tipi}?");
     string a;
     int c = 0;
+    int qTipo = 1;
 
     for (int i = 0; i < menu.Count; i++)
     {
@@ -131,6 +195,7 @@ class Program
       if (tipi == a)
       {
         c = i + 1;
+        qTipo++;
         Console.WriteLine($"{c}. {piatti[i]} a {costi[i]} euro");
         Thread.Sleep(500);
       }
@@ -152,6 +217,12 @@ class Program
       {
         piatto = piatti[i];
         costo = int.Parse(costi[i]);
+        int top = c-qTipo;
+        
+        if (numScelto >= c || numScelto <= top)
+        {
+          throw new ArgumentOutOfRangeException();
+        }
         if (piatti[numScelto] == piatto)
         {
           if (!File.Exists(pathOrdine))
@@ -179,7 +250,7 @@ class Program
     }
     catch (Exception)
     {
-      Console.WriteLine("devi inserire un numero");
+      Console.WriteLine("Devi inserire un numero valido");
       goto Scelta;
     }
   }
