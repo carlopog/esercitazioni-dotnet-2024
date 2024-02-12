@@ -34,6 +34,8 @@ nav a:hover {
 }
 
 section {
+  display: flex;
+  flex-direction: column;
   padding-top: 20px;
 }
 
@@ -41,5 +43,46 @@ footer {
   background-color: black;
   color: white;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  display: block;
+  margin: 20px;
+}
+
+h2 {
+  text-align: justify;
+  line-height: 1.5;
+  text-indent: 20px;
+}
+p {
+  line-height: 1.5;
+  text-indent: 20px;
+}
+
+header p {
   text-align: center;
+  text-indent: 0;
+}
+
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  text-align:justify;
+}
+
+#centro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#last-link {
+  margin-bottom: 40px;
 }
