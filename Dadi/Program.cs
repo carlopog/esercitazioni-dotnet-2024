@@ -11,6 +11,32 @@
     }
   }
 
+  static void Exit(string nome, string eta, int prestito, int bottino)
+  {
+    string pathGiocatoriBottino = @"giocatori.csv";
+    if (!File.Exists(pathGiocatoriBottino))
+    {
+      File.Create(pathGiocatoriBottino).Close();
+    }
+    int soldi = bottino - prestito;
+     if (File.ReadAllLines(pathGiocatori).Any(line => line.StartsWith(nomeGiocatore)))
+      {
+        for (int i = 0; i < righe.Length; i++)
+        {
+          string[] giocatoreNoto = righe[i].Split(',');
+          if (giocatoreNoto[0] == nomeGiocatore)
+          {
+            giocatoreNoto[3] = soldi
+          }
+        }
+      }
+      else
+      {
+        File.AppendAllText(pathGiocatoriBottino, giocatore + "," + eta + "," + soldi);
+      }
+  }
+
+
   static void Main(string[] args)
   {
     string pathGiocatori = @"giocatori.csv";
@@ -53,6 +79,15 @@
           if (giocatoreNoto[0] == nomeGiocatore)
           {
             Console.WriteLine($"Ah bentornato {giocatoreNoto[0]}, mi ricordo di te, tu hai {giocatoreNoto[1]} anni");
+            if (giocatoreNoto[2] > 0)
+            {
+              Console.WriteLine($" e hai ancora {giocatoreNoto[2]} euro dall'ultima volta");
+            }
+            else if (giocatoreNoto[2] < 0)
+            {
+              Console.WriteLine($" e ci devi ancora {giocatoreNoto[2]} euro dall'ultima volta");
+            }
+
             int etaNota = int.Parse(giocatoreNoto[1]);
             if (etaNota > 17)
             {
@@ -74,7 +109,7 @@
         {
           string eta = Console.ReadLine()!;
           int age = int.Parse(eta);
-          File.AppendAllText(pathGiocatori, eta);
+          File.AppendAllText(pathGiocatori, eta + "," + 0);
            if (age >= 18)
            {
               Console.WriteLine($"Beh se hai {eta} anni allora puoi giocare");
