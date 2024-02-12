@@ -11,6 +11,7 @@ header {
   padding: 20px;
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
+  border-radius: 40px;
 }
 
 nav {
@@ -37,6 +38,13 @@ section {
   display: flex;
   flex-direction: column;
   padding-top: 20px;
+  padding-bottom: 40px;
+  border-bottom: 3px solid pink;
+}
+
+hr{
+  border-style: solid;
+  width: 100%;
 }
 
 footer {
@@ -77,12 +85,54 @@ li {
   text-align:justify;
 }
 
+table {
+  border: 1px solid red;
+}
+
+div {
+  border: 1px solid rgb(0, 0, 0);
+  padding: 30px;
+  margin: 25px 0;
+}
+
+
+td, th {
+  border: 1px solid black;
+  text-align: center;
+  padding: 5px;
+  height: 100px;
+}
+
+input,
+textarea
+{
+  padding: 10px 20px;
+  margin: 10px;
+}
+
+select 
+{
+  padding: 10px 65px;
+  margin: 10px;
+}
+
+.color-a{
+  background-color: rgb(213, 59, 20);
+}
+.color-b{
+  background-color: rgb(92, 147, 173);
+}
+.color-c{
+  background-color: rgb(231, 183, 25);
+}
+
+
 #centro {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#last-link {
+#last {
   margin-bottom: 40px;
 }
