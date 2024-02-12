@@ -4,6 +4,17 @@ class Program
 {
   static void Main(string[] args)
   {
+    int numeroTavoli = 1;
+    Console.WriteLine("Quanti tavoli ha il tuo ristorante?");
+    try 
+    {
+      numeroTavoli = int.Parse(Console.ReadLine()!);
+    }
+    catch (Exception)
+    {
+      Console.WriteLine("inserisci un numero");
+    }    
+
     string[] tipi = ["antipasti", "vini", "primi", "secondi", "dolci"];
     string pathJson = "menu.json";
     File.Create(pathJson).Close(); // creo il menu
@@ -22,7 +33,7 @@ class Program
     string[] piatti = new string[count]; // array del menu 
     string[] prezzi = new string[count]; // array dei costi
 
-    int tavoloNumero = Tavolo();
+    int tavoloNumero = Tavolo(numeroTavoli);
 
     foreach (string t in tipi)
     {
@@ -58,7 +69,7 @@ class Program
     }
   }
 
-  static int Tavolo()
+  static int Tavolo(int numeroTavoli)
   {
     int tavolo = 0;
     Console.WriteLine("Tavolo numero?");
@@ -67,10 +78,14 @@ class Program
     try
     {
       tavolo = int.Parse(res);
+      if (tavolo > numeroTavoli || tavolo < 1)
+      {
+        throw new ArgumentOutOfRangeException();
+      }
     }
     catch (Exception)
     {
-      Console.WriteLine("devi inserire un numero");
+      Console.WriteLine("Devi inserire un numero valido");
       goto Res;
     }
     return tavolo;

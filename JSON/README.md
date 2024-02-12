@@ -8,6 +8,14 @@ che permetta ai camerieri di prendere gli ordini dei diversi tavoli
 
 e al cassiere di fare il conto totale in tempo reale
 
+## Beta Test di Natalya
+
+- [x] Limitare il numero dei tavoli selezionabili (quanti tavoli ci sono? e poi controllo con quel numero)
+- [ ] Si potrebbe fare un menu con i sottomenu per i tipi (antipasti primi ecc) cosi' da non avere piu' i 2 seguenti problemi
+- inserendo il numero che non e' nel tipo ma presente nel menu la scelta viene inserita comunque (es. antipasti arriva fino a 6 e io dico 15)
+- Se volessi saltare un tipo (non ordinare nulla) non posso
+
+
 ## Prerequisiti (cosa devo avere prima di iniziare)
 
 - [x] un file .json con il trio di tipo, piatti e prezzi 
