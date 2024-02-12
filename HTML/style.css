@@ -36,3 +36,10 @@ nav a:hover {
 section {
   padding-top: 20px;
 }
+
+footer {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
