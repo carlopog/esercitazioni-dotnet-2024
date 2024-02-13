@@ -1,150 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="it">
 <head>
-  <title>Landing Page</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetto Full-Stack in C#</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"> 
+    <!-- font family roboto dalla pagina di google fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- icone di awesome dal loro cdn  -->
 </head>
-
 <body>
-  <header>
-    <h1>Titolo</h1>
-    <!-- <h2>Header2</h2> -->
-    <p>Sottotitolo</p>
-    <!-- <h4>Header4</h4> -->
-    <!-- <h5>Header5</h5> -->
-  </header>
-
-  <nav>
-    <a href="#">Link</a>
-    <a href="#section1">Sezione 1</a>
-    <a href="#section2">Sezione 2</a>
-    <a href="#section3">Sezione 3</a>
-    <a href="#section4">Sezione 4</a>
-  </nav>
-
-  <div id="centro">
-    <hr>
-
-    <section id="section1">
-      <h2>Section1</h2>
-    <hr>
-
-      <img src="https://via.placeholder.com/300x200" alt="Immagine 1">
-      <!-- se vuoi puoi non chiudere il tag -->
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-      </p>
-
-      <ul>
-        <li>aaa</li>
-        <li>aaa</li>
-        <li>aaa</li>
-        <li>aaa</li>
-        <li>aaa</li>
-      </ul>
-
+    <header>
+        <nav>
+            <ul>
+                <i class="fas fa-blog"></i>
+                <li><a href="#progetto">Il Progetto</a></li>
+                <li><a href="#funzionalita">Funzionalità</a></li>
+                <li><a href="#tecnologie">Tecnologie</a></li>
+                <li><a href="#team">Il Team</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="progetto">
+        <h1>Benvenuti al nostro progetto Full-Stack in C#</h1>
+        <p>Descrizione generale del progetto, inclusi gli obiettivi e la visione.</p>
     </section>
-    <hr>
-    <section id="section2">
-      <h2>Section2</h2>
-      <img src="https://via.placeholder.com/300x200" alt="Immagine 2" />
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-      </p>
-      <ol>
-        <li>aaa</li>
-        <li>aaa</li>
-        <li>aaa</li>
-        <li>aaa</li>
-        <li>aaa</li>
-      </ol>
+    <section id="funzionalita">
+        <h2>Funzionalità principali</h2>
+        <p>Dettagli sulle funzionalità chiave del progetto.</p>
     </section>
-    <section id="section3">
-      <h2>Section3</h2>
-      <img src="https://via.placeholder.com/300x200" alt="Immagine 3" />
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-      </p>
-      <table>
-        <tr>
-          <th>intestazione 1</th>
-          <th>intestazione 2</th>
-          <th>intestazione 3</th>
-          <th>intestazione 4</th>
-        </tr>
-        <tr>
-          <td>Cella 1</td>
-          <td>Cella 2</td>
-        </tr>
-        <tr>
-          <td>Cella 1</td>
-          <td>Cella 2</td>
-        </tr>
-        <tr>
-          <td>Cella 1</td>
-          <td>Cella 2</td>
-        </tr>
-
-      </table>
+    <section id="tecnologie">
+        <h2>Tecnologie Utilizzate</h2>
+        <p>Elenco delle tecnologie e degli strumenti utilizzati nel progetto, inclusi C#, .NET, JavaScript, ecc.</p>
     </section>
-    <section id="section4">
-      <h2>Section4</h2>
-      <img src="https://via.placeholder.com/300x200" alt="Immagine 4" />
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-      </p>
-      <form action="#" method="post">
-        <div>
-          <div class="color-a"> <input type="text" name="nome" placeholder="Nome" /> </div>
-        </div>
-        <div>
-          <div class="color-b"> <input type="email" name="email" placeholder="Email" /> </div>
-        </div>
-        <div>
-          <div class="color-c"> <input type="password" name="password" placeholder="Password" /> </div>
-        </div>
-        <div>
-          <div class="color-c">
-            <textarea name="testo">Testo </textarea>
-          </div>
-        </div>
-        <div>
-          <div class="color-b">
-            <select name="opzione">
-              <option value="1">Opzione 1</option>
-              <option value="2">Opzione 2</option>
-            </select>
-
-          </div>
-        </div>
-        <div>
-          <div class="color-a">
-            <input type="submit" name="submit" placeholder="invia" />
-          </div>
-        </div>
-      </form>
+    <section id="team">
+        <h2>Conosci il Team</h2>
+        <p>Informazioni sui membri del team, le loro competenze e ruoli nel progetto.</p>
     </section>
-
-    <p>testo di prova</p>
-
-    <a href="#">Back to the top</a>
-    <button id="last" type="button">Bottone del niente</button>
-  </div>
-
-  <footer>
-    <p>copyright © (alt+184)</p>
-    <ol>
-      <li>aaa</li>
-      <li>aaa</li>
-      <li>aaa</li>
-      <li>aaa</li>
-      <li>aaa</li>
-    </ol>
-  </footer>
-
-
-
-</body>
-
+    <section id="contatti">
+        <h2>Contatti</h2>
+        <p>Dettagli su come contattare il team per ulteriori informazioni o collaborazioni.</p>
+    </section>
+    <section id="progetto">
+        <h1>Benvenuti al nostro progetto Full-Stack in C#</h1>
+        <p>Descrizione generale del progetto, inclusi gli obiettivi e la visione.</p>
+    </section>
+    <section id="funzionalita">
+        <h2>Funzionalità principali</h2>
+        <p>Dettagli sulle funzionalità chiave del progetto.</p>
+    </section>
+    <section id="tecnologie">
+        <h2>Tecnologie Utilizzate</h2>
+        <p>Elenco delle tecnologie e degli strumenti utilizzati nel progetto, inclusi C#, .NET, JavaScript, ecc.</p>
+    </section>
+    <section id="team">
+        <h2>Conosci il Team</h2>
+        <p>Informazioni sui membri del team, le loro competenze e ruoli nel progetto.</p>
+    </section>
+    <section id="contatti">
+        <h2>Contatti</h2>
+        <p>Dettagli su come contattare il team per ulteriori informazioni o collaborazioni.</p>
+    </section>
+    <section id="progetto">
+        <h1>Benvenuti al nostro progetto Full-Stack in C#</h1>
+        <p>Descrizione generale del progetto, inclusi gli obiettivi e la visione.</p>
+    </section>
+    <section id="funzionalita">
+        <h2>Funzionalità principali</h2>
+        <p>Dettagli sulle funzionalità chiave del progetto.</p>
+    </section>
+    <section id="tecnologie">
+        <h2>Tecnologie Utilizzate</h2>
+        <p>Elenco delle tecnologie e degli strumenti utilizzati nel progetto, inclusi C#, .NET, JavaScript, ecc.</p>
+    </section>
+    <section id="team">
+        <h2>Conosci il Team</h2>
+        <p>Informazioni sui membri del team, le loro competenze e ruoli nel progetto.</p>
+    </section>
+    <section id="contatti">
+        <h2>Contatti</h2>
+        <p>Dettagli su come contattare il team per ulteriori informazioni o collaborazioni.</p>
+    </section>
+    <footer>
+      <p>&copy; 2024 Nome del Progetto. Tutti i diritti riservati.</p>
+    </footer>
+  </body>
 </html>
