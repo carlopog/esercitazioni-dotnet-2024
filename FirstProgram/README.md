@@ -416,7 +416,7 @@ class Program
 
 ```
  
-### 14 - Programma che chiede all'utente dui inserire una serie di nomi e cognomi ed eta (andando a capo ongi volta) e li salva in un file .csv solo se non c'e' gia' lo stesso nome nel file .csv
+### 14 - Programma che chiede all'utente di inserire una serie di nomi e cognomi ed eta (andando a capo ongi volta) e li salva in un file .csv solo se non c'e' gia' lo stesso nome nel file .csv
 
 ```c#
 class Program
@@ -461,7 +461,7 @@ class Program
 
 
 ```
-### 15 - Programma che chiede all'utente dui inserire una serie di nomi e cognomi ed eta (andando a capo ongi volta) e li salva in un file .csv solo se non c'e' gia' lo stesso nome nel file .csv
+### 15 - Programma che chiede all'utente di inserire una serie di nomi e cognomi ed eta (andando a capo ongi volta) e li salva in un file .csv solo se non c'e' gia' lo stesso nome nel file .csv
 
 ```c#
 class Program
