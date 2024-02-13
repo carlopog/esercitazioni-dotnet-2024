@@ -5,6 +5,7 @@ class Program
   static void Main(string[] args)
   {
     int numeroTavoli = 1;
+
     Console.WriteLine("Quanti tavoli ha il tuo ristorante?");
     try 
     {
@@ -35,6 +36,20 @@ class Program
 
     int tavoloNumero = Tavolo(numeroTavoli);
 
+    int turno = 1;
+    string pathTurno = "tavolo" + tavoloNumero + "-turno.txt";
+    File.Create(pathTurno).Close(); 
+    File.WriteAllText(pathTurno, turno.ToString());
+
+    Turno:
+    if (File.Exists("contoTavolo" + tavoloNumero + "-" + "turno" + turno + ".txt"))
+    {
+      int turnoPrecedente = int.Parse(File.ReadAllText(pathTurno));
+      turno = turnoPrecedente + 1; 
+      File.WriteAllText(pathTurno, turno.ToString());
+      goto Turno;
+    }
+
     bool desideraAltro = true;
     int tipoScelto = 1;
     string testo = "antipasti";
@@ -43,6 +58,7 @@ class Program
 
     {
 
+      Tipo:
       Console.WriteLine("Cosa volete ordinare?");
       Console.WriteLine("1. Antipasti");
       Console.WriteLine("2. Vini");
@@ -61,6 +77,7 @@ class Program
       catch (Exception)
       {
         Console.WriteLine("inserisci un numero valido");
+        goto Tipo;
       }
 
       switch (tipoScelto)
@@ -105,7 +122,7 @@ class Program
 
     Console.WriteLine("Buon appetito");
     Thread.Sleep(500);
-    Cassa(tavoloNumero);
+    Cassa(tavoloNumero, turno);
     Console.WriteLine("Grazie e Arrivederci!");
   }
 
@@ -154,17 +171,25 @@ class Program
     return tavolo;
   }
 
-  static void Cassa(int tavolo)
+  static void Cassa(int tavolo, int turno)
   {
     Console.WriteLine("Signori, stasera avete mangiato:");
     int total = 0;
     string pathCassa = @$"{tavolo}cassa.txt";
     string pathOrdine = @$"{tavolo}ordine.txt";
+    string pathConto = @$"contoTavolo{tavolo}-turno{turno}.txt";
+    if (File.Exists(pathConto))
+    {
+      turno++;
+      pathConto = @$"contoTavolo{tavolo}-turno{turno}.txt";
+    }
+    File.Create(pathConto).Close();
     string[] piattiTavolo = File.ReadAllLines(pathOrdine);
     string[] contoTavolo = File.ReadAllLines(pathCassa);
 
     for (int i = 0; i < piattiTavolo.Length; i++)
     {
+      File.AppendAllText(pathConto, $"{piattiTavolo[i]} {contoTavolo[i]} € \n");
       Console.WriteLine($"{piattiTavolo[i]} {contoTavolo[i]} €");
       Thread.Sleep(500);
     }
@@ -174,8 +199,20 @@ class Program
       total += price;
     }
     Console.WriteLine($"Per un totale di {total} euro");
-    File.Delete(pathCassa);
-    File.Delete(pathOrdine);
+
+    Console.WriteLine("il cliente ha pagato? (cancello i file ordine e cassa?) s/n");
+     string siNo = Console.ReadLine()!;
+        if (siNo == "s")
+        {
+          File.AppendAllText(pathConto, "PAGATO");
+        }
+        else
+        {
+          File.AppendAllText(pathConto, "DEVE ANCORA PAGARE");
+          Console.WriteLine("Non si preoccupi, se non ha contanti oggi può pagare la prossima volta");
+        }
+          File.Delete(pathCassa);
+          File.Delete(pathOrdine);
   }
 
   static void Ordine(string tipi, string[] piatti, string[] costi, dynamic menu, int tavolo)
