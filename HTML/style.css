@@ -1,12 +1,12 @@
 
 body {
-  font-family: Roboto, sans-serif;
+  font-family: "Patrick Hand SC", cursive;
+  font-size: large;
   margin: 100px 0 0 0;
   padding: 0;
   box-sizing: border-box;
   background-color: rgb(228, 244, 255);
 }
-
 
 header {
   background-color:  rgb(40, 138, 204);
@@ -87,4 +87,75 @@ span {
 .last {
   display: grid;
   grid-template-rows: 350px 350px; 
+}
+
+
+@media (max-width:765px) {
+  
+body {
+  margin: 120px 0 0 0;
+}
+  section {
+    grid-template-columns: 350px;
+    grid-template-rows: 260px 260px; 
+  }
+  header {
+    background-color:  rgb(236, 63, 11);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 1000px;
+    overflow-y: scroll;
+    top: 0;
+  }
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 375px;
+  }
+
+  nav ul li {
+    margin: 10px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+  }
+  
+  nav ul li a:hover {
+    background-color: white;
+    color: #007bff;
+    text-decoration: none;
+  }
+  img {
+    padding: 25px;
+  }
+  .link {
+    margin-bottom: 130px;
+  }
+  .last {
+    display: grid;
+    grid-template-rows: 260px 300px; 
+  }
+  .titolo{
+    max-width: 350px;
+    margin-top: 20px;
+    margin-bottom: -100px;
+  }
+}
+
+@media (max-width:365px) {
+  section {
+    grid-template-columns: 330px;
+  }
+  img {
+    padding: 15px;
+  }
+  .titolo{
+    max-width: 310px;
+  }
 }
