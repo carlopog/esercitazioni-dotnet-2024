@@ -69,7 +69,6 @@
         }
     }
 
-
   static void Main(string[] args)
   {
     string pathGiocatori = @"giocatori.csv";
@@ -100,9 +99,10 @@
     {
       Console.WriteLine("Come ti chiami?");
       string nomeGiocatore = Console.ReadLine()!;
-      string[] ilGiocatoreAttuale = new string[1];
-      ilGiocatoreAttuale[0] = nomeGiocatore;
-      File.WriteAllLines(pathGiocatoreAttuale, ilGiocatoreAttuale);
+      string[] nomeGiocatoreAttuale = new string[1];
+      int[] etaPrestitoBottino = new int[3];
+      nomeGiocatoreAttuale[0] = nomeGiocatore;
+      File.WriteAllLines(pathGiocatoreAttuale, nomeGiocatoreAttuale);
 
       if (File.ReadAllLines(pathGiocatori).Any(line => line.StartsWith(nomeGiocatore)))
       {
@@ -112,12 +112,14 @@
           if (giocatoreNoto[0] == nomeGiocatore)
           {
             Console.WriteLine($"Ah bentornato {giocatoreNoto[0]}, mi ricordo di te, tu hai {giocatoreNoto[1]} anni");
+            etaPrestitoBottino[0] = int.Parse(giocatoreNoto[1]);
             if (int.Parse(giocatoreNoto[2]) > 0)
             {
               Console.WriteLine($" e ci devi ancora {giocatoreNoto[2]} euro dall'ultima volta");
-              if (int.Parse(giocatoreNoto[2]) > 100)
+              if (int.Parse(giocatoreNoto[2]) < 100)
               {
-                bottino -= int.Parse(giocatoreNoto[2]);
+                etaPrestitoBottino[1] = 0;
+                etaPrestitoBottino[2] = 100 - int.Parse(giocatoreNoto[2]);
               }
               else 
               {
@@ -127,10 +129,12 @@
             if (int.Parse(giocatoreNoto[3]) > 0)
             {
               Console.WriteLine($" e hai ancora {giocatoreNoto[3]} euro dall'ultima volta");
+              etaPrestitoBottino[2] = 100 + int.Parse(giocatoreNoto[3]);
             }
-            else if (int.Parse(giocatoreNoto[3]) < 0)
+            else if (int.Parse(giocatoreNoto[3]) == 0)
             {
-              Console.WriteLine($" e ci devi ancora {giocatoreNoto[2]} euro dall'ultima volta");
+              Console.WriteLine($"ci vuoi riprovare vedo, anche oggi hai 100 euro a disposizione.");
+              etaPrestitoBottino[2] = 100;
             }
 
             int etaNota = int.Parse(giocatoreNoto[1]);
@@ -141,6 +145,12 @@
             else
             {
               Console.WriteLine("Non sei maggiorenne brutto bugiardo! Tornatene a casa!!");
+            }
+            foreach (int e in etaPrestitoBottino)
+            {
+              Console.WriteLine(e);
+              
+              File.AppendAllText(pathGiocatoreAttuale,  e.ToString() + ",");
             }
           }
         }
@@ -154,7 +164,10 @@
         {
           string eta = Console.ReadLine()!;
           int age = int.Parse(eta);
-          File.AppendAllText(pathGiocatori, eta);
+          etaPrestitoBottino[0] = age;
+          etaPrestitoBottino[1] = 0;
+          etaPrestitoBottino[2] = 100;
+          File.AppendAllText(pathGiocatori, eta + "," + 0 + "," + 100);
            if (age >= 18)
            {
               Console.WriteLine($"Beh se hai {eta} anni allora puoi giocare");
@@ -197,9 +210,7 @@
     int scommessa = 0;
     int lastScommessa = 0;
     int lastPrestito = 0;
-    int bottino = 100;
     bool guess;
-    int prestito;
     int giro = 1;
 
     string pathScommesse = @"scommesse.txt";
@@ -217,18 +228,35 @@
     File.AppendAllText(pathPrestito, "0" + "\n");    
 
     Console.ForegroundColor = ConsoleColor.Magenta;
-    string[] giocatoreAttuale = File.ReadAllLines(pathGiocatoreAttuale);
-    Console.WriteLine($"Ciao {giocatoreAttuale[0]} il tuo budget di partenza è {bottino}");
+    string[] lines = File.ReadAllLines(pathGiocatori);
+    string[][] giocatori = new string[lines.Length][];
+    for (int i = 0; i < lines.Length; i++)
+    {
+      giocatori[i] = lines[i].Split(','); 
+    }
+
+    int il = giocatori.Length - 1;
+    
+    string[] gA = [
+      giocatori[il][0],
+      giocatori[il][1].ToString(),
+      giocatori[il][2].ToString(),
+      giocatori[il][3].ToString(),
+    ];
+
+    int prestito = int.Parse(gA[2]);
+    int bottino = int.Parse(gA[3]);   
+    Console.WriteLine($"Ciao {gA[0]} il tuo budget di partenza è {bottino}");
     Console.ResetColor();
 
     while (bottino > 0)
     {
       guess = false;
-      string[] lines = File.ReadAllLines(path);
-      string[] scommesse = new string[lines.Length];
-      for (int i = 0; i < lines.Length; i++)
+      string[] lineee = File.ReadAllLines(pathScommesse);
+      string[] scommesse = new string[lineee.Length];
+      for (int i = 0; i < lineee.Length; i++)
       {
-        scommesse[i] = lines[i];
+        scommesse[i] = lineee[i];
       }
       lastScommessa = int.Parse(scommesse[^1]);
       Console.WriteLine($"ultima scommessa {lastScommessa}");
@@ -236,7 +264,7 @@
 
       if (scommesse.Length > 2)
       {
-        Exit(giocatoreAttuale);
+        Exit(gA);
       }
 
 
@@ -269,8 +297,8 @@
               {
                 bottino += prestito; 
                 Console.WriteLine($"\n Ora hai {bottino} euro");
-                File.AppendAllText(pathPrestito, prestito );    
-                File.AppendAllText(pathGiocatori, "," + prestito );    
+                File.AppendAllText(pathPrestito, prestito.ToString() );    
+                File.AppendAllText(pathGiocatori, "," + prestito.ToString() );    
                 giro++;
                 goto Scommessa;
               }
@@ -312,7 +340,7 @@
         }
       }
 
-      File.AppendAllText(path, $"{scommessa}\n");
+      File.AppendAllText(pathScommesse, $"{scommessa}\n");
 
 
     Scrivi:
@@ -403,8 +431,6 @@
               return;
             }
         }
-
-
       }
       else if (type == "2")
       {
@@ -792,7 +818,7 @@
         Console.ResetColor();
         if (bottino == 0)
         {
-          File.AppendAllText(path, "," + 0)
+          File.AppendAllText(pathGiocatori, "," + 0 + "\n");
           Console.BackgroundColor = ConsoleColor.Red;
           Console.WriteLine($"Vattene via pezzente!");
           Console.ResetColor();
