@@ -45,14 +45,18 @@ img {
   padding: 30px;
 }
 
-h2 {
-  padding-top: 30px;
+select {
+  margin-left: 20px;
+  padding: 0px 15px;
+  border-radius: 10px;
+  height: 45px;
+  margin-top: 10px;
 }
 
 section {
   display: grid;
-  grid-template-columns: 380px 380px;
-  grid-template-rows: 260px; 
+  grid-template-columns: 360px 400px;
+  grid-template-rows: 360px; 
   padding: 10px;
 }
 
@@ -81,7 +85,7 @@ span {
 }
 
 .link {
-  margin-bottom: 70px;
+  margin-bottom: 120px;
 }
 
 .last {
@@ -97,7 +101,7 @@ body {
 }
   section {
     grid-template-columns: 350px;
-    grid-template-rows: 260px 260px; 
+    grid-template-rows: 260px 360px; 
   }
   header {
     background-color:  rgb(236, 63, 11);
@@ -113,7 +117,8 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 375px;
+    max-width: 400px;
+    margin-left: 20px;
   }
 
   nav ul li {
@@ -131,6 +136,10 @@ body {
     color: #007bff;
     text-decoration: none;
   }
+  select {
+    height: 40px;
+    margin-top: 20px;
+  }
   img {
     padding: 25px;
   }
@@ -139,7 +148,7 @@ body {
   }
   .last {
     display: grid;
-    grid-template-rows: 260px 300px; 
+    grid-template-rows: 260px 400px; 
   }
   .titolo{
     max-width: 350px;
@@ -148,7 +157,7 @@ body {
   }
 }
 
-@media (max-width:365px) {
+@media (max-width:425px) {
   section {
     grid-template-columns: 330px;
   }
@@ -157,5 +166,9 @@ body {
   }
   .titolo{
     max-width: 310px;
+  }
+  nav ul {
+    max-width: 330px;
+    margin-left: 0;
   }
 }
