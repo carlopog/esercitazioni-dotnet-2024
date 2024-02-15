@@ -8,6 +8,7 @@ body {
   background-color: rgb(228, 244, 255);
 }
 
+
 header {
   background-color:  rgb(40, 138, 204);
   color: white;
@@ -43,6 +44,7 @@ nav ul li a:hover {
 
 img {
   padding: 30px;
+  max-width: 300px;
 }
 
 select {
