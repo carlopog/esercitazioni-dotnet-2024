@@ -16,7 +16,7 @@ class Program
       Console.WriteLine("inserisci un numero valido");
     }    
 
-    string[] tipi = ["antipasti", "vini", "primi", "secondi", "dolci"];
+    string[] tipi = ["antipasti", "primi", "secondi",  "vini", "dolci"];
     string pathJson = "menu.json";
     File.Create(pathJson).Close(); // creo il menu
     File.AppendAllText(pathJson, "[\n");
@@ -61,9 +61,9 @@ class Program
       Tipo:
       Console.WriteLine("Cosa volete ordinare?");
       Console.WriteLine("1. Antipasti");
-      Console.WriteLine("2. Vini");
-      Console.WriteLine("3. Primi");
-      Console.WriteLine("4. Secondi");
+      Console.WriteLine("2. Primi");
+      Console.WriteLine("3. Secondi");
+      Console.WriteLine("4. Vini");
       Console.WriteLine("5. Dolci");
 
       try
@@ -89,17 +89,17 @@ class Program
         }
         case 2:
         {
-          testo = "vini";
+          testo = "primi";
           break;
         }
         case 3:
         {
-          testo = "primi";
+          testo = "secondi";
           break;
         }
         case 4:
         {
-          testo = "secondi";
+          testo = "vini";
           break;
         }
         case 5:
