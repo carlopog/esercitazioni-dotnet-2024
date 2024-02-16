@@ -41,7 +41,6 @@ nav ul li a:hover {
   text-decoration: none;
 }
 
-
 img {
   padding: 30px;
   max-width: 300px;
@@ -58,7 +57,7 @@ select {
 section {
   display: grid;
   grid-template-columns: 360px 400px;
-  grid-template-rows: 360px; 
+  grid-template-rows: 440px; 
   padding: 10px;
 }
 
@@ -95,6 +94,22 @@ span {
   grid-template-rows: 350px 350px; 
 }
 
+.add {
+  margin-left: 5px;
+  padding: 0 5px;
+}
+
+.remove {
+  padding: 0 7px;
+}
+
+button {
+  border-radius: 30px;
+  color: white;
+  background-color: #007bff;
+  border: 2px solid white;
+}
+
 
 @media (max-width:765px) {
   
@@ -103,7 +118,7 @@ body {
 }
   section {
     grid-template-columns: 350px;
-    grid-template-rows: 260px 360px; 
+    grid-template-rows: 260px 550px; 
   }
   header {
     background-color:  rgb(236, 63, 11);
