@@ -56,7 +56,7 @@ select {
 
 section {
   display: grid;
-  grid-template-columns: 360px 400px;
+  grid-template-columns: 360px 440px;
   grid-template-rows: 440px; 
   padding: 10px;
 }
@@ -77,6 +77,8 @@ span {
 
 .inline {
   display: flex;
+  height: 21px;
+  align-items: center;
 }
 
 .content {
