@@ -25,6 +25,10 @@
   align-items: center;
 }
 
+.card {
+  max-width: 750px;
+}
+
 button
 {
   margin: 0 5px !important;
