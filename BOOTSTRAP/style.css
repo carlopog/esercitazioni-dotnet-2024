@@ -1,0 +1,42 @@
+.inline {
+  display: flex;
+  height: 21px;
+  align-items: center;
+}
+
+.add 
+{
+  margin-left: 10px !important;
+  padding: 0 7px;
+}
+
+.remove
+{
+  padding: 0 9px;
+}
+
+.navbar-expand-lg .navbar-collapse {
+  justify-content: space-around;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button
+{
+  margin: 0 5px !important;
+  border-radius: 20px !important;
+}
+
+footer {
+  margin-top: 300px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position:relative;
+  bottom: 0;
+}
