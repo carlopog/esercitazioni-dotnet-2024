@@ -26,12 +26,9 @@ class Program
         {
           File.AppendAllText(path3, player[0] + "," + int.Parse(player[1]) + "," + int.Parse(player[2]) + "," + int.Parse(player[3]) + "\n");
         }
-        Thread.Sleep(400);
         string[] nuoviDati = File.ReadAllLines(path3);
         File.Delete(path);
-        Thread.Sleep(400);
         File.Create(path).Close();
-        Thread.Sleep(400);
         File.AppendAllLines(path, nuoviDati);
         File.Delete(path3);
       }
@@ -40,7 +37,6 @@ class Program
     {
       string nome = giocatore[0];
       string path = @"giocatori.csv";
-      int eta = int.Parse(giocatore[1]);
       int prestito = int.Parse(giocatore[2]);
       int bottino = int.Parse(giocatore[3]);
       if (prestito > 0 && bottino >= prestito)
@@ -49,26 +45,13 @@ class Program
         Thread.Sleep(400);
         bottino -= prestito;
         Console.WriteLine($"il tuo credito e' di {bottino} euro");
-        prestito = 0;
+        Aggiorna(path, nome, 0, bottino);
       }
       Console.WriteLine("Vuoi continuare a giocare o uscire? c/u");
       string scelta = Console.ReadLine()!;
       if (scelta == "u")
       {
-        if (!File.Exists(path))
-        {
-          File.Create(path).Close();
-        }
-        if (File.ReadAllLines(path).Any(line => line.StartsWith(nome)))
-        {
-          Aggiorna(path, nome, prestito, bottino);
-          return true;
-        }
-        else
-        {
-          File.AppendAllText(path, nome + "," + eta + "," + prestito + "," + bottino + "\n");
-          return true;
-        }
+        return true;
       }
       else
       {
@@ -159,26 +142,30 @@ class Program
               if (int.Parse(giocatoreNoto[2]) > 0)
               {
                 Console.WriteLine($" e ci devi ancora {giocatoreNoto[2]} euro dall'ultima volta");
-                if (int.Parse(giocatoreNoto[2]) < 100)
+                if (int.Parse(giocatoreNoto[2]) < 100 + int.Parse(giocatoreNoto[3]))
                 {
                   ePB[1] = 0;
-                  ePB[2] = 100 - int.Parse(giocatoreNoto[2]);
+                  Thread.Sleep(500);
+              
+                  Thread.Sleep(500);
                 }
                 else
                 {
                   Console.WriteLine("Quindi vattene via prima che ti togliamo anche le scarpe!");
+                  return;
                 }
               }
               if (int.Parse(giocatoreNoto[3]) > 0)
               {
                 Console.WriteLine($" e hai ancora {giocatoreNoto[3]} euro dall'ultima volta");
-                ePB[2] = 100 + int.Parse(giocatoreNoto[3]);
+                ePB[2] = 100 - int.Parse(giocatoreNoto[2]) + int.Parse(giocatoreNoto[3]);
               }
-              else if (int.Parse(giocatoreNoto[3]) == 0)
+              else if (int.Parse(giocatoreNoto[3]) <= 0)
               {
-                Console.WriteLine($"ci vuoi riprovare vedo, anche oggi hai 100 euro a disposizione.");
-                ePB[2] = 100;
+                ePB[2] = 100 + int.Parse(giocatoreNoto[3]);
+                Console.WriteLine($"ci vuoi riprovare vedo, anche oggi hai {ePB[2]} euro a disposizione.");
               }
+                  Aggiorna(pathGiocatori, giocatoreNoto[0], ePB[1], ePB[2]);
 
               int etaNota = int.Parse(giocatoreNoto[1]);
               if (etaNota > 17)
@@ -210,6 +197,8 @@ class Program
             ePB[0] = age;
             ePB[1] = 0;
             ePB[2] = 100;
+            player[2] = "0";
+            player[3] = "100";
             File.AppendAllText(pathGiocatori, eta + "," + 0 + "," + 100);
 
             if (age >= 18)
@@ -275,7 +264,7 @@ class Program
       }
 
       Console.ForegroundColor = ConsoleColor.Magenta;
-
+      
       int prestito = int.Parse(player[2]);
       int bottino = int.Parse(player[3]);
       Console.WriteLine($"Ciao {player[0]} il tuo budget di partenza è {bottino}");
@@ -297,7 +286,7 @@ class Program
         Console.WriteLine($"ultima scommessa {lastScommessa}");
         if (lastScommessa > bottino)
         {
-          prestitone = lastScommessa - bottino + 10;
+          prestitone = lastScommessa - bottino + 50;
         }
 
         if (round > 2)
