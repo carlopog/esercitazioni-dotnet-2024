@@ -45,6 +45,10 @@
 				try
 				{
 					input = int.Parse(Console.ReadLine()!); // assegno il valore digitato dall'utente alla variabile input se ha digitato un intero 
+					if (input > 100 || input < 1)
+					{
+						throw new IndexOutOfRangeException();
+					}
 				}
 				catch (Exception)
 				{

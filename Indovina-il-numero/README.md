@@ -27,7 +27,7 @@ Controllare problema x che non sono riuscito a risolvere
 >  **Eccezioni**
 
 - [x] stringhe
-- [ ] numeri maggiori o minori
+- [x] numeri maggiori o minori
 
 >  **Bug**
 - [x] punteggio
