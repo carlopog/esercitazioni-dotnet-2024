@@ -6,6 +6,7 @@ class Program
   {
     int numeroTavoli = 1;
 
+    T:
     Console.WriteLine("Quanti tavoli ha il tuo ristorante?");
     try 
     {
@@ -14,6 +15,7 @@ class Program
     catch (Exception)
     {
       Console.WriteLine("inserisci un numero valido");
+      goto T;
     }    
 
     string[] tipi = ["antipasti", "primi", "secondi",  "vini", "dolci"];
@@ -57,7 +59,6 @@ class Program
     while (desideraAltro)
 
     {
-
       Tipo:
       Console.WriteLine("Cosa volete ordinare?");
       Console.WriteLine("1. Antipasti");
