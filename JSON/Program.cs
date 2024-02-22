@@ -6,9 +6,9 @@ class Program
   {
     int numeroTavoli = 1;
 
-    T:
+  T:
     Console.WriteLine("Quanti tavoli ha il tuo ristorante?");
-    try 
+    try
     {
       numeroTavoli = int.Parse(Console.ReadLine()!);
     }
@@ -16,9 +16,9 @@ class Program
     {
       Console.WriteLine("inserisci un numero valido");
       goto T;
-    }    
+    }
 
-    string[] tipi = ["antipasti", "primi", "secondi",  "vini", "dolci"];
+    string[] tipi = ["antipasti", "primi", "secondi", "vini", "dolci"];
     string pathJson = "menu.json";
     File.Create(pathJson).Close(); // creo il menu
     File.AppendAllText(pathJson, "[\n");
@@ -36,18 +36,19 @@ class Program
     string[] piatti = new string[count]; // array del menu 
     string[] prezzi = new string[count]; // array dei costi
 
+  SelezionaTavolo:
     int tavoloNumero = Tavolo(numeroTavoli);
 
     int turno = 1;
     string pathTurno = "tavolo" + tavoloNumero + "-turno.txt";
-    File.Create(pathTurno).Close(); 
+    File.Create(pathTurno).Close();
     File.WriteAllText(pathTurno, turno.ToString());
 
-    Turno:
+  Turno:
     if (File.Exists("contoTavolo" + tavoloNumero + "-" + "turno" + turno + ".txt"))
     {
       int turnoPrecedente = int.Parse(File.ReadAllText(pathTurno));
-      turno = turnoPrecedente + 1; 
+      turno = turnoPrecedente + 1;
       File.WriteAllText(pathTurno, turno.ToString());
       goto Turno;
     }
@@ -59,18 +60,19 @@ class Program
     while (desideraAltro)
 
     {
-      Tipo:
+    Tipo:
       Console.WriteLine("Cosa volete ordinare?");
       Console.WriteLine("1. Antipasti");
       Console.WriteLine("2. Primi");
       Console.WriteLine("3. Secondi");
       Console.WriteLine("4. Vini");
       Console.WriteLine("5. Dolci");
+      Console.WriteLine("6. Non sappiamo ancora");
 
       try
       {
         tipoScelto = int.Parse(Console.ReadLine()!);
-           if (tipoScelto > 5 || tipoScelto < 1)
+        if (tipoScelto > 6 || tipoScelto < 1)
         {
           throw new ArgumentOutOfRangeException();
         }
@@ -84,47 +86,64 @@ class Program
       switch (tipoScelto)
       {
         case 1:
-        {
-          testo = "antipasti";
-          break;
-        }
+          {
+            testo = "antipasti";
+            break;
+          }
         case 2:
-        {
-          testo = "primi";
-          break;
-        }
+          {
+            testo = "primi";
+            break;
+          }
         case 3:
-        {
-          testo = "secondi";
-          break;
-        }
+          {
+            testo = "secondi";
+            break;
+          }
         case 4:
-        {
-          testo = "vini";
-          break;
-        }
+          {
+            testo = "vini";
+            break;
+          }
         case 5:
-        {
-          testo = "dolci";
-          break;
-        }
+          {
+            testo = "dolci";
+            break;
+          }
+        case 6:
+          {
+            Console.WriteLine("ok allora vado a un altro tavolo");
+            goto SelezionaTavolo;
+          }
       }
 
       Ordine(testo, piatti, prezzi, menu, tavoloNumero);
 
-      Console.WriteLine("Desiderate altro? s/n");
+      Console.WriteLine("Desiderate altro? (se rispondete no vi porto il conto) s/n");
       string da = Console.ReadLine()!;
       if (da == "n")
       {
         desideraAltro = false;
       }
     }
-      
+
 
     Console.WriteLine("Buon appetito");
     Thread.Sleep(500);
     Cassa(tavoloNumero, turno);
     Console.WriteLine("Grazie e Arrivederci!");
+
+    Console.WriteLine("ci sono ancora ancora altri clienti che devono ordinare? s/n");
+    string clientiSiNo = Console.ReadLine()!;
+    if (clientiSiNo == "s")
+    {
+      Console.Write("Prendi l'ordinazione del ");
+      goto SelezionaTavolo;
+    }
+    else
+    {
+      Console.WriteLine("Allora il tuo turno è finito. Ciao!");
+    }
   }
 
   static void CreateFiles(string[] tipi, string pathJson)
@@ -202,19 +221,21 @@ class Program
     Console.WriteLine($"Per un totale di {total} euro");
 
     Console.WriteLine("il cliente ha pagato? (cancello i file ordine e cassa?) s/n");
-     string siNo = Console.ReadLine()!;
-        if (siNo == "s")
-        {
-          File.AppendAllText(pathConto, "PAGATO");
-        }
-        else
-        {
-          File.AppendAllText(pathConto, "DEVE ANCORA PAGARE");
-          Console.WriteLine("Non si preoccupi, se non ha contanti oggi può pagare la prossima volta");
-        }
-          File.Delete(pathCassa);
-          File.Delete(pathOrdine);
+    string siNo = Console.ReadLine()!;
+    if (siNo == "s")
+    {
+      File.AppendAllText(pathConto, "PAGATO");
+    }
+    else
+    {
+      File.AppendAllText(pathConto, "DEVE ANCORA PAGARE");
+      Console.WriteLine("Non si preoccupi, se non ha contanti oggi può pagare la prossima volta");
+    }
+    File.Delete(pathCassa);
+    File.Delete(pathOrdine);
   }
+
+
 
   static void Ordine(string tipi, string[] piatti, string[] costi, dynamic menu, int tavolo)
   {
@@ -246,7 +267,7 @@ class Program
 
   Scelta:
     Console.WriteLine("inserisca il numero del piatto desiderato");
-    
+
     string scelta = Console.ReadLine()!;
     try
     {
@@ -255,8 +276,8 @@ class Program
       {
         piatto = piatti[i];
         costo = int.Parse(costi[i]);
-        int top = c-qTipo;
-        
+        int top = c - qTipo;
+
         if (numScelto >= c || numScelto <= top)
         {
           throw new ArgumentOutOfRangeException();
