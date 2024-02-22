@@ -1,12 +1,6 @@
 CREATE TABLE portate (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT UNIQUE);
 CREATE TABLE piatti (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT,prezzo REAL, id_portate INTEGER, FOREIGN KEY (id_portate) REFERENCES portate(id));
 
-CREATE TABLE antipasti (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT,prezzo REAL);
-CREATE TABLE primi (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT,prezzo REAL);
-CREATE TABLE secondi (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT,prezzo REAL);
-CREATE TABLE vini (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT,prezzo REAL);
-CREATE TABLE dolci (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT,prezzo REAL);
-
 INSERT INTO portate (nome) VALUES ('antipasti');
 INSERT INTO portate (nome) VALUES ('primi');
 INSERT INTO portate (nome) VALUES ('secondi');
@@ -44,3 +38,29 @@ INSERT INTO piatti (id_portate, nome, prezzo) VALUES (5,'Apple Pie: tortino di p
 INSERT INTO piatti (id_portate, nome, prezzo) VALUES (5,'Semifreddo al passion fruit e spuma di Champagne',15);
 INSERT INTO piatti (id_portate, nome, prezzo) VALUES (5,'I nostri sorbetti',10);
 INSERT INTO piatti (id_portate, nome, prezzo) VALUES (5,'Selezione di formaggi italiani e esteri',20);
+
+CREATE TABLE tavoli (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT UNIQUE);
+CREATE TABLE turni (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT UNIQUE);
+CREATE TABLE ordinazioni (id INTEGER PRIMARY KEY AUTOINCREMENT, id_tavolo INTEGER, id_turno INTEGER, id_piatto INTEGER, quantita REAL, stato BOOLEAN, FOREIGN KEY (id_tavolo) REFERENCES tavoli(id), FOREIGN KEY (id_piatto) REFERENCES piatti(id), FOREIGN KEY (id_turno) REFERENCES turni(id));
+
+INSERT INTO tavoli (nome) VALUES ('1A');
+INSERT INTO tavoli (nome) VALUES ('2A');
+INSERT INTO tavoli (nome) VALUES ('3B');
+INSERT INTO tavoli (nome) VALUES ('4Terrazzo');
+INSERT INTO tavoli (nome) VALUES ('5Veranda');
+
+INSERT INTO turni (nome) VALUES ('12.00-13.00');
+INSERT INTO turni (nome) VALUES ('13.00-14.00');
+INSERT INTO turni (nome) VALUES ('14.00-15.00');
+INSERT INTO turni (nome) VALUES ('19.00-20.30');
+INSERT INTO turni (nome) VALUES ('20.30-22.00');
+INSERT INTO turni (nome) VALUES ('22.00-23.00');
+
+INSERT INTO ordinazioni (id_tavolo, id_turno, id_piatto, quantita, stato) VALUES (1, 1, 30, 5, 0);
+INSERT INTO ordinazioni (id_tavolo, id_turno, id_piatto, quantita, stato) VALUES (2, 1, 21,6, 1);
+INSERT INTO ordinazioni (id_tavolo, id_turno, id_piatto, quantita, stato) VALUES (1, 2, 3,5,1);
+INSERT INTO ordinazioni (id_tavolo, id_turno, id_piatto, quantita, stato) VALUES (1, 3, 3,3,1);
+INSERT INTO ordinazioni (id_tavolo, id_turno, id_piatto, quantita, stato) VALUES (1, 4, 2,5,1);
+INSERT INTO ordinazioni (id_tavolo, id_turno, id_piatto, quantita, stato) VALUES (1, 5, 1,4,1);
+INSERT INTO ordinazioni (id_tavolo, id_turno, id_piatto, quantita, stato) VALUES (1, 6, 11,5, 1);
+INSERT INTO ordinazioni (id_tavolo, id_turno, id_piatto, quantita, stato) VALUES (1, 5, 22,5, 1);

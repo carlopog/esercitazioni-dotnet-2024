@@ -1,3 +1,9 @@
+# COMANDI DATABASE 
+
+```
+ SELECT piatti.nome AS piatto, piatti.prezzo, tavoli.nome AS tavolo, turni.nome AS turno FROM ordinazioni JOIN piatti ON id_piatto = piatti.id JOIN tavoli ON id_tavolo = tavoli.id JOIN turni ON id_turno = turni.id WHERE turni.nome = '20.30-22.00'; 
+```
+
 # Obiettivo
 
 creare un'applicazione per un ristorante
