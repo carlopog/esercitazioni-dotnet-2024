@@ -1,4 +1,11 @@
-﻿class Program
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SQLite;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Spectre.Console;
+class Program
 {
   static void Main(string[] args)
   {
@@ -6,15 +13,14 @@
     if (!File.Exists(path)) // se il file database non esistesse
     {
       SQLiteConnection.CreateFile(path); // crea il file del database
-      SQLiteConnection connection = new SQLiteConnection($"Data Source={path};Version=1;"); // crea la connessione al database, indicando la versione 
+      SQLiteConnection connection = new SQLiteConnection($"Data Source={path};Version=3;"); // crea la connessione al database, indicando la versione 
       connection.Open(); // apre la connessione al database
-      string sql = @"
-                   CREATE TABLE prodotti (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT UNIQUE, prezzo REAL, quantita INTEGER CHECK (quantita >= 0));
-                   INSERT INTO prodotti (nome, prezzo, quantita) VALUES ('p1',1,10); 
-                   INSERT INTO prodotti (nome, prezzo, quantita) VALUES ('p2',2,20);
-                   INSERT INTO prodotti (nome, prezzo, quantita) VALUES ('p3',3,30);
+      string sql = @"CREATE TABLE giocatori (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT UNIQUE, eta REAL);
+                     CREATE TABLE scommesse (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT, prezzo INTEGER CHECK (prezzo >= 0), FOREIGN KEY (nome) REFERENCES giocatori(nome));
+                     CREATE TABLE vincite (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT, risultato INTEGER, FOREIGN KEY (nome) REFERENCES giocatori(nome));
+                     CREATE TABLE prestiti (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT UNIQUE, valore INTEGER CHECK (valore >= 0), FOREIGN KEY (nome) REFERENCES giocatori(nome));
+                     CREATE TABLE bottini (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT UNIQUE, ammontare INTEGER CHECK (ammontare >= 0), FOREIGN KEY (nome) REFERENCES giocatori(nome));
                    ";
-
       SQLiteCommand command = new SQLiteCommand(sql, connection); // crea il comando sql da eseguire sulla connessione al database
       command.ExecuteNonQuery(); // esegue il comando sql sulla connessione al database
       connection.Close(); // chiude la connessione al database
@@ -24,73 +30,131 @@
       Console.WriteLine("scegli un'opzione");
       Console.WriteLine("1 - inserisci prodotto");
       Console.WriteLine("2 - visualizza prodotto");
-      Console.WriteLine("3 - elimina prodotto");
-      Console.WriteLine("4 - esci");
+      Console.WriteLine("3 - modifica prodotto");
+      Console.WriteLine("4 - elimina prodotto");
+      Console.WriteLine("e - esci");
       string input = Console.ReadLine()!;
-      switch(input)
-      case "1":
+      switch (input)
       {
-        InserisciProdotto();
-        break;
-      }
-      case "2":
-      {
-        VisualizzaProdotti();
-        break;
-      }
-      case "3":
-      {
-        EliminaProdotto();
-        break;
-      }
-      case "4":
-      {
-        return;
-      }
-      default
-      {
-        Console.WriteLine("Devi inserire un numero da 1 a 4, riprova");
+        case "1":
+          {
+            InserisciProdotto();
+            break;
+          }
+        case "2":
+          {
+            ModificaProdotto();
+            break;
+          }
+        case "3":
+          {
+            ModificaProdotto();
+            break;
+          }
+        case "e":
+          {
+            return;
+          }
+        default:
+          {
+            Console.WriteLine("Devi inserire un numero da 1 a 3, riprova");
+            break;
+          }
       }
     }
   }
 
-  static void InserisciProdotto()
-  { 
-    Console.WriteLine("Inserisci i dati del prodotto");
-    Console.WriteLine("Inserisci nome del prodotto:");
-    string nome = Console.ReadLine()!;
-    Console.WriteLine("Inserisci il prezzo del prodotto:");
-    string prezzo = Console.ReadLine()!;
-    Console.WriteLine("Inserisci la quantita del prodotto:");
-    string quantita = Console.ReadLine()!;
-    SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=1;"); // crea la connessione al database, indicando la versione 
-    connection.Open()
-    string sql = @$"INSERT INTO prodotti (nome, prezzo, quantita) VALUES ('{nome}', {prezzo}, {quantita})";
-    SQLiteCommand command = new SQLiteCommand(sql, connection);
-    command.ExecuteNonQuery();
-    connection.Close();
-  }
-  static void VisualizzaProdotti()
-  { 
-    SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=1;"); // crea la connessione al database, indicando la versione 
-    connection.Open()
-    string sql = @$"SELECT * FROM prodotti";
-    SQLiteCommand command = new SQLiteCommand(sql, connection);
-    SQLiteDataReader reader = command.ExecuteReader();
-    while (reader.Read()) // finche' il metodo Read legge qualcosa in reader va avanti, ce li fa leggere tutti
+  static string[] SelezionaProdotto(string prodotti,string prodotto,string numero)
+  {
+    Console.WriteLine("scegli un'opzione");
+    Console.WriteLine("1 - inserisci giocatore");
+    Console.WriteLine("2 - inserisci scommessa");
+    Console.WriteLine("3 - inserisci vincita");
+    Console.WriteLine("4 - inserisci bottino");
+    Console.WriteLine("5 - inserisci prestito");
+    string scelta = Console.ReadLine()!;
+    switch (scelta)
     {
-      Console.WriteLine($"id: {reader["id"]}, nome: {reader["nome"]}, prezzo: {reader["prezzo"]}, quantita: {reader["quantita"]}");
+      case "1":
+        {
+          Console.WriteLine("Hai scelto di inserire un giocatore,");
+          prodotti = "giocatori";
+          prodotto = "del giocatore";
+          numero = "eta";
+          break;
+        }
+      case "2":
+        {
+          Console.WriteLine("Hai scelto di inserire una scommessa,");
+          prodotti = "scommesse";
+          prodotto = "della scommessa";
+          numero = "prezzo";
+          break;
+        }
+      case "3":
+        {
+          Console.WriteLine("Hai scelto di inserire una vincita,");
+          prodotti = "vincite";
+          prodotto = "della vincita";
+          numero = "risultato";
+          break;
+        }
+      case "4":
+        {
+          Console.WriteLine("Hai scelto di inserire un bottino,");
+          prodotti = "bottini";
+          prodotto = "del bottino";
+          numero = "ammontare";
+          break;
+        }
+      case "5":
+        {
+          Console.WriteLine("Hai scelto di inserire un prestito,");
+          prodotti = "prestiti";
+          prodotto = "del prestito";
+          numero = "valore";
+          break;
+        }
+      default:
+        {
+          Console.WriteLine("Devi inserire un numero da 1 a 5, riprova");
+          break;
+        }
     }
-    connection.Close();
+    string[] arr = [prodotti, prodotto, numero];
+    return arr;
   }
 
+  static void VisualizzaProdotto()
+  {
+    Console.WriteLine($"non esiste ancora");
+  }
+
+  static void ModificaProdotto()
+  {
+    Console.WriteLine($"non esiste ancora");
+  }
   static void EliminaProdotto()
-  { 
-    Console.WriteLine("Inserisci il nome del prodotto:");
+  {
+    Console.WriteLine($"non esiste ancora");
+  }
+  static void InserisciProdotto()
+  {
+    string prodotti = "";
+    string prodotto = "";
+    string numero = "";
+    string[] array = SelezionaProdotto(prodotti,prodotto,numero);
+    prodotti = array[0];
+    prodotto = array[1];
+    numero = array[2];
+    
+    Console.WriteLine($"Inserisci nome del giocatore:");
     string nome = Console.ReadLine()!;
-    SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=1;"); // crea la connessione al database, indicando la versione 
-    connection.Open()
-    string sql = @$"DELETE FROM prodotti WHERE nome = '{nome}";
+    Console.WriteLine($"Inserisci {numero} {prodotto}:");
+    string prezzo = Console.ReadLine()!;
+    SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;"); // crea la connessione al database, indicando la versione 
+    connection.Open();
+    string sql = @$"INSERT INTO {prodotti} (nome, {numero}) VALUES ('{nome}', {prezzo})";
     SQLiteCommand command = new SQLiteCommand(sql, connection);
     command.ExecuteNonQuery();
     connection.Close();
