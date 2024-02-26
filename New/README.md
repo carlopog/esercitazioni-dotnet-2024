@@ -4,6 +4,26 @@ dotnet add package Spectre.Console
 
 dotnet add package Spectre.Console.Cli
 
+
+
+scriptini 
+
+ SELECT giocatori.id, bottini.nome, bottini.ammontare, giocatori.eta FROM bottini  JOIN giocatori ON bottini.nome = giocatori.nome ; 
+
+ SELECT giocatori.id, giocatori.nome, bottini.ammontare, giocatori.eta FROM bottini  JOIN giocatori ON bottini.nome = giocatori.nome WHERE bottini.nome ='Mario';
+
+ SELECT giocatori.id, giocatori.nome, bottini.ammontare AS bottino, prestiti.valore AS prestito FROM giocatori JOIN bottini ON giocatori.nome = bottini.nome JOIN prestiti ON giocatori.nome = prestiti.nome;
+
+SELECT giocatori.id, giocatori.nome, bottini.ammontare, prestiti.valore FROM giocatori JOIN bottini ON giocatori.nome = bottini.nome JOIN prestiti ON giocatori.nome = prestiti.nome;
+
+SELECT giocatori.id, giocatori.nome, scommesse.prezzo, vincite.risultato FROM giocatori JOIN scommesse ON scommesse.nome = scommesse.nome JOIN vincite ON giocatori.nome = vincite.nome;
+
+SELECT scommesse.id, scommesse.nome, scommesse.prezzo, vincite.risultato, vincite.nome FROM scommesse JOIN vincite ON scommesse.id = vincite.id; 
+
+
+
+
+
 ```c#
 public static class Program 
 {
