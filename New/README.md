@@ -8,20 +8,20 @@ dotnet add package Spectre.Console.Cli
 
 scriptini 
 
- SELECT giocatori.id, bottini.nome, bottini.ammontare, giocatori.eta FROM bottini  JOIN giocatori ON bottini.nome = giocatori.nome ; 
-
- SELECT giocatori.id, giocatori.nome, bottini.ammontare, giocatori.eta FROM bottini  JOIN giocatori ON bottini.nome = giocatori.nome WHERE bottini.nome ='Mario';
-
+// giocatori con bottino e prestito
  SELECT giocatori.id, giocatori.nome, bottini.ammontare AS bottino, prestiti.valore AS prestito FROM giocatori JOIN bottini ON giocatori.nome = bottini.nome JOIN prestiti ON giocatori.nome = prestiti.nome;
 
+// giocatori con bottini.ammontare e prestiti.valore
 SELECT giocatori.id, giocatori.nome, bottini.ammontare, prestiti.valore FROM giocatori JOIN bottini ON giocatori.nome = bottini.nome JOIN prestiti ON giocatori.nome = prestiti.nome;
 
-SELECT giocatori.id, giocatori.nome, scommesse.prezzo, vincite.risultato FROM giocatori JOIN scommesse ON scommesse.nome = scommesse.nome JOIN vincite ON giocatori.nome = vincite.nome;
 
 SELECT scommesse.id, scommesse.nome, scommesse.prezzo, vincite.risultato, vincite.nome FROM scommesse JOIN vincite ON scommesse.id = vincite.id; 
 
 
-
+CREATE TABLE resoconti (id INTEGER PRIMARY KEY AUTOINCREMENT, id_giocatore INTEGER, id_prestito INTEGER, id_bottino INTEGER, id_ultima_scommessa INTEGER, FOREIGN KEY (id_prestito) REFERENCES prestiti(id), FOREIGN KEY (id_scommessa) REFERENCES scommesse(id), FOREIGN KEY (id_bottino) REFERENCES bottini(id)  );
+                   INSERT INTO prodotti (nome, eta, id_prestito, id_bottino, id_scommessa) VALUES ('Gianni',41,1,1,2); 
+                   INSERT INTO prodotti (nome, eta, id_prestito, id_bottino, id_scommessa) VALUES ('Marco',33,1,1,2);
+                   INSERT INTO prodotti (nome, eta, id_prestito, id_bottino, id_scommessa) VALUES ('Francisco',23,1,1,2);
 
 
 ```c#

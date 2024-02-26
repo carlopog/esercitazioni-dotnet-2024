@@ -129,7 +129,6 @@ class Program
     string[] arr = [prodotti, prodotto, numero];
     return arr;
   }
-
   static void SelezionaVisualizzazione(string prodotti, string numero)
   {
     int counter = 0;
@@ -153,7 +152,12 @@ class Program
           while (reader.Read())
           {
             Console.WriteLine($"id: {reader["id"]}, nome: {reader["nome"]}, {numero}: {reader[$"{numero}"]}");
+            counter++;
             Thread.Sleep(300);
+          }
+          if (counter == 0)
+          {
+            Console.WriteLine("Non c'è nessun dato in questo elenco");
           }
           connection.Close(); // chiude la connessione al database se non è già chiusa
           break;
@@ -359,7 +363,6 @@ class Program
                   Console.WriteLine("devi inserire un numero");
                   goto Inizio;
                 }
-
               }
             default:
               {
@@ -369,35 +372,15 @@ class Program
           }
           break;
         }
-
-      // case "4":
-      //   {
-      //     Console.WriteLine($"Hai scelto di {verbo} un bottino,");
-      //     prodotti = "bottini";
-      //     prodotto = "del bottino";
-      //     numero = "ammontare";
-      //     break;
-      //   }
-      // case "5":
-      //   {
-      //     Console.WriteLine($"Hai scelto di {verbo} un prestito,");
-      //     prodotti = "prestiti";
-      //     prodotto = "del prestito";
-      //     numero = "valore";
-      //     break;
-      //   }
       default:
         {
           Console.WriteLine("Devi inserire un numero da 1 a 5, riprova");
           break;
         }
     }
-    // string[] arr = [];
-    // return arr;
   }
   static void VisualizzaProdotto()
   {
-    // Console.WriteLine($"non esiste ancora");
     string prodotti = "";
     string prodotto = "";
     string numero = "";
@@ -407,35 +390,59 @@ class Program
     prodotti = array[0];
     prodotto = array[1];
     numero = array[2];
-
-    Console.WriteLine(prodotti);
-    Console.WriteLine(prodotto);
-    Console.WriteLine(numero);
-
-
-
     SelezionaVisualizzazione(prodotti, numero);
-
-    // Console.WriteLine($"Inserisci {numero} {prodotto}:");
-    // string prezzo = Console.ReadLine()!;
-    // SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;"); // crea la connessione al database, indicando la versione 
-    // connection.Open();
-    // string sql = @$"INSERT INTO {prodotti} (nome, {numero}) VALUES ('{nome}', {prezzo})";
-    // SQLiteCommand command = new SQLiteCommand(sql, connection);
-    // command.ExecuteNonQuery();
-    // connection.Close();
-
-
   }
 
   static void ModificaProdotto()
   {
-    Console.WriteLine($"non esiste ancora");
-    // var bottino = SELECT bottini.
+    string prodotti = "";
+    string prodotto = "";
+    string numero = "";
+    string metodo = "modifica";
+    string verbo = "modificare";
+    string[] array = SelezionaProdotto(prodotti, prodotto, numero, metodo, verbo);
+    prodotti = array[0];
+    prodotto = array[1];
+    numero = array[2];
+    Console.WriteLine($"inserisci il nome {prodotto}"); // chiede il nome del prodotto da modificare
+    string nome = Console.ReadLine()!; // legge il nome del prodotto da modificare
+    Console.WriteLine($"inserisci il nuovo {numero}"); // chiede il nuovo prezzo del prodotto da modificare
+    int prezzo = int.Parse(Console.ReadLine()!); // legge il nuovo prezzo del prodotto da modificare
+    SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
+    connection.Open();
+    string sql = $"UPDATE {prodotti} SET {numero} = {prezzo} WHERE nome = '{nome}'"; // crea il comando sql che modifica il prezzo del prodotto con nome uguale a quello inserito
+    SQLiteCommand command = new SQLiteCommand(sql, connection);
+    command.ExecuteNonQuery(); // esegue il comando sql sulla connessione al database ExecuteNonQuery() viene utilizzato per eseguire comandi che non restituiscono dati, ad esempio i comandi INSERT, UPDATE, DELETE
+    connection.Close();
   }
   static void EliminaProdotto()
   {
-    Console.WriteLine($"non esiste ancora");
+    string prodotti = "";
+    string prodotto = "";
+    string numero = "";
+    string metodo = "elimina";
+    string verbo = "eliminare";
+    string[] array = SelezionaProdotto(prodotti, prodotto, numero, metodo, verbo);
+    prodotti = array[0];
+    prodotto = array[1];
+    numero = array[2];
+  Riprova:
+    Console.WriteLine("inserisci l'id del prodotto");
+    try
+    {
+      int id = int.Parse(Console.ReadLine()!);
+      SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
+      connection.Open();
+      string sql = $"DELETE FROM {prodotti} WHERE id = {id}"; // crea il comando sql che elimina il prodotto con nome uguale a quello inserito
+      SQLiteCommand command = new SQLiteCommand(sql, connection);
+      command.ExecuteNonQuery();
+      connection.Close();
+    }
+    catch (Exception)
+    {
+      Console.WriteLine($"L'id deve essere un numero valido");
+      goto Riprova;
+    }
   }
   static void InserisciProdotto()
   {

@@ -1,0 +1,8 @@
+- [ ] posso inserire solo un nuovo giocatore o una nuova scommessa.
+- [ ] quando inserisco un giocatore nuovo viene inserito automaticamente anche un bottino di 100 a suo nome 
+- [ ] quando inserisco un giocatore nuovo viene inserito automaticamente anche un prestito di 0 a suo nome 
+- [ ] quando inserisco una scommessa viene creata anche una vincita con lo stesso id e risultato = - {prezzo.scommessa}
+- [ ] se la scommessa viene vinta UPDATE vincita SET risultato = prezzo.scommessa x quota
+- [ ] subito dopo UPDATE bottino SET ammontare = bottino.ammontare - scommessa.risultato
+- [ ] SELECT giocatori.nome, scommesse.prezzo FROM scommesse JOIN giocatori WHERE scommesse.nome = giocatori.nome ORDER BY scommesse.id DESC; (ultima scommessa)
+- [ ] per inserire una nuova scommessa il prezzo deve essere maggiore di ultima scommessa (queste forse le posso gestire col csv come prima)
