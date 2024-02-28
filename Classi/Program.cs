@@ -1,45 +1,53 @@
-﻿class Libro
+﻿class Animale
 {
-  public string titolo;
-  public string autore;
-
-  public Libro(string titolo, string autore)
+  public string nome;
+  public int eta;
+  public Animale(string nome, int eta)
   {
-    this.titolo = titolo;
-    this.autore = autore;
+    this.nome = nome;
+    this.eta = eta;
+  }
+  public virtual void Stampa()
+  {
+    Console.WriteLine($"Nome: " + nome);
+    Console.WriteLine($"Eta: " + eta);
   }
 }
-class Biblioteca
+class Cane : Animale
 {
-  private List<Libro> libri = new List<Libro>();
-  public void Aggiungi(Libro libro)
+  public string razza;
+  public Cane(string nome, int eta, string razza) : base(nome, eta)
   {
-    libri.Add(libro);
+    this.razza = razza;
   }
-  public void Stampa()
+  public override void Stampa()
   {
-    int counter = 0;
-    foreach (Libro libro in libri)
-    {
-      counter++;
-      Console.WriteLine($"Libro {counter}");
-      Console.WriteLine($"Titolo: {libro.titolo} \nAutore: {libro.autore}");
-    }
-  }
-  
-}
-class Program
-{
-  static void Main(string[] args)
-  {
-    Biblioteca biblioteca = new Biblioteca();
-    Libro l1 = new Libro("Il signore degli anelli", "J.R.R. Tolkien");
-    Libro l2 = new Libro("Il nome della rosa", "Umberto Eco");
-    Libro l3 = new Libro("La Repubblica", "Platone");
-    biblioteca.Aggiungi(l1);
-    biblioteca.Aggiungi(l2);
-    biblioteca.Aggiungi(l3);
-    biblioteca.Stampa();
+    base.Stampa();
+    Console.WriteLine($"Razza: {razza}");
   }
 }
 
+class Gatto : Animale
+{
+  public string colore;
+  public Gatto(string nome, int eta, string colore) : base(nome, eta)
+  {
+    this.colore = colore;
+  }
+    public override void Stampa()
+  {
+    base.Stampa();
+    Console.WriteLine($"Colore: {colore}");
+  }
+}
+ class Program
+{
+  public static void Main(string[] args)
+  {
+    Animale a1 = new Cane("Fido", 5, "Labrador");
+    Animale a2 = new Gatto("Felix", 5, "Nero");
+
+    a1.Stampa();
+    a2.Stampa();
+  }
+}
