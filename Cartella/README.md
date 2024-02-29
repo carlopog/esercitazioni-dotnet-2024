@@ -29,4 +29,6 @@ dotnet add package Microsoft.EntityFrameworkCore.Tools
 (scarica .NET runtime 8.0)
 
 dotnet ef migrations add InitialCreate
-
+dotnet tool install --global dotnet-ef
+dotnet ef database update
+dotnet run
