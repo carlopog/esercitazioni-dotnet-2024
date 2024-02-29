@@ -5,3 +5,5 @@
 - [] creare sottoclasse prestito
 - [] creare sottoclasse vincita (risultato)
 - [] override metodi
+
+SELECT id from scommesse WHERE nome = '{nome}' ORDER BY id DESC LIMIT 1 

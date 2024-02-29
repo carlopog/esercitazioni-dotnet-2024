@@ -33,7 +33,8 @@ class Program
       Console.WriteLine("6 - visualizza giocatore");
       Console.WriteLine("7 - visualizza scommessa");
       Console.WriteLine("8 - elimina giocatore");
-      // Console.WriteLine("9 - modifica eta"); questo per ora non serve 
+      Console.WriteLine("9 - modifica giocatore"); 
+      Console.WriteLine("10 - modifica scommessa");  
       Console.WriteLine("e - esci");
       string input = Console.ReadLine()!;
       switch (input)
@@ -60,7 +61,7 @@ class Program
           }
         case "5":
           {
-            ModificaProdotto("prestito");
+            ModificaProdotto("giocatore");
             break;
           }
         case "6":
@@ -78,13 +79,23 @@ class Program
             EliminaProdotto("giocatore");
             break;
           }
+        case "9":
+          {
+            ModificaProdotto("giocatore");
+            break;
+          }
+        case "10":
+          {
+            ModificaProdotto("scommessa");
+            break;
+          }
         case "e":
           {
             return;
           }
         default:
           {
-            Console.WriteLine("Devi inserire un numero da 1 a 8, riprova");
+            Console.WriteLine("Devi inserire un numero da 1 a 9, riprova");
             break;
           }
       }
@@ -425,28 +436,136 @@ class Program
     SelezionaVisualizzazione(prodotti, numero);
   }
 
+static int NumerizzaInput(string stringa)
+{
+  Start:
+  Console.WriteLine($"inserisci {stringa}");
+  string input = Console.ReadLine()!;
+  try
+  {
+    int num = int.Parse(input);
+    return num;
+  }
+  catch (Exception)
+  {
+    Console.WriteLine("Devi inserire un numero");
+    goto Start;
+  }
+}
   // string scelta = OpzioniProdotto("modifica");
   static void ModificaProdotto(string scelta)
   {
     string prodotti = "";
     string prodotto = "";
     string numero = "";
+    string num = "";
+    string sql = "";
     string verbo = "modificare";
 
     string[] array = SelezionaProdotto(scelta, prodotti, prodotto, numero, verbo);
     prodotti = array[0];
     prodotto = array[1];
     numero = array[2];
-    Console.WriteLine($"inserisci il nome {prodotto}"); // chiede il nome del prodotto da modificare
-    string nome = Console.ReadLine()!; // legge il nome del prodotto da modificare
-    Console.WriteLine($"inserisci il nuovo {numero}"); // chiede il nuovo prezzo del prodotto da modificare
-    int prezzo = int.Parse(Console.ReadLine()!); // legge il nuovo prezzo del prodotto da modificare
-    SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
-    connection.Open();
-    string sql = $"UPDATE {prodotti} SET {numero} = {prezzo} WHERE nome = '{nome}'"; // crea il comando sql che modifica il prezzo del prodotto con nome uguale a quello inserito
-    SQLiteCommand command = new SQLiteCommand(sql, connection);
-    command.ExecuteNonQuery(); // esegue il comando sql sulla connessione al database ExecuteNonQuery() viene utilizzato per eseguire comandi che non restituiscono dati, ad esempio i comandi INSERT, UPDATE, DELETE
-    connection.Close();
+  
+  if (scelta == "giocatore" || scelta == "1")
+    {
+      Console.WriteLine($"inserisci il nome del giocatore che vuoi modificare"); // chiede il nome del prodotto da modificare
+      string nome = Console.ReadLine()!; // legge il nome del prodotto da modificare
+      ModGiocatore:
+      Console.WriteLine("Cosa vuoi modificare?");
+      Console.WriteLine("1. Eta");
+      Console.WriteLine("2. Bottino");
+      Console.WriteLine("3. Prestito");
+      Console.WriteLine("4. Ultima scommessa");
+      string campo = Console.ReadLine()!;
+      switch (campo)
+      {
+        case "1":
+        case "eta":
+          {
+            Console.WriteLine($"Hai scelto di modificare l'età di questo giocatore,");
+            num = "eta";
+            break;
+          }
+        case "2":
+        case "bottino":
+          {
+            Console.WriteLine("Hai scelto di modificare il bottino di questo giocatore,");
+            num = "bottino";
+            break;
+          }
+        case "3":
+        case "prestito":
+          {
+            Console.WriteLine("Hai scelto di modificare il prestito di questo giocatore,");
+            num = "prestito";
+            break;
+          }
+        case "4":
+        case "ultima scommessa":
+          {
+            Console.WriteLine("Hai scelto di modificare l'ultima scommessa di questo giocatore,");
+            num = "lastbet";
+            break;
+          }
+        default:
+          {
+            Console.WriteLine("Devi inserire un numero da 1 a 4, riprova");
+            goto ModGiocatore;
+          }
+      }
+      Console.WriteLine($"inserisci il nuovo {num}");
+      int prezzo = int.Parse(Console.ReadLine()!); // legge il nuovo prezzo del prodotto da modificare
+      SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
+      connection.Open();
+      sql = $"UPDATE {prodotti} SET {num} = {prezzo} WHERE nome = '{nome}'"; // crea il comando sql che modifica il prezzo del prodotto con nome uguale a quello inserito
+      SQLiteCommand command = new SQLiteCommand(sql, connection);
+      command.ExecuteNonQuery();
+      connection.Close();
+    }
+    else if (scelta == "scommessa" || scelta == "2")
+    {
+      int id = NumerizzaInput("l'id della scommessa che vuoi modificare");
+      int prezzo = NumerizzaInput($"il nuovo {numero}");
+      SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
+      connection.Open();
+      sql = $"UPDATE {prodotti} SET {numero} = {prezzo} WHERE id = {id}"; // crea il comando sql che modifica il prezzo del prodotto con nome uguale a quello inserito
+      SQLiteCommand comando = new SQLiteCommand(sql, connection);
+      comando.ExecuteNonQuery();
+      connection.Close();
+    }  
+
+    else if (scelta == "vincita" || scelta == "3" ) 
+    {
+      Console.WriteLine($"inserisci il nome del giocatore a cui vuoi modificare il campo {numero}"); // chiede il nome del prodotto da modificare
+      string nome = Console.ReadLine()!; // legge il nome del prodotto da modificare
+      Console.WriteLine($"inserisci il nuovo {numero}");
+      int prezzo = int.Parse(Console.ReadLine()!); // legge il nuovo prezzo del prodotto da modificare
+      SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
+      connection.Open();
+      string idMax = $"(SELECT (id) FROM scommesse WHERE nome = '{nome}' ORDER BY id DESC LIMIT 1)"; // selezionare scommessa con id maggiore con quel nome
+      sql = $"UPDATE {prodotti} SET {numero} = {prezzo} WHERE id = {idMax}"; // crea il comando sql che modifica il prezzo del prodotto con nome uguale a quello inserito
+      SQLiteCommand comando = new SQLiteCommand(sql, connection);
+      comando.ExecuteNonQuery();
+      connection.Close();
+    }
+    
+    else
+    {
+      Console.WriteLine($"inserisci il nome del giocatore a cui vuoi modificare il campo {numero}"); // chiede il nome del prodotto da modificare
+      string nome = Console.ReadLine()!; // legge il nome del prodotto da modificare
+      Console.WriteLine($"inserisci il nuovo {numero}");
+      int prezzo = int.Parse(Console.ReadLine()!); // legge il nuovo prezzo del prodotto da modificare
+      SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
+      connection.Open();
+      sql = $"UPDATE {prodotti} SET {numero} = {prezzo} WHERE nome = '{nome}'"; // crea il comando sql che modifica il prezzo del prodotto con nome uguale a quello inserito
+      SQLiteCommand command = new SQLiteCommand(sql, connection);
+      command.ExecuteNonQuery();
+      connection.Close();
+    }
+
+
+
   }
 
   // string scelta = OpzioniProdotto("elimina");
@@ -498,7 +617,7 @@ class Program
     SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;"); // crea la connessione al database, indicando la versione 
     connection.Open();
     string sql;
-    if (scelta == "giocatore" || scelta == "1") 
+    if (scelta == "giocatore" || scelta == "1")
     {
       sql = @$"INSERT INTO {prodotti} (nome, {numero}, bottino, lastbet, prestito) VALUES ('{nome}', {prezzo}, 100, 0, 0)";
     }
