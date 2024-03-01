@@ -6,8 +6,8 @@ class Database : DbContext
   public DbSet<Prodotto> Prodotti { get; set; } // DbSet rappresenta una tabella del database in memoria
   protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
   {
-    // optionsBuilder.UseInMemoryDatabase("MyDatabase");
-    optionsBuilder.UseSqlite("Data Source=MyDatabase.sqlite");
+    // optionsBuilder.UseInMemoryDatabase("MyDatabase"); // crea database provvisorio
+    optionsBuilder.UseSqlite("Data Source=MyDatabase.sqlite"); // crea database con sqlite
   }
   public void InserisciClienti(List<Cliente> clienti)
   {
