@@ -25,16 +25,19 @@ class Program
     while (true)
     {
       Console.WriteLine("scegli un'opzione");
-      Console.WriteLine("1 - inserisci giocatore");
-      Console.WriteLine("2 - inserisci scommessa");
-      Console.WriteLine("3 - modifica vincita");  // questo deve triggerare quello dopo
-      Console.WriteLine("4 - modifica bottino");   // e modifica lastbet
-      Console.WriteLine("5 - modifica prestito"); // questo deve essere fatto in automatico
-      Console.WriteLine("6 - visualizza giocatore");
-      Console.WriteLine("7 - visualizza scommessa");
+      Console.WriteLine("1 - inserisci giocatore"); // con bottino, lastbet e prestito coi valori di default
+      Console.WriteLine("2 - inserisci scommessa"); // con vincita iniziale -{prezzo} modifica lastbet
+      Console.WriteLine("3 - visualizza giocatori"); // deve farmi vedere tutti i dati dei giocatori
+      Console.WriteLine("4 - visualizza scommesse"); // deve farmi vedere tutte le scommesse o tutte quelle di un giocatore
+      Console.WriteLine("5 - modifica giocatore"); 
+      Console.WriteLine("6 - modifica vincita");  // triggera modifica bottino e dopo
+      /*
+        if prestito > 0 & prestito < bottino
+      update bottino = bottino - prestito;
+      update prestito = 0;
+      */
+      Console.WriteLine("7 - modifica prestito"); // update prestito = x; triggera update bottino += prestito;
       Console.WriteLine("8 - elimina giocatore");
-      Console.WriteLine("9 - modifica giocatore"); 
-      Console.WriteLine("10 - modifica scommessa");  
       Console.WriteLine("e - esci");
       string input = Console.ReadLine()!;
       switch (input)
@@ -51,12 +54,12 @@ class Program
           }
         case "3":
           {
-            ModificaProdotto("vincita");
+            VisualizzaProdotto("giocatore");
             break;
           }
         case "4":
           {
-            ModificaProdotto("bottino");
+            VisualizzaProdotto("scommessa");
             break;
           }
         case "5":
@@ -66,27 +69,23 @@ class Program
           }
         case "6":
           {
-            VisualizzaProdotto("giocatore");
+            ModificaProdotto("vincita");
+        //  ModificaProdotto("bottino"); assegnandogli il valore bottino + vincita
+         /*
+              if prestito > 0 & prestito < bottino
+            update bottino = bottino - prestito;
+            update prestito = 0;
+        */
             break;
           }
         case "7":
           {
-            VisualizzaProdotto("scommessa");
+            ModificaProdotto("prestito");
             break;
           }
         case "8":
           {
             EliminaProdotto("giocatore");
-            break;
-          }
-        case "9":
-          {
-            ModificaProdotto("giocatore");
-            break;
-          }
-        case "10":
-          {
-            ModificaProdotto("scommessa");
             break;
           }
         case "e":
@@ -95,7 +94,7 @@ class Program
           }
         default:
           {
-            Console.WriteLine("Devi inserire un numero da 1 a 9, riprova");
+            Console.WriteLine("Devi inserire un numero da 1 a 8, riprova");
             break;
           }
       }
