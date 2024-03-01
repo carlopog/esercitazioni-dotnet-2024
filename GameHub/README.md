@@ -1,14 +1,41 @@
 # CLASSE GIOCATORE
-## Argomenti: 
-### nome, punteggio, crediti, partite giocate, partite vinte
- 
-# Sottoclasse GiocatoreProva 
-## Argomenti:
-### livello, esperienza
+### nome (string),  
+### punteggio, crediti, partite giocate, partite vinte (int)
+
+# SOTTOCLASSI:
+
+- ## GIOCATORE SIMO :
+
+### coloreArmata (string)
+### territori (List di string)
+
+- ## GIOCATORE CARLO:
+
+### eta (int)
+### bottino (int)
+### lastbet (int)
+### prestito (int)
+
+- ## GIOCATORE FABIO:
+
+### eta (int)
+
+
+- ## GIOCATORE GIADA :
+
+### cognome (string)
+
+### eta (int)
+
+# ARGOMENTI NELLO SPECIFICO
 
 ### NOME (string)
 
 - è il tuo nome
+
+### ETA (int)
+
+- è la tua età
 
 ### PUNTEGGIO (int)
 
@@ -32,28 +59,25 @@
 - parte da 0
 - aumenta di 1 per ogni partita vinta
 
-## GIOCATORE SIMO :
+### COLORE ARMATA (string)
 
-### coloreArmata (string)
-### territori (List di string)
+- indica il colore dei carrarmati del giocatore
 
-## GIOCATORE CARLO:
+### TERRITORI (List di string)
 
-### eta (int)
-### bottino (int)
-### lastbet (int)
-### prestito (int)
+- lista di territori appartenenti al giocatore
 
-## GIOCATORE FABIO:
+### BOTTINO (int)
 
-### eta (int)
+- soldi del giocatore
 
+### LASTBET (int)
 
-## GIOCATORE GIADA :
+- valore dell'ultima scommessa del giocatore
 
-### COGNOME (string)
+### PRESTITO (int)
 
-### ETA (int)
+- soldi prestati al giocatore (debito del giocatore)
 
 
 # METODI 
