@@ -31,18 +31,24 @@
 - parte da 0
 - aumenta di 1 per ogni partita vinta
 
-## GIOCATORE PROVA :
+## GIOCATORE SIMO :
 
-### ESPERIENZA (int)
+### coloreArmata (string)
+### territori (List di string)
 
-- parte da 0
-- aumenta di 10 per ogni partita vinta
-- può aumentare in altri modi in base al gioco
+## GIOCATORE CARLO:
 
-### LIVELLO (int)
+### eta (int)
+### bottino (int)
+### lastbet (int)
+### prestito (int)
 
-- parte da 1
-- aumenta di 1 ogni 50 punti esperienza
+## GIOCATORE FABIO:
+
+### eta (int)
+
+
+
 
 ## GIOCATORE GIADA :
 
