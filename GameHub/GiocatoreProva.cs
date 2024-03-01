@@ -12,8 +12,8 @@ class GiocatoreProva : Giocatore
 
     public GiocatoreProva(string nome,int punteggio,int crediti,int partiteGiocate,int partiteVinte, int livello, int esperienza) : base(nome, punteggio, crediti, partiteGiocate, partiteVinte)
   {
-    this.Livello = livello;
-    this.Esperienza = esperienza;
+    this.livello = livello;
+    this.esperienza = esperienza;
   }
   /// <summary>
   ///  Questo override estende il metodo Stampa
@@ -22,8 +22,8 @@ class GiocatoreProva : Giocatore
   public override void Stampa()
   {
     base.Stampa();
-    Console.WriteLine($"Livello: {Livello}");
-    Console.WriteLine($"Esperienza: {Esperienza}");
+    Console.WriteLine($"Livello: {livello}");
+    Console.WriteLine($"Esperienza: {esperienza}");
   }
 
 
@@ -32,11 +32,11 @@ class GiocatoreProva : Giocatore
     base.Vincita();
     if (win)
     {
-      Esperienza += 10;
+      esperienza += 10;
     }
-    if (Esperienza >= 50)
+    if (esperienza >= 50)
     {
-      Livello++;
+      livello++;
     }
   }
 
