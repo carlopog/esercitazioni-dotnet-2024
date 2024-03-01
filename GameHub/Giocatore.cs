@@ -6,6 +6,7 @@
 /// </summary>
 class Giocatore
 {
+    private int id;
     private string nome;
     private int punteggio;
     private int crediti;
@@ -17,6 +18,7 @@ class Giocatore
     public global::System.Int32 Crediti { get => crediti; set => crediti = value; }
     public global::System.Int32 PartiteGiocate { get => partiteGiocate; set => partiteGiocate = value; }
     public global::System.Int32 PartiteVinte { get => partiteVinte; set => partiteVinte = value; }
+    public global::System.Int32 Id { get => id; set => id = value; }
 
 
     /// <summary>
@@ -30,6 +32,7 @@ class Giocatore
     /// <param name="partiteVinte">Numero di partite vinte</param>
     public Giocatore(string nome,int punteggio,int crediti,int partiteGiocate,int partiteVinte)
   {
+    this.id = id;
     this.nome = nome;
     this.punteggio = punteggio;
     this.crediti = crediti;
@@ -43,6 +46,7 @@ class Giocatore
 /// </summary>
   public virtual void Stampa()
   {
+    Console.WriteLine($"id: " + id);
     Console.WriteLine($"Nome: " + nome);
     Console.WriteLine($"Punteggio: " + punteggio);
     Console.WriteLine($"crediti: " + crediti);

@@ -6,6 +6,7 @@
 /// </summary>
 class GiocatoreJson
 {
+    private int Id { get; set; };
     private string Nome { get; set; };
     private int Punteggio { get; set; };
     private int Crediti { get; set; };
@@ -19,6 +20,7 @@ class GiocatoreJson
 /// </summary>
   public virtual void Stampa()
   {
+    Console.WriteLine($"id: " + id);
     Console.WriteLine($"Nome: " + nome);
     Console.WriteLine($"Punteggio: " + punteggio);
     Console.WriteLine($"crediti: " + crediti);
