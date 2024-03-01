@@ -13,7 +13,8 @@
 ### PUNTEGGIO (int)
 
 - parte da 0
-- dipende dal gioco
+- se vinci + 1 
+- se perdi - 1
 
 ### CREDITI (int)
 
@@ -48,18 +49,12 @@
 ### eta (int)
 
 
-
-
 ## GIOCATORE GIADA :
 
 ### COGNOME (string)
 
-- il cognome del giocatore
-
 ### ETA (int)
 
-- l'eta' del giocatore
-- serve per controllo maggiorenni
 
 # METODI 
 
@@ -71,18 +66,9 @@
 
 - prende come argomento il booleano win (Hai vinto? si/no)
 - aumenta di 1 partite giocate 
-- se (win = true) <br/>
-  aumenta di 1 partite vinte e crediti
+- se (win == true) <br/>
+  {aumenta di 1 partite vinte e punteggio}
+  else 
+  {punteggio - 1}
 
 
-### VINCITA override GiocatoreProva 
-
-- se (win = true) <br/>
- aumenta di 10 esperienza
-- se (esperienza >= 50) <br/>
- aumenta di 1 livello  
-
-
-TODO:
-
-chiedere se eta e' in tutti i programmi 
