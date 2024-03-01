@@ -30,9 +30,8 @@
 
 ### CREDITI (int)
 
-- parte da 3
-- aumenta di 1 se vinci
-- diminuisce di 1 se perdi (gestito dal Program.cs) 
+- parte da 20
+- diminuisce di 1 a ogni partita (gestito dal Program.cs) 
 
 ### PARTITE GIOCATE (int)
 
