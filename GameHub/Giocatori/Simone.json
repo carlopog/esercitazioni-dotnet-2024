@@ -1,0 +1,12 @@
+{
+  "nome": "Simone",
+  "punteggio": 0,
+  "crediti": 3,
+  "partiteGiocate": 0,
+  "partiteVinte": 0,
+  "coloreArmata": "red",
+  "territori": [
+    "Sudafrica",
+    "Botswana"
+  ]
+}
