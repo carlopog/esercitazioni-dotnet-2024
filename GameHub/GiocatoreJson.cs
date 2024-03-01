@@ -38,8 +38,12 @@ class GiocatoreJson
   {
     if (win)
     {
-      crediti ++;
       PartiteVinte++;
+      Punteggio++;
+    }
+    else
+    {
+      Punteggio--;
     }
       PartiteGiocate++;
   }
