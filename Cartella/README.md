@@ -1,4 +1,4 @@
-è un framework che ci permette di utilizzare un database 
+è un framework che ci permette di utilizzare un database provvisorio in memoria 
 finchè l'applicazione è in run
 
 poi possiamo effettuare una migrazione a un database di nostra scelta
