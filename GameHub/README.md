@@ -1,31 +1,16 @@
-# CLASSE GIOCATORE
-### nome (string),  
-### punteggio, crediti, partite giocate, partite vinte (int)
+# CLASSE GIOCATORE 
+## (nome, punteggio, crediti, partite giocate, partite vinte)
 
-# SOTTOCLASSI:
+# SOTTOCLASSI: 
 
-- ## GIOCATORE SIMO :
+- ## GIOCATORE FABIO: (eta)
 
-### coloreArmata (string)
-### territori (List di string)
+- ## GIOCATORE GIADA : (eta, cognome)
 
-- ## GIOCATORE CARLO:
+- ## GIOCATORE SIMO : (coloreArmata, territori)
 
-### eta (int)
-### bottino (int)
-### lastbet (int)
-### prestito (int)
+- ## GIOCATORE CARLO: (eta, bottino, lastbet, prestito)
 
-- ## GIOCATORE FABIO:
-
-### eta (int)
-
-
-- ## GIOCATORE GIADA :
-
-### cognome (string)
-
-### eta (int)
 
 # ARGOMENTI NELLO SPECIFICO
 
