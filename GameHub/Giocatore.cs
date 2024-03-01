@@ -64,8 +64,12 @@ class Giocatore
   {
     if (win)
     {
-      crediti ++;
       partiteVinte++;
+      punteggio++;
+    }
+    else
+    {
+      punteggio--;
     }
       partiteGiocate++;
   }
