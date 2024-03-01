@@ -1,7 +1,7 @@
 # CLASSE GIOCATORE 
 ## (nome, punteggio, crediti, partite giocate, partite vinte)
 
-# SOTTOCLASSI: 
+# CLASSI ESTESE: 
 
 - ## GIOCATORE FABIO: (eta)
 
@@ -71,6 +71,21 @@
 - scrive tutti gli argomenti del giocatore una riga alla volta
 
 ### VINCITA(bool win)
+```c#
+  public virtual void Vincita(bool win)
+  {
+    if (win)
+    {
+      partiteVinte++;
+      punteggio++;
+    }
+    else
+    {
+      punteggio--;
+    }
+      partiteGiocate++;
+  }
+  ```
 
 - prende come argomento il booleano win (Hai vinto? si/no)
 - aumenta di 1 partite giocate 
