@@ -56,14 +56,14 @@ class Program
           }
         case "3":
           {
-            VisualizzaProdotto("giocatore");
-            // VisualizzaGiocatore();
+            // VisualizzaProdotto("giocatore");
+            VisualizzaGiocatori();
             break;
           }
         case "4":
           {
-            VisualizzaProdotto("scommessa");
-            // VisualizzaScommessa();
+            // VisualizzaProdotto("scommessa");
+            VisualizzaScommesse();
             break;
           }
         case "5":
@@ -443,29 +443,45 @@ class Program
     numero = array[2];
     SelezionaVisualizzazione(prodotti, numero);
   }
-  static void VisualizzaGiocatore(string scelta)
+  static void VisualizzaGiocatori()
   {
-    string prodotti = "";
-    string prodotto = "";
-    string numero = "";
-    string verbo = "visualizzare";
-    string[] array = SelezionaProdotto(scelta, prodotti, prodotto, numero, verbo);
-    prodotti = array[0];
-    prodotto = array[1];
-    numero = array[2];
-    SelezionaVisualizzazione(prodotti, numero);
+    int counter = 0;
+    SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;"); // crea la connessione di nuovo perché è stata chiusa alla fine del while in modo da poter visualizzare i dati aggiornati
+    connection.Open();
+    string sql = $"SELECT * FROM giocatori"; // crea il comando sql che seleziona tutti i dati dalla tabella prodotti
+    SQLiteCommand command = new SQLiteCommand(sql, connection); // crea il comando sql da eseguire sulla connessione al database
+    SQLiteDataReader reader = command.ExecuteReader(); // esegue il comando sql sulla connessione al database e salva i dati in reader che è un oggetto di tipo SQLiteDataReader incaricato di leggere i dati
+    while (reader.Read())
+    {
+      Console.WriteLine($"id: {reader["id"]}, nome: {reader["nome"]}, eta: {reader["eta"]}, bottino: {reader["bottino"]}, lastbet: {reader["lastbet"]}, prestito: {reader["prestito"]} ");
+      counter++;
+      Thread.Sleep(500);
+    }
+    if (counter == 0)
+    {
+      Console.WriteLine("Non c'è nessun dato in questo elenco");
+    }
+    connection.Close(); 
   }
-  static void VisualizzaScommessa(string scelta)
+  static void VisualizzaScommesse()
   {
-    string prodotti = "";
-    string prodotto = "";
-    string numero = "";
-    string verbo = "visualizzare";
-    string[] array = SelezionaProdotto(scelta, prodotti, prodotto, numero, verbo);
-    prodotti = array[0];
-    prodotto = array[1];
-    numero = array[2];
-    SelezionaVisualizzazione(prodotti, numero);
+    int counter = 0;
+    SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;"); // crea la connessione di nuovo perché è stata chiusa alla fine del while in modo da poter visualizzare i dati aggiornati
+    connection.Open();
+    string sql = $"SELECT * FROM scommesse"; // crea il comando sql che seleziona tutti i dati dalla tabella prodotti
+    SQLiteCommand command = new SQLiteCommand(sql, connection); // crea il comando sql da eseguire sulla connessione al database
+    SQLiteDataReader reader = command.ExecuteReader(); // esegue il comando sql sulla connessione al database e salva i dati in reader che è un oggetto di tipo SQLiteDataReader incaricato di leggere i dati
+    while (reader.Read())
+    {
+      Console.WriteLine($"id: {reader["id"]}, prezzo: {reader["prezzo"]}, vincita: {reader["vincita"]}, nome: {reader["nome"]}");
+      counter++;
+      Thread.Sleep(600);
+    }
+    if (counter == 0)
+    {
+      Console.WriteLine("Non c'è nessun dato in questo elenco");
+    }
+    connection.Close();
   }
 
 static int NumerizzaInput(string stringa)
@@ -575,11 +591,35 @@ static int NumerizzaInput(string stringa)
       int prezzo = int.Parse(Console.ReadLine()!); // legge il nuovo prezzo del prodotto da modificare
       SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
       connection.Open();
-      string idMax = $"(SELECT (id) FROM scommesse WHERE nome = '{nome}' ORDER BY id DESC LIMIT 1)"; // selezionare scommessa con id maggiore con quel nome
-      sql = $"UPDATE {prodotti} SET {numero} = {prezzo} WHERE id = {idMax}"; // crea il comando sql che modifica il prezzo del prodotto con nome uguale a quello inserito
+      string cassa = $"SELECT bottino FROM giocatori WHERE nome = '{nome}'";
+      SQLiteCommand comma = new SQLiteCommand(cassa, connection);
+      comma.ExecuteNonQuery();
+      SQLiteDataReader reader = comma.ExecuteReader(); // esegue il comando sql sulla connessione al database e salva i dati in reader che è un oggetto di tipo SQLiteDataReader incaricato di leggere i dati
+      while (reader.Read())
+      {
+        Console.WriteLine($"bottino: {reader["bottino"]}");
+      }
+      connection.Close();
+      connection.Open();
+      string idMax = $"(SELECT (id) FROM scommesse WHERE nome = '{nome}' ORDER BY id DESC LIMIT 1) + 1"; // selezionare scommessa con id maggiore con quel nome
+      sql = $"UPDATE {prodotti} SET {numero} = {prezzo} WHERE id = {idMax}; ";
+      // UPDATE giocatori SET bottino = {bottinoAggiornato} WHERE nome = '{nome}'; "; 
+      
+      // crea il comando sql che modifica il prezzo del prodotto con nome uguale a quello inserito
       SQLiteCommand comando = new SQLiteCommand(sql, connection);
       comando.ExecuteNonQuery();
       connection.Close();
+      var prestitoAttivo =  $"SELECT prestito FROM giocatori WHERE nome = '{nome}'";
+      // int prestitoAttivo =  int.Parse(prestitoA);
+      int differenza = bottinoAggiornato - prestitoAttivo;
+      if (prestitoAttivo > 0 && differenza >= 0)
+      {
+        connection.Open();
+        string sql2 = $"UPDATE giocatori SET bottino = {differenza} WHERE nome = '{nome}'; UPDATE giocatori SET prestito = 0 WHERE nome = '{nome}'; "; 
+        SQLiteCommand com = new SQLiteCommand(sql2, connection);
+        com.ExecuteNonQuery();
+        connection.Close();
+      }
     }
     
     else
