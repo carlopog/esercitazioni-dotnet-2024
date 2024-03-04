@@ -45,31 +45,38 @@ class Program
         case "1":
           {
             InserisciProdotto("giocatore");
+            // InserisciGiocatore();
             break;
           }
         case "2":
           {
             InserisciProdotto("scommessa");
+            // InserisciScommessa();
             break;
           }
         case "3":
           {
             VisualizzaProdotto("giocatore");
+            // VisualizzaGiocatore();
             break;
           }
         case "4":
           {
             VisualizzaProdotto("scommessa");
+            // VisualizzaScommessa();
             break;
           }
         case "5":
           {
             ModificaProdotto("giocatore");
+            // ModificaGiocatore();
             break;
           }
         case "6":
           {
             ModificaProdotto("vincita");
+            // ModificaVincitaBottino();
+
         //  ModificaProdotto("bottino"); assegnandogli il valore bottino + vincita
          /*
               if prestito > 0 & prestito < bottino
@@ -81,6 +88,8 @@ class Program
         case "7":
           {
             ModificaProdotto("prestito");
+            // ModificaPrestito();
+
             break;
           }
         case "8":
@@ -423,6 +432,30 @@ class Program
   }
   // string scelta = OpzioniProdotto("visualizza");
   static void VisualizzaProdotto(string scelta)
+  {
+    string prodotti = "";
+    string prodotto = "";
+    string numero = "";
+    string verbo = "visualizzare";
+    string[] array = SelezionaProdotto(scelta, prodotti, prodotto, numero, verbo);
+    prodotti = array[0];
+    prodotto = array[1];
+    numero = array[2];
+    SelezionaVisualizzazione(prodotti, numero);
+  }
+  static void VisualizzaGiocatore(string scelta)
+  {
+    string prodotti = "";
+    string prodotto = "";
+    string numero = "";
+    string verbo = "visualizzare";
+    string[] array = SelezionaProdotto(scelta, prodotti, prodotto, numero, verbo);
+    prodotti = array[0];
+    prodotto = array[1];
+    numero = array[2];
+    SelezionaVisualizzazione(prodotti, numero);
+  }
+  static void VisualizzaScommessa(string scelta)
   {
     string prodotti = "";
     string prodotto = "";
