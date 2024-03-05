@@ -18,8 +18,9 @@ creare classi che possiamo riutilizzare in vari progetti (componenti)
 
 > per installare 
 
-dotnet add package Microsoft.EntityFrameworkCore
+dotnet tool install --global dotnet-ef
 
+dotnet add package Microsoft.EntityFrameworkCore
 dotnet add package Microsoft.EntityFrameworkCore.InMemory
 
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
@@ -28,7 +29,9 @@ dotnet add package Microsoft.EntityFrameworkCore.Tools
 
 (scarica .NET runtime 8.0)
 
+dotnet build
+
 dotnet ef migrations add InitialCreate
-dotnet tool install --global dotnet-ef
 dotnet ef database update
+
 dotnet run

@@ -11,7 +11,19 @@ comando dotnet per creare l'app
 
 ## per usare entity framework
 
-fare i dotnet add package a seconda di inmemory o sqlite
+fare 
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+
+dotnet build
+
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+
+dotnet run
+
 
 class user con id e nome
 
