@@ -601,25 +601,27 @@ static int NumerizzaInput(string stringa)
       }
       connection.Close();
       connection.Open();
-      string idMax = $"(SELECT (id) FROM scommesse WHERE nome = '{nome}' ORDER BY id DESC LIMIT 1) + 1"; // selezionare scommessa con id maggiore con quel nome
-      sql = $"UPDATE {prodotti} SET {numero} = {prezzo} WHERE id = {idMax}; ";
-      // UPDATE giocatori SET bottino = {bottinoAggiornato} WHERE nome = '{nome}'; "; 
+
+      string bottinoAttuale =  $"(SELECT (bottino) FROM giocatori WHERE nome = '{nome}')";
+
+      string idMax = $"(SELECT (id) FROM scommesse WHERE nome = '{nome}' ORDER BY id DESC LIMIT 1)"; // selezionare scommessa con id maggiore con quel nome
+      sql = $"UPDATE {prodotti} SET {numero} = {prezzo} WHERE id = {idMax}; UPDATE giocatori SET bottino = {bottinoAttuale} + {prezzo} WHERE nome = '{nome}'; "; 
       
       // crea il comando sql che modifica il prezzo del prodotto con nome uguale a quello inserito
       SQLiteCommand comando = new SQLiteCommand(sql, connection);
       comando.ExecuteNonQuery();
       connection.Close();
-      var prestitoAttivo =  $"SELECT prestito FROM giocatori WHERE nome = '{nome}'";
-      // int prestitoAttivo =  int.Parse(prestitoA);
-      int differenza = bottinoAggiornato - prestitoAttivo;
-      if (prestitoAttivo > 0 && differenza >= 0)
-      {
-        connection.Open();
-        string sql2 = $"UPDATE giocatori SET bottino = {differenza} WHERE nome = '{nome}'; UPDATE giocatori SET prestito = 0 WHERE nome = '{nome}'; "; 
-        SQLiteCommand com = new SQLiteCommand(sql2, connection);
-        com.ExecuteNonQuery();
-        connection.Close();
-      }
+      // string prestitoAttivo =  $"SELECT prestito FROM giocatori WHERE nome = '{nome}'";
+      // // int prestitoAttivo =  int.Parse(prestitoA);
+      // int differenza = bottinoAggiornato - prestitoAttivo;
+      // if (prestitoAttivo > 0 && differenza >= 0)
+      // {
+      //   connection.Open();
+      //   string sql2 = $"UPDATE giocatori SET bottino = {differenza} WHERE nome = '{nome}'; UPDATE giocatori SET prestito = 0 WHERE nome = '{nome}'; "; 
+      //   SQLiteCommand com = new SQLiteCommand(sql2, connection);
+      //   com.ExecuteNonQuery();
+      //   connection.Close();
+      // }
     }
     
     else
