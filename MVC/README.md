@@ -8,6 +8,19 @@ MVC è un pattern architetturale che separa i dati, la logica di business e l'in
 
 comando dotnet per creare l'app
 
+
+## per usare entity framework
+
+fare i dotnet add package a seconda di inmemory o sqlite
+
+class user con id e nome
+
+database crei la connessione estendendo la classe database
+
+classe view resta uguale
+
+classe controller bisogna modificarlo
+
 ```bash
 dotnet new console -n MvcConsole
 ```
@@ -138,5 +151,26 @@ class Controller
     _view.ShowUsers(users); // Visualizzazione degli utenti
   }
 }
+
+```
+
+
+```c#
+
+// se vuoi selezionare il primo della tabella
+
+      // Read
+      Console.WriteLine("Prendo il primo user");
+      var first = db.Users
+          .OrderBy(f => f.Id)
+          .First();
+
+      Console.WriteLine(first.Nome);
+
+// se vuoi chiamare Pinodaniele il primo della tabella
+      // Update
+      first.Nome = "Pinodaniele";
+      db.SaveChanges();
+      Console.WriteLine(first.Nome);
 
 ```

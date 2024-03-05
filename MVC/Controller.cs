@@ -43,25 +43,62 @@ class Controller
   {
     Console.WriteLine("Enter user name:"); // Richiesta nome dell'utente
     var name = _view.GetInput(); // Lettura del nome dell'utente
-    _db.AddUser(name); // Aggiunta dell'utente al database
+    var user = new User { Nome = name };
+    _db.Users.Add(user);
+    _db.SaveChanges();
   }
   private void EditUser()
   {
-    Console.WriteLine("Enter user old name:"); // Richiesta nome dell'utente
-    var name = _view.GetInput(); // Lettura del nome dell'utente
-    Console.WriteLine("Enter user new name:"); // Richiesta nuovo nome dell'utente
-    var newName = _view.GetInput(); // Lettura del nome dell'utente
-    _db.EditUser(name, newName); // Aggiunta dell'utente al database
+    EnterId:
+    Console.WriteLine("Enter user id:"); // Richiesta id dell'utente
+    {
+      try
+      {
+        var userId = int.Parse(Console.ReadLine()!); 
+        var result = _db.Users.SingleOrDefault(u => u.Id == userId);
+        if (result != null)
+        {
+          Console.WriteLine("Enter user new name:"); // Richiesta nuovo nome dell'utente
+          var newName = Console.ReadLine()!; 
+          result.Nome = newName;
+          _db.SaveChanges();
+        }
+      }
+      catch (Exception)
+      {
+        Console.WriteLine("inserisci un numero valido");
+        goto EnterId;
+      }
+    }
   }
   private void RemoveUser()
-  {
-    Console.WriteLine("Enter user name:"); // Richiesta nome dell'utente
-    var name = _view.GetInput(); // Lettura del nome dell'utente
-    _db.RemoveUser(name); // Aggiunta dell'utente al database
+ {
+    EnterId:
+    Console.WriteLine("Enter user id:"); // Richiesta id dell'utente
+    {
+      try
+      {
+        var userId = int.Parse(Console.ReadLine()!); 
+        var result = _db.Users.SingleOrDefault(u => u.Id == userId);
+        if (result != null)
+        {
+          _db.Remove(result);
+          _db.SaveChanges();
+        }
+      }
+      catch (Exception)
+      {
+        Console.WriteLine("inserisci un numero valido");
+        goto EnterId;
+      }
+    }
   }
   private void ShowUsers()
   {
-    var users = _db.GetUsers(); // Lettura degli utenti dal database
-    _view.ShowUsers(users); // Visualizzazione degli utenti
+    var users = _db.Users.ToList(); 
+      foreach (var u in users)
+      {
+        Console.WriteLine($"{u.Id} - {u.Nome}");
+      }
   }
 }
