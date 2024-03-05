@@ -20,6 +20,19 @@ class Database
     command.ExecuteNonQuery();
   }
 
+  public void RemoveUser(string name)
+  {
+    string remove = $"DELETE FROM users WHERE (name) = '{name}'";
+    var command = new SQLiteCommand(remove, _connection);
+    command.ExecuteNonQuery();
+  }
+  public void EditUser(string name, string newName)
+  {
+    string edit = $"UPDATE users SET (name) = '{newName}' WHERE (name) = '{name}'";
+    var command = new SQLiteCommand(edit, _connection);
+    command.ExecuteNonQuery();
+  }
+
   public List<string> GetUsers()
   {
     string getUsers = "SELECT name FROM users";
