@@ -1,5 +1,11 @@
 using System.Data.SQLite;
 
+using Microsoft.EntityFrameworkCore;
+class User
+{
+    public int Id { get; set; }
+    public string Nome { get; set; }
+}
 class Database
 {
   private SQLiteConnection _connection; // SQLiteConnection e' una classe  che rappresenta una connessione a un database SQLite
