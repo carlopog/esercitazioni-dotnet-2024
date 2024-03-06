@@ -2,64 +2,64 @@
 
 class Program
 {
-  static void Aggiorna(string path, string nome, int prestito, int bottino, string[] giocatore)
-  {
-    string[] righe = File.ReadAllLines(path);
-    string[][] players = new string[righe.Length][];
-    for (int i = 0; i < righe.Length; i++)
-    {
-      players[i] = righe[i].Split(',');
-    }
-    for (int i = 0; i < players.Length; i++)
-    {
-      if (players[i][0] == nome) // se il nome e' gia' presente nel file
-      {
-        players[i][2] = prestito.ToString();
-        players[i][3] = bottino.ToString();
-      }
-      string path3 = @"giocatori2.csv";
-      if (!File.Exists(path3))
-      {
-        File.Create(path3).Close();
-      }
-      foreach (string[] player in players)
-      {
-        File.AppendAllText(path3, player[0] + "," + int.Parse(player[1]) + "," + int.Parse(player[2]) + "," + int.Parse(player[3]) + "\n");
-      }
-      string[] nuoviDati = File.ReadAllLines(path3);
-      int lunghezza = nuoviDati.Length - 1;
-      string stringaDati;
-      string[] pleier = ["a", "b", "c", "d"];
-      for (int a = 0; a <= lunghezza; a++)
-      {
-        stringaDati = nuoviDati[a];
-        pleier = stringaDati.Split(',');
-        if (pleier[0] == nome)
-        {
-          giocatore = pleier;
-          Console.WriteLine(pleier[0]);
+  // static void Aggiorna(string path, string nome, int prestito, int bottino, string[] giocatore)
+  // {
+  //   string[] righe = File.ReadAllLines(path);
+  //   string[][] players = new string[righe.Length][];
+  //   for (int i = 0; i < righe.Length; i++)
+  //   {
+  //     players[i] = righe[i].Split(',');
+  //   }
+  //   for (int i = 0; i < players.Length; i++)
+  //   {
+  //     if (players[i][0] == nome) // se il nome e' gia' presente nel file
+  //     {
+  //       players[i][2] = prestito.ToString();
+  //       players[i][3] = bottino.ToString();
+  //     }
+  //     string path3 = @"giocatori2.csv";
+  //     if (!File.Exists(path3))
+  //     {
+  //       File.Create(path3).Close();
+  //     }
+  //     foreach (string[] player in players)
+  //     {
+  //       File.AppendAllText(path3, player[0] + "," + int.Parse(player[1]) + "," + int.Parse(player[2]) + "," + int.Parse(player[3]) + "\n");
+  //     }
+  //     string[] nuoviDati = File.ReadAllLines(path3);
+  //     int lunghezza = nuoviDati.Length - 1;
+  //     string stringaDati;
+  //     string[] pleier = ["a", "b", "c", "d"];
+  //     for (int a = 0; a <= lunghezza; a++)
+  //     {
+  //       stringaDati = nuoviDati[a];
+  //       pleier = stringaDati.Split(',');
+  //       if (pleier[0] == nome)
+  //       {
+  //         giocatore = pleier;
+  //         Console.WriteLine(pleier[0]);
 
-        }
-      }
-      File.Delete(path);
-      File.Create(path).Close();
-      File.AppendAllLines(path, nuoviDati);
-      File.Delete(path3);
-    }
-  }
+  //       }
+  //     }
+  //     File.Delete(path);
+  //     File.Create(path).Close();
+  //     File.AppendAllLines(path, nuoviDati);
+  //     File.Delete(path3);
+  //   }
+  // }
   static bool Exit(string[] giocatore)
   {
-    string nome = giocatore[0];
-    string path = @"giocatori.csv";
-    int prestito = int.Parse(giocatore[2]);
-    int bottino = int.Parse(giocatore[3]);
+    // string nome = giocatore[0];
+    // string path = @"giocatori.csv";
+    // int prestito = int.Parse(giocatore[2]);
+    // int bottino = int.Parse(giocatore[3]);
     if (prestito > 0 && bottino >= prestito)
     {
-      Console.WriteLine($"Ci riprendiamo i nostri {prestito} euro");
-      Thread.Sleep(400);
-      bottino -= prestito;
-      Console.WriteLine($"il tuo credito e' di {bottino} euro");
-      Aggiorna(path, nome, 0, bottino, giocatore);
+      // Console.WriteLine($"Ci riprendiamo i nostri {prestito} euro");
+      // Thread.Sleep(400);
+      // bottino -= prestito;
+      // Console.WriteLine($"il tuo credito e' di {bottino} euro");
+      // Aggiorna(path, nome, 0, bottino, giocatore);
     }
     Console.WriteLine("Vuoi continuare a giocare o uscire? c/u");
     string scelta = Console.ReadLine()!;
@@ -113,26 +113,30 @@ class Program
 
   static void Main(string[] args)
   {
-    string pathJson = "giocatoreAttuale.json";
-    int prestitone = 0;
-    string csv = "";
-    string pathGiocatori = @"giocatori.csv";
+    // int prestitone = 0;
+    // string csv = "";
+    // string pathGiocatori = @"giocatori.csv";
+    // CreateFile(pathGiocatori);
+
     string pathGiocatoreAttuale = @"giocatoreAttuale.csv";
-    CreateFile(pathGiocatori);
+    string pathJson = "giocatoreAttuale.json";
     CreateFile(pathGiocatoreAttuale);
+
     string[] player = new string[4];
     int counter = 0;
-    string[] li = File.ReadAllLines(pathGiocatori);
-    string[] righe = new string[li.Length];
-    for (int i = 0; i < li.Length; i++)
-    {
-      if (!li[i].EndsWith(",")) // controlla che i dati dei giocatori siano completi altrimenti li cancella
-      {
-        righe[counter] = li[i];
-        counter++;
-      }
-    }
-    File.WriteAllLines(pathGiocatori, righe);
+
+    // string[] li = File.ReadAllLines(pathGiocatori);
+    // string[] righe = new string[li.Length];
+    // for (int i = 0; i < li.Length; i++)
+    // {
+    //   if (!li[i].EndsWith(",")) // controlla che i dati dei giocatori siano completi altrimenti li cancella
+    //   {
+    //     righe[counter] = li[i];
+    //     counter++;
+    //   }
+    // }
+    // File.WriteAllLines(pathGiocatori, righe);
+
     Console.WriteLine("Ciao, per giocare a Super Sic Bo devi essere maggiorenne, hai almeno 18 anni? (s/n)");
     string siNo = Console.ReadLine()!; // legge il tipo di operazione scelta
     if (siNo == "s")
@@ -141,26 +145,29 @@ class Program
       string nomeGiocatore = Console.ReadLine()!; // ti fa inserire il nome del giocatore attuale
       int[] ePB = new int[3];
 
-
       File.WriteAllText(pathGiocatoreAttuale, nomeGiocatore);
 
-      if (File.ReadAllLines(pathGiocatori).Any(line => line.StartsWith(nomeGiocatore)))
-      {
-        for (int i = 0; i < righe.Length; i++)
-        {
-          string[] giocatoreNoto = righe[i].Split(',');
-          if (giocatoreNoto[0] == nomeGiocatore)
-          {
-            Console.WriteLine($"Ah bentornato {giocatoreNoto[0]}, mi ricordo di te, tu hai {giocatoreNoto[1]} anni");
-            ePB[0] = int.Parse(giocatoreNoto[1]);
-            if (int.Parse(giocatoreNoto[2]) > 0)
-            {
-              Console.WriteLine($" e ci devi ancora {giocatoreNoto[2]} euro dall'ultima volta");
-              if (int.Parse(giocatoreNoto[2]) < 100 + int.Parse(giocatoreNoto[3]))
-              {
-                ePB[1] = 0;
-                Thread.Sleep(500);
+      // if (File.ReadAllLines(pathGiocatori).Any(line => line.StartsWith(nomeGiocatore)))
 
+      // {
+        // for (int i = 0; i < righe.Length; i++)
+        // {
+        //   string[] giocatoreNoto = righe[i].Split(',');
+        //   if (giocatoreNoto[0] == nomeGiocatore)
+
+
+
+      // se nel database Giocatori c'e' Giocatori.Nome == nomeGiocatore
+          {
+            Console.WriteLine($"Ah bentornato {giocatoreNoto[0]}, mi ricordo di te, tu hai {giocatoreNoto[1]} anni"); // Nome e Eta
+            // ePB[0] = int.Parse(giocatoreNoto[1]);
+            if (int.Parse(giocatoreNoto[2]) > 0) // se Prestito maggiore di zero
+            {
+              Console.WriteLine($" e ci devi ancora {giocatoreNoto[2]} euro dall'ultima volta"); // Prestito
+              if (int.Parse(giocatoreNoto[2]) < 100 + int.Parse(giocatoreNoto[3])) // se inferiore a 100
+              {
+                // bottino = 100 - prestito
+                ePB[1] = 0; // prestito pagato e azzerato
                 Thread.Sleep(500);
               }
               else
@@ -169,20 +176,22 @@ class Program
                 return;
               }
             }
-            if (int.Parse(giocatoreNoto[3]) > 0)
+            if (int.Parse(giocatoreNoto[3]) > 0) // se Bottino maggiore di zero
             {
-              Console.WriteLine($" e hai ancora {giocatoreNoto[3]} euro dall'ultima volta");
+              Console.WriteLine($" e hai ancora {giocatoreNoto[3]} euro dall'ultima volta"); // segnalo quanti soldi hai ancora
               ePB[2] = 100 - int.Parse(giocatoreNoto[2]) + int.Parse(giocatoreNoto[3]);
             }
             else if (int.Parse(giocatoreNoto[3]) <= 0)
             {
               ePB[2] = 100 + int.Parse(giocatoreNoto[3]);
-              Console.WriteLine($"ci vuoi riprovare vedo, anche oggi hai {ePB[2]} euro a disposizione.");
+              Console.WriteLine($"ci vuoi riprovare vedo, anche oggi hai {ePB[2]} euro a disposizione."); // aggiungo i 100
             }
-            string[] gianni = ["aa", "bb", "cc", "dd"];
-            Aggiorna(pathGiocatori, giocatoreNoto[0], ePB[1], ePB[2], gianni);
-
-            int etaNota = int.Parse(giocatoreNoto[1]);
+            // string[] gianni = ["aa", "bb", "cc", "dd"];
+            // Aggiorna(pathGiocatori, giocatoreNoto[0], ePB[1], ePB[2], gianni);
+            
+            // creo l'array del giocatore attuale con i nuovi dati
+            
+            int etaNota = int.Parse(giocatoreNoto[1]); // verifico se Eta maggiore 17
             if (etaNota > 17)
             {
               Console.WriteLine("Sei maggiorenne, puoi giocare a Super Sic Bo");

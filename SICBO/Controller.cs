@@ -49,15 +49,34 @@ class Controller
       }
     }
   }
-
-  private void AggiungiGiocarore()
+  private void AggiungiGiocarore() // controlla se il giocatore non e' gia' registrato e la sua eta'
   {
+    int eta = 10;
     Console.WriteLine("Inserisci nome Giocatore:"); // Richiesta nome dell'utente
-    var name = Console.ReadLine()!; // Lettura del nome dell'utente
-    int eta = _view.ReadInt("eta");
-    var player = new Giocatore { Nome = name, Eta = eta, Bottino = 100, Lastbet = 0, Prestito = 0 };
-    _db.Giocatori.Add(player);
-    _db.SaveChanges();
+    string name = Console.ReadLine()!; // Lettura del nome dell'utente
+    bool result = _db.Giocatori.Any(g => g.Nome == name);
+    if (result)
+    {
+      var selezionato = _db.Giocatori.SingleOrDefault(g => g.Nome == name);
+      Console.WriteLine($"Bentornato {name}, mi ricordo di te, hai {selezionato.Eta} anni");
+      eta = selezionato.Eta;
+    }
+    else
+    {
+      eta = _view.ReadInt("eta");
+      var player = new Giocatore { Nome = name, Eta = eta, Bottino = 100, Lastbet = 0, Prestito = 0 };
+      _db.Giocatori.Add(player);
+      _db.SaveChanges();
+    }
+    if (eta > 17)
+    {
+      Console.WriteLine($"Beh se hai {eta} anni allora puoi giocare");
+    }
+    else
+    {
+      Console.WriteLine("Allora non sei maggiorenne! Tornatene a casa pischello!");
+      return;
+    }
   }
   private void AggiungiScommessa()
   {
@@ -73,11 +92,11 @@ class Controller
       _db.SaveChanges();
     }
   }
-   /// <summary>
-    ///  Questo metodo aggiorna il valore Vincita dell'ultima scommessa effettuata da un dato giocatore
-    ///  deve essere chiamato dopo il risultato di ogni scommessa
-    ///  aggiorna anche il valore del Bottino del giocatore sommandogli la Vincita
-    /// </summary>
+  /// <summary>
+  ///  Questo metodo aggiorna il valore Vincita dell'ultima scommessa effettuata da un dato giocatore
+  ///  deve essere chiamato dopo il risultato di ogni scommessa
+  ///  aggiorna anche il valore del Bottino del giocatore sommandogli la Vincita
+  /// </summary>
   private void ModificaVincita()
   {
     Console.WriteLine("Inserisci il nome del Giocatore che ha fatto la scommessa:"); // Richiesta nome dell'utente
@@ -94,13 +113,13 @@ class Controller
     }
   }
 
-    /// <summary>
-    ///  Questo metodo aggiorna il valore Prestito di un dato giocatore deve essere chiamato:
-    ///  - se il giocatore accetta di ricevere un prestito dal banco
-    ///    aggiorna anche il valore del Bottino del giocatore sommandogli il Prestito
-    ///  - o se ha abbastanza soldi da ripagare i suoi debiti, in questo caso
-    ///    aggiorna anche il valore del Bottino del giocatore sottraendogli il Prestito
-    /// </summary>
+  /// <summary>
+  ///  Questo metodo aggiorna il valore Prestito di un dato giocatore deve essere chiamato:
+  ///  - se il giocatore accetta di ricevere un prestito dal banco
+  ///    aggiorna anche il valore del Bottino del giocatore sommandogli il Prestito
+  ///  - o se ha abbastanza soldi da ripagare i suoi debiti, in questo caso
+  ///    aggiorna anche il valore del Bottino del giocatore sottraendogli il Prestito
+  /// </summary>
   private void ModificaPrestito()
   {
     Console.WriteLine("Inserisci il nome del Giocatore che ha preso un prestito:"); // Richiesta nome dell'utente
@@ -147,7 +166,7 @@ class Controller
       _db.Giocatori.Remove(selezionato);
       foreach (var r in result)
       {
-      _db.Scommesse.Remove(r);
+        _db.Scommesse.Remove(r);
       }
       _db.SaveChanges();
     }
