@@ -42,6 +42,12 @@
   margin: 5px 250px 5px 150px;
 }
 
+.ultimabet {
+  border: 2px solid rgb(255, 196, 0);
+  border-radius: 50px;
+  padding: 20px;
+}
+
 .card {
   max-width: 750px;
 }
@@ -127,5 +133,9 @@ footer {
     margin: 5px 20px 5px 20px;
   }
 
+  .containero {
+    height: 100%;
+    margin-bottom: 5vh;    
+  }
   
 }
