@@ -73,6 +73,11 @@ class Controller
       _db.SaveChanges();
     }
   }
+   /// <summary>
+    ///  Questo metodo aggiorna il valore Vincita dell'ultima scommessa effettuata da un dato giocatore
+    ///  deve essere chiamato dopo il risultato di ogni scommessa
+    ///  aggiorna anche il valore del Bottino del giocatore sommandogli la Vincita
+    /// </summary>
   private void ModificaVincita()
   {
     Console.WriteLine("Inserisci il nome del Giocatore che ha fatto la scommessa:"); // Richiesta nome dell'utente
@@ -88,6 +93,14 @@ class Controller
       _db.SaveChanges();
     }
   }
+
+    /// <summary>
+    ///  Questo metodo aggiorna il valore Prestito di un dato giocatore deve essere chiamato:
+    ///  - se il giocatore accetta di ricevere un prestito dal banco
+    ///    aggiorna anche il valore del Bottino del giocatore sommandogli il Prestito
+    ///  - o se ha abbastanza soldi da ripagare i suoi debiti, in questo caso
+    ///    aggiorna anche il valore del Bottino del giocatore sottraendogli il Prestito
+    /// </summary>
   private void ModificaPrestito()
   {
     Console.WriteLine("Inserisci il nome del Giocatore che ha preso un prestito:"); // Richiesta nome dell'utente
@@ -139,5 +152,4 @@ class Controller
       _db.SaveChanges();
     }
   }
-
 }
