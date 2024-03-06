@@ -4,23 +4,26 @@ using System.Linq;
 class Controller
 {
   private Database _db; // Riferimento al modello
-  private View _view; // Riferimento alla vista
+  // private View _view; // Riferimento alla vista
+  private TestView _testview; // Riferimento alla vista
 
-  public Controller(Database db, View view)
+  public Controller(Database db, TestView testview) // View view,
   {
     _db = db; // Inizializzazione del riferimento al modello
-    _view = view; // Inizializzazione del riferimento alla vista
+    // _view = view; // Inizializzazione del riferimento alla vista
+    _testview = testview; // Inizializzazione del riferimento alla vista
   }
+
   public void MainMenu()
   {
     while (true)
     {
-      _view.ShowMainMenu(); // Visualizzazione del Menu principale
+      _testview.ShowMainMenu(); // Visualizzazione del Menu principale
       string input = Console.ReadLine()!; // Lettura dell'input dell'utente
 
       if (input == "1")
       {
-        AggiungiGiocarore();
+        AggiungiGiocatore();
       }
       if (input == "2")
       {
@@ -49,7 +52,7 @@ class Controller
       }
     }
   }
-  private void AggiungiGiocarore() // controlla se il giocatore non e' gia' registrato e la sua eta'
+  private void AggiungiGiocatore() // controlla se il giocatore non e' gia' registrato e la sua eta'
   {
     int eta = 10;
     Console.WriteLine("Inserisci nome Giocatore:"); // Richiesta nome dell'utente
@@ -63,7 +66,7 @@ class Controller
     }
     else
     {
-      eta = _view.ReadInt("eta");
+      eta = ValidaInput.ReadInt("eta");
       var player = new Giocatore { Nome = name, Eta = eta, Bottino = 100, Lastbet = 0, Prestito = 0 };
       _db.Giocatori.Add(player);
       _db.SaveChanges();
@@ -83,7 +86,7 @@ class Controller
     Console.WriteLine("Inserisci il nome del Giocatore che fa la scommessa:"); // Richiesta nome dell'utente
     var name = Console.ReadLine()!; // Lettura del nome dell'utente
     var selezionato = _db.Giocatori.SingleOrDefault(g => g.Nome == name);
-    int prezzo = _view.ReadInt("prezzo della scommessa");
+    int prezzo = ValidaInput.ReadInt("prezzo della scommessa");
     var bet = new Scommessa { Nome = name, Prezzo = prezzo, Vincita = 0 };
     if (selezionato != null)
     {
@@ -106,7 +109,7 @@ class Controller
     var last = result.OrderBy(f => f.Id).Last();
     if (last != null && selezionato != null)
     {
-      int vincita = _view.ReadInt("il risultato della scommessa");
+      int vincita = ValidaInput.ReadInt("il risultato della scommessa");
       last.Vincita = vincita;
       selezionato.Bottino += vincita;
       _db.SaveChanges();
@@ -127,7 +130,7 @@ class Controller
     var selezionato = _db.Giocatori.SingleOrDefault(g => g.Nome == name);
     if (selezionato != null)
     {
-      int prestito = _view.ReadInt("la cifra del prestito");
+      int prestito = ValidaInput.ReadInt("la cifra del prestito");
       if (prestito == 0)
       {
         selezionato.Bottino -= selezionato.Prestito;
@@ -149,7 +152,7 @@ class Controller
     var selezionato = _db.Giocatori.SingleOrDefault(g => g.Nome == name);
     if (selezionato != null)
     {
-      int bottino = _view.ReadInt("la cifra del nuovo bottino");
+      int bottino = ValidaInput.ReadInt("la cifra del nuovo bottino");
       selezionato.Bottino = bottino;
       _db.SaveChanges();
     }
@@ -171,4 +174,12 @@ class Controller
       _db.SaveChanges();
     }
   }
+
+  //   static void CreateFile(string path)
+  // {
+  //   if (!File.Exists(path))
+  //   {
+  //     File.Create(path).Close();
+  //   }
+  // }
 }
