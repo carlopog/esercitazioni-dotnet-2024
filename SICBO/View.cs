@@ -18,14 +18,6 @@ class View
     Console.WriteLine($"6. Rimuovi Giocatore");
     Console.WriteLine($"e. Esci");
   }
-  // public void VisualizzaGiocatori(List<string> giocatori)
-  // {
-  //   foreach (var giocatore in giocatori)
-  //   {
-  //    Console.WriteLine(giocatore); // Visualizzazione dei nomi degli utenti
-  //    Thread.Sleep(500);
-  //   }
-  // }
   public int ReadInt(string dato)
   {
   Start:
