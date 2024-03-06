@@ -1,4 +1,5 @@
 using System.Data.SQLite;
+using System.Linq;
 
 class Controller
 {
@@ -35,6 +36,10 @@ class Controller
         // coi due casi (se e' uguale a 0 o se e' minore del bottino)
       }
       if (input == "5")
+      {
+        ModificaBottino();
+      }
+      if (input == "6")
       {
         EliminaGiocatore();
       }
@@ -73,12 +78,12 @@ class Controller
     Console.WriteLine("Inserisci il nome del Giocatore che ha fatto la scommessa:"); // Richiesta nome dell'utente
     var name = Console.ReadLine()!; // Lettura del nome dell'utente
     var selezionato = _db.Giocatori.SingleOrDefault(g => g.Nome == name);
-    var result = _db.Scommesse.All(s => s.Nome == name);
-    var first = result.OrderBy(f => f.Id).First();
-    if (first != null && selezionato != null)
+    var result = _db.Scommesse.Where(s => s.Nome == name);
+    var last = result.OrderBy(f => f.Id).Last();
+    if (last != null && selezionato != null)
     {
       int vincita = _view.ReadInt("il risultato della scommessa");
-      first.Vincita = vincita;
+      last.Vincita = vincita;
       selezionato.Bottino += vincita;
       _db.SaveChanges();
     }
@@ -105,15 +110,28 @@ class Controller
       _db.SaveChanges();
     }
   }
-
-  private void EliminaGiocatore()
+  private void ModificaBottino()
   {
-    Console.WriteLine("Inserisci il nome del Giocatore che ha preso un prestito:"); // Richiesta nome dell'utente
+    Console.WriteLine("Inserisci il nome del Giocatore di cui vuoi modificare il bottino:"); // Richiesta nome dell'utente
     var name = Console.ReadLine()!; // Lettura del nome dell'utente
     var selezionato = _db.Giocatori.SingleOrDefault(g => g.Nome == name);
     if (selezionato != null)
     {
-      _db.Giocatore.Remove(selezionato);
+      int bottino = _view.ReadInt("la cifra del nuovo bottino");
+      selezionato.Bottino = bottino;
+      _db.SaveChanges();
+    }
+  }
+
+  private void EliminaGiocatore()
+  {
+    Console.WriteLine("Inserisci il nome del Giocatore da eliminare:"); // Richiesta nome dell'utente
+    var name = Console.ReadLine()!; // Lettura del nome dell'utente
+    var selezionato = _db.Giocatori.SingleOrDefault(g => g.Nome == name);
+    if (selezionato != null)
+    {
+      _db.Giocatori.Remove(selezionato);
+      _db.SaveChanges();
     }
   }
 
