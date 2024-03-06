@@ -128,9 +128,14 @@ class Controller
     Console.WriteLine("Inserisci il nome del Giocatore da eliminare:"); // Richiesta nome dell'utente
     var name = Console.ReadLine()!; // Lettura del nome dell'utente
     var selezionato = _db.Giocatori.SingleOrDefault(g => g.Nome == name);
+    var result = _db.Scommesse.Where(s => s.Nome == name);
     if (selezionato != null)
     {
       _db.Giocatori.Remove(selezionato);
+      foreach (var r in result)
+      {
+      _db.Scommesse.Remove(r);
+      }
       _db.SaveChanges();
     }
   }
