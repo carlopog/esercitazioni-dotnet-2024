@@ -1,182 +1,150 @@
-- [x] creare classe giocatore
-- [x] creare classe scommessa
+### TODO
 
-SELECT id from scommesse WHERE nome = '{nome}' ORDER BY id DESC LIMIT 1 
+- [ ] creare il metodo Scommessa() restituisce int vincita
+- [ ] creare int quota = 0
+- [ ] creare bool win = true
+- [ ] ? creare il metodo ScegliTipoScommessa() restituisce int tipo [in view]
+- [ ] creare il metodo TipoScommessa(int tipo) restituisce int quota, int prezzo e int vittoria (0 / 1)
+- [ ] creare un metodo per ogni tipo di scommessa:
+- [ ] ValoreSingolo()
+- [ ] Doppia()
+- [ ] Combinazione()
+- [ ] Tripla(string gs) 
+- [ ] Totale(string tipologia)
+- [ ] if (vittoria = 0) { win = false } else { win = true }
 
 ```c#
-   public void VisualizzaGiocatori(List<string> giocatori)
-   {
-     foreach (var giocatore in giocatori)
-     {
-      Console.WriteLine(giocatore); // Visualizzazione dei nomi degli utenti
-      Thread.Sleep(500);
-     }
-   }
-          Console.WriteLine("Hai scelto di visualizzare un elenco in base ad un valore numerico,");
-          Console.WriteLine("Cosa vuoi visualizzare?");
-          Console.WriteLine("1 - Elenco completo dal maggiore al minore");
-          Console.WriteLine("2 - Elenco completo dal minore al maggiore");
-          Console.WriteLine("3 - Valori superiori a un determinato numero");
-          Console.WriteLine("4 - Valori inferiori a un determinato numero");
-          Console.WriteLine("5 - Solo valori uguali a un determinato numero");
-          string numScelta = Console.ReadLine()!;
-          switch (numScelta)
-          {
-            case "1":
-              {
-                SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
-                connection.Open();
-                string sql = $"SELECT * FROM {prodotti} ORDER BY {numero} DESC";
-                SQLiteCommand command = new SQLiteCommand(sql, connection);
-                SQLiteDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                  Console.WriteLine($"id: {reader["id"]}, nome: {reader["nome"]}, {numero}: {reader[$"{numero}"]}");
-                  counter++;
-                  Thread.Sleep(300);
-                }
-                connection.Close();
-                if (counter == 0)
-                {
-                  Console.WriteLine("Non c'è nessun dato");
-                }
-                break;
-              }
-            case "2":
-              {
-                SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
-                connection.Open();
-                string sql = $"SELECT * FROM {prodotti} ORDER BY {numero} ASC";
-                SQLiteCommand command = new SQLiteCommand(sql, connection);
-                SQLiteDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                  Console.WriteLine($"id: {reader["id"]}, nome: {reader["nome"]}, {numero}: {reader[$"{numero}"]}");
-                  counter++;
-                  Thread.Sleep(300);
-                }
-                connection.Close();
-                if (counter == 0)
-                {
-                  Console.WriteLine("Non c'è nessun dato");
-                }
-                break;
-              }
-            case "3":
-              {
-              Superiore:
-                Console.WriteLine("Inserisci il valore del numero da paragonare");
-                try
-                {
-                  int paragone = int.Parse(Console.ReadLine()!);
-                  SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
-                  connection.Open();
-                  string sql = $"SELECT * FROM {prodotti} DESC WHERE {numero} > {paragone}";
-                  SQLiteCommand command = new SQLiteCommand(sql, connection);
-                  SQLiteDataReader reader = command.ExecuteReader();
-
-                  while (reader.Read())
-                  {
-                    Console.WriteLine($"id: {reader["id"]}, nome: {reader["nome"]}, {numero}: {reader[$"{numero}"]}");
-                    counter++;
-                    Thread.Sleep(300);
-                  }
-                  connection.Close();
-                  if (counter == 0)
-                  {
-                    Console.WriteLine($"Non c'è nessun dato con un valore maggiore di {paragone.ToString()}");
-                  }
-                  break;
-                }
-                catch (Exception)
-                {
-                  Console.WriteLine("devi inserire un numero");
-                  goto Superiore;
-                }
-
-              }
-            case "4":
-              {
-              Inferiore:
-                Console.WriteLine($"Inserisci il valore del numero da paragonare");
-                try
-                {
-                  int paragone = int.Parse(Console.ReadLine()!);
-                  SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
-                  connection.Open();
-                  string sql = $"SELECT * FROM {prodotti} DESC WHERE {numero} < {paragone}";
-                  SQLiteCommand command = new SQLiteCommand(sql, connection);
-                  SQLiteDataReader reader = command.ExecuteReader();
-
-                  while (reader.Read())
-                  {
-                    Console.WriteLine($"id: {reader["id"]}, nome: {reader["nome"]}, {numero}: {reader[$"{numero}"]}");
-                    counter++;
-                    Thread.Sleep(300);
-                  }
-                  connection.Close();
-                  if (counter == 0)
-                  {
-                    Console.WriteLine($"Non c'è nessun dato con un valore minore di {paragone}");
-                  }
-                  break;
-                }
-                catch (Exception)
-                {
-                  Console.WriteLine("devi inserire un numero");
-                  goto Inferiore;
-                }
-
-              }
-            case "5":
-              {
-              Inizio:
-                Console.WriteLine($"Inserisci il valore del numero da paragonare");
-                try
-                {
-                  int paragone = int.Parse(Console.ReadLine()!);
-                  SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
-                  connection.Open();
-                  string sql = $"SELECT * FROM {prodotti} DESC WHERE {numero} = {paragone}";
-                  SQLiteCommand command = new SQLiteCommand(sql, connection);
-                  SQLiteDataReader reader = command.ExecuteReader();
-
-                  while (reader.Read())
-                  {
-                    Console.WriteLine($"id: {reader["id"]}, nome: {reader["nome"]}, {numero}: {reader[$"{numero}"]}");
-                    counter++;
-                    Thread.Sleep(300);
-                  }
-                  connection.Close();
-                  if (counter == 0)
-                  {
-                    Console.WriteLine($"Non c'è nessun dato con un valore uguale a {paragone}");
-                  }
-                  break;
-                }
-                catch (Exception)
-                {
-                  Console.WriteLine("devi inserire un numero");
-                  goto Inizio;
-                }
-              }
-            default:
-              {
-                Console.WriteLine($"devi scegliere un numero tra 1 e 5");
-                goto Valori;
-              }
-          }
-          break;
-        }
-      default:
+    public int ScegliTipoScommessa()
+    {
+      int tipo = 0;
+      Inizio:
+      Console.WriteLine("1. ");
+      int scelta = ReadInt("scegli tipo", 1, 6)
+      switch (scelta)
+      {
+        case 1: 
         {
-          Console.WriteLine("Devi inserire un numero da 1 a 5, riprova");
-          break;
+          ValoreSingolo();
         }
+        case 2: 
+        {
+          Doppia();
+        }
+        case 3: 
+        {
+          Combinazione();
+        }
+        case 4:
+        {
+          GenericoSpecifico:
+          Console.WriteLine("Vuoi scommettere su una tripla generica o specifica? g / s");
+          string gs = Console.ReadLine()!;
+           if (gs == "g") 
+           {
+            Tripla("g");
+           } 
+           else if (gs == "s") 
+           {
+            Tripla("s");
+           }
+           else
+           {
+            Console.WriteLine("non è un input valido");
+            goto GenericoSpecifico;
+           }
+        }
+        case 5:
+        {
+          GS:
+          Console.WriteLine("Vuoi scommettere su un totale generico o specifico? g / s");
+          string gs = Console.ReadLine()!;
+           if (gs == "g") 
+           {
+            Console.WriteLine("1. ");
+            int choice = ReadInt("scegli tipo di totale", 1, 5)
+            switch (choice)
+            {
+               case 1: 
+               {
+                Totale("pari");
+               }
+               case 2: 
+               {
+                Totale("dispari");
+               }
+               case 3: 
+               {
+                Totale("alto");
+               }
+               case 4: 
+               {
+                Totale("basso");
+               }
+            }
+           } 
+           else if (gs == "s") 
+           {
+            Totale("specifico");
+           }
+           else
+           {
+            Console.WriteLine("non è un input valido");
+            goto GS;
+           }
+        }
+        default:
+        {
+          goto Inizio;
+        }
+      }
     }
-  }
+    public int[] TipoScommessa(int tipo, string name)
+      {
+        int quota = 1;
+          switch (tipo)
+          {
+            case 1:
+            {
+              quota = 2;
+              Console.WriteLine("7. ");
+              
+              break;
+            }
+          }
+          ScriviColorato("blu", $"La quota della tua scommessa è {quota}x")
+          int prezzo = ValidaInput.ReadInt("quanti euro vuoi scommettere");
+          AggiungiScommessa(name, prezzo); // aggiorna lastbet
+      }
+
+    public int Scommessa(string name) // ritorna la vincita
+    {
+      int quota = 0;        
+      int vittoria = 1;        
+      bool win = true;
+      int vincita = 0;
+      
+      int tipo = ScegliTipoScommessa();
+
+      int[] dati = TipoScommessa(tipo, name); // restituisce [quota, prezzo, vittoria]
+      quota = dati[0];
+      vittoria = dati[1];
+
+      if (vittoria = 0) 
+      { 
+        win = false; 
+      }
+
+      if (win)
+      {
+        vincita = quota * prezzo;
+      }
+      else
+      {
+        vincita = -prezzo; 
+      }
+      return vincita;
+    }
+    ModificaVincita(name, vincita); // aggiorna anche il bottino
 
 
 ```

@@ -14,6 +14,37 @@ class Controller
     _testview = testview; // Inizializzazione del riferimento alla vista
   }
 
+public void Start()
+{
+  _view.Start();
+  Console.WriteLine("Inserisci nome Giocatore:"); // Richiesta nome dell'utente
+  string name = Console.ReadLine()!; // Lettura del nome dell'utente
+  AggiungiGiocatore(name);
+  int quota = 1;
+  int lastbet = 0;
+  int vincita = 0;
+  bool continua = true;
+  while (continua)
+  {
+    Scommessa(); // ritorna un nuovo valore per quota e una condizione per vinto()
+
+    ScriviColorato("blu", $"La quota della tua scommessa è {quota}x")
+    int prezzo = ValidaInput.ReadInt("quanti euro vuoi scommettere");
+    AggiungiScommessa(name, prezzo); // aggiorna lastbet
+
+    bool win = Vinto(); // condizioni che cambiano
+    if (win)
+    {
+      vincita = quota * prezzo;
+    }
+    else
+    {
+      vincita = -prezzo; 
+    }
+    ModificaVincita(name, vincita); // aggiorna anche il bottino
+    continua = Continua(); // funzione che restituisce un bool true o false
+  }
+}
   public void MainMenu()
   {
     while (true)
@@ -53,6 +84,13 @@ class Controller
     }
   }
 
+  //   static void CreateFile(string path)
+  // {
+  //   if (!File.Exists(path))
+  //   {
+  //     File.Create(path).Close();
+  //   }
+  // }
   public void ScriviColorato(string colore, string testo)
   {
     if (colore == "rosso")
@@ -78,11 +116,11 @@ class Controller
     Console.WriteLine(testo);
     Console.ResetColor();
   }
-  private void AggiungiGiocatore() // controlla se il giocatore non e' gia' registrato e la sua eta'
+  private void AggiungiGiocatore(string name) // controlla se il giocatore non e' gia' registrato e la sua eta'
   {
     int eta = 10;
-    Console.WriteLine("Inserisci nome Giocatore:"); // Richiesta nome dell'utente
-    string name = Console.ReadLine()!; // Lettura del nome dell'utente
+    // Console.WriteLine("Inserisci nome Giocatore:"); // Richiesta nome dell'utente
+    // string name = Console.ReadLine()!; // Lettura del nome dell'utente
     bool result = _db.Giocatori.Any(g => g.Nome == name);
     if (result)
     {
@@ -121,12 +159,12 @@ class Controller
       return;
     }
   }
-  private void AggiungiScommessa()
+  private void AggiungiScommessa(string name, int prezzo)
   {
-    Console.WriteLine("Inserisci il nome del Giocatore che fa la scommessa:"); // Richiesta nome dell'utente
-    var name = Console.ReadLine()!; // Lettura del nome dell'utente
+    // Console.WriteLine("Inserisci il nome del Giocatore che fa la scommessa:"); // Richiesta nome dell'utente
+    // var name = Console.ReadLine()!; // Lettura del nome dell'utente
     var selezionato = _db.Giocatori.SingleOrDefault(g => g.Nome == name);
-    int prezzo = ValidaInput.ReadInt("prezzo della scommessa");
+    // int prezzo = ValidaInput.ReadInt("quanti euro vuoi scommettere");
     var bet = new Scommessa { Nome = name, Prezzo = prezzo, Vincita = 0 };
     if (selezionato != null)
     {
@@ -140,16 +178,16 @@ class Controller
   ///  deve essere chiamato dopo il risultato di ogni scommessa
   ///  aggiorna anche il valore del Bottino del giocatore sommandogli la Vincita
   /// </summary>
-  private void ModificaVincita()
+  private void ModificaVincita(string name, int vincita)
   {
-    Console.WriteLine("Inserisci il nome del Giocatore che ha fatto la scommessa:"); // Richiesta nome dell'utente
-    var name = Console.ReadLine()!; // Lettura del nome dell'utente
+    // Console.WriteLine("Inserisci il nome del Giocatore che ha fatto la scommessa:"); // Richiesta nome dell'utente
+    // var name = Console.ReadLine()!; // Lettura del nome dell'utente
     var selezionato = _db.Giocatori.SingleOrDefault(g => g.Nome == name);
     var result = _db.Scommesse.Where(s => s.Nome == name);
     var last = result.OrderBy(f => f.Id).Last();
     if (last != null && selezionato != null)
     {
-      int vincita = ValidaInput.ReadInt("il risultato della scommessa");
+      // int vincita = ValidaInput.ReadInt("il risultato della scommessa");
       last.Vincita = vincita;
       selezionato.Bottino += vincita;
       _db.SaveChanges();
@@ -163,14 +201,14 @@ class Controller
   ///  - o se ha abbastanza soldi da ripagare i suoi debiti, in questo caso
   ///    aggiorna anche il valore del Bottino del giocatore sottraendogli il Prestito
   /// </summary>
-  private void ModificaPrestito()
+  private void ModificaPrestito(string name, int prestito)
   {
-    Console.WriteLine("Inserisci il nome del Giocatore che ha preso un prestito:"); // Richiesta nome dell'utente
-    var name = Console.ReadLine()!; // Lettura del nome dell'utente
+    // Console.WriteLine("Inserisci il nome del Giocatore che ha preso un prestito:"); // Richiesta nome dell'utente
+    // var name = Console.ReadLine()!; // Lettura del nome dell'utente
     var selezionato = _db.Giocatori.SingleOrDefault(g => g.Nome == name);
     if (selezionato != null)
     {
-      int prestito = ValidaInput.ReadInt("la cifra del prestito");
+      // int prestito = ValidaInput.ReadInt("la cifra del prestito");
       if (prestito == 0)
       {
         selezionato.Bottino -= selezionato.Prestito;
@@ -215,11 +253,4 @@ class Controller
     }
   }
 
-  //   static void CreateFile(string path)
-  // {
-  //   if (!File.Exists(path))
-  //   {
-  //     File.Create(path).Close();
-  //   }
-  // }
 }
