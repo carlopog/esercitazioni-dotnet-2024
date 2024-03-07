@@ -9,6 +9,13 @@ class View
   }
   public void Start()
   {
-    
+    // come prima cosa farei cwl "Benvenuto" e poi AggiungiGiocatore() 
+   
+    // capire se serve i txt/csv dei singoli dati  o un json GiocatoreAttuale
+    // in ogni caso potrebbe essere utile fare l'array dei dati del giocatore
+    // NOME [0], BOTTINO [1], PRESTITO [2], LASTBET [3]
+
+
   }
 }
+

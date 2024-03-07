@@ -52,6 +52,32 @@ class Controller
       }
     }
   }
+
+  public void ScriviColorato(string colore, string testo)
+  {
+    if (colore == "rosso")
+    {
+      Console.ForegroundColor = ConsoleColor.Red;
+    }
+    else if (colore == "verde")
+    {
+      Console.ForegroundColor = ConsoleColor.Green;
+    }
+    else if (colore == "magenta")
+    {
+      Console.ForegroundColor = ConsoleColor.Magenta;
+    }
+    else if (colore == "blu")
+    {
+      Console.ForegroundColor = ConsoleColor.Blue;
+    }
+    else 
+    {
+      Console.BackgroundColor = ConsoleColor.Green;
+    }
+    Console.WriteLine(testo);
+    Console.ResetColor();
+  }
   private void AggiungiGiocatore() // controlla se il giocatore non e' gia' registrato e la sua eta'
   {
     int eta = 10;
@@ -63,6 +89,20 @@ class Controller
       var selezionato = _db.Giocatori.SingleOrDefault(g => g.Nome == name);
       Console.WriteLine($"Bentornato {name}, mi ricordo di te, hai {selezionato.Eta} anni");
       eta = selezionato.Eta;
+      if (selezionato.Bottino < 100)
+      {
+        Console.WriteLine($"Hai ancora {selezionato.Bottino} dall'ultima partita");
+        Console.WriteLine($"Ma noi te ne aggiungiamo 100 per farti divertire di più");
+        selezionato.Bottino += 100;
+        ScriviColorato("verde", $"Quindi il tuo bottino attuale è {selezionato.Bottino}");
+      }
+      if (selezionato.Prestito > 0)
+      {
+        Console.WriteLine($"Ma tu ci devi ancora {selezionato.Prestito} euro");
+        selezionato.Bottino -= selezionato.Prestito;
+        selezionato.Prestito = 0;
+        ScriviColorato("rosso", $"Quindi il tuo bottino attuale è {selezionato.Bottino}");
+      }
     }
     else
     {
