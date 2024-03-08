@@ -1,4 +1,4 @@
-class Ordinaziono
+class Ordinazione
 {
   public int Id { get; set; }
   public List<Piatto> Piatti { get; set; }

@@ -8,7 +8,7 @@ class TestView
     _db = db; // Inizializzazione del riferimento al modello
   }
     
-  public string ScegliProdotto()
+public string ScegliProdotto()
   {
     Console.WriteLine($"1. Portata");
     Console.WriteLine($"2. Piatto");

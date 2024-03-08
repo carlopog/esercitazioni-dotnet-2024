@@ -114,24 +114,30 @@ e al cassiere di fare il conto totale in tempo reale
 ```mermaid
 
 erDiagram
-    Ordinazioni ||--|| Piatti : contiene
-    Tavoli ||--o{ Ordinazioni : assegnato
-    Tavoli {
+    Piatto ||--|{ Menu : contenuto
+    Ordinazione ||--o{ Piatto : contiene
+    Tavolo ||--o{ Ordinazione : assegnato
+    Tavolo {
         Int id PK
         String nome
         Int capacita
         Bool occupato
     }
-    Piatti {
+    Ordinazione {
+        Int id PK
+        Int tavoloId FK
+        Int piattoId FK
+        Bool pronto
+    }
+    Piatto {
         Int id PK
         String nome
         Int prezzo
         Int categoria
     }
-    Ordinazioni {
+     Menu {
         Int id PK
-        Int tavoloId FK
-        Int piattoId FK
-        Bool pronto
+        String nome
+        List piatti
     }
 ```
