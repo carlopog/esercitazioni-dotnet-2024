@@ -5,5 +5,6 @@ class Piatto
   public string Descrizione { get; set; }
   public int Prezzo { get; set; }
   public int Categoria { get; set; }
-  
+  public bool Disponibile { get; set; }
+
 }

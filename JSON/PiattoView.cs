@@ -1,55 +1,49 @@
 using System.Data.SQLite;
 
-class View
+class PiattoView
 {
   private Database _db; // Riferimento al modello
-  public View(Database db)
+  public PiattoView(Database db)
   {
     _db = db; // Inizializzazione del riferimento al modello
   }
-  public void Start()
+  public void ShowMainMenu()
   {
    Console.WriteLine("Che comando vuoi eseguire?");
-    Console.WriteLine($"1. Aggiungi {prodotto}");
-    Console.WriteLine($"2. Visualizza {prodotto}");
-    Console.WriteLine($"3. Modifica {prodotto}");
-    Console.WriteLine($"4. Rimuovi {prodotto}");
-    Console.WriteLine($"5. Esci");
-    int scelta = ValidaInput.ReadInt("il numero dell'azione che vuoi effettuare", 1, 5);
-    switch (scelta)
-    {
-      case 1: 
-      {
-        AggiungiPiatto();
-        break;
-      }
-      case 2: 
-      {
-        VisualizzaPiatto(prodotto);
-        break;
-      }
-      case 3: 
-      {
-        ModificaPiatto(prodotto);
-        break;
-      }
-      case 4: 
-      {
-        RimuoviPiatto(prodotto);
-        break;
-      }
-      case 5: 
-      {
-       return;
-      }
-      default: {Console.WriteLine("Qualcosa è andato storto"); return;}
-    }
-  }
+    Console.WriteLine("1. Aggiungi piatto");
+    Console.WriteLine("2. Visualizza piatto");
+    Console.WriteLine("3. Modifica piatto");
+    Console.WriteLine("4. Rimuovi piatto");
+    Console.WriteLine("5. Esci");
   }
 
+  public void ShowMenu()
+  {
+   Console.WriteLine("Cosa vuoi visualizzare?");
+    Console.WriteLine("1. Visualizza lista completa dei piatti");
+    Console.WriteLine("2. Visualizza categoria di piatti");
+    Console.WriteLine("3. Visualizza piatto singolo");
+    Console.WriteLine("4. Esci");
+  }
 
 public static void VisualizzaListaPiatti() // visualizza tutti i piatti del database
+{
+  Console.WriteLine("Che lista di piatti vuoi visualizzare?");
+  Console.WriteLine("1. Tutti i piatti");
+  Console.WriteLine("2. Tutti i piatti disponibili oggi");
+}
 public static void VisualizzaCategoria() // visualizza tutti i piatti della categoria
+{
+  Console.WriteLine("Che categoria vuoi visualizzare?");
+  Console.WriteLine("1. Antipasti");
+  Console.WriteLine("2. Primi");
+  Console.WriteLine("3. Secondi");
+  Console.WriteLine("4. Vini");
+  Console.WriteLine("5. Dolci");
+}
 public static void VisualizzaPiatto() // visualizza un piatto singolo
+{
+  Console.WriteLine("Che piatto vuoi visualizzare?");
+}
 
 }

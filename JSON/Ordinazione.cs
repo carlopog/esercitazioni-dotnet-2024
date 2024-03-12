@@ -4,6 +4,6 @@ class Ordinazione
   public List<Piatto> Piatti { get; set; }
   public int Id_Tavolo { get; set; }
   public Tavolo Tavolo { get; set; }
-  public bool Pronto { get; set; }
+  public bool Disponibile { get; set; }
   
 }

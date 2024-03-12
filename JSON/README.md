@@ -134,10 +134,7 @@ erDiagram
         String nome
         Int prezzo
         Int categoria
+        Bool disponibile
     }
-     Menu {
-        Int id PK
-        String nome
-        List piatti
-    }
+  
 ```
