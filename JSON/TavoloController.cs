@@ -64,7 +64,7 @@ public void Show()
           var tavoli = _db.Tavoli.ToList(); 
           foreach (var p in tavoli)
           {
-            Console.WriteLine($"{p.Id}. - {p.Nome} - tavolo da  {p.Capacita} persone");
+            Console.WriteLine($"{p.TavoloId}. - {p.Nome} - tavolo da  {p.Capacita} persone");
           }
         }
         else if ( choice == 2 )
@@ -73,7 +73,7 @@ public void Show()
           var tavoli = _db.Tavoli.Where(s => s.Disponibile == true); 
           foreach (var p in tavoli)
           {
-            Console.WriteLine($"{p.Id}. - {p.Nome} - tavolo da  {p.Capacita} persone");
+            Console.WriteLine($"{p.TavoloId}. - {p.Nome} - tavolo da  {p.Capacita} persone");
           }
         }
         break;

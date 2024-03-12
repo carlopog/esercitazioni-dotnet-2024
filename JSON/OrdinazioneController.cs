@@ -58,7 +58,7 @@ class OrdinazioneController
             var ordinazioni = _db.Ordinazioni.ToList();
             foreach (var o in ordinazioni)
             {
-              Console.WriteLine($"{o.Id}. - {o.Id_Tavolo} - {o.Disponibile}");
+              Console.WriteLine($"{o.OrdinazioneId}. - {o.TavoloId} - {o.Disponibile}");
             }
 
           break;
@@ -71,7 +71,7 @@ class OrdinazioneController
             var ordinazioni = _db.Ordinazioni.Where(s => s.Disponibile == false);
             foreach (var o in ordinazioni)
             {
-              Console.WriteLine($"{o.Id}. - {o.Tavolo.Nome}");
+              Console.WriteLine($"{o.OrdinazioneId}. - {o.Tavolo.Nome}");
               foreach (var p in o.Piatti)
               {
                 counter++;
@@ -95,17 +95,17 @@ class OrdinazioneController
         public void InserisciOrdinazione() // inserisci ordinazione nel database
         {
           int id = ValidaInput.ReadInt("l'id del tavolo dell'ordinazione");
-          var tavolo = _db.Tavoli.SingleOrDefault(s => s.Id == id);
+          var tavolo = _db.Tavoli.SingleOrDefault(s => s.TavoloId == id);
 
           List<Piatto> piatti = new List<Piatto>();
           for (int i = 0; i < tavolo.Capacita; i++)
           {
             int piattoId = ValidaInput.ReadInt("l'id del piatto da ordinare");
-            var piatto = _db.Piatti.SingleOrDefault(s => s.Id == piattoId);
+            var piatto = _db.Piatti.SingleOrDefault(s => s.PiattoId == piattoId);
             piatti.Add(piatto);
           }
 
-          var ordinazione = new Ordinazione { Piatti = piatti, Id_Tavolo = id, Tavolo = tavolo, Disponibile = false };
+          var ordinazione = new Ordinazione { Piatti = piatti, TavoloId = id, Tavolo = tavolo, Disponibile = false };
           _db.Ordinazioni.Add(ordinazione);
           _db.SaveChanges();
         }
@@ -113,7 +113,7 @@ class OrdinazioneController
         public void ModificaOrdinazione() // modifica ordinazione nel database
         {
           int id = ValidaInput.ReadInt("l'id dell'ordinazione che vuoi modificare");
-          var ordinazione = _db.Ordinazioni.SingleOrDefault(s => s.Id == id);
+          var ordinazione = _db.Ordinazioni.SingleOrDefault(s => s.OrdinazioneId == id);
           Console.WriteLine("Cosa vuoi modificare?");
           Console.WriteLine("1. i Piatti ordinati");
           Console.WriteLine("2. il Tavolo a cui portare l'ordinazione");
@@ -127,15 +127,15 @@ class OrdinazioneController
             for (int i = 0; i < ordinazione.Tavolo.Capacita; i++)
             {
               int piattoId = ValidaInput.ReadInt("l'id del nuovo piatto da ordinare");
-              var piatto = _db.Piatti.SingleOrDefault(s => s.Id == piattoId);
+              var piatto = _db.Piatti.SingleOrDefault(s => s.PiattoId == piattoId);
               piatti.Add(piatto);
             }
           }
           else if (choice == 2)
           {
             int nuovoT = ValidaInput.ReadInt("l'id del nuovo tavolo dell'ordinazione");
-            ordinazione.Id_Tavolo = nuovoT;
-            var nuovoTavolo = _db.Tavoli.SingleOrDefault(s => s.Id == id);
+            ordinazione.TavoloId = nuovoT;
+            var nuovoTavolo = _db.Tavoli.SingleOrDefault(s => s.TavoloId == id);
             ordinazione.Tavolo = nuovoTavolo;
           }
           else if (choice == 3)
@@ -157,11 +157,9 @@ class OrdinazioneController
         public void RimuoviOrdinazione() // cancella ordinazione dal database
         {
           int id = ValidaInput.ReadInt("l'id dell'ordinazione che vuoi eliminare");
-          var ordinazione = _db.Ordinazioni.SingleOrDefault(s => s.Id == id);
+          var ordinazione = _db.Ordinazioni.SingleOrDefault(s => s.OrdinazioneId == id);
           _db.Ordinazioni.Remove(ordinazione);
           _db.SaveChanges();
         }
-
-
 
     }

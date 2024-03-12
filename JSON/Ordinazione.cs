@@ -1,8 +1,10 @@
 class Ordinazione
 {
-  public int Id { get; set; }
+  [Key]
+  public int OrdinazioneId { get; set; }
   public List<Piatto> Piatti { get; set; }
-  public int Id_Tavolo { get; set; } 
+  [ForeignKey("Tavolo")]
+  public int TavoloId { get; set; } 
   public Tavolo Tavolo { get; set; }
   public bool Disponibile { get; set; }
   

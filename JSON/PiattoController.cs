@@ -62,7 +62,7 @@ public void Show()
           var piatti = _db.Piatti.ToList(); 
           foreach (var p in piatti)
           {
-            Console.WriteLine($"{p.Id}. - {p.Categoria} - {p.Nome} - {p.Prezzo}");
+            Console.WriteLine($"{p.PiattoId}. - {p.Categoria} - {p.Nome} - {p.Prezzo}");
           }
         }
         else if ( choice == 2 )
@@ -71,7 +71,7 @@ public void Show()
           var piatti = _db.Piatti.Where(s => s.Disponibile == true); 
           foreach (var p in piatti)
           {
-            Console.WriteLine($"{p.Id}. - {p.Categoria} - {p.Nome} - {p.Prezzo}");
+            Console.WriteLine($"{p.PiattoId}. - {p.Categoria} - {p.Nome} - {p.Prezzo}");
           }
         }
         break;
@@ -87,7 +87,7 @@ public void Show()
           var antipasti = piatti.Where(s => s.Categoria == "antipasti"); 
            foreach (var a in antipasti)
           {
-            Console.WriteLine($"{a.Id}. - {a.Categoria} - {a.Nome} - {a.Prezzo}");
+            Console.WriteLine($"{a.PiattoId}. - {a.Categoria} - {a.Nome} - {a.Prezzo}");
           }
         }
         else if ( choice == 2 )
@@ -96,7 +96,7 @@ public void Show()
            var primi = piatti.Where(s => s.Categoria == "primi"); 
            foreach (var p in primi)
           {
-            Console.WriteLine($"{p.Id}. - {p.Categoria} - {p.Nome} - {p.Prezzo}");
+            Console.WriteLine($"{p.PiattoId}. - {p.Categoria} - {p.Nome} - {p.Prezzo}");
           }
         }
         else if ( choice == 3 )
@@ -105,7 +105,7 @@ public void Show()
           var secondi = piatti.Where(s => s.Categoria == "secondi"); 
            foreach (var s in secondi)
           {
-            Console.WriteLine($"{s.Id}. - {s.Categoria} - {s.Nome} - {s.Prezzo}");
+            Console.WriteLine($"{s.PiattoId}. - {s.Categoria} - {s.Nome} - {s.Prezzo}");
           }
         }
         else if ( choice == 4 )
@@ -114,7 +114,7 @@ public void Show()
            var vini = piatti.Where(s => s.Categoria == "vini"); 
            foreach (var v in vini)
           {
-            Console.WriteLine($"{v.Id}. - {v.Categoria} - {v.Nome} - {v.Prezzo}");
+            Console.WriteLine($"{v.PiattoId}. - {v.Categoria} - {v.Nome} - {v.Prezzo}");
           }
         }
         else if ( choice == 5 )
@@ -123,7 +123,7 @@ public void Show()
            var dolci = piatti.Where(s => s.Categoria == "dolci"); 
            foreach (var d in dolci)
           {
-            Console.WriteLine($"{d.Id}. - {d.Categoria} - {d.Nome} - {d.Prezzo}");
+            Console.WriteLine($"{d.PiattoId}. - {d.Categoria} - {d.Nome} - {d.Prezzo}");
           }
         }
 
@@ -136,7 +136,7 @@ public void Show()
         string name = vi.ReadString("il nome del piatto che vuoi visualizzare");
         // visualizza tutti i piatti con nome = '{name}'
         var piatto = _db.Piatti.SingleOrDefault(s => s.Nome == name);
-        Console.WriteLine($"{piatto.Id}. - {piatto.Categoria} - {piatto.Nome} - {piatto.Prezzo}");
+        Console.WriteLine($"{piatto.PiattoId}. - {piatto.Categoria} - {piatto.Nome} - {piatto.Prezzo}");
 
         break;
       }
