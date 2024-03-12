@@ -114,24 +114,30 @@ class Controller
   public void ModificaOrdinazione() // modifica ordinazione nel database
   {
     int id = ValidaInput.ReadInt("l'id dell'ordinazione che vuoi modificare")
-      var ordinazione = _db.Ordinazioni.SingleOrDefault(s => s.Id == id);
+    var ordinazione = _db.Ordinazioni.SingleOrDefault(s => s.Id == id);
     Console.WriteLine("Cosa vuoi modificare?");
-    Console.WriteLine("1. Piatti");
-    Console.WriteLine("2. Tavolo");
+    Console.WriteLine("1. i Piatti ordinati");
+    Console.WriteLine("2. il Tavolo a cui portare l'ordinazione");
     Console.WriteLine("3. Pronta");
     Console.WriteLine("4. Non Pronta");
     Console.WriteLine("5. Niente");
     int choice = ValidaInput.ReadInt("il numero dell'azione che vuoi effettuare", 1, 7);
     if (choice == 1)
     {
-      Console.WriteLine("Inserisci il nuovo Nome del ordinazione");
-      string nuovoNome = Console.ReadLine()!;
-      ordinazione.Nome = nuovoNome;
+      List<Piatto> piatti = new List<Piatto>();
+      for ( int i = 0; i < ordinazione.Tavolo.Capacita; i++)
+      {
+        int id = ValidaInput.ReadInt("l'id del nuovo piatto da ordinare")
+        var piatto = _db.Piatti.SingleOrDefault(s => s.Id == id);
+        piatti.Add(piatto);
+      }
     }
     else if (choice == 2)
     {
-      int nuovaCapacita = ValidaInput.ReadInt("la nuova Capacita del ordinazione");
-      ordinazione.Capacita = nuovaCapacita;
+      int nuovoT = ValidaInput.ReadInt("l'id del nuovo tavolo dell'ordinazione");
+      ordinazione.Id_Tavolo = nuovoT;
+      var nuovoTavolo = _db.Tavoli.SingleOrDefault(s => s.Id == id);
+      ordinazione.Tavolo = nuovoTavolo;
     }
     else if (choice == 3)
     {
