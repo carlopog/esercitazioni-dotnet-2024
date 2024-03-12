@@ -156,8 +156,9 @@ public void InserisciPiatto() // inserisci piatto nel database
     string categoria = Console.ReadLine()!; 
     Console.WriteLine("Inserisci una Descrizione del Piatto:"); 
     string descrizione = Console.ReadLine()!; 
-    
-    var piatto = new Piatto { Nome = name, Prezzo = prezzo, Categoria = categoria, Descrizione = descrizione, Disponibile = true };
+    List<Ordinazione> ordinazioni = new List<Ordinazione>(); 
+
+    var piatto = new Piatto { Nome = name, Prezzo = prezzo, Categoria = categoria, Descrizione = descrizione, Ordinazioni = ordinazioni, Disponibile = true };
     _db.Piatti.Add(piatto);
     _db.SaveChanges();
 } 
@@ -224,24 +225,4 @@ public void RimuoviPiatto() // cancella piatto dal database
 _db.SaveChanges();
 } 
 
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-CreaMenu(); // crea un file json con i piatti che selezioni
-ModificaMenu(); // modifica il json
-EliminaMenu(); // elimina il json
-*/
