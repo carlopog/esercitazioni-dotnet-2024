@@ -1,12 +1,12 @@
 using System.Data.SQLite;
 using System.Linq;
 
-class Controller
+class PiattoController
 {
   private Database _db; // Riferimento al modello
   private PiattoView _piattoview; // Riferimento alla vista
 
-  public Controller(Database db, PiattoView piattoview) // View view,
+  public PiattoController(Database db, PiattoView piattoview) // View view,
   {
     _db = db; // Inizializzazione del riferimento al modello
     _piattoview = piattoview; // Inizializzazione del riferimento alla vista
@@ -84,7 +84,7 @@ public void Show()
         if ( choice == 1 )
         {
           // visualizza tutti i piatti con categoria = 'antipasti'
-          var antipasti = piatti.Where(s => s.Categoria == 'antipasti'); 
+          var antipasti = piatti.Where(s => s.Categoria == "antipasti"); 
            foreach (var a in antipasti)
           {
             Console.WriteLine($"{a.Id}. - {a.Categoria} - {a.Nome} - {a.Prezzo}");
@@ -93,7 +93,7 @@ public void Show()
         else if ( choice == 2 )
         {
           // visualizza tutti i piatti con categoria = 'primi'
-           var primi = piatti.Where(s => s.Categoria == 'primi'); 
+           var primi = piatti.Where(s => s.Categoria == "primi"); 
            foreach (var p in primi)
           {
             Console.WriteLine($"{p.Id}. - {p.Categoria} - {p.Nome} - {p.Prezzo}");
@@ -102,7 +102,7 @@ public void Show()
         else if ( choice == 3 )
         {
          // visualizza tutti i piatti con categoria = 'secondi'
-          var secondi = piatti.Where(s => s.Categoria == 'secondi'); 
+          var secondi = piatti.Where(s => s.Categoria == "secondi"); 
            foreach (var s in secondi)
           {
             Console.WriteLine($"{s.Id}. - {s.Categoria} - {s.Nome} - {s.Prezzo}");
@@ -111,16 +111,16 @@ public void Show()
         else if ( choice == 4 )
         {
           // visualizza tutti i piatti con categoria = 'vini'
-           var vini = piatti.Where(s => s.Categoria == 'vini'); 
+           var vini = piatti.Where(s => s.Categoria == "vini"); 
            foreach (var v in vini)
           {
-            Console.WriteLine($"{p.Id}. - {p.Categoria} - {p.Nome} - {p.Prezzo}");
+            Console.WriteLine($"{v.Id}. - {v.Categoria} - {v.Nome} - {v.Prezzo}");
           }
         }
         else if ( choice == 5 )
         {
           // visualizza tutti i piatti con categoria = 'dolci'
-           var dolci = piatti.Where(s => s.Categoria == 'dolci'); 
+           var dolci = piatti.Where(s => s.Categoria == "dolci"); 
            foreach (var d in dolci)
           {
             Console.WriteLine($"{d.Id}. - {d.Categoria} - {d.Nome} - {d.Prezzo}");
@@ -132,7 +132,8 @@ public void Show()
       case 3: 
       {
         _piattoview.VisualizzaPiatto();
-        string name = ValidaInput.ReadString("il nome del piatto che vuoi visualizzare");
+        var vi = new ValidaInput();
+        string name = vi.ReadString("il nome del piatto che vuoi visualizzare");
         // visualizza tutti i piatti con nome = '{name}'
         var piatto = _db.Piatti.SingleOrDefault(s => s.Nome == name);
         Console.WriteLine($"{piatto.Id}. - {piatto.Categoria} - {piatto.Nome} - {piatto.Prezzo}");

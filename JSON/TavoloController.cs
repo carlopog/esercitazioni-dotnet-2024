@@ -1,13 +1,13 @@
 using System.Data.SQLite;
 using System.Linq;
 
-class Controller
+class TavoloController
 {
   private Database _db; // Riferimento al modello
   private TavoloView _tavoloview; // Riferimento alla vista
   private OrdinazioneView _ordinazioneview; // Riferimento alla vista
 
-  public Controller(Database db, TavoloView tavoloview, OrdinazioneView ordinazioneview) // View view,
+  public TavoloController(Database db, TavoloView tavoloview, OrdinazioneView ordinazioneview) // View view,
   {
     _db = db; // Inizializzazione del riferimento al modello
     _tavoloview = tavoloview; // Inizializzazione del riferimento alla vista
@@ -94,7 +94,7 @@ public void InserisciTavolo() // inserisci tavolo nel database
     Console.WriteLine("Inserisci il nome del Tavolo:"); 
     string name = Console.ReadLine()!; 
     int capacita = ValidaInput.ReadInt("la capacità del tavolo");
-    var tavolo = new Tavolo { Nome = name, Prezzo = prezzo, Capacita = capacita, Disponibile = true };
+    var tavolo = new Tavolo { Nome = name, Capacita = capacita, Disponibile = true };
     _db.Tavoli.Add(tavolo);
     _db.SaveChanges();
 } 

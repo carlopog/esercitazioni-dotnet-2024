@@ -25,7 +25,7 @@ class TavoloView
     Console.WriteLine("3. Esci");
   }
 
-public static void VisualizzaListaTavoli() // visualizza tutti i tavoli del database
+public void VisualizzaListaTavoli() // visualizza tutti i tavoli del database
 {
   Console.WriteLine("Che lista di tavoli vuoi visualizzare?");
   Console.WriteLine("1. Tutti i tavoli");

@@ -26,13 +26,13 @@ class PiattoView
     Console.WriteLine("4. Esci");
   }
 
-public static void VisualizzaListaPiatti() // visualizza tutti i piatti del database
+public void VisualizzaListaPiatti() // visualizza tutti i piatti del database
 {
   Console.WriteLine("Che lista di piatti vuoi visualizzare?");
   Console.WriteLine("1. Tutti i piatti");
   Console.WriteLine("2. Tutti i piatti disponibili oggi");
 }
-public static void VisualizzaCategoria() // visualizza tutti i piatti della categoria
+public void VisualizzaCategoria() // visualizza tutti i piatti della categoria
 {
   Console.WriteLine("Che categoria vuoi visualizzare?");
   Console.WriteLine("1. Antipasti");
@@ -41,7 +41,7 @@ public static void VisualizzaCategoria() // visualizza tutti i piatti della cate
   Console.WriteLine("4. Vini");
   Console.WriteLine("5. Dolci");
 }
-public static void VisualizzaPiatto() // visualizza un piatto singolo
+public void VisualizzaPiatto() // visualizza un piatto singolo
 {
   Console.WriteLine("Che piatto vuoi visualizzare?");
 }

@@ -27,9 +27,10 @@ class OrdinazioneView
     Console.WriteLine("5. Esci");
   }
 
-public static void VisualizzaOrdinazioniTavolo() // visualizza tutti i ordinazioni del database
+public void VisualizzaOrdinazioniTavolo() // visualizza tutti i ordinazioni del database
 {
-  string name = ValidaInput.ReadString("il nome del tavolo che vuoi visualizzare");
+  var vi = new ValidaInput();
+  string name = vi.ReadString("il nome del tavolo che vuoi visualizzare");
   // visualizza tutti i tavoli con nome = '{name}'
   var tavolo = _db.Tavoli.SingleOrDefault(s => s.Nome == name);
   Console.WriteLine($"{tavolo.Nome} - tavolo da {tavolo.Capacita} persone - disponibilità {tavolo.Disponibile}");
@@ -42,7 +43,7 @@ public static void VisualizzaOrdinazioniTavolo() // visualizza tutti i ordinazio
     }
   }
 }
-public static void VisualizzaOrdinazione() // visualizza un ordinazione singolo
+public void VisualizzaOrdinazione() // visualizza un ordinazione singolo
 {
   Console.WriteLine("Che ordinazione vuoi visualizzare?");
 }
