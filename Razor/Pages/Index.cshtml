@@ -2,9 +2,14 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    ViewData["Message"] = "Hello from Razor"; // se non gliela passiamo dalla classe (file.cs) possiamo metterla direttamente qui
+    var versione = 3; // posso inizializzare anche una variabile
+    var nome = "Carlo"; 
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Benvenuto in Razor @nome</h1> 
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>@ViewData["Message"]</p>
+    <p>Versione: @versione</p>
 </div>

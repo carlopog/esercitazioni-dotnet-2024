@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Razor.Pages;
+namespace Razor.Pages; // namespace già predisposto col nome della cartella.Pages
 
-public class IndexModel : PageModel
+public class IndexModel : PageModel // IndexModel è una classe che eredita da PageModel
 {
     private readonly ILogger<IndexModel> _logger;
 
@@ -12,8 +12,8 @@ public class IndexModel : PageModel
         _logger = logger;
     }
 
-    public void OnGet()
+    public void OnGet() 
     {
-
+      ViewData["Message"] = "Hello from Razor";
     }
 }
