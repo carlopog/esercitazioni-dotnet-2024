@@ -9,9 +9,9 @@ public class ProdottiModel : PageModel
   {
     Prodotti = new List<Prodotto>
       {
-        new Prodotto { Nome = "Prodotto 1", Prezzo = 100},
-        new Prodotto { Nome = "Prodotto 2", Prezzo = 200},
-        new Prodotto { Nome = "Prodotto 3", Prezzo = 300}
+        new Prodotto { Nome = "Prodotto 1", Prezzo = 100, Dettaglio = "La descrizione del prodotto numero 1"},
+        new Prodotto { Nome = "Prodotto 2", Prezzo = 200, Dettaglio = "La descrizione del prodotto numero 2"},
+        new Prodotto { Nome = "Prodotto 3", Prezzo = 300, Dettaglio = "La descrizione del prodotto numero 3"}
       };
   }
 }
