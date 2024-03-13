@@ -1,0 +1,33 @@
+@page
+@model ProdottiModel
+@{
+    ViewData["Title"] = "Prodotti";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Beccati tutti i prodotti</p>
+<ul>
+  <li>prodotto</li>
+  <li>prodotto</li>
+  <li>prodotto</li>
+  <li>prodotto</li>
+  <li>prodotto</li>
+</ul>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Prezzo</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var prodotto in Model.Prodotti)
+    {
+      <tr>
+        <td>@prodotto.Nome</td>
+        <td>@prodotto.Prezzo</td>
+      </tr>
+    }
+  </tbody>
+</table>

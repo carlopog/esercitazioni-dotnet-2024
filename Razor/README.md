@@ -102,3 +102,30 @@ Di default viene utilizzato il layout `_Layout.cshtml` che si trova nella cartel
 ## Partials
 
 Razor consente di creare viste parziali. Una vista parziale è un file 
+
+
+## Tabella prodotti
+
+dentro il file Prodotto.cshtml.cs
+
+```c#
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Prezzo</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var prodotto in Model.Prodotti)
+    {
+      <tr>
+        <td>@prodotto.Nome</td>
+        <td>@prodotto.Prezzo</td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+```
