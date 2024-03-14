@@ -1,0 +1,37 @@
+@page
+@model ProdottoDettaglioModel
+@{
+  ViewData["Title"] = "Prodotto Dettaglio";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        @Html.DisplayNameFor(model => model.Prodotto.Nome)
+      </th>
+      <th>
+        @Html.DisplayNameFor(model => model.Prodotto.Prezzo)
+      </th>
+      <th>
+        @Html.DisplayNameFor(model => model.Prodotto.Dettaglio)
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        @Html.DisplayFor(model => model.Prodotto.Nome)
+      </td>
+      <td>
+        @Html.DisplayFor(model => model.Prodotto.Prezzo)
+      </td>
+      <td>
+        @Html.DisplayFor(model => model.Prodotto.Dettaglio)
+     </td>
+    </tr>
+    <a asp-page="Prodotti">Torna a Prodotti</a>
+  </tbody>
+</table>

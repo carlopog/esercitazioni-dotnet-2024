@@ -31,7 +31,11 @@
     <div style="display: flex; padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #dee2e6">
       <div style="margin-left: 20px">@prodotto.Nome</div>
       <div style="margin-left: 140px">@prodotto.Prezzo</div>
-      <div style="margin-left: 200px">@prodotto.Dettaglio</div>
+      <div style="margin-left: 200px">
+        <a asp-page="ProdottoDettaglio" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo" asp-route-dettaglio="@prodotto.Dettaglio">
+          @prodotto.Dettaglio
+        </a>
+      </div>
     </div>
   }
 </div>
@@ -59,7 +63,11 @@
     <div class="row border-bottom p-2">
       <div class="col-md-2">@prodotto.Nome</div>
       <div class="col-md-2">@prodotto.Prezzo</div>
-      <div class="col-md-4">@prodotto.Dettaglio</div>
+      <div class="col-md-4">
+        <a asp-page="ProdottoDettaglio" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo" asp-route-dettaglio="@prodotto.Dettaglio">
+          @prodotto.Dettaglio
+        </a>
+      </div>
     </div>
   }
 
@@ -81,7 +89,11 @@
       <tr>
         <td>@prodotto.Nome</td>
         <td>@prodotto.Prezzo</td>
-        <td>@prodotto.Dettaglio</td>
+        <td>
+          <a asp-page="ProdottoDettaglio" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo" asp-route-dettaglio="@prodotto.Dettaglio">
+            @prodotto.Dettaglio
+            </a>
+        </td>
       </tr>
     }
   </tbody>
