@@ -11,6 +11,7 @@ public class ProdottiModel : PageModel
     _logger = logger;
   }
   public required IEnumerable<Prodotto> Prodotti { get; set; }
+  public int numeroPagine { get; set; }
   public void OnGet(decimal? minPrezzo, decimal? maxPrezzo, int? pageIndex)
   {
     Prodotti = new List<Prodotto>
@@ -36,9 +37,11 @@ public class ProdottiModel : PageModel
       {
         Prodotti = Prodotti.Where(p => p.Prezzo <= maxPrezzo);
       }
+      numeroPagine = (int)Math.Ceiling(Prodotti.Count() / 2.0);
       Prodotti = Prodotti.Skip(((pageIndex ?? 1) - 1)*2).Take(2);
       // aggiungi un log
       _logger.LogInformation("Prodotti filtrati per prezzo");
+
   }
 }
 
