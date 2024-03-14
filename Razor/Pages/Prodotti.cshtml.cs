@@ -11,13 +11,21 @@ public class ProdottiModel : PageModel
     _logger = logger;
   }
   public required IEnumerable<Prodotto> Prodotti { get; set; }
-  public void OnGet(decimal? minPrezzo, decimal? maxPrezzo)
+  public void OnGet(decimal? minPrezzo, decimal? maxPrezzo, int? pageIndex)
   {
     Prodotti = new List<Prodotto>
       {
-        new Prodotto { Nome = "Prodotto 1", Prezzo = 100, Dettaglio = "La descrizione del prodotto numero 1"},
-        new Prodotto { Nome = "Prodotto 2", Prezzo = 200, Dettaglio = "La descrizione del prodotto numero 2"},
-        new Prodotto { Nome = "Prodotto 3", Prezzo = 300, Dettaglio = "La descrizione del prodotto numero 3"}
+        new Prodotto { Nome = "Prodotto 1", Prezzo = 100, Dettaglio = "Dettaglio 1"},
+        new Prodotto { Nome = "Prodotto 2", Prezzo = 200, Dettaglio = "Dettaglio 2"},
+        new Prodotto { Nome = "Prodotto 3", Prezzo = 300, Dettaglio = "Dettaglio 3"},
+        new Prodotto { Nome = "Prodotto 4", Prezzo = 400, Dettaglio = "Dettaglio 4"},
+        new Prodotto { Nome = "Prodotto 5", Prezzo = 500, Dettaglio = "Dettaglio 5"},
+        new Prodotto { Nome = "Prodotto 6", Prezzo = 600, Dettaglio = "Dettaglio 6"},
+        new Prodotto { Nome = "Prodotto 7", Prezzo = 700, Dettaglio = "Dettaglio 7"},
+        new Prodotto { Nome = "Prodotto 8", Prezzo = 800, Dettaglio = "Dettaglio 8"},
+        new Prodotto { Nome = "Prodotto 9", Prezzo = 900, Dettaglio = "Dettaglio 9"},
+        new Prodotto { Nome = "Prodotto 10", Prezzo = 1000, Dettaglio = "Dettaglio 10"},
+        new Prodotto { Nome = "Prodotto 11", Prezzo = 1100, Dettaglio = "Dettaglio 11"}
       };
 
       if (minPrezzo.HasValue)
@@ -28,6 +36,7 @@ public class ProdottiModel : PageModel
       {
         Prodotti = Prodotti.Where(p => p.Prezzo <= maxPrezzo);
       }
+      Prodotti = Prodotti.Skip(((pageIndex ?? 1) - 1)*2).Take(2);
       // aggiungi un log
       _logger.LogInformation("Prodotti filtrati per prezzo");
   }

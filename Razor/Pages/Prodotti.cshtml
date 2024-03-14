@@ -114,3 +114,10 @@
   </tbody>
 </table>
 
+<form method="get">
+  <input type="hidden" name="minPrezzo" value="@Request.Query["minPrezzo"]" />
+  <input type="hidden" name="maxPrezzo" value="@Request.Query["maxPrezzo"]" />
+  <button type="submit" class="btn btn-primary" name="pageIndex" value="1">1</button>
+  <button type="submit" class="btn btn-primary" name="pageIndex" value="2">2</button>
+  <button type="submit" class="btn btn-primary" name="pageIndex" value="3">3</button>
+</form>
