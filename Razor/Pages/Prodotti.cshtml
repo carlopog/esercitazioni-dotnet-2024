@@ -12,7 +12,7 @@
     <label for="minPrezzo">Min Prezzo</label>
     <input type="text" class="form-control" name="minPrezzo" />
   </div>
-  
+
   <div class="form-group">
     <label for="maxPrezzo">Max Prezzo</label>
     <input type="text" class="form-control" name="maxPrezzo" />
@@ -47,7 +47,8 @@
       <div style="margin-left: 20px">@prodotto.Nome</div>
       <div style="margin-left: 140px">@prodotto.Prezzo</div>
       <div style="margin-left: 200px">
-        <a asp-page="ProdottoDettaglio" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo" asp-route-dettaglio="@prodotto.Dettaglio">
+        <a asp-page="ProdottoDettaglio" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo"
+          asp-route-dettaglio="@prodotto.Dettaglio">
           @prodotto.Dettaglio
         </a>
       </div>
@@ -77,9 +78,27 @@
   {
     <div class="row border-bottom p-2">
       <div class="col-md-2">@prodotto.Nome</div>
-      <div class="col-md-2">@prodotto.Prezzo</div>
+    @{
+            if (prodotto.Prezzo < 101)
+            {
+              <div class="col-md-2 bg-danger">@prodotto.Prezzo</div>
+            }
+            else if (prodotto.Prezzo < 301)
+            {
+              <div class="col-md-2 bg-warning">@prodotto.Prezzo</div>
+            }
+            else if (prodotto.Prezzo < 701)
+            {
+              <div class="col-md-2 bg-success">@prodotto.Prezzo</div>
+            }
+            else
+            {
+              <div class="col-md-2 bg-primary">@prodotto.Prezzo</div>
+            }
+}
       <div class="col-md-4">
-        <a asp-page="ProdottoDettaglio" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo" asp-route-dettaglio="@prodotto.Dettaglio">
+        <a asp-page="ProdottoDettaglio" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo"
+          asp-route-dettaglio="@prodotto.Dettaglio">
           @prodotto.Dettaglio
         </a>
       </div>
@@ -87,8 +106,6 @@
   }
 
 </div>
-
-
 
 <table class="table">
   <thead>
@@ -105,14 +122,64 @@
         <td>@prodotto.Nome</td>
         <td>@prodotto.Prezzo</td>
         <td>
-          <a asp-page="ProdottoDettaglio" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo" asp-route-dettaglio="@prodotto.Dettaglio">
+          <a asp-page="ProdottoDettaglio" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo"
+            asp-route-dettaglio="@prodotto.Dettaglio">
             @prodotto.Dettaglio
-            </a>
+          </a>
         </td>
       </tr>
     }
   </tbody>
 </table>
+
+<div class="row">
+  @foreach (var item in Model.Prodotti)
+  {
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">@item.Nome</h5>
+          @{
+            if (item.Prezzo < 101)
+            {
+              <p class="card-text text-success">@item.Prezzo</p>
+              <a asp-page="ProdottoDettaglio" asp-route-nome="@item.Nome" asp-route-prezzo="@item.Prezzo"
+                asp-route-dettaglio="@item.Dettaglio" class="btn btn-danger">
+                Dettaglio
+              </a>
+            }
+             else if (item.Prezzo < 301)
+            {
+              <p class="card-text text-success">@item.Prezzo</p>
+              <a asp-page="ProdottoDettaglio" asp-route-nome="@item.Nome" asp-route-prezzo="@item.Prezzo"
+                asp-route-dettaglio="@item.Dettaglio" class="btn btn-primary">
+                Dettaglio
+              </a>
+            }
+            else if (item.Prezzo > 601)
+            {
+              <p class="card-text text-success">@item.Prezzo</p>
+              <a asp-page="ProdottoDettaglio" asp-route-nome="@item.Nome" asp-route-prezzo="@item.Prezzo"
+                asp-route-dettaglio="@item.Dettaglio" class="btn btn-success">
+                Dettaglio
+              </a>
+            }
+            else
+            {
+              <p class="card-text text-success">@item.Prezzo</p>
+              <a asp-page="ProdottoDettaglio" asp-route-nome="@item.Nome" asp-route-prezzo="@item.Prezzo"
+                asp-route-dettaglio="@item.Dettaglio" class="btn btn-warning">
+                Dettaglio
+              </a>
+            }
+          }
+
+        </div>
+      </div>
+      <br />
+    </div>
+  }
+</div>
 
 <form method="get">
   <input type="hidden" name="minPrezzo" value="@Request.Query["minPrezzo"]" />
@@ -120,4 +187,6 @@
   <button type="submit" class="btn btn-primary" name="pageIndex" value="1">1</button>
   <button type="submit" class="btn btn-primary" name="pageIndex" value="2">2</button>
   <button type="submit" class="btn btn-primary" name="pageIndex" value="3">3</button>
+  <button type="submit" class="btn btn-primary" name="pageIndex" value="4">4</button>
+  <button type="submit" class="btn btn-primary" name="pageIndex" value="5">5</button>
 </form>
