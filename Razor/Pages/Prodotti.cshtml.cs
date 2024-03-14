@@ -37,8 +37,8 @@ public class ProdottiModel : PageModel
       {
         Prodotti = Prodotti.Where(p => p.Prezzo <= maxPrezzo);
       }
-      numeroPagine = (int)Math.Ceiling(Prodotti.Count() / 2.0);
-      Prodotti = Prodotti.Skip(((pageIndex ?? 1) - 1)*2).Take(2);
+      numeroPagine = (int)Math.Ceiling(Prodotti.Count() / 5.0);
+      Prodotti = Prodotti.Skip(((pageIndex ?? 1) - 1)*2).Take(5);
       // aggiungi un log
       _logger.LogInformation("Prodotti filtrati per prezzo");
 
