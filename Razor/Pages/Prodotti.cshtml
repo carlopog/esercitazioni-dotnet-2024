@@ -28,8 +28,6 @@
 <div id="carouselExample" class="carousel slide" style="width: 500px">
   <div class="carousel-inner">
    
-
-
   @foreach (var prodotto in Model.Prodotti)
   {
    
@@ -92,8 +90,7 @@
       <div style="margin-left: 20px">@prodotto.Nome</div>
       <div style="margin-left: 140px">@prodotto.Prezzo</div>
       <div style="margin-left: 200px">
-        <a asp-page="ProdottoDettaglio" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo"
-          asp-route-dettaglio="@prodotto.Dettaglio">
+        <a asp-page="ProdottoDettaglio" asp-route-id="@prodotto.Id">
           @prodotto.Dettaglio
         </a>
       </div>
@@ -167,8 +164,7 @@
         <td>@prodotto.Nome</td>
         <td>@prodotto.Prezzo</td>
         <td>
-          <a asp-page="ProdottoDettaglio" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo"
-            asp-route-dettaglio="@prodotto.Dettaglio">
+          <a asp-page="ProdottoDettaglio" asp-route-id="@prodotto.Id">
             @prodotto.Dettaglio
           </a>
         </td>
@@ -188,32 +184,28 @@
             if (item.Prezzo < 101)
             {
               <p class="card-text text-success">@item.Prezzo</p>
-              <a asp-page="ProdottoDettaglio" asp-route-nome="@item.Nome" asp-route-prezzo="@item.Prezzo"
-                asp-route-dettaglio="@item.Dettaglio" class="btn btn-danger">
+              <a asp-page="ProdottoDettaglio" asp-route-id="@item.Id" class="btn btn-danger">
                 Dettaglio
               </a>
             }
              else if (item.Prezzo < 301)
             {
               <p class="card-text text-success">@item.Prezzo</p>
-              <a asp-page="ProdottoDettaglio" asp-route-nome="@item.Nome" asp-route-prezzo="@item.Prezzo"
-                asp-route-dettaglio="@item.Dettaglio" class="btn btn-primary">
+              <a asp-page="ProdottoDettaglio" asp-route-id="@item.Id" class="btn btn-primary">
                 Dettaglio
               </a>
             }
             else if (item.Prezzo > 601)
             {
               <p class="card-text text-success">@item.Prezzo</p>
-              <a asp-page="ProdottoDettaglio" asp-route-nome="@item.Nome" asp-route-prezzo="@item.Prezzo"
-                asp-route-dettaglio="@item.Dettaglio" class="btn btn-success">
+              <a asp-page="ProdottoDettaglio" asp-route-id="@item.Id" class="btn btn-success">
                 Dettaglio
               </a>
             }
             else
             {
               <p class="card-text text-success">@item.Prezzo</p>
-              <a asp-page="ProdottoDettaglio" asp-route-nome="@item.Nome" asp-route-prezzo="@item.Prezzo"
-                asp-route-dettaglio="@item.Dettaglio" class="btn btn-warning">
+              <a asp-page="ProdottoDettaglio" asp-route-id="@item.Id" class="btn btn-warning">
                 Dettaglio
               </a>
             }
