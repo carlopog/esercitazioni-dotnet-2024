@@ -1,0 +1,79 @@
+[
+  {
+    "Id": 1,
+    "Nome": "Prodotto1",
+    "Prezzo": 100,
+    "Dettaglio": "Dettaglio 1",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web"
+  },
+  {
+    "Id": 2,
+    "Nome": "Prodotto2",
+    "Prezzo": 200,
+    "Dettaglio": "Dettaglio 2",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=2&web"
+  },
+  {
+    "Id": 3,
+    "Nome": "Prodotto3",
+    "Prezzo": 300,
+    "Dettaglio": "Dettaglio 3",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=3&web"
+  },
+  {
+    "Id": 4,
+    "Nome": "Prodotto4",
+    "Prezzo": 400,
+    "Dettaglio": "Dettaglio 4",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=4&web"
+  },
+  {
+    "Id": 5,
+    "Nome": "Prodotto5",
+    "Prezzo": 500,
+    "Dettaglio": "Dettaglio 5",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=5&web"
+  },
+  {
+    "Id": 6,
+    "Nome": "Prodotto6",
+    "Prezzo": 600,
+    "Dettaglio": "Dettaglio 6",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=6&web"
+  },
+  {
+    "Id": 7,
+    "Nome": "Prodotto7",
+    "Prezzo": 700,
+    "Dettaglio": "Dettaglio 7",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=7&web"
+  },
+  {
+    "Id": 8,
+    "Nome": "Prodotto8",
+    "Prezzo": 800,
+    "Dettaglio": "Dettaglio 8",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=8&web"
+  },
+  {
+    "Id": 9,
+    "Nome": "Prodotto9",
+    "Prezzo": 900,
+    "Dettaglio": "Dettaglio 9",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=9&web"
+  },
+  {
+    "Id": 10,
+    "Nome": "Prodotto10",
+    "Prezzo": 1000,
+    "Dettaglio": "Dettaglio 10",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=10&web"
+  },
+  {
+    "Id": 11,
+    "Nome": "Prodotto11",
+    "Prezzo": 1100,
+    "Dettaglio": "Dettaglio 11",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=11&web"
+  }
+]
