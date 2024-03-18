@@ -16,4 +16,15 @@ public class ProdottoDettaglioModel : PageModel
     List<Prodotto> Prodotti = JsonConvert.DeserializeObject<List<Prodotto>>(json);
     Prodotto = Prodotti[numero];
   }
+
+  public IActionResult OnPost()
+  {
+        // Esegui le operazioni necessarie con i dati del form
+
+    // Memorizza un messaggio da visualizzare dopo il postback
+    TempData["Message"] = "Operazione completata con successo!";
+
+    // Effettua il redirect alla pagina di destinazione (GET)
+    return RedirectToPage("NomePagina");
+  }
 }

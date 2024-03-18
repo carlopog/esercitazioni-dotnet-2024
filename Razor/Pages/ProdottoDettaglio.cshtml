@@ -22,6 +22,12 @@
     </a>
   </div>
 </div>
+<div>
+    @if (TempData["Message"] != null)
+    {
+        <p>@TempData["Message"]</p>
+    }
+</div>
 
 <table class="table">
   <thead>
