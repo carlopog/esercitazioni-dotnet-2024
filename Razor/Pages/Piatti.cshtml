@@ -1,0 +1,41 @@
+@page
+@model PiattiModel
+@{
+  ViewData["Title"] = "Piatti";
+
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="container my-5 ">
+  <div class="row p-2" style="border-bottom: 2px solid">
+    <div class="col-md-2">
+      <b>
+        Id
+      </b>
+    </div>
+    <div class="col-md-5">
+      <b>
+        Nome
+      </b>
+    </div>
+    <div class="col-md-2">
+      <b>
+        Prezzo
+      </b>
+    </div>
+
+  </div>
+  @foreach (var piatto in Model.Piatti)
+  {
+    <div class="row border-bottom p-2">
+      <div class="col-md-2">
+        <a asp-page="PiattoSingolo" asp-route-id="@piatto.Id">
+          @piatto.Id
+        </a>
+      </div>
+      <div class="col-md-5">@piatto.Nome</div>
+      <div class="col-md-2">@piatto.Prezzo euro</div>
+    </div>
+  }
+
+</div>

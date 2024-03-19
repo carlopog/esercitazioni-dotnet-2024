@@ -1,0 +1,281 @@
+[
+  {
+    "Id": 1,
+    "Categoria": "antipasti",
+    "Nome": "Quadro d’autore con caviale",
+    "Prezzo": 55,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 2,
+    "Categoria": "antipasti",
+    "Nome": "Gran crudo di mare: ostriche crostacei tartare e fantasia di pesce bianco",
+    "Prezzo": 65,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 3,
+    "Categoria": "antipasti",
+    "Nome": "Proposta di tre piccole portate calde",
+    "Prezzo": 50,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 4,
+    "Categoria": "antipasti",
+    "Nome": "Sandwich di triglia e scarola su gazpacho di pomodoro verde",
+    "Prezzo": 35,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 5,
+    "Categoria": "antipasti",
+    "Nome": "La Caprese secondo lo Chef",
+    "Prezzo": 25,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 6,
+    "Categoria": "antipasti",
+    "Nome": "Flan di verdure con leggera fonduta di parmigiano e tartufo di stagione",
+    "Prezzo": 40,
+    "Disponibile": false,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 7,
+    "Categoria": "antipasti",
+    "Nome": "Torcione naturale di fegato d’oca confettura di zucca al peperoncino",
+    "Prezzo": 40,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 8,
+    "Categoria": "primi",
+    "Nome": "Bavette sul pesce Pasta risottata con scampetti totanini seppiette e gamberetti biondi",
+    "Prezzo": 35,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 9,
+    "Categoria": "primi",
+    "Nome": "Fusillone al topinambur scampi e dressing alla birra",
+    "Prezzo": 40,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 10,
+    "Categoria": "primi",
+    "Nome": "Scucuzzùn mantecato ai ceci di spello calamaro scottato alla salvia e profumo di agrumi",
+    "Prezzo": 35,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 11,
+    "Categoria": "primi",
+    "Nome": "Ravioli all’ortica tartare di gambero rosso e il suo ristretto",
+    "Prezzo": 40,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 12,
+    "Categoria": "primi",
+    "Nome": "Bottoni farciti di radicchio fonduta di Scoppolato di Pedona e perle di bitter",
+    "Prezzo": 35,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 13,
+    "Categoria": "primi",
+    "Nome": "Vellutata di farro della Garfagnana e fagioli rossi di Sorana",
+    "Prezzo": 25,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 14,
+    "Categoria": "primi",
+    "Nome": "Tagliolini al filetto di pomodoro e basilico di Prà",
+    "Prezzo": 25,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 15,
+    "Categoria": "secondi",
+    "Nome": "Filetto di rombo al forno scaloppa di fegato d’oca tartufo nero e riduzione al Porto",
+    "Prezzo": 40,
+    "Disponibile": false,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 16,
+    "Categoria": "secondi",
+    "Nome": "Natura di calamaretti di sabbia in forno al profumo di Vermentino con millefoglie di verdure",
+    "Prezzo": 45,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 17,
+    "Categoria": "secondi",
+    "Nome": "Astice (o Aragosta)in crosta speziata daikon cremoso di carote e scaglie di aceto balsamico",
+    "Prezzo": 65,
+    "Disponibile": false,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 18,
+    "Categoria": "secondi",
+    "Nome": "Filetto di Fassona piemontese alla Rossini",
+    "Prezzo": 55,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 19,
+    "Categoria": "secondi",
+    "Nome": "Soffice di vitello brasato mosto cotto e  grano saraceno soffiato",
+    "Prezzo": 35,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 20,
+    "Categoria": "secondi",
+    "Nome": "Petto d’anatra cotto a bassa temperatura peschiere saltate riduzione al mirto e pavé di patate",
+    "Prezzo": 40,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 21,
+    "Categoria": "vini",
+    "Nome": "Passito di Pantelleria Ben Ryé ‘21 Donna Fugata",
+    "Prezzo": 15,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 22,
+    "Categoria": "vini",
+    "Nome": "Muffato della Sala ‘19 Antinori",
+    "Prezzo": 20,
+    "Disponibile": false,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 23,
+    "Categoria": "vini",
+    "Nome": "Moscato d’Asti “Bricco Quaglia” ‘22 La Spinetta",
+    "Prezzo": 10,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 24,
+    "Categoria": "vini",
+    "Nome": "Sauternes ‘14 Raymod-Lafon",
+    "Prezzo": 20,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 25,
+    "Categoria": "vini",
+    "Nome": "Gewurtztraminer Terminus ’22 Dramen",
+    "Prezzo": 30,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 26,
+    "Categoria": "dolci",
+    "Nome": "Tiramisù glassa al caffè e biscotto al cioccolato",
+    "Prezzo": 15,
+    "Disponibile": false,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 27,
+    "Categoria": "dolci",
+    "Nome": "La pastiera 2024",
+    "Prezzo": 15,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 28,
+    "Categoria": "dolci",
+    "Nome": "Apple Pie: tortino di pasta briseé alla mela e gelato alla crema",
+    "Prezzo": 15,
+    "Disponibile": false,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 29,
+    "Categoria": "dolci",
+    "Nome": "Semifreddo al passion fruit e spuma di Champagne",
+    "Prezzo": 15,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 30,
+    "Categoria": "dolci",
+    "Nome": "I nostri sorbetti",
+    "Prezzo": 10,
+    "Disponibile": false,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  },
+  {
+    "Id": 31,
+    "Categoria": "dolci",
+    "Nome": "Selezione di formaggi italiani e esteri",
+    "Prezzo": 20,
+    "Disponibile": true,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web",
+    "Descrizione": "La ricetta del piatto, gli ingredienti e tante piccole curiosità"
+  }
+]

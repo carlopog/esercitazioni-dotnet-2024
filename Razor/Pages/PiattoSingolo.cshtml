@@ -1,0 +1,28 @@
+@page
+@model PiattoSingoloModel
+@{
+  ViewData["Title"] = "Dettagli Piatto";
+}
+
+<h1>@ViewData["Title"]: @Model.Piatto.Id</h1>
+
+<div class="card" style="width: 40rem;">
+  <img class="card-img-top" alt="img" src="@Model.Piatto.Immagine">
+  <div class="card-body">
+    <h3 class="card-title">
+      @Html.DisplayFor(model => model.Piatto.Nome)
+    </h3>
+    <p class="card-text">
+        @Html.DisplayFor(model => model.Piatto.Descrizione)
+    </p>
+    <a href="#" class="btn btn-primary">
+      Buy 
+        @Html.DisplayFor(model => model.Piatto.Prezzo)
+        euro
+    </a>
+  </div>
+</div>
+
+<div style="margin-left: 32rem">
+<a asp-page="Piatti" class="btn btn-danger mt-3">Torna a Piatti</a>
+</div>
