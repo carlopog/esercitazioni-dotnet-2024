@@ -1,0 +1,18 @@
+@page
+@model CancellaProdottoModel
+@{
+  ViewData["Title"] = "Sicuro di voler cancellare questo Prodotto?";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+  <div class="form-group">
+    <p>@ViewData["Nome"]</p>
+    <p>@ViewData["Prezzo"]</p>
+    <p>@ViewData["Dettaglio"]</p>
+  </div>
+   <button type="submit" class="btn btn-primary">Sì</button>
+   <a class="btn btn-danger m-2" asp-area="" asp-page="Prodotti">No</a>
+</form>
+

@@ -1,12 +1,5 @@
 [
   {
-    "Id": 1,
-    "Nome": "Prodotto1",
-    "Prezzo": 100.0,
-    "Dettaglio": "Dettaglio 1",
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web"
-  },
-  {
     "Id": 2,
     "Nome": "Prodotto2",
     "Prezzo": 200.0,
