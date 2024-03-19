@@ -139,8 +139,7 @@
             }
 }
       <div class="col-md-4">
-        <a asp-page="ProdottoDettaglio" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo"
-          asp-route-dettaglio="@prodotto.Dettaglio">
+        <a asp-page="ProdottoDettaglio" asp-route-itemid="@prodotto.Id">
           @prodotto.Dettaglio
         </a>
       </div>
