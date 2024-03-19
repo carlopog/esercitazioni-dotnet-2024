@@ -1,0 +1,11 @@
+- Id calcolato con maxValue + 1
+
+- Barre dei prodotti (prezzo del prodotto / massimo del prezzo) * 100 
+  per calcolare la percentuale
+
+- Immagine con i file veri da cartella (upload)
+
+- Validazione degli input 
+
+
+
