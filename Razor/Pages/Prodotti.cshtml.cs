@@ -16,7 +16,7 @@ public class ProdottiModel : PageModel
   public void OnGet(decimal? minPrezzo, decimal? maxPrezzo, int? pageIndex)
   {
     var json = System.IO.File.ReadAllText("wwwroot/json/prodotti.json"); 
-    Prodotti = JsonConvert.DeserializeObject < List < Prodotto >>(json); 
+    Prodotti = JsonConvert.DeserializeObject<List<Prodotto>>(json); 
   
       if (minPrezzo.HasValue)
       {
@@ -30,13 +30,5 @@ public class ProdottiModel : PageModel
       Prodotti = Prodotti.Skip(((pageIndex ?? 1) - 1)*5).Take(5);
       // aggiungi un log
       _logger.LogInformation("Prodotti filtrati per prezzo");
-
   }
 }
-
-/*
-
-using WebAppProdotti.Models; 
- 
-
-*/

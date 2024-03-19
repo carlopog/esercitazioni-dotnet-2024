@@ -1,0 +1,42 @@
+@page
+@model PersoneModel
+@{
+  ViewData["Title"] = "Persone";
+
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="container my-5 ">
+  <div class="row p-2" style="border-bottom: 2px solid">
+
+    <div class="col-md-2">
+      <b>
+        Id
+      </b>
+    </div>
+    <div class="col-md-2">
+      <b>
+        Nome
+      </b>
+    </div>
+    <div class="col-md-2">
+      <b>
+        Cognome
+      </b>
+    </div>
+
+  </div>
+  @foreach (var persona in Model.Persone)
+  {
+    <div class="row border-bottom p-2">
+      <div class="col-md-2">
+        <a asp-page="PersonaDettaglio" asp-route-id="@persona.Id">
+          @persona.Id
+        </a>
+      </div>
+      <div class="col-md-2">@persona.Nome</div>
+      <div class="col-md-2">@persona.Cognome</div>
+    </div>
+  }
+
+</div>

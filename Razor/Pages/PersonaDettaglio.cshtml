@@ -1,0 +1,13 @@
+@page
+@model PersonaDettaglioModel
+@{
+  ViewData["Title"] = "Persona Dettaglio";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@Model.Persona.Id
+@Model.Persona.Nome
+@Model.Persona.Cognome
+
+<a asp-page="Persone">Torna a Persone</a>
