@@ -77,7 +77,7 @@
         Prezzo
       </b>
     </div>
-    <div style="margin-left: 170px">
+    <div style="margin-left: 370px">
       <b>
         Dettaglio
       </b>
@@ -89,6 +89,8 @@
     <div style="display: flex; padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #dee2e6">
       <div style="margin-left: 20px">@prodotto.Nome</div>
       <div style="margin-left: 140px">@prodotto.Prezzo</div>
+   <a class="btn btn-danger mx-3" asp-area="" asp-page="ModificaPrezzo" asp-route-id="@prodotto.Id">ModificaPrezzo</a>
+
       <div style="margin-left: 200px">
         <a asp-page="ProdottoDettaglio" asp-route-id="@prodotto.Id">
           @prodotto.Dettaglio
@@ -140,10 +142,13 @@
               <div class="col-md-2 bg-primary">@prodotto.Prezzo</div>
             }
 }
-      <div class="col-md-4">
+      <div class="col-md-2">
         <a asp-page="ProdottoDettaglio" asp-route-itemid="@prodotto.Id">
           @prodotto.Dettaglio
         </a>
+      </div>
+      <div class="col-md-2">
+        <a class="btn btn-warning mx-3" asp-area="" asp-page="ModificaProdotto" asp-route-id="@prodotto.Id">ModificaProdotto</a>
       </div>
     </div>
   }

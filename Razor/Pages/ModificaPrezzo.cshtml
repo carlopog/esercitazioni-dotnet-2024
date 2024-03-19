@@ -1,0 +1,16 @@
+@page
+@model ModificaPrezzoModel
+@{
+  ViewData["Title"] = "Modifica Prezzo";
+}
+
+<h1>@ViewData["Title"] di @Model.Prodotto.Nome</h1>
+
+<form method="post">
+  <div class="form-group">
+    <label for="prezzo">Prezzo</label>
+    <input type="text" class="form-control" name="prezzo" value="@Model.Prodotto.Prezzo" />
+  </div>
+   <button type="submit" class="btn btn-primary">Salva</button>
+</form>
+

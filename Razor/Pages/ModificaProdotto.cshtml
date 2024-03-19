@@ -1,0 +1,26 @@
+@page
+@model ModificaProdottoModel
+@{
+  ViewData["Title"] = "Modifica Prodotto";
+}
+
+<h1>@ViewData["Title"] del prodotto con id: @Model.Prodotto.Id</h1>
+
+<form method="post">
+  <div class="form-group">
+    <label for="prezzo">Nome</label>
+    <input type="text" class="form-control" name="nome" value="@Model.Prodotto.Nome" />
+  </div>
+  <div class="form-group">
+    <label for="prezzo">Prezzo</label>
+    <input type="text" class="form-control" name="prezzo" value="@Model.Prodotto.Prezzo" />
+  </div>
+  <div class="form-group">
+    <label for="prezzo">Dettaglio</label>
+    <input type="text" class="form-control" name="dettaglio" value="@Model.Prodotto.Dettaglio" />
+  </div>
+    @* si possono passare dei dati in più al nostro edit con un input hidden *@
+   @* <input type="hidden" name="nome" value="pino" />  *@
+   <button type="submit" class="btn btn-primary">Salva</button>
+</form>
+
