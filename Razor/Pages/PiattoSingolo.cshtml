@@ -4,7 +4,7 @@
   ViewData["Title"] = "Dettagli Piatto";
 }
 
-<h1>@ViewData["Title"]: @Model.Piatto.Id</h1>
+<h1>@ViewData["Title"]</h1>
 
 <div class="card" style="width: 40rem;">
   <img class="card-img-top" alt="img" src="@Model.Piatto.Immagine">
@@ -15,14 +15,16 @@
     <p class="card-text">
         @Html.DisplayFor(model => model.Piatto.Descrizione)
     </p>
-    <a href="#" class="btn btn-primary">
+    <a href="#" class="btn btn-success">
       Buy 
         @Html.DisplayFor(model => model.Piatto.Prezzo)
         euro
     </a>
   </div>
 </div>
-
-<div style="margin-left: 32rem">
-<a asp-page="Piatti" class="btn btn-danger mt-3">Torna a Piatti</a>
+<div style="display: flex;" class="mt-3">
+<a asp-page="Menu" class="btn btn-primary">Torna a Menu</a>
+<div style="margin-left: 25rem">
+<a asp-page="Piatti" class="btn btn-danger">Torna a Piatti</a>
+</div>
 </div>
