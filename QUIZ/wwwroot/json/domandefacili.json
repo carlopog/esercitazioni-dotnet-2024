@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "domanda": "Qual è la capitale dell'Italia?",
+    "opzioneA": "Milano",
+    "opzioneB": "Roma",
+    "opzioneC": "Napoli",
+    "opzioneD": "Firenze",
+    "risposta": "B) Roma"
+  },
+  {
+    "id": 2,
+    "domanda": "Quale pianeta del sistema solare è più vicino al Sole?",
+    "opzioneA": "Venere",
+    "opzioneB": "Marte",
+    "opzioneC": "Giove",
+    "opzioneD": "Mercurio",
+    "risposta": "D) Mercurio"
+  },
+  {
+    "id": 3,
+    "domanda": "Quale animale è noto per la sua striscia bianca e nera?",
+    "opzioneA": "Leopardo",
+    "opzioneB": "Zebra",
+    "opzioneC": "Tigre",
+    "opzioneD": "Giraffa",
+    "risposta": "B) Zebra"
+  },
+  {
+    "id": 4,
+    "domanda": "Quale lingua si parla in Giappone?",
+    "opzioneA": "Cinese",
+    "opzioneB": "Giapponese",
+    "opzioneC": "Coreano",
+    "opzioneD": "Russo",
+    "risposta": "B) Giapponese"
+  },
+  {
+    "id": 5,
+    "domanda": "Quale numero viene dopo 9?",
+    "opzioneA": "10",
+    "opzioneB": "8",
+    "opzioneC": "11",
+    "opzioneD": "7",
+    "risposta": "A) 10"
+  },
+  {
+    "id": 6,
+    "domanda": "Quale colore si ottiene mescolando il rosso e il giallo?",
+    "opzioneA": "Verde",
+    "opzioneB": "Arancione",
+    "opzioneC": "Viola",
+    "opzioneD": "Marrone",
+    "risposta": "B) Arancione"
+  },
+  {
+    "id": 7,
+    "domanda": "Quale famoso scienziato formulò la teoria della relatività?",
+    "opzioneA": "Isaac Newton",
+    "opzioneB": "Albert Einstein",
+    "opzioneC": "Galileo Galilei",
+    "opzioneD": "Marie Curie",
+    "risposta": "B) Albert Einstein"
+  },
+  {
+    "id": 8,
+    "domanda": "Quale strumento musicale ha le corde?",
+    "opzioneA": "Pianoforte",
+    "opzioneB": "Flauto",
+    "opzioneC": "Violino",
+    "opzioneD": "Tromba",
+    "risposta": "C) Violino"
+  },
+  {
+    "id": 9,
+    "domanda": "Quale stagione segue l'estate?",
+    "opzioneA": "Autunno",
+    "opzioneB": "Inverno",
+    "opzioneC": "Primavera",
+    "opzioneD": "Estate (di nuovo)",
+    "risposta": "A) Autunno"
+  },
+  {
+    "id": 10,
+    "domanda": "Quale lettera è la quinta dell'alfabeto?",
+    "opzioneA": "E",
+    "opzioneB": "B",
+    "opzioneC": "D",
+    "opzioneD": "F",
+    "risposta": "A) E"
+  }
+]

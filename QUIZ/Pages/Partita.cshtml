@@ -1,0 +1,55 @@
+@page
+@model PartitaModel
+@{
+  ViewData["Title"] = "Partita";
+  int numerodomanda = 1;
+  string a = "a";
+  string b = "b";
+  string c = "c";
+  string d = "d";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Benvenuto @Model.Utente.Nome</h3>
+
+@foreach (var domanda in Model.Domande)
+{
+  a = numerodomanda + "opzioneA";
+  b = numerodomanda + "opzioneB";
+  c = numerodomanda + "opzioneC";
+  d = numerodomanda + "opzioneD";
+
+  <div>
+    <p>@domanda.id</p>
+    <p>@domanda.domanda</p>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" name=a id=a>
+      <label class="form-check-label" for=a>
+      @domanda.opzioneA
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" name=b id=b>
+      <label class="form-check-label" for=b>
+      @domanda.opzioneB
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" name=c id=c>
+      <label class="form-check-label" for=c>
+      @domanda.opzioneC
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" name=d id=d>
+      <label class="form-check-label" for=d>
+      @domanda.opzioneD
+      </label>
+    </div>
+    
+  </div>
+
+  numerodomanda++;
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "domanda": "Quale elemento chimico ha il simbolo \"Fe\"?",
+    "opzioneA": "Ferro",
+    "opzioneB": "Fluoro",
+    "opzioneC": "Fosforo",
+    "opzioneD": "Francio",
+    "risposta": "A) Ferro"
+  },
+  {
+    "id": 2,
+    "domanda": "Chi scrisse \"Romeo e Giulietta\"?",
+    "opzioneA": "Charles Dickens",
+    "opzioneB": "William Shakespeare",
+    "opzioneC": "Jane Austen",
+    "opzioneD": "Mark Twain",
+    "risposta": "B) William Shakespeare"
+  },
+  {
+    "id": 3,
+    "domanda": "Quale fiume attraversa Parigi?",
+    "opzioneA": "Tamigi",
+    "opzioneB": "Senna",
+    "opzioneC": "Danubio",
+    "opzioneD": "Tevere",
+    "risposta": "B) Senna"
+  },
+  {
+    "id": 4,
+    "domanda": "Quale costellazione contiene la stella Polare?",
+    "opzioneA": "Orsa Maggiore",
+    "opzioneB": "Orione",
+    "opzioneC": "Cassiopea",
+    "opzioneD": "Scorpione",
+    "risposta": "A) Orsa Maggiore"
+  },
+  {
+    "id": 5,
+    "domanda": "Quale è il più grande oceano del mondo?",
+    "opzioneA": "Oceano Atlantico",
+    "opzioneB": "Oceano Indiano",
+    "opzioneC": "Oceano Pacifico",
+    "opzioneD": "Oceano Artico",
+    "risposta": "C) Oceano Pacifico"
+  },
+  {
+    "id": 6,
+    "domanda": "Quale famoso pittore ha dipinto “La notte stellata”?",
+    "opzioneA": "Vincent van Gogh",
+    "opzioneB": "Pablo Picasso",
+    "opzioneC": "Leonardo da Vinci",
+    "opzioneD": "Michelangelo",
+    "risposta": "A) Vincent van Gogh"
+  },
+  {
+    "id": 7,
+    "domanda": "Qual è la formula chimica dell’acqua?",
+    "opzioneA": "H2O",
+    "opzioneB": "CO2",
+    "opzioneC": "CH4",
+    "opzioneD": "NH3",
+    "risposta": "A) H2O"
+  },
+  {
+    "id": 8,
+    "domanda": "Quale famoso compositore austriaco è noto per le sue sinfonie e concerti per pianoforte?",
+    "opzioneA": "Wolfgang Amadeus Mozart",
+    "opzioneB": "Ludwig van Beethoven",
+    "opzioneC": "Franz Schubert",
+    "opzioneD": "Johann Sebastian Bach",
+    "risposta": "B) Ludwig van Beethoven"
+  },
+  {
+    "id": 9,
+    "domanda": "Quale è l’organo più grande del corpo umano?",
+    "opzioneA": "Cuore",
+    "opzioneB": "Fegato",
+    "opzioneC": "Pelle",
+    "opzioneD": "Cervello",
+    "risposta": "C) Pelle"
+  },
+  {
+    "id": 10,
+    "domanda": "Quale famoso scienziato ha formulato la teoria della relatività?",
+    "opzioneA": "Isaac Newton",
+    "opzioneB": "Albert Einstein",
+    "opzioneC": "Galileo Galilei",
+    "opzioneD": "Marie Curie",
+    "risposta": "B) Albert Einstein"
+  }
+]

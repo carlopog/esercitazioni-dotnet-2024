@@ -8,6 +8,27 @@
 
 <h3>Benvenuto @Model.Utente.Nome</h3>
 
-<a class="btn btn-danger m-5 p-5" asp-route-nome="@Model.Utente.Nome" asp-page="PartitaDifficile">Gioca modalità difficile</a>
-<a class="btn btn-danger m-5 p-5" asp-route-nome="@Model.Utente.Nome" asp-page="PartitaNormale">Gioca modalità normale</a>
-<a class="btn btn-danger m-5 p-5" asp-route-nome="@Model.Utente.Nome" asp-page="PartitaFacile">Gioca modalità facile</a>
+<a 
+class="btn btn-danger m-5 p-5" 
+asp-route-nome="@Model.Utente.Nome" 
+asp-route-difficolta="difficile" 
+asp-page="Partita"
+>
+Gioca modalità difficile
+</a>
+<a 
+class="btn btn-danger m-5 p-5" 
+asp-route-nome="@Model.Utente.Nome" 
+asp-route-difficolta="intermedia" 
+asp-page="Partita"
+>
+Gioca modalità intermedia
+</a>
+<a 
+class="btn btn-danger m-5 p-5" 
+asp-route-nome="@Model.Utente.Nome" 
+asp-route-difficolta="facile" 
+asp-page="Partita"
+>
+Gioca modalità facile
+</a>
