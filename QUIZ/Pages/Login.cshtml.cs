@@ -9,10 +9,10 @@ public class LoginModel : PageModel
 {
   public void OnGet(bool wrongName, bool wrongPassword)
   {
-    if (wrongName)
+    if (wrongName)                              //se il nome inserito è inesistente
     {
-      ViewData["ClasseNome"] = "form-control is-invalid";
-      ViewData["MessaggioNome"] = "Non esiste alcun utente con il nome selezionato";
+      ViewData["ClasseNome"] = "form-control is-invalid";                   //assegno il valore form-control is-invalid alla key ClasseNome (per il bordo rosso)
+      ViewData["MessaggioNome"] = "Non esiste alcun utente con il nome selezionato";        //faccio apparire questo messaggio 
     }
     else
     {
