@@ -8,35 +8,63 @@ namespace QUIZ.Pages;
 
 public class LoginModel : PageModel
 {
-  public void OnGet()
+  public void OnGet(bool wrongName, bool wrongPassword)
   {
-    // per ora niente
+    if (wrongName)
+    {
+      ViewData["ClasseNome"] = "form-control is-invalid";
+      ViewData["MessaggioNome"] = "Non esiste alcun utente con il nome selezionato";
+    }
+    else
+    {
+      ViewData["ClasseNome"] = "form-control";
+      ViewData["MessaggioNome"] = "Confronteremo il tuo nome con quello degli utenti salvati";
+
+    }
+    if (wrongPassword)
+    {
+      ViewData["ClassePassword"] = "form-control is-invalid";
+      ViewData["MessaggioPassword"] = "Password errata";
+    }
+    else
+    {
+      ViewData["ClassePassword"] = "form-control";
+    }
   }
 
   public IActionResult OnPost(string nome, string password)
   {
-
     var json = System.IO.File.ReadAllText("wwwroot/json/utenti.json");
-    List<Utente> utenti = JsonConvert.DeserializeObject<List<Utente>>(json);
 
-    if (utenti.Any(p => p.Nome == nome))
+    List<Utente>? utenti = JsonConvert.DeserializeObject<List<Utente>>(json);
+
+    if (utenti != null)
     {
-      var utente = utenti.FirstOrDefault(p => p.Nome == nome);
-      if (utente.Password == password)
+      if (utenti.Any(p => p.Nome == nome))
       {
-        return RedirectToPage("Privacy");
-        // pagina gioca
+        var utente = utenti.FirstOrDefault(p => p.Nome == nome);
+        if (utente?.Password == password)
+        {
+          return RedirectToPage("Privacy");
+          // pagina gioca
+        }
+        else
+        {
+          return RedirectToPage("Login",  new { wrongPassword = true });
+          // pagina wrong password
+        }
       }
       else
       {
-        return RedirectToPage("Index");
-        // pagina wrong password
+        return RedirectToPage("Login", new { wrongName = true });
+        // pagina wrong name (no user with this name)
       }
     }
+
     else
     {
       return RedirectToPage("Privacy");
-      // pagina wrong name (no user with this name)
+      // pagina non ci sono utenti registrati
     }
   }
 }
