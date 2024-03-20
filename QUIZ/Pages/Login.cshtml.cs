@@ -43,7 +43,7 @@ public class LoginModel : PageModel
         var utente = utenti.FirstOrDefault(p => p.Nome == nome);
         if (utente?.Password == password)
         {
-          return RedirectToPage("Privacy");
+          return RedirectToPage("Gioca", new { nome = utente.Nome });
           // pagina gioca
         }
         else

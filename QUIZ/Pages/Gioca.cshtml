@@ -1,0 +1,13 @@
+@page
+@model GiocaModel
+@{
+  ViewData["Title"] = "Gioca";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Benvenuto @Model.Utente.Nome</h3>
+
+<a class="btn btn-danger m-5 p-5" asp-route-nome="@Model.Utente.Nome" asp-page="PartitaDifficile">Gioca modalità difficile</a>
+<a class="btn btn-danger m-5 p-5" asp-route-nome="@Model.Utente.Nome" asp-page="PartitaNormale">Gioca modalità normale</a>
+<a class="btn btn-danger m-5 p-5" asp-route-nome="@Model.Utente.Nome" asp-page="PartitaFacile">Gioca modalità facile</a>
