@@ -1,12 +1,12 @@
 ## AUTENTICAZIONE
 
-- [ ] CREARE classe UTENTE (NOME, PASSWORD E PUNTEGGIO)
-- [ ] chiedere se utente si deve registrare o è già registrato
-- [ ] se si deve registrare chiede nome e password 
-- [ ] controlla che non esista gia' il nome
-- [ ] salvare la password da una parte 
-- [ ] se gia' registrato chiede nome utente controlla esista
-- [ ] chiede la password (e la confronta)
+- [x] CREARE classe UTENTE (NOME, PASSWORD E PUNTEGGIO)
+- [x] chiedere se utente si deve registrare o è già registrato
+- [x] se si deve registrare chiede nome e password 
+- [x] controlla che non esista gia' il nome
+- [x] salvare la password nel json
+- [x] se gia' registrato chiede nome utente controlla esista
+- [x] chiede la password (e la confronta)
 
 ## QUIZ
 

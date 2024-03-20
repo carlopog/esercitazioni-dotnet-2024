@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 
-
 namespace QUIZ.Pages;
 
 
@@ -35,7 +34,6 @@ public class LoginModel : PageModel
   public IActionResult OnPost(string nome, string password)
   {
     var json = System.IO.File.ReadAllText("wwwroot/json/utenti.json");
-
     List<Utente>? utenti = JsonConvert.DeserializeObject<List<Utente>>(json);
 
     if (utenti != null)
@@ -51,20 +49,18 @@ public class LoginModel : PageModel
         else
         {
           return RedirectToPage("Login",  new { wrongPassword = true });
-          // pagina wrong password
         }
       }
       else
       {
         return RedirectToPage("Login", new { wrongName = true });
-        // pagina wrong name (no user with this name)
       }
     }
 
     else
     {
-      return RedirectToPage("Privacy");
-      // pagina non ci sono utenti registrati
+      return RedirectToPage("Registrati");
+      // messaggio non esiste ancora nessun utente registrato
     }
   }
 }
