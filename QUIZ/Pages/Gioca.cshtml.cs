@@ -16,19 +16,4 @@ public class GiocaModel : PageModel
       Utente = utenti.FirstOrDefault(u => u.Nome == nome);
     }
 
-    public IActionResult OnPost(string difficolta)
-  {
-    if (difficolta == "difficile")
-    {
-      return RedirectToPage("Partita", new { difficolta = "difficile" });
-    }
-    else if (difficolta == "facile")
-    {
-      return RedirectToPage("Partita", new { difficolta = "facile" });
-    }
-    else
-    {
-      return RedirectToPage("Partita", new { difficolta = "intermedia" });
-    }
-  }
 }
