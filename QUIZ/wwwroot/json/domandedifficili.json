@@ -6,7 +6,7 @@
     "opzioneB": "Ludwig van Beethoven",
     "opzioneC": "Franz Schubert",
     "opzioneD": "Johann Sebastian Bach",
-    "risposta": "B) Ludwig van Beethoven"
+    "risposta": "1opzioneB"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "opzioneB": "Fegato",
     "opzioneC": "Pelle",
     "opzioneD": "Cervello",
-    "risposta": "C) Pelle"
+    "risposta": "2opzioneC"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "opzioneB": "Albert Einstein",
     "opzioneC": "Galileo Galilei",
     "opzioneD": "Marie Curie",
-    "risposta": "B) Albert Einstein"
+    "risposta": "3opzioneB"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "opzioneB": "Giove",
     "opzioneC": "Saturno",
     "opzioneD": "Urano",
-    "risposta": "C) Saturno"
+    "risposta": "4opzioneC"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "opzioneB": "Il conte di Montecristo",
     "opzioneC": "David Copperfield",
     "opzioneD": "Il conte di Montecristo",
-    "risposta": "D) Il conte di Montecristo"
+    "risposta": "5opzioneD"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "opzioneB": "Platone",
     "opzioneC": "Aristotele",
     "opzioneD": "Epicuro",
-    "risposta": "C) Aristotele"
+    "risposta": "6opzioneC"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "opzioneB": "Nichel",
     "opzioneC": "Neodimio",
     "opzioneD": "Nettunio",
-    "risposta": "A) Sodio"
+    "risposta": "7opzioneA"
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "opzioneB": "William Shakespeare",
     "opzioneC": "Jane Austen",
     "opzioneD": "Mark Twain",
-    "risposta": "B) William Shakespeare"
+    "risposta": "8opzioneB"
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "opzioneB": "Senna",
     "opzioneC": "Danubio",
     "opzioneD": "Tevere",
-    "risposta": "B) Senna"
+    "risposta": "9opzioneB"
   },
   {
     "id": 10,
@@ -87,6 +87,6 @@
     "opzioneB": "Albert Einstein",
     "opzioneC": "Galileo Galilei",
     "opzioneD": "Marie Curie",
-    "risposta": "B) Albert Einstein"
+    "risposta": "10opzioneB"
   }
 ]

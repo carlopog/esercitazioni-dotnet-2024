@@ -6,7 +6,7 @@
     "opzioneB": "Roma",
     "opzioneC": "Napoli",
     "opzioneD": "Firenze",
-    "risposta": "B) Roma"
+    "risposta": "1opzioneB"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "opzioneB": "Marte",
     "opzioneC": "Giove",
     "opzioneD": "Mercurio",
-    "risposta": "D) Mercurio"
+    "risposta": "2opzioneD"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "opzioneB": "Zebra",
     "opzioneC": "Tigre",
     "opzioneD": "Giraffa",
-    "risposta": "B) Zebra"
+    "risposta": "3opzioneB"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "opzioneB": "Giapponese",
     "opzioneC": "Coreano",
     "opzioneD": "Russo",
-    "risposta": "B) Giapponese"
+    "risposta": "4opzioneB"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "opzioneB": "8",
     "opzioneC": "11",
     "opzioneD": "7",
-    "risposta": "A) 10"
+    "risposta": "5opzioneA"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "opzioneB": "Arancione",
     "opzioneC": "Viola",
     "opzioneD": "Marrone",
-    "risposta": "B) Arancione"
+    "risposta": "6opzioneB"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "opzioneB": "Albert Einstein",
     "opzioneC": "Galileo Galilei",
     "opzioneD": "Marie Curie",
-    "risposta": "B) Albert Einstein"
+    "risposta": "7opzioneB"
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "opzioneB": "Flauto",
     "opzioneC": "Violino",
     "opzioneD": "Tromba",
-    "risposta": "C) Violino"
+    "risposta": "8opzioneC"
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "opzioneB": "Inverno",
     "opzioneC": "Primavera",
     "opzioneD": "Estate (di nuovo)",
-    "risposta": "A) Autunno"
+    "risposta": "9opzioneA"
   },
   {
     "id": 10,
@@ -87,6 +87,6 @@
     "opzioneB": "B",
     "opzioneC": "D",
     "opzioneD": "F",
-    "risposta": "A) E"
+    "risposta": "10opzioneA"
   }
 ]

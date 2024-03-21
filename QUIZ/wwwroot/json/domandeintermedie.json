@@ -1,0 +1,22 @@
+[
+
+  {
+    "id": 1,
+    "domanda": "Chi scrisse \"Romeo e Giulietta\"?",
+    "opzioneA": "Charles Dickens",
+    "opzioneB": "William Shakespeare",
+    "opzioneC": "Jane Austen",
+    "opzioneD": "Mark Twain",
+    "risposta": "1opzioneB"
+  },
+  {
+    "id": 2,
+    "domanda": "Chi scrisse \"Romeo e Giulietta\"?",
+    "opzioneA": "Charles Dickens",
+    "opzioneB": "William Shakespeare",
+    "opzioneC": "Jane Austen",
+    "opzioneD": "Mark Twain",
+    "risposta": "2opzioneB"
+  }
+  
+]

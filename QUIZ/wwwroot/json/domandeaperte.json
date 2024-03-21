@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "domanda": "Quale famoso compositore austriaco è noto per le sue sinfonie e concerti per pianoforte?",
+    "risposta": "Ludwig van Beethoven"
+  },
+  {
+    "id": 2,
+    "domanda": "Quale è l’organo più grande del corpo umano?",
+    "risposta": "Pelle"
+  },
+  {
+    "id": 3,
+    "domanda": "Quale famoso scienziato ha formulato la teoria della relatività?",
+    "risposta": "Albert Einstein"
+  },
+  {
+    "id": 4,
+    "domanda": "Quale pianeta del sistema solare è noto per i suoi anelli?",
+    "risposta": "Saturno"
+  },
+  {
+    "id": 5,
+    "domanda": "Quale famoso romanzo inizia con la frase “È stato il migliore dei tempi, è stato il peggiore dei tempi”?",
+    "risposta": "Il conte di Montecristo"
+  },
+  {
+    "id": 6,
+    "domanda": "Quale famoso filosofo greco è noto per le sue opere sull’etica e la politica?",
+    "risposta": "Aristotele"
+  },
+  {
+    "id": 7,
+    "domanda": "Quale è l’elemento chimico con il simbolo “Na”?",
+    "risposta": "Sodio"
+  },
+  {
+    "id": 8,
+    "domanda": "Chi scrisse \"Romeo e Giulietta\"?",
+    "risposta": "William Shakespeare"
+  },
+  {
+    "id": 9,
+    "domanda": "Quale fiume attraversa Parigi?",
+    "risposta": "Senna"
+  },
+  {
+    "id": 10,
+    "domanda": "Quale famoso scienziato formulò la teoria della relatività?",
+    "risposta": "Albert Einstein"
+  }
+]
