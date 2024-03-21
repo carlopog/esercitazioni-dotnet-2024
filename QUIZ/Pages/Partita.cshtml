@@ -7,6 +7,7 @@
   string b = "b";
   string c = "c";
   string d = "d";
+  string name = "risposta";
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -19,31 +20,32 @@
   b = numerodomanda + "opzioneB";
   c = numerodomanda + "opzioneC";
   d = numerodomanda + "opzioneD";
+  name = numerodomanda + "risposta";
 
   <div>
     <p>@domanda.id</p>
     <p>@domanda.domanda</p>
 
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" name=a id=a>
+      <input class="form-check-input" type="radio" value="option" name=name id=a>
       <label class="form-check-label" for=a>
       @domanda.opzioneA
       </label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" name=b id=b>
+      <input class="form-check-input" type="radio" value="option" name=name id=b>
       <label class="form-check-label" for=b>
       @domanda.opzioneB
       </label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" name=c id=c>
+      <input class="form-check-input" type="radio" value="option" name=name id=c>
       <label class="form-check-label" for=c>
       @domanda.opzioneC
       </label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" name=d id=d>
+      <input class="form-check-input" type="radio" value="option" name=name id=d>
       <label class="form-check-label" for=d>
       @domanda.opzioneD
       </label>
