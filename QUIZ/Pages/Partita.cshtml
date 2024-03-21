@@ -28,9 +28,9 @@
       <p>@domandaAperta.id)</p>
       <div class="form-group">
         <label for="exampleFormControlTextarea1">@domandaAperta.domanda</label>
-        <textarea class="form-control" id=name name=name rows="2"></textarea>
+        <textarea class="form-control" id=@name name=@name rows="2"></textarea>
       </div>
-    <input type="hidden" name=risposta value="@domandaAperta.risposta">
+    <input type="hidden" name=@risposta value="@domandaAperta.risposta">
     }
   <button type="submit" class="btn btn-primary mt-3">Submit</button>
   </form>
@@ -53,30 +53,30 @@ else if (@ViewData["difficolta"] == "intermedia")
 
 
         <div class="form-check">
-          <input class="form-check-input" type="radio" value=a name=name id=a>
-          <label class="form-check-label" for=a>
+          <input class="form-check-input" type="radio" value=@a name=@name id=@a>
+          <label class="form-check-label" for=@a>
             @domanda.opzioneA
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" value=b name=name id=b>
-          <label class="form-check-label" for=b>
+          <input class="form-check-input" type="radio" value=@b name=@name id=@b>
+          <label class="form-check-label" for=@b>
             @domanda.opzioneB
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" value=c name=name id=c>
-          <label class="form-check-label" for=c>
+          <input class="form-check-input" type="radio" value=@c name=@name id=@c>
+          <label class="form-check-label" for=@c>
             @domanda.opzioneC
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" value=d name=name id=d>
-          <label class="form-check-label" for=d>
+          <input class="form-check-input" type="radio" value=@d name=@name id=@d>
+          <label class="form-check-label" for=@d>
             @domanda.opzioneD
           </label>
         </div>
-        <input type="hidden" name=risposta value="@domanda.risposta">
+        <input type="hidden" name=@risposta value="@domanda.risposta">
       </div>
 
       numerodomanda++;
@@ -101,30 +101,31 @@ else
         <p>@domanda.domanda</p>
 
         <div class="form-check">
-          <input class="form-check-input" type="radio" value=a name=name id=a>
-          <label class="form-check-label" for=a>
+          <input class="form-check-input" type="radio" value=@a name=@name id=@a>
+          <label class="form-check-label" for=@a>
             @domanda.opzioneA
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" value=b name=name id=b>
-          <label class="form-check-label" for=b>
+          <input class="form-check-input" type="radio" value=@b name=@name id=@b>
+          <label class="form-check-label" for=@b>
             @domanda.opzioneB
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" value=c name=name id=c>
-          <label class="form-check-label" for=c>
+          <input class="form-check-input" type="radio" value=@c name=@name id=@c>
+          <label class="form-check-label" for=@c>
             @domanda.opzioneC
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" value=d name=name id=d>
-          <label class="form-check-label" for=d>
+          <input class="form-check-input" type="radio" value=@d name=@name id=@d>
+          <label class="form-check-label" for=@d>
             @domanda.opzioneD
+            @name
           </label>
         </div>
-      <input type="hidden" name=risposta value="@domanda.risposta">
+      <input type="hidden" name=@risposta value="@domanda.risposta">
       </div>
 
       numerodomanda++;
