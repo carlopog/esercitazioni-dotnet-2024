@@ -81,3 +81,37 @@ static bool Validazione(string rispostaAperta, string[] risposte)
 
 }
 ```
+
+```c#
+ int lunghezza = values.Length; // questo sperando che mi arrivino risposta utente[0], risposta giusta[1]
+       int lng = lunghezza/2;
+       int ru = 0;
+       int rg = 0;
+       string[] risposteUtente = new string[lng];
+       string[] risposteGiuste = new string[lng];
+       for (int i = 0; i < lunghezza; i++)
+       {
+         if (i % 2 == 0) // se è pari
+         {
+           risposteUtente[ru] = values[i]; // aggiungi il valore a risposte dell'utente
+           /* 
+           [0] = [0]
+           [1] = [2]
+           [2] = [4]
+           [3] = [6]
+
+           ru++; // scala di una posizione
+         }
+         else
+         {
+           risposteGiuste[rg] = values[i]; // aggiungi il valore a risposte giuste
+           /* 
+           [0] = [1]
+           [1] = [3]
+           [2] = [5]
+           [3] = [7]
+           */
+           rg++; // scala di una posizione
+         }
+
+  ```
