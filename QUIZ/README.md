@@ -16,6 +16,7 @@
 - [x] CHECKBOX
 - [x] CREARE TASTO SUBMIT
 - [ ] CAMBIARE LE DOMANDE CON COSE SENSATE
+- [ ] CAMBIARE LE CLASSI CON NOMI SENSATI
 
 ## VALIDAZIONE
 
@@ -24,6 +25,7 @@
 - [x] E RESTITUIRE IL RISULTATO
 - [x] PARAGONARE VALUES A RISPOSTE
 - [ ] ASSEGNAZIONE PUNTEGGIO IN BASE AL NUMERO DI RISPOSTE CORRETTE E ALLA DIFFICOLTA
+- [ ] PUNTEGGIO ABBASSATO IN BASE ALLE RISPOSTE SBAGLIATE
 - [ ] CAMBIARE RISPOSTA IN RISPOSTE STRING ARRAY (CON TUTTE LE POSSIBILI RISPOSTE PER DOMANDE APERTE)
 
 
@@ -50,6 +52,8 @@ if value == id + "opzione" + risposta
 {
   giusta
 }
+
+
 ```
 
 PER USARE RISPOSTE string[]
@@ -64,7 +68,7 @@ quindi
 static bool Validazione(string rispostaAperta, string[] risposte)
 {
    // string rispostaAperta = 'boh'
-   // string[] risposte = ['a', 'A', 'boh']
+   // string[] risposteGiuste = ['a', 'A', 'boh']
 
 
    bool giusto = false
