@@ -2,9 +2,10 @@
   {
     "Nome": "Ale",
     "Password": "124",
-    "Record": 0,
+    "Record": 7,
     "Punteggi": [
-      0
+      0,
+      7
     ]
   },
   {
@@ -18,9 +19,14 @@
   {
     "Nome": "carlo",
     "Password": "11",
-    "Record": 0,
+    "Record": 10,
     "Punteggi": [
-      0
+      0,
+      5,
+      5,
+      5,
+      5,
+      10
     ]
   },
   {
@@ -34,17 +40,20 @@
   {
     "Nome": "Simone",
     "Password": "1",
-    "Record": 0,
+    "Record": 4,
     "Punteggi": [
-      0
+      0,
+      4
     ]
   },
   {
     "Nome": "m",
     "Password": "4",
-    "Record": 0,
+    "Record": 7,
     "Punteggi": [
-      0
+      0,
+      7,
+      3
     ]
   }
 ]

@@ -1,0 +1,18 @@
+@page
+@model PunteggiModel
+@{
+  ViewData["Title"] = "Punteggi";
+  int counter = 1;
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>di @Model.Utente.Nome</h3>
+
+@foreach (var punteggio in Model.Utente.Punteggi)
+{
+  <div>@counter .   @punteggio</div>
+  counter++;
+}
+
+<h3> Record @Model.Utente.Record</h3>
