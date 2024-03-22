@@ -17,27 +17,28 @@ public class ValidazioneModel : PageModel
       Utente = utenti.FirstOrDefault(u => u.Nome == nome);
       
       var verificas = new List<Verifica>();
-      var giuste = new List<int>();
+      int punti = 10;
 
       for (int i = 0; i < 10; i++)
       {
         if (ru[i] == rg[i])
         {
           verificas.Add(new Verifica{Id = i+1, RispostaUtente = ru[i], RispostaVerifica= rg[i], Uguali = true });
-          giuste.Add(i+1);
+          punti++;
         }
         else
         {
           verificas.Add(new Verifica{Id = i+1, RispostaUtente = ru[i], RispostaVerifica= rg[i], Uguali = false });
+          punti--;
         }
       }
     
+      int punteggio = punti / 2;
       int record = Utente.Punteggi.Max();
-      int punti = giuste.Count;
 
-      if (punti > record)
+      if (punteggio > record)
       {
-        record = punti;
+        record = punteggio;
       }
 
       int vecchiPunteggi = Utente.Punteggi.Length;
@@ -48,11 +49,11 @@ public class ValidazioneModel : PageModel
         scores[s] = Utente.Punteggi[s];
       }
 
-      scores[vecchiPunteggi] = punti;
+      scores[vecchiPunteggi] = punteggio;
       Utente.Punteggi = scores;
       Utente.Record = record;
     
-    System.IO.File.WriteAllText("wwwroot/json/utenti.json", JsonConvert.SerializeObject(utenti, Formatting.Indented));
+      System.IO.File.WriteAllText("wwwroot/json/utenti.json", JsonConvert.SerializeObject(utenti, Formatting.Indented));
 
       Verifiche = verificas;
     }
