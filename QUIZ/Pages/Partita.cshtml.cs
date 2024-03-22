@@ -49,6 +49,7 @@ public class PartitaModel : PageModel
         //creare risposte utente e risposte giuste come liste e paragonarle uno ad uno 
         //stiamo passando variabili che arrivano alla OnGet di Validazione.cshtml.cs
 
+
       var risposteUtente = new List<string>
       {
           Request.Form["1risposta"],

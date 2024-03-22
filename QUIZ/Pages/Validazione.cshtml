@@ -2,89 +2,33 @@
 @model ValidazioneModel
 @{
   ViewData["Title"] = "Validazione risposte";
+  string classe =  "display: flex; margin-bottom: 5px; padding: 5px; border: 3px solid red; width: 300px";
 }
 
 <h1>@ViewData["Title"]</h1>
 <h3>di @Model.Utente.Nome</h3>
 
-<div style='@ViewData["c1"]'>
-  <div style="margin: 5px; padding: 10px; border: 1px solid rgb(255, 145, 0);">
-    @ViewData["ru1"]
-  </div>
-  <div style="margin: 5px; padding: 10px; border: 2px solid rgb(0, 41, 128);">
-    @ViewData["rg1"]
-  </div>
-</div>
-<div style='@ViewData["c2"]'>
-  <div style="margin: 5px; padding: 10px; border: 1px solid rgb(255, 145, 0);">
-    @ViewData["ru2"]
-  </div>
-  <div style="margin: 5px; padding: 10px; border: 2px solid rgb(0, 41, 128);">
-    @ViewData["rg2"]
-  </div>
-</div>
-<div style='@ViewData["c3"]'>
-  <div style="margin: 5px; padding: 10px; border: 1px solid rgb(255, 145, 0);">
-    @ViewData["ru3"]
-  </div>
-  <div style="margin: 5px; padding: 10px; border: 2px solid rgb(0, 41, 128);">
-    @ViewData["rg3"]
-  </div>
-</div>
-<div style='@ViewData["c4"]'>
-  <div style="margin: 5px; padding: 10px; border: 1px solid rgb(255, 145, 0);">
-    @ViewData["ru4"]
-  </div>
-  <div style="margin: 5px; padding: 10px; border: 2px solid rgb(0, 41, 128);">
-    @ViewData["rg4"]
-  </div>
-</div>
-<div style='@ViewData["c5"]'>
-  <div style="margin: 5px; padding: 10px; border: 1px solid rgb(255, 145, 0);">
-    @ViewData["ru5"]
-  </div>
-  <div style="margin: 5px; padding: 10px; border: 2px solid rgb(0, 41, 128);">
-    @ViewData["rg5"]
-  </div>
-</div>
-<div style='@ViewData["c6"]'>
-  <div style="margin: 5px; padding: 10px; border: 1px solid rgb(255, 145, 0);">
-    @ViewData["ru6"]
-  </div>
-  <div style="margin: 5px; padding: 10px; border: 2px solid rgb(0, 41, 128);">
-    @ViewData["rg6"]
-  </div>
-</div>
-<div style='@ViewData["c7"]'>
-  <div style="margin: 5px; padding: 10px; border: 1px solid rgb(255, 145, 0);">
-    @ViewData["ru7"]
-  </div>
-  <div style="margin: 5px; padding: 10px; border: 2px solid rgb(0, 41, 128);">
-    @ViewData["rg7"]
-  </div>
-</div>
-<div style='@ViewData["c8"]'>
-  <div style="margin: 5px; padding: 10px; border: 1px solid rgb(255, 145, 0);">
-    @ViewData["ru8"]
-  </div>
-  <div style="margin: 5px; padding: 10px; border: 2px solid rgb(0, 41, 128);">
-    @ViewData["rg8"]
-  </div>
-</div>
-<div style='@ViewData["c9"]'>
-  <div style="margin: 5px; padding: 10px; border: 1px solid rgb(255, 145, 0);">
-    @ViewData["ru9"]
-  </div>
-  <div style="margin: 5px; padding: 10px; border: 2px solid rgb(0, 41, 128);">
-    @ViewData["rg9"]
-  </div>
-</div>
-<div style='@ViewData["c10"]'>
-  <div style="margin: 5px; padding: 10px; border: 1px solid rgb(255, 145, 0);">
-    @ViewData["ru10"]
-  </div>
-  <div style="margin: 5px; padding: 10px; border: 2px solid rgb(0, 41, 128);">
-    @ViewData["rg10"]
-  </div>
-</div>
+@foreach (var Giusta in Model.Giuste)
+{
+  @if (Giusta.Uguali == true)
+  {
+    classe =  "display: flex; margin-bottom: 5px; padding: 5px; border: 3px solid green; width: 300px";
+  }
+  else
+  {
+    classe =  "display: flex; margin-bottom: 5px; padding: 5px; border: 3px solid red; width: 300px";
+  }
+    <div style = "@classe">
+      <div style="padding: 10px; margin: 2px">
+        @Giusta.Id
+      </div>
+      <div style="padding: 10px; margin: 2px; border: 2px solid blue">
+        @Giusta.RispostaUtente
+      </div>
+      <div style="padding: 10px; margin: 2px; border: 2px solid rgb(26, 129, 22)">
+        @Giusta.RispostaGiusta
+      </div>
+    </div>
 
+
+}
