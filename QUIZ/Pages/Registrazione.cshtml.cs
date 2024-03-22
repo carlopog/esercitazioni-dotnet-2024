@@ -34,7 +34,7 @@ public class RegistrazioneModel : PageModel
       }
       else
       {
-        utenti.Add(new Utente {Nome = nome, Password=password});
+        utenti.Add(new Utente {Nome = nome, Password=password, Record=0, Punteggi=[0]});
       
         System.IO.File.WriteAllText("wwwroot/json/utenti.json", JsonConvert.SerializeObject(utenti, Formatting.Indented));
       return RedirectToPage("Login");

@@ -13,9 +13,6 @@ public class PartitaModel : PageModel
   public IEnumerable<DomandaAperta> DomandeAperte { get; set; }
   public IEnumerable<Verifica> Giuste { get; set; }
 
-
-  private List<string> selectedValues = new List<string>();
-
     public void OnGet(string nome, string difficolta)
     {
       var json = System.IO.File.ReadAllText("wwwroot/json/utenti.json");
@@ -94,10 +91,7 @@ public class PartitaModel : PageModel
        // lo aggiunga alla mia lista che poi e' l'enumerable che passo alla view
       }
       Giuste = giustino;
-
-
-       return RedirectToPage("Validazione", new { nome, rG = risposteGiuste, ru = risposteUtente }); 
-    
+      return RedirectToPage("Validazione", new { nome, rG = risposteGiuste, ru = risposteUtente }); 
   }
 
 

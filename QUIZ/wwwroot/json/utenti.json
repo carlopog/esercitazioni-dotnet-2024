@@ -1,22 +1,50 @@
 [
   {
     "Nome": "Ale",
-    "Password": "124"
+    "Password": "124",
+    "Record": 0,
+    "Punteggi": [
+      0
+    ]
   },
   {
     "Nome": "Carlo",
-    "Password": "124"
+    "Password": "124",
+    "Record": 0,
+    "Punteggi": [
+      0
+    ]
   },
   {
     "Nome": "carlo",
-    "Password": "11"
+    "Password": "11",
+    "Record": 0,
+    "Punteggi": [
+      0
+    ]
   },
   {
     "Nome": "Giada",
-    "Password": "a"
+    "Password": "a",
+    "Record": 0,
+    "Punteggi": [
+      0
+    ]
   },
   {
     "Nome": "Simone",
-    "Password": "1"
+    "Password": "1",
+    "Record": 0,
+    "Punteggi": [
+      0
+    ]
+  },
+  {
+    "Nome": "m",
+    "Password": "4",
+    "Record": 0,
+    "Punteggi": [
+      0
+    ]
   }
 ]
