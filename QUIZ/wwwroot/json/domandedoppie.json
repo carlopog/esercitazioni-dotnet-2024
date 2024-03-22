@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "domanda": "Quali dei seguenti nomi sono verdure?",
+    "opzioneA": "Mela",
+    "opzioneB": "Bietole",
+    "opzioneC": "Spinaci",
+    "risposta1": "1opzioneB",
+    "risposta2": "1opzioneC"
+  },
+  {
+    "id": 2,
+    "domanda": "Quali dei seguenti nomi sono verdure?",
+    "opzioneA": "Mela",
+    "opzioneB": "Bietole",
+    "opzioneC": "Spinaci",
+    "risposta1": "2opzioneB",
+    "risposta2": "2opzioneC"
+  },
+  {
+    "id": 3,
+    "domanda": "Quali dei seguenti nomi sono verdure?",
+    "opzioneA": "Mela",
+    "opzioneB": "Bietole",
+    "opzioneC": "Spinaci",
+    "risposta1": "3opzioneB",
+    "risposta2": "3opzioneC"
+  }
+]
