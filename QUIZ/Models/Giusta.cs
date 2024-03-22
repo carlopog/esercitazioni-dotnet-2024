@@ -1,7 +1,7 @@
-public class Giusta
+public class Verifica
 {
   public int Id { get; set; }
-  public string RispostaUtente { get; set; }
-  public string RispostaGiusta { get; set; } 
+  public required string RispostaUtente { get; set; }
+  public required string RispostaVerifica{ get; set; } 
   public bool Uguali { get; set; } 
 }

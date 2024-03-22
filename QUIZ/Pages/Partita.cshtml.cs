@@ -11,7 +11,7 @@ public class PartitaModel : PageModel
   public Utente Utente { get; set; }
   public IEnumerable<Domanda> Domande { get; set; }
   public IEnumerable<DomandaAperta> DomandeAperte { get; set; }
-  public IEnumerable<Giusta> Giuste { get; set; }
+  public IEnumerable<Verifica> Giuste { get; set; }
 
 
   private List<string> selectedValues = new List<string>();
@@ -79,7 +79,7 @@ public class PartitaModel : PageModel
           Request.Form["10rispostaGiusta"]
       };
 
-      List<Giusta> giustino = new List<Giusta>(); // assegno all'enumerable Giuste il valore di una lista di Giusta
+      List<Verifica> giustino = new List<Verifica>(); // assegno all'enumerable Giuste il valore di una lista di Giusta
        
       for (int p = 0; p < 10; p++) // lng è la lunghezza dei miei array risposteGiuste e risposteUtente
       {
@@ -88,36 +88,18 @@ public class PartitaModel : PageModel
        {
          uguali = true; // se uguali setto true
        }
-       var giusta = new Giusta { Id = p+1, RispostaGiusta = risposteGiuste[p], RispostaUtente = risposteUtente[p], Uguali = uguali };
-       // creo un oggetto Giusta con i dati qua sopra 
+       var giusta = new Verifica{ Id = p+1, RispostaVerifica= risposteGiuste[p], RispostaUtente = risposteUtente[p], Uguali = uguali };
+       // creo un oggetto Verificacon i dati qua sopra 
        giustino.Add(giusta);
        // lo aggiunga alla mia lista che poi e' l'enumerable che passo alla view
       }
       Giuste = giustino;
 
 
-       return RedirectToPage("Validazione", new { nome = nome, rG = risposteGiuste, ru = risposteUtente }); 
+       return RedirectToPage("Validazione", new { nome, rG = risposteGiuste, ru = risposteUtente }); 
     
   }
 
 
-// static bool Validazione(string rispostaAperta, string[] risposte)
-// {
-//    // string rispostaAperta = 'boh'
-//    // string[] risposte = ['a', 'A', 'boh']
-
-
-//    bool giusto = false;
-//    int lunghezza = risposte.Length;
-//    for (int i = 0; i < lunghezza; i++)
-//    {
-//      if (rispostaAperta == risposte[i])
-//      {
-//       giusto = true;
-//      }
-//    };
-//    return giusto;
-
-// }
 
 }

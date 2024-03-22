@@ -8,9 +8,9 @@
 <h1>@ViewData["Title"]</h1>
 <h3>di @Model.Utente.Nome</h3>
 
-@foreach (var Giusta in Model.Giuste)
+@foreach (var Verifica in Model.Verifiche)
 {
-  @if (Giusta.Uguali == true)
+  @if (Verifica.Uguali == true)
   {
     classe =  "display: flex; margin-bottom: 5px; padding: 5px; border: 3px solid green; width: 300px";
   }
@@ -20,13 +20,13 @@
   }
     <div style = "@classe">
       <div style="padding: 10px; margin: 2px">
-        @Giusta.Id
+        @Verifica.Id
       </div>
       <div style="padding: 10px; margin: 2px; border: 2px solid blue">
-        @Giusta.RispostaUtente
+        @Verifica.RispostaUtente
       </div>
       <div style="padding: 10px; margin: 2px; border: 2px solid rgb(26, 129, 22)">
-        @Giusta.RispostaGiusta
+        @Verifica.RispostaVerifica
       </div>
     </div>
 
