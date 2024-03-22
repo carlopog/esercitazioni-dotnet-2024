@@ -19,7 +19,7 @@ public class PartitaModel : PageModel
       var utenti = JsonConvert.DeserializeObject<List<Utente>>(json);
       Utente = utenti.FirstOrDefault(u => u.Nome == nome); // il nostro utente selezionato
 
-      var domandejson = System.IO.File.ReadAllText("wwwroot/json/domandeintermedie.json"); 
+      var domandejson = System.IO.File.ReadAllText("wwwroot/json/domandedifficili.json"); 
 
     if (difficolta == "difficile")
     {
