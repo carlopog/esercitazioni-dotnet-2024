@@ -1,12 +1,12 @@
 ## AUTENTICAZIONE
 
-- [x] CREARE classe UTENTE (NOME, PASSWORD E PUNTEGGIO)
-- [x] chiedere se utente si deve registrare o è già registrato
-- [x] se si deve registrare chiede nome e password 
-- [x] controlla che non esista gia' il nome
-- [x] salvare la password nel json
-- [x] se gia' registrato chiede nome utente controlla esista
-- [x] CHIEDE LA PASSWORD E LA CONTROLLA
+- [x] CREARE CLASSE UTENTE (NOME, PASSWORD E PUNTEGGIO)
+- [x] CHIEDERE SE UTENTE SI DEVE REGISTRARE O E' GIA' REGISTRATO
+- [x] SE SI DEVE REGISTRARE CHIEDE NOME E PASSWORD
+- [x] CONTROLLA CHE NON ESISTA GIA' IL NOME
+- [x] SALVARE NOME E PASSWORD NEL JSON
+- [x] SE GIA' REGISTRATO CHIEDE NOME UTENTE E CONTROLLA CHE ESISTA
+- [x] CHIEDE LA PASSWORD E CONTROLLA CHE CORRISPONDA
 
 ## QUIZ
 
@@ -14,25 +14,24 @@
 - [x] FACCIAMO DELLE DOMANDE:
 - [x] APERTE
 - [x] CHECKBOX
-- [ ] CREARE TASTO SUBMIT
+- [x] CREARE TASTO SUBMIT
 - [ ] CAMBIARE LE DOMANDE CON COSE SENSATE
 
 ## VALIDAZIONE
 
 - [x] IL SERVER DEVE AVERE LE RISPOSTE GIUSTE
-- [ ] VALIDAZIONE QUANDO SCHIACCI SUBMIT
-- [ ] E RESTITUIRE IL RISULTATO
-- [ ] PARAGONARE VALUES A RISPOSTE
+- [x] VALIDAZIONE QUANDO SCHIACCI SUBMIT
+- [x] E RESTITUIRE IL RISULTATO
+- [x] PARAGONARE VALUES A RISPOSTE
 - [ ] ASSEGNAZIONE PUNTEGGIO IN BASE AL NUMERO DI RISPOSTE CORRETTE E ALLA DIFFICOLTA
 - [ ] CAMBIARE RISPOSTA IN RISPOSTE STRING ARRAY (CON TUTTE LE POSSIBILI RISPOSTE PER DOMANDE APERTE)
 
 
 ## CLASSIFICHE 
-
-- [ ] pagina tue partite tutti i risultati delle varie partite
-- [ ] POI CREARE UNA CLASSIFICA 
-- [ ] pagina classifica, punteggio delle diverse partite, tenere il più alto come record
-
+- [ ] PAGINA TUE PARTITE CON TUTTI I RISULTATI DELLE VARIE PARTITE
+- [ ] TENERE IL TUO PUNTEGGIO PIU ALTO COME RECORD
+- [ ] POI CREARE UNA CLASSIFICA CON GLI ALTRI UTENTI
+- [ ] FARE UNA TOP TEN
 
 
 per ora la valutazione di una risposta è così
@@ -113,5 +112,25 @@ static bool Validazione(string rispostaAperta, string[] risposte)
            */
            rg++; // scala di una posizione
          }
+       }
+
+  ```
+
+
+  ```c# inserire i booleani uguale confrontando le 2 liste
+
+      List<bool> uguali = new List<bool>();
+
+       for (int f = 0; f < 10; f++)
+       {
+        if (risposteUtente[f] == risposteGiuste[f])
+          {
+            uguali.Add(true)
+          }
+        else
+          {
+            uguali.Add(false)
+          }
+        }
 
   ```
