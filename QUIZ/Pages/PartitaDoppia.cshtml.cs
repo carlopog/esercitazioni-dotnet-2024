@@ -112,7 +112,7 @@ public class PartitaDoppiaModel : PageModel
         Giuste = giustino;
 
 
-      return RedirectToPage("ValidazioneDoppia", new { nome, Giuste, punteggio }); 
+      return RedirectToPage("ValidazioneDoppia", new { nome, ru = risposteUtente, rg1 = risposteGiuste1, rg2 = risposteGiuste2, punteggio }); 
   }
 
 }

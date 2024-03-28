@@ -2,8 +2,7 @@
 @model ValidazioneDoppiaModel
 @{
   ViewData["Title"] = "Validazione risposte doppie";
-  string classe =  "display: flex; margin-bottom: 5px; padding: 5px; border: 3px solid red; width: 300px";
-  int punteggio = 0;
+  string classe =  "display: flex; margin-bottom: 5px; padding: 5px; border: 3px solid red; width: 500px";
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -13,13 +12,19 @@
 {
   @if (Verifica.Uguali == true)
   {
-    classe =  "display: flex; margin-bottom: 5px; padding: 5px; border: 3px solid green; width: 300px";
-    punteggio++;
+    classe =  "display: flex; margin-bottom: 5px; padding: 5px; border: 3px solid green; width: 500px";
   }
   else
   {
-    classe =  "display: flex; margin-bottom: 5px; padding: 5px; border: 3px solid red; width: 300px";
+    classe =  "display: flex; margin-bottom: 5px; padding: 5px; border: 3px solid red; width: 500px";
   }
+
+  @if (Verifica.RispostaUtente == "Nada")
+  {
+
+  }
+  else
+  {
     <div style = "@classe">
       <div style="padding: 10px; margin: 2px">
        id: @Verifica.Id
@@ -34,9 +39,10 @@
         risposta giusta 2 @Verifica.RispostaGiusta2
       </div>
     </div>
+  }
 }
 <h1>
- Punteggio: @punteggio
+ Punteggio: @Model.Punteggio
 </h1>
  <a class="btn btn-danger m-2" asp-page="Punteggi" asp-route-nome="@Model.Utente.Nome"> Ok </a>
 
