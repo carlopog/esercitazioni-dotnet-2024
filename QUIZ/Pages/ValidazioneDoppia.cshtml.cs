@@ -24,11 +24,10 @@ public class ValidazioneDoppiaModel : PageModel
 
 
       int posizione = 0;
-      string[] rispUtente = new string[9];
+      string[] rispUtente = new string[9]; // questo 9 dovrebbe essere il numero di risposte possibili (ora 3 opzioni x 3 domande)
 
       foreach (string r in ru)
       {
-
         switch (r)
         {
           case "1opzioneA": 
@@ -99,11 +98,11 @@ public class ValidazioneDoppiaModel : PageModel
           posizione massima 8
         */
 
-        if (posizione < 9)
+        if (posizione < 9) // se quelli dopo non sono stati selezionati diventano valore nada
         {
-          for (int v = posizione; v < 9; v++)
+          for (int v = posizione; v < 9; v++) // anche se compili il form al contrario non sovrascrivi i valori
           {
-            rispUtente[v] = "Nada";
+            rispUtente[v] = "Nada"; // perchè diventa Nada solo quando fai submit, e li prende in ordine
           }
         }
 
