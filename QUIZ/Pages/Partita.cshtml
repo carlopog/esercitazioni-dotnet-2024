@@ -4,6 +4,7 @@
   ViewData["Title"] = "Partita";
   int numerodomanda = 1;
   int limit = 2;
+  int n = 0;
   string a = "a";
   string b = "b";
   string c = "c";
@@ -28,18 +29,21 @@
       <p>@domandaAperta.id)</p>
       <div class="form-group">
         <label for="exampleFormControlTextarea1">@domandaAperta.domanda</label>
-        <textarea class="form-control" id=@name required name=@name rows="2"></textarea>
+        <textarea class="form-control" id=@name required name="Risposte" rows="2"></textarea>
       </div>
-    <input type="hidden" required name=@risposta value="@domandaAperta.risposta">
+    <input type="hidden" required name="RisposteGiuste[@n]" value="@domandaAperta.risposta">
     }
   <button type="submit" class="btn btn-primary mt-3">Submit</button>
   </form>
-}
+ }
+
+@*
 else if (@ViewData["difficolta"] == "intermedia")
 {
   <form method="post">
     @foreach (var domanda in Model.Domande)
     {
+      n = numerodomanda - 1;
       a = numerodomanda + "opzioneA";
       b = numerodomanda + "opzioneB";
       c = numerodomanda + "opzioneC";
@@ -48,48 +52,48 @@ else if (@ViewData["difficolta"] == "intermedia")
       risposta = numerodomanda + "rispostaGiusta";
 
       <div>
-        <p>@domanda.id</p>
-        <p>@domanda.domanda</p>
+        <p>@domanda.id @domanda.domanda</p>
 
 
         <div class="form-check">
-          <input class="form-check-input" type="radio" value=@a required name=@name id=@a>
+          <input class="form-check-input" type="radio" value=@a required name="Risposte[@n]" id=@a>
           <label class="form-check-label" for=@a>
             @domanda.opzioneA
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" value=@b required name=@name id=@b>
+          <input class="form-check-input" type="radio" value=@b required name="Risposte[@n]" id=@b>
           <label class="form-check-label" for=@b>
             @domanda.opzioneB
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" value=@c required name=@name id=@c>
+          <input class="form-check-input" type="radio" value=@c required name="Risposte[@n]" id=@c>
           <label class="form-check-label" for=@c>
             @domanda.opzioneC
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" value=@d required name=@name id=@d>
+          <input class="form-check-input" type="radio" value=@d required name="Risposte[@n]" id=@d>
           <label class="form-check-label" for=@d>
             @domanda.opzioneD
           </label>
         </div>
-        <input type="hidden" required name=@risposta value="@domanda.risposta">
+        <input type="hidden" required name="RisposteGiuste" value="@domanda.risposta">
       </div>
 
       numerodomanda++;
     }
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
   </form>
-}
+} *@
 
 else
 {
   <form method="post">
     @foreach (var domanda in Model.Domande)
     {
+      n = numerodomanda - 1;
       a = numerodomanda + "opzioneA";
       b = numerodomanda + "opzioneB";
       c = numerodomanda + "opzioneC";
@@ -99,34 +103,33 @@ else
 
 
       <div>
-        <p>@domanda.id</p>
-        <p>@domanda.domanda</p>
+        <p>@domanda.id @domanda.domanda</p>
 
         <div class="form-check">
-          <input class="form-check-input" type="radio" value=@a required name=@name id=@a>
+          <input class="form-check-input" type="radio" value=@a required name="Risposte[@n]" id=@a>
           <label class="form-check-label" for=@a>
             @domanda.opzioneA
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" value=@b required name=@name id=@b>
+          <input class="form-check-input" type="radio" value=@b required name="Risposte[@n]" id=@b>
           <label class="form-check-label" for=@b>
             @domanda.opzioneB
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" value=@c required name=@name id=@c>
+          <input class="form-check-input" type="radio" value=@c required name="Risposte[@n]" id=@c>
           <label class="form-check-label" for=@c>
             @domanda.opzioneC
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" value=@d required name=@name id=@d>
+          <input class="form-check-input" type="radio" value=@d required name="Risposte[@n]" id=@d>
           <label class="form-check-label" for=@d>
             @domanda.opzioneD
           </label>
         </div>
-      <input type="hidden" required name=@risposta value="@domanda.risposta">
+      <input type="hidden" required name="RisposteGiuste[@n]" value="@domanda.risposta">
       </div>
 
       numerodomanda++;

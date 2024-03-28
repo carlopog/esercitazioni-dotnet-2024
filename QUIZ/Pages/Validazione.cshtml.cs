@@ -17,23 +17,21 @@ public class ValidazioneModel : PageModel
       Utente = utenti.FirstOrDefault(u => u.Nome == nome);
       
       var verificas = new List<Verifica>();
-      int punti = 10;
+      int punteggio = 0;
 
-      for (int i = 0; i < 10; i++)
+      for (int i = 0; i < 4; i++)
       {
         if (ru[i] == rg[i])
         {
           verificas.Add(new Verifica{Id = i+1, RispostaUtente = ru[i], RispostaVerifica= rg[i], Uguali = true });
-          punti++;
+          punteggio++;
         }
         else
         {
           verificas.Add(new Verifica{Id = i+1, RispostaUtente = ru[i], RispostaVerifica= rg[i], Uguali = false });
-          punti--;
         }
       }
     
-      int punteggio = punti / 2;
       int record = Utente.Punteggi.Max();
 
       if (punteggio > record)

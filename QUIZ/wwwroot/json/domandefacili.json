@@ -34,59 +34,5 @@
     "opzioneC": "Coreano",
     "opzioneD": "Russo",
     "risposta": "4opzioneB"
-  },
-  {
-    "id": 5,
-    "domanda": "Quale numero viene dopo 9?",
-    "opzioneA": "10",
-    "opzioneB": "8",
-    "opzioneC": "11",
-    "opzioneD": "7",
-    "risposta": "5opzioneA"
-  },
-  {
-    "id": 6,
-    "domanda": "Quale colore si ottiene mescolando il rosso e il giallo?",
-    "opzioneA": "Verde",
-    "opzioneB": "Arancione",
-    "opzioneC": "Viola",
-    "opzioneD": "Marrone",
-    "risposta": "6opzioneB"
-  },
-  {
-    "id": 7,
-    "domanda": "Quale famoso scienziato formulò la teoria della relatività?",
-    "opzioneA": "Isaac Newton",
-    "opzioneB": "Albert Einstein",
-    "opzioneC": "Galileo Galilei",
-    "opzioneD": "Marie Curie",
-    "risposta": "7opzioneB"
-  },
-  {
-    "id": 8,
-    "domanda": "Quale strumento musicale ha le corde?",
-    "opzioneA": "Pianoforte",
-    "opzioneB": "Flauto",
-    "opzioneC": "Violino",
-    "opzioneD": "Tromba",
-    "risposta": "8opzioneC"
-  },
-  {
-    "id": 9,
-    "domanda": "Quale stagione segue l'estate?",
-    "opzioneA": "Autunno",
-    "opzioneB": "Inverno",
-    "opzioneC": "Primavera",
-    "opzioneD": "Estate (di nuovo)",
-    "risposta": "9opzioneA"
-  },
-  {
-    "id": 10,
-    "domanda": "Quale lettera è la quinta dell'alfabeto?",
-    "opzioneA": "E",
-    "opzioneB": "B",
-    "opzioneC": "D",
-    "opzioneD": "F",
-    "risposta": "10opzioneA"
   }
 ]

@@ -54,10 +54,18 @@
   {
     "Nome": "Simone",
     "Password": "1",
-    "Record": 4,
+    "Record": 6,
     "Punteggi": [
       0,
-      4
+      4,
+      5,
+      3,
+      -1,
+      2,
+      6,
+      5,
+      4,
+      3
     ]
   },
   {
