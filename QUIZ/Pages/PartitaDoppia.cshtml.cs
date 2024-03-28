@@ -38,56 +38,81 @@ public class PartitaDoppiaModel : PageModel
 
       var risposteUtente = new List<string>
       {
-          Request.Form["1risposta1"],
-          Request.Form["1risposta2"],
-          Request.Form["2risposta1"],
-          Request.Form["2risposta2"],
-          Request.Form["3risposta1"],
-          Request.Form["3risposta2"]
+          Request.Form["1opzioneA"], 
+          Request.Form["1opzioneB"], 
+          Request.Form["1opzioneC"], 
+
+          Request.Form["2opzioneA"],
+          Request.Form["2opzioneB"],
+          Request.Form["2opzioneC"],
+
+          Request.Form["3opzioneA"],
+          Request.Form["3opzioneB"],
+          Request.Form["3opzioneC"]
           // inserire poi i value seguendo questi nomi
       };
+
+     var risposteGiuste1 = new List<string>
+      {
+          Request.Form["1rispostaGiusta1"],
+          Request.Form["2rispostaGiusta1"],
+          Request.Form["3rispostaGiusta1"]
+       
+      };
+
+     var risposteGiuste2 = new List<string>
+      {
+          Request.Form["1rispostaGiusta2"],
+          Request.Form["2rispostaGiusta2"],
+          Request.Form["3rispostaGiusta2"]
+      };
+
+
 
       var domandejson = System.IO.File.ReadAllText("wwwroot/json/domandedoppie.json"); 
       List<DomandaDoppia> domandeDoppie = JsonConvert.DeserializeObject<List<DomandaDoppia>>(domandejson);
 
-      string[] risposteGiuste = new string[20];
-
-      // foreach (var dd in domandeDoppie)
-      for (int r = 0; r < 20; r++)
-      {
-        risposteGiuste[r] = r + "risposta";
-      }
 
       int punteggio = 0;
-      int counter = 1;
-      string rg1;
+      int counter = 0;
+      int salto = 0;
       string rg2;
+      string risposta;
 
       List<VerificaDoppia> giustino = new List<VerificaDoppia>(); // assegno all'enumerable Giuste il valore di una lista di Giusta
 
-      foreach (var risposta in risposteUtente) // per ogni risposta utente la confronto alle sue 2 risposte giuste
+
+      foreach (var rg in risposteGiuste1)
       {
-        rg1 = risposteGiuste[counter];
-        rg2 = risposteGiuste[counter+1];
-        bool uguali = false;
+        for (int e = 0; e < 3; e++) 
+        {
+          risposta = risposteUtente[e + salto];
+          rg2 = risposteGiuste2[counter];
+          bool uguali = false;
 
-        if (risposta == rg1 || risposta == rg2)
-        {
-          punteggio++;
-          uguali = true;
-          // creo un oggetto Verificacon i dati qua sopra 
+          if (risposta != null)
+          {
+
+          if (risposta == rg || risposta == rg2)
+          {
+            punteggio++;
+            uguali = true;
+          }
+          else
+          {
+            punteggio--;
+          }
+          var giusta = new VerificaDoppia{ Id = e+salto+1, RispostaGiusta1= rg, RispostaGiusta2 = rg2, RispostaUtente = risposta, Uguali = uguali };
+          giustino.Add(giusta);
+          }
         }
-        else
-        {
-          punteggio--;
-        }
-        var giusta = new VerificaDoppia{ Id = counter+1, RispostaGiusta1= rg1, RispostaGiusta2 = rg2, RispostaUtente = risposta, Uguali = uguali };
-        giustino.Add(giusta);
-        counter = counter + 2;
+        counter++;
+        salto = salto + 3;
       }
+        Giuste = giustino;
 
-      Giuste = giustino;
-      return RedirectToPage("ValidazioneDoppia", new { nome, giustino, punteggio }); 
+
+      return RedirectToPage("ValidazioneDoppia", new { nome, Giuste, punteggio }); 
   }
 
 }

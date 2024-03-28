@@ -7,7 +7,8 @@
   string a = "a";
   string b = "b";
   string c = "c";
-  string name = "risposta";
+  string risposta1 = "risposta1";
+  string risposta2 = "risposta2";
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -16,41 +17,43 @@
 
 
 
-  <form method="post">
-    @foreach (var domanda in Model.DomandeDoppie)
-    {
-      a = numerodomanda + "opzioneA";
-      b = numerodomanda + "opzioneB";
-      c = numerodomanda + "opzioneC";
-      name = numerodomanda + "risposta";
+<form method="post">
+  @foreach (var domanda in Model.DomandeDoppie)
+  {
+    a = numerodomanda + "opzioneA";
+    b = numerodomanda + "opzioneB";
+    c = numerodomanda + "opzioneC";
+    risposta1 = numerodomanda + "rispostaGiusta1";
+    risposta2 = numerodomanda + "rispostaGiusta2";
 
-      <div>
-        <p>@domanda.id</p>
-        <p>@domanda.domanda</p>
+    <div>
+      <p>@domanda.id</p>
+      <p>@domanda.domanda</p>
 
 
-        <div class="form-check">
-          <input class="form-check-input" type="radio" value=@a  name=@a id=@a>
-          <label class="form-check-label" for=@a>
-            @domanda.opzioneA
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" value=@b  name=@b id=@b>
-          <label class="form-check-label" for=@b>
-            @domanda.opzioneB
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" value=@c  name=@c id=@c>
-          <label class="form-check-label" for=@c>
-            @domanda.opzioneC
-          </label>
-        </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value=@a name=@a id=@a>
+        <label class="form-check-label" for=@a>
+          @domanda.opzioneA
+        </label>
       </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value=@b name=@b id=@b>
+        <label class="form-check-label" for=@b>
+          @domanda.opzioneB
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value=@c name=@c id=@c>
+        <label class="form-check-label" for=@c>
+          @domanda.opzioneC
+        </label>
+      </div>
+      <input type="hidden" required name=@risposta1 value="@domanda.risposta1">
+      <input type="hidden" required name=@risposta2 value="@domanda.risposta2">
+    </div>
 
-      numerodomanda++;
-    }
-    <button type="submit" class="btn btn-primary mt-3">Submit</button>
-  </form>
-
+    numerodomanda++;
+  }
+  <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
