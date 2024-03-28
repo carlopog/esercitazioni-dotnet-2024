@@ -2,11 +2,16 @@
   {
     "Nome": "Ale",
     "Password": "124",
-    "Record": 6,
+    "Record": 7,
     "Punteggi": [
       0,
       6,
-      3
+      3,
+      7,
+      2,
+      -6,
+      -6,
+      -6
     ]
   },
   {
@@ -14,7 +19,8 @@
     "Password": "124",
     "Record": 9,
     "Punteggi": [
-      0
+      0,
+      9
     ]
   },
   {
@@ -41,7 +47,8 @@
     "Password": "1",
     "Record": 4,
     "Punteggi": [
-      0
+      0,
+      4
     ]
   },
   {
@@ -49,7 +56,8 @@
     "Password": "4",
     "Record": 7,
     "Punteggi": [
-      0
+      0,
+      7
     ]
   }
 ]
